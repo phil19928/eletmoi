@@ -10,7 +10,7 @@ export default function FinalCTA() {
           <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-64 h-64 bg-white/10 rounded-full blur-2xl"></div>
           <div className="relative z-10">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">Prêt à retrouver la paix à la maison ?</h2>
-            <p className="text-primary-100 text-lg mb-10 max-w-2xl mx-auto">Rejoignez 50 000+ familles qui ont choisi l'éducation positive plutôt que la répression. {/* TODO: Vérifier ce chiffre */}</p>
+            <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto">Rejoignez 50 000+ familles qui ont choisi l'éducation positive plutôt que la répression. {/* TODO: Vérifier ce chiffre */}</p>
             <a 
               href={APP_DOWNLOAD_URL}
               className="inline-flex items-center justify-center px-10 py-5 text-lg font-bold rounded-full text-white bg-accent-coral hover:bg-accent-coral-hover shadow-lg shadow-black/20 transform hover:-translate-y-1 transition-all duration-200"

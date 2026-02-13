@@ -1,4 +1,5 @@
 import { APP_DOWNLOAD_URL } from '../config'
+import elephantLogo from '../assets/elephant-logo.png'
 
 export default function Navbar() {
   return (
@@ -6,10 +7,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center gap-3 cursor-pointer">
-            <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center text-primary">
-              <span className="material-icons text-2xl">account_balance_wallet</span>
-            </div>
+          <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+            <img 
+              src={elephantLogo} 
+              alt="Logo El&Moi" 
+              className="h-8 w-auto"
+            />
             <span className="font-bold text-xl tracking-tight text-slate-900 dark:text-white">El&Moi</span>
           </div>
           {/* Desktop Menu */}

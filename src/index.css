@@ -8,7 +8,7 @@ body {
 
 .hero-pattern {
   background-color: #f6f8f8;
-  background-image: radial-gradient(#11d4b4 0.5px, transparent 0.5px), radial-gradient(#11d4b4 0.5px, #f6f8f8 0.5px);
+  background-image: radial-gradient(#6D98C2 0.5px, transparent 0.5px), radial-gradient(#6D98C2 0.5px, #f6f8f8 0.5px);
   background-size: 20px 20px;
   background-position: 0 0, 10px 10px;
   opacity: 0.1;
@@ -16,5 +16,5 @@ body {
 
 .dark .hero-pattern {
   background-color: #10221f;
-  background-image: radial-gradient(#11d4b4 0.5px, transparent 0.5px), radial-gradient(#11d4b4 0.5px, #10221f 0.5px);
+  background-image: radial-gradient(#6D98C2 0.5px, transparent 0.5px), radial-gradient(#6D98C2 0.5px, #10221f 0.5px);
 }
