@@ -14,6 +14,7 @@ export default {
         "primary-dark": "#4F7FAE",
         "accent-coral": "#FF7F50",
         "accent-coral-hover": "#e5673d",
+        "accent-coral-soft": "#FF7A59",
         "background-light": "#f6f8f8",
         "background-dark": "#10221f",
         "surface-light": "#ffffff",
@@ -27,6 +28,8 @@ export default {
         "lg": "0.5rem",
         "xl": "0.75rem",
         "2xl": "1rem",
+        "pill": "9999px",
+        "pill-lg": "1.5rem",
         "full": "9999px"
       },
     },

@@ -1,2 +1,2 @@
-// Configuration de l'application
-export const APP_DOWNLOAD_URL = "#"; // TODO: Remplacer par l'URL réelle de téléchargement (App Store, Play Store, etc.)
+// Configuration de l'application — URL de téléchargement Android bêta (Play Store ou lien direct)
+export const APP_DOWNLOAD_URL = "#";
