@@ -19,7 +19,7 @@ export default function FAQ() {
   ]
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-surface-dark" id="faq">
+    <section className="py-16 sm:py-20 lg:py-24 bg-[#EAF2FB]/60 dark:bg-primary-very-light/10" id="faq">
       <div className="max-w-[1040px] mx-auto px-4 sm:px-6">
         <h2 className="text-2xl sm:text-3xl font-bold text-center text-slate-900 dark:text-white mb-10">
           Questions fréquentes
@@ -28,10 +28,10 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <details
               key={index}
-              className="group bg-primary-very-light/50 dark:bg-background-dark rounded-2xl focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2"
+              className="faq-item group rounded-2xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-surface-dark overflow-hidden"
             >
-              <summary className="flex justify-between items-center cursor-pointer list-none p-5 sm:p-6 hover:bg-primary-very-light/70 dark:hover:bg-white/5 transition-colors rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
-                <span className="font-semibold text-slate-900 dark:text-white pr-4 text-left">
+              <summary className="flex justify-between items-center cursor-pointer list-none p-5 sm:p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset">
+                <span className="font-semibold text-slate-900 dark:text-white pr-4">
                   {faq.question}
                 </span>
                 <span className="transition group-open:rotate-180 flex-shrink-0 text-slate-400">
@@ -40,7 +40,7 @@ export default function FAQ() {
                   </svg>
                 </span>
               </summary>
-              <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+              <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed border-t border-slate-100 dark:border-slate-700">
                 {faq.answer}
               </div>
             </details>

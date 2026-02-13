@@ -3,7 +3,7 @@ import elephantMascot from '../assets/Main El&Moi.png'
 
 export default function FooterCTA() {
   return (
-    <section className="relative min-h-[420px] sm:min-h-[480px] md:min-h-[520px] bg-white dark:bg-surface-dark overflow-hidden">
+    <section className="relative min-h-[420px] sm:min-h-[480px] md:min-h-[520px] bg-[#EAF2FB]/60 dark:bg-primary-very-light/10 overflow-hidden">
       {/* Contenu au-dessus du slime (z-10) */}
       <div className="relative z-10 flex flex-col items-center justify-center px-4 pt-12 pb-8 text-center">
         <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-6">

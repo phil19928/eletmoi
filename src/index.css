@@ -38,6 +38,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* FAQ: masquer le marqueur par défaut de details/summary */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
 /* FooterCTA: léger flottement du mascot */
 @keyframes elephant-float {
   0%, 100% { transform: translateY(0); }

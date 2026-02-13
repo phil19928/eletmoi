@@ -2,7 +2,6 @@ import Hero from './components/Hero'
 import ScreenSection from './components/ScreenSection'
 import FAQ from './components/FAQ'
 import FooterCTA from './components/FooterCTA'
-import Footer from './components/Footer'
 import simpleJusteImg from './assets/simpleJuste.png'
 import echangeEquitableImg from './assets/échange équitable.png'
 import missionsReellesImg from './assets/missions réelles.png'
@@ -41,7 +40,6 @@ function App() {
         />
         <FAQ />
         <FooterCTA />
-        <Footer />
       </main>
     </div>
   )

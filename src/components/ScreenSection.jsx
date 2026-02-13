@@ -14,7 +14,7 @@ export default function ScreenSection({ title, text, illustrationVariant = 'none
   return (
     <section
       id={id}
-      className={`py-16 sm:py-20 lg:py-24 ${altBg ? 'bg-primary-very-light/40 dark:bg-primary-very-light/5' : 'bg-white dark:bg-surface-dark'}`}
+      className={`py-16 sm:py-20 lg:py-24 ${altBg ? 'bg-[#EAF2FB]/60 dark:bg-primary-very-light/10' : 'bg-white dark:bg-surface-dark'}`}
     >
       <div className="max-w-[1040px] mx-auto px-4 sm:px-6 text-center">
         {image && (
