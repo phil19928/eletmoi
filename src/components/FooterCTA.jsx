@@ -15,7 +15,7 @@ export default function FooterCTA() {
           target="_blank"
           className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-bold text-white bg-primary hover:bg-primary-dark shadow-lg shadow-primary/30 hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-light focus:ring-offset-2"
         >
-          Télécharger (Android — bêta)
+          Télécharger
         </a>
         {/* Mascot éléphant — posé au-dessus du slime (chevauche la vague) */}
         <div className="mt-6 -mb-[140px] sm:-mb-[160px] md:-mb-[200px] w-full flex justify-center">
