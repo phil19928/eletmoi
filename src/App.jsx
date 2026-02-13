@@ -3,7 +3,6 @@ import Hero from './components/Hero'
 import ProblemSolution from './components/ProblemSolution'
 import HowItWorks from './components/HowItWorks'
 import Features from './components/Features'
-import WhyFamiliesLove from './components/WhyFamiliesLove'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 
@@ -15,7 +14,6 @@ function App() {
       <ProblemSolution />
       <HowItWorks />
       <Features />
-      <WhyFamiliesLove />
       <FAQ />
       <Footer />
     </div>
