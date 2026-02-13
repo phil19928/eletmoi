@@ -6,6 +6,18 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus visible improvements for accessibility */
+*:focus-visible {
+  outline: 2px solid theme('colors.primary');
+  outline-offset: 2px;
+}
+
+/* Hero pattern */
 .hero-pattern {
   background-color: #f6f8f8;
   background-image: radial-gradient(#6D98C2 0.5px, transparent 0.5px), radial-gradient(#6D98C2 0.5px, #f6f8f8 0.5px);
@@ -17,4 +29,11 @@ body {
 .dark .hero-pattern {
   background-color: #10221f;
   background-image: radial-gradient(#6D98C2 0.5px, transparent 0.5px), radial-gradient(#6D98C2 0.5px, #10221f 0.5px);
+}
+
+/* Improve text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }

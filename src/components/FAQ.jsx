@@ -21,19 +21,19 @@ export default function FAQ() {
   return (
     <section className="py-24 bg-white dark:bg-surface-dark" id="faq">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-white mb-12">Questions fréquentes</h2>
-        <div className="space-y-4">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center text-slate-900 dark:text-white mb-8 md:mb-12">Questions fréquentes</h2>
+        <div className="space-y-3 md:space-y-4">
           {faqs.map((faq, index) => (
-            <details key={index} className="group bg-background-light dark:bg-background-dark rounded-xl">
-              <summary className="flex justify-between items-center font-medium cursor-pointer list-none p-6">
-                <span className="text-slate-900 dark:text-white font-semibold">{faq.question}</span>
-                <span className="transition group-open:rotate-180">
-                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24">
+            <details key={index} className="group bg-background-light dark:bg-background-dark rounded-xl focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
+              <summary className="flex justify-between items-center font-medium cursor-pointer list-none p-5 md:p-6 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                <span className="text-slate-900 dark:text-white font-semibold text-sm md:text-base pr-4">{faq.question}</span>
+                <span className="transition group-open:rotate-180 flex-shrink-0">
+                  <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24" className="text-slate-400">
                     <path d="M6 9l6 6 6-6"></path>
                   </svg>
                 </span>
               </summary>
-              <div className="text-slate-600 dark:text-slate-400 mt-0 px-6 pb-6 text-sm leading-relaxed">
+              <div className="text-slate-600 dark:text-slate-400 mt-0 px-5 md:px-6 pb-5 md:pb-6 text-sm md:text-base leading-relaxed">
                 {faq.answer}
               </div>
             </details>

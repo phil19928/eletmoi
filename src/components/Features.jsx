@@ -36,13 +36,13 @@ export default function Features() {
         <div className="grid lg:grid-cols-3 gap-16">
           {/* Header Column */}
           <div className="lg:col-span-1">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4 md:mb-6">
               Tout ce dont vous avez besoin pour <span className="text-primary">l'harmonie numérique</span>.
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 mb-8 text-lg">
+            <p className="text-slate-600 dark:text-slate-400 mb-6 md:mb-8 text-base md:text-lg">
               El&Moi offre un panneau de contrôle complet mais simple, conçu pour les parents d'aujourd'hui.
             </p>
-            <a className="inline-flex items-center text-primary font-semibold hover:text-primary-dark group" href="#">
+            <a className="inline-flex items-center text-primary font-semibold hover:text-primary-dark group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded px-2 py-1 -mx-2 -my-1" href="#features">
               Explorer toutes les fonctionnalités
               <span className="material-icons ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </a>
@@ -50,12 +50,12 @@ export default function Features() {
           {/* Grid Column */}
           <div className="lg:col-span-2 grid sm:grid-cols-2 gap-6">
             {features.map((feature, index) => (
-              <div key={index} className="p-6 rounded-xl bg-background-light dark:bg-background-dark border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-shadow">
-                <div className={`w-12 h-12 ${feature.iconBg} ${feature.iconColor} rounded-lg flex items-center justify-center mb-4`}>
-                  <span className="material-icons">{feature.icon}</span>
+              <div key={index} className="p-5 md:p-6 rounded-xl bg-background-light dark:bg-background-dark border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-shadow focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
+                <div className={`w-11 h-11 md:w-12 md:h-12 ${feature.iconBg} ${feature.iconColor} rounded-lg flex items-center justify-center mb-3 md:mb-4`}>
+                  <span className="material-icons text-lg md:text-xl">{feature.icon}</span>
                 </div>
-                <h4 className="font-bold text-slate-900 dark:text-white text-lg mb-2">{feature.title}</h4>
-                <p className="text-slate-600 dark:text-slate-400 text-sm">{feature.description}</p>
+                <h4 className="font-bold text-slate-900 dark:text-white text-base md:text-lg mb-2">{feature.title}</h4>
+                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>

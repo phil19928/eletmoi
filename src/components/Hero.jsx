@@ -22,35 +22,35 @@ export default function Hero() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
               <div className="flex flex-col items-center lg:items-start">
-                <a className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-semibold rounded-xl text-white bg-primary hover:bg-primary-dark shadow-lg shadow-primary/30 hover:shadow-primary/40 transition-all duration-200 transform hover:-translate-y-1" href={APP_DOWNLOAD_URL}>
+                <a className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-semibold rounded-xl text-white bg-primary hover:bg-primary-dark shadow-lg shadow-primary/30 hover:shadow-primary/40 transition-all duration-200 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href={APP_DOWNLOAD_URL}>
                   <span className="material-icons mr-2">download</span>
                   Télécharger l'app
                 </a>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">Bêta Android uniquement.</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-2 text-center lg:text-left">Bêta Android uniquement.</p>
               </div>
-              <a className="inline-flex items-center justify-center px-8 py-4 border-2 border-slate-200 dark:border-slate-700 text-base font-semibold rounded-xl text-slate-700 dark:text-slate-200 bg-transparent hover:bg-slate-50 dark:hover:bg-white/5 transition-all duration-200" href="#how-it-works">
+              <a className="inline-flex items-center justify-center px-8 py-4 border-2 border-slate-200 dark:border-slate-700 text-base font-semibold rounded-xl text-slate-700 dark:text-slate-200 bg-transparent hover:bg-slate-50 dark:hover:bg-white/5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" href="#how-it-works">
                 <span className="material-icons mr-2 text-slate-400">play_circle_outline</span>
                 Voir comment ça marche
               </a>
             </div>
             {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 lg:gap-8 text-sm font-medium text-slate-500 dark:text-slate-400">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 lg:gap-8 text-sm font-medium text-slate-500 dark:text-slate-400">
               <div className="flex items-center gap-2">
-                <span className="material-icons text-primary text-xl">school</span>
-                <span>Approche éducative</span>
+                <span className="material-icons text-primary text-lg sm:text-xl">school</span>
+                <span className="whitespace-nowrap">Approche éducative</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="material-icons text-primary text-xl">camera_alt</span>
-                <span>Missions photo + validation</span>
+                <span className="material-icons text-primary text-lg sm:text-xl">camera_alt</span>
+                <span className="whitespace-nowrap">Missions photo + validation</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="material-icons text-primary text-xl">schedule</span>
-                <span>Plages horaires (école/nuit)</span>
+                <span className="material-icons text-primary text-lg sm:text-xl">schedule</span>
+                <span className="whitespace-nowrap">Plages horaires (école/nuit)</span>
               </div>
             </div>
           </div>
           {/* Hero Image / Illustration */}
-          <div className="relative lg:h-[600px] w-full flex items-center justify-center">
+          <div className="relative lg:h-[600px] w-full flex items-center justify-center mt-8 lg:mt-0">
             {/* Abstract Background Shapes */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-primary/20 to-transparent rounded-full blur-3xl opacity-60"></div>
             <div className="relative w-full max-w-md mx-auto transform rotate-3 hover:rotate-0 transition-transform duration-500">
@@ -60,23 +60,23 @@ export default function Hero() {
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7eP5hOdBnEy9SF8iLfCJSuby8I_Y5jEl9nE7fOt8b_8ox9VX6E1IfjFmO7zsuqLFrk9yLPIc5anlKLAGUbmjIrMvxyRNkHq2EhRt2CJJCUlwYeEll8Hq8djmRFUcyNMvg7TQLnyeqWRPO229_KFHjYI3Y4XiLyA1uhouFAYOovvPRMmmyhddsXiScpd_yh8cZlW7zB8ZX7KJK4tHNnfkDAo8v0vqjKs_js0WjSAJHY7xbM25lcklMapCQM972HMsasmWlVsINKBk"
               />
               {/* Floating Card 1 */}
-              <div className="absolute -bottom-6 -left-6 bg-white dark:bg-surface-dark p-4 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 flex items-center gap-4 animate-bounce" style={{animationDuration: '3s'}}>
-                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                  <span className="material-icons">check</span>
+              <div className="hidden sm:block absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 bg-white dark:bg-surface-dark p-3 sm:p-4 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 flex items-center gap-3 sm:gap-4 animate-bounce max-w-[180px] sm:max-w-none" style={{animationDuration: '3s'}}>
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 flex-shrink-0">
+                  <span className="material-icons text-lg sm:text-xl">check</span>
                 </div>
-                <div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">Maths complétées</p>
-                  <p className="text-sm font-bold text-slate-900 dark:text-white">+15 min de YouTube</p>
+                <div className="min-w-0">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 truncate">Maths complétées</p>
+                  <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white truncate">+15 min de YouTube</p>
                 </div>
               </div>
               {/* Floating Card 2 */}
-              <div className="absolute top-10 -right-8 bg-white dark:bg-surface-dark p-4 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 flex items-center gap-3 animate-bounce" style={{animationDuration: '4s'}}>
-                <div className="w-8 h-8 rounded-full bg-accent-coral flex items-center justify-center text-white text-xs font-bold">
+              <div className="hidden sm:block absolute top-8 sm:top-10 -right-4 sm:-right-8 bg-white dark:bg-surface-dark p-3 sm:p-4 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 flex items-center gap-2 sm:gap-3 animate-bounce max-w-[160px] sm:max-w-none" style={{animationDuration: '4s'}}>
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-accent-coral flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
                   !
                 </div>
-                <div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">Limite atteinte</p>
-                  <p className="text-sm font-bold text-slate-900 dark:text-white">Pause éducative</p>
+                <div className="min-w-0">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 truncate">Limite atteinte</p>
+                  <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white truncate">Pause éducative</p>
                 </div>
               </div>
             </div>
