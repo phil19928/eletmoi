@@ -3,8 +3,8 @@ import elephantLogo from '../assets/Main El&Moi.png'
 
 export default function Hero() {
   return (
-    <section className="relative py-12 sm:py-14 overflow-hidden bg-white dark:bg-surface-dark">
-      <div className="max-w-[1040px] mx-auto px-4 sm:px-6">
+    <section className="relative min-h-[70vh] sm:min-h-[75vh] flex items-center py-12 sm:py-14 overflow-hidden bg-white dark:bg-surface-dark">
+      <div className="w-full max-w-[1040px] mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="text-center lg:text-left order-2 lg:order-1">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
