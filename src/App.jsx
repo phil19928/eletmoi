@@ -5,7 +5,6 @@ import HowItWorks from './components/HowItWorks'
 import Features from './components/Features'
 import WhyFamiliesLove from './components/WhyFamiliesLove'
 import FAQ from './components/FAQ'
-import FinalCTA from './components/FinalCTA'
 import Footer from './components/Footer'
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
       <Features />
       <WhyFamiliesLove />
       <FAQ />
-      <FinalCTA />
       <Footer />
     </div>
   )

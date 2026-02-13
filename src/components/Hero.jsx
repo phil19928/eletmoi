@@ -10,7 +10,7 @@ export default function Hero() {
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider mb-6">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              Nouveau sur iOS & Android
+              Bêta Android
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
               Moins de scroll. <br/>
@@ -21,10 +21,13 @@ export default function Hero() {
               Transformez le temps d'écran passif en opportunités d'apprentissage. El&Moi est la première application qui crée un échange équitable entre divertissement et éducation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
-              <a className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-semibold rounded-xl text-white bg-primary hover:bg-primary-dark shadow-lg shadow-primary/30 hover:shadow-primary/40 transition-all duration-200 transform hover:-translate-y-1" href={APP_DOWNLOAD_URL}>
-                <span className="material-icons mr-2">download</span>
-                Télécharger l'app
-              </a>
+              <div className="flex flex-col items-center lg:items-start">
+                <a className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-semibold rounded-xl text-white bg-primary hover:bg-primary-dark shadow-lg shadow-primary/30 hover:shadow-primary/40 transition-all duration-200 transform hover:-translate-y-1" href={APP_DOWNLOAD_URL}>
+                  <span className="material-icons mr-2">download</span>
+                  Télécharger l'app
+                </a>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">Bêta Android uniquement.</p>
+              </div>
               <a className="inline-flex items-center justify-center px-8 py-4 border-2 border-slate-200 dark:border-slate-700 text-base font-semibold rounded-xl text-slate-700 dark:text-slate-200 bg-transparent hover:bg-slate-50 dark:hover:bg-white/5 transition-all duration-200" href="#how-it-works">
                 <span className="material-icons mr-2 text-slate-400">play_circle_outline</span>
                 Voir comment ça marche
@@ -33,16 +36,16 @@ export default function Hero() {
             {/* Trust Indicators */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 lg:gap-8 text-sm font-medium text-slate-500 dark:text-slate-400">
               <div className="flex items-center gap-2">
-                <span className="material-icons text-primary text-xl">verified_user</span>
-                <span>Données sécurisées</span>
+                <span className="material-icons text-primary text-xl">school</span>
+                <span>Approche éducative</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="material-icons text-primary text-xl">psychology</span>
-                <span>Approuvé par des pédo-psychiatres {/* TODO: Vérifier cette claim */}</span>
+                <span className="material-icons text-primary text-xl">camera_alt</span>
+                <span>Missions photo + validation</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="material-icons text-primary text-xl">star</span>
-                <span>4.9/5 sur l'App Store {/* TODO: Vérifier cette note */}</span>
+                <span className="material-icons text-primary text-xl">schedule</span>
+                <span>Plages horaires (école/nuit)</span>
               </div>
             </div>
           </div>

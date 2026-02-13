@@ -2,7 +2,7 @@ export default function FAQ() {
   const faqs = [
     {
       question: "Sur quels appareils l'application fonctionne-t-elle ?",
-      answer: "El&Moi est compatible avec les smartphones et tablettes iOS (iPhone, iPad) et Android. L'application parent peut gérer des appareils enfants sur des systèmes différents."
+      answer: "El&Moi est disponible en bêta sur Android. L'application parent peut gérer des appareils enfants Android."
     },
     {
       question: "Est-ce que l'enfant peut désinstaller l'app ?",

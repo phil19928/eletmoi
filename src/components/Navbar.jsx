@@ -1,5 +1,5 @@
 import { APP_DOWNLOAD_URL } from '../config'
-import elephantLogo from '../assets/elephant-logo.png'
+import elephantLogo from '../assets/Main El&Moi.png'
 
 export default function Navbar() {
   return (
@@ -24,7 +24,7 @@ export default function Navbar() {
           {/* CTA */}
           <div className="hidden md:flex items-center">
             <a className="inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-medium rounded-full text-white bg-primary hover:bg-primary-dark shadow-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-200" href={APP_DOWNLOAD_URL}>
-              Télécharger l'app
+              Télécharger (Android — bêta)
             </a>
           </div>
           {/* Mobile menu button */}
