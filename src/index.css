@@ -37,3 +37,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
+
+/* FooterCTA: léger flottement du mascot */
+@keyframes elephant-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.elephant-float {
+  animation: elephant-float 4s ease-in-out infinite;
+}

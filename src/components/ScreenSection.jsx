@@ -10,14 +10,24 @@ const BlobIllustration = () => (
   </div>
 )
 
-export default function ScreenSection({ title, text, illustrationVariant = 'none', id, altBg = false }) {
+export default function ScreenSection({ title, text, illustrationVariant = 'none', image, id, altBg = false }) {
   return (
     <section
       id={id}
       className={`py-16 sm:py-20 lg:py-24 ${altBg ? 'bg-primary-very-light/40 dark:bg-primary-very-light/5' : 'bg-white dark:bg-surface-dark'}`}
     >
       <div className="max-w-[1040px] mx-auto px-4 sm:px-6 text-center">
-        {illustrationVariant === 'elephant' && (
+        {image && (
+          <div className="flex justify-center mb-8">
+            <img
+              src={image}
+              alt=""
+              className="w-full max-w-md sm:max-w-lg h-auto rounded-2xl"
+              aria-hidden
+            />
+          </div>
+        )}
+        {illustrationVariant === 'elephant' && !image && (
           <div className="flex justify-center mb-8">
             <img
               src={elephantLogo}

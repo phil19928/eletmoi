@@ -15,18 +15,12 @@ export default function Hero() {
             <p className="mt-6 text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">
               El&Moi aide les enfants à équilibrer divertissement et apprentissage grâce à un système de temps gagné.
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="mt-10 flex justify-center lg:justify-start">
               <a
                 href={APP_DOWNLOAD_URL}
                 className="inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-bold text-white bg-primary hover:bg-primary-dark shadow-lg shadow-primary/30 hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
-                Télécharger (Android — bêta)
-              </a>
-              <a
-                href={APP_DOWNLOAD_URL}
-                className="inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-semibold border-2 border-primary text-primary hover:bg-primary/5 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-              >
-                J'ai déjà un compte
+                Télécharger
               </a>
             </div>
             <p className="mt-4 text-xs text-slate-500 dark:text-slate-400 text-center lg:text-left">
