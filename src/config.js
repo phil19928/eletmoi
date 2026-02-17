@@ -1,2 +1,2 @@
-// Configuration de l'application — URL de téléchargement Android bêta (Play Store ou lien direct)
-export const APP_DOWNLOAD_URL = "#";
+export const GOOGLE_PLAY_URL = "#";
+export const MENTIONS_LEGALES_URL = "/mentions-legales";
