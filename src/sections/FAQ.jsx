@@ -6,24 +6,34 @@ import Container from "../components/Container";
 
 const faqs = [
     {
-        question: "Est-ce du contrôle parental ?",
+        question: "Qu'est-ce que la beta exactement ?",
         answer:
-            "Non. El&Moi n'espionne pas : il pose un cadre simple et motivateur. L'enfant garde de l'autonomie, vous gardez les règles.",
+            "El&Moi est une app fonctionnelle, utilisable des maintenant. La beta signifie qu'on ameliore l'app chaque semaine grace aux retours des premiers utilisateurs. C'est gratuit, sans engagement, et vous pouvez desinstaller a tout moment.",
     },
     {
-        question: "C'est dispo sur iPhone ?",
+        question: "Pourquoi un APK et pas le Play Store ?",
         answer:
-            "Pas encore. La bêta est disponible sur Android uniquement. On annoncera iOS quand ce sera prêt.",
+            "Pour aller vite et reagir a vos retours sans les delais de validation du store. Un APK c'est exactement la meme chose qu'une app du Play Store, juste telechargee directement. On vous guide pas a pas pour l'installation.",
     },
     {
-        question: "Mon enfant peut contourner ?",
+        question: "Mon enfant peut contourner le systeme ?",
         answer:
-            "Comme tout cadre, ça dépend du téléphone et des réglages. On vous guide avec des recommandations simples pour limiter les contournements.",
+            "El&Moi utilise une protection anti-desinstallation et fonctionne meme hors-ligne. Comme tout systeme, ca depend aussi des reglages du telephone. On vous guide avec des recommandations simples pour limiter les contournements.",
     },
     {
-        question: "Comment télécharger ?",
+        question: "C'est du controle parental ?",
         answer:
-            "Téléchargez via Google Play (bêta) ou via le lien web (APK). Ça prend 2 minutes.",
+            "Pas vraiment. El&Moi n'espionne pas et ne filtre pas le contenu. Il pose un cadre motivant : ton enfant gagne du temps d'ecran en apprenant. C'est un deal, pas une surveillance.",
+    },
+    {
+        question: "Ca marche sur iPhone ?",
+        answer:
+            "Pas encore. La beta est disponible sur Android uniquement. On travaille sur la version iOS et on vous prereviendra des qu'elle sera prete.",
+    },
+    {
+        question: "Mes donnees sont en securite ?",
+        answer:
+            "Oui. Vos donnees sont hebergees en Europe et ne sont jamais partagees avec des tiers. On collecte uniquement ce qui est necessaire au fonctionnement de l'app.",
     },
 ];
 

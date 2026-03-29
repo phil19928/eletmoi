@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
-import { GOOGLE_PLAY_URL } from "../config";
+import { PARENT_APP_URL, CHILD_APK_URL } from "../config";
 import Container from "../components/Container";
 import Button from "../components/Button";
 import PhoneMockup from "../components/PhoneMockup";
-import elephantMascot from "../assets/Main El&Moi.png";
+import mascotDancing from "../assets/mascot-dancing.png";
+import screenDashboard from "../assets/screen-dashboard.png";
 
 const DownloadIcon = () => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -13,9 +14,15 @@ const DownloadIcon = () => (
     </svg>
 );
 
+const AndroidIcon = () => (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+        <path d="M17.523 2.226a.75.75 0 010 1.06l-1.706 1.707A6.467 6.467 0 0118.5 10.5h-13a6.467 6.467 0 012.683-5.507L6.477 3.286a.75.75 0 011.06-1.06l1.96 1.96a6.43 6.43 0 015.006 0l1.96-1.96a.75.75 0 011.06 0zM8.25 8.25a.75.75 0 100 1.5.75.75 0 000-1.5zm7.5 0a.75.75 0 100 1.5.75.75 0 000-1.5zM5.5 12v5.5A2.5 2.5 0 008 20h8a2.5 2.5 0 002.5-2.5V12h-13z"/>
+    </svg>
+);
+
 const floatingBadges = [
-    { text: "📚 10 min d'apprentissage", x: "75%", y: "12%", delay: 1.2 },
-    { text: "🎮 → 20 min gagnées !", x: "80%", y: "65%", delay: 1.8 },
+    { text: "10 min de lecture", x: "75%", y: "12%", delay: 1.2 },
+    { text: "= 20 min de YouTube", x: "78%", y: "65%", delay: 1.8 },
 ];
 
 export default function Hero() {
@@ -47,10 +54,10 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold tracking-wide uppercase mb-8 border border-amber-200/50"
+                            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-amber-50 text-amber-700 text-sm font-semibold tracking-wide uppercase mb-8 border border-amber-200/50 shadow-sm shadow-amber-100"
                         >
                             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                            Bêta Android • Gratuit
+                            Beta privee &middot; 100% gratuit &middot; Android
                         </motion.span>
 
                         <motion.h1
@@ -59,10 +66,10 @@ export default function Hero() {
                             transition={{ duration: 0.7, delay: 0.3 }}
                             className="text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] font-bold tracking-tight text-slate-900 leading-[1.08] text-balance"
                         >
-                            Moins de scroll.
+                            Fini les crises
                             <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-dark to-blue-600 animated-gradient">
-                                Plus de progrès.
+                                pour le telephone.
                             </span>
                         </motion.h1>
 
@@ -72,8 +79,8 @@ export default function Hero() {
                             transition={{ duration: 0.6, delay: 0.5 }}
                             className="mt-7 text-lg sm:text-xl text-slate-500 max-w-md mx-auto lg:mx-0 leading-relaxed"
                         >
-                            Une règle simple : l'apprentissage fait gagner du temps de
-                            divertissement. Moins de conflits, plus d'autonomie.
+                            El&Moi pose une regle simple : ton enfant gagne son temps d'ecran
+                            en apprenant. Pas de cris. Pas de negociation. Un cadre juste.
                         </motion.p>
 
                         <motion.div
@@ -82,13 +89,15 @@ export default function Hero() {
                             transition={{ duration: 0.6, delay: 0.7 }}
                             className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center"
                         >
-                            {/* Single main CTA with pulse ring */}
                             <div className="relative">
                                 <div className="absolute inset-0 rounded-full bg-primary/30 animate-pulse-ring pointer-events-none" />
-                                <Button href={GOOGLE_PLAY_URL} icon={<DownloadIcon />} className="relative z-10 !px-8 !py-4 !text-base">
-                                    Télécharger l'application Parent
+                                <Button href={PARENT_APP_URL} icon={<DownloadIcon />} className="relative z-10 !px-8 !py-4 !text-base">
+                                    Installer l'app Parent
                                 </Button>
                             </div>
+                            <Button href={CHILD_APK_URL} variant="secondary" icon={<AndroidIcon />} className="!px-7 !py-3.5 !text-sm">
+                                Telecharger l'app Enfant
+                            </Button>
                         </motion.div>
 
                         <motion.p
@@ -100,18 +109,18 @@ export default function Hero() {
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5">
                                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
-                            Deux applis : une pour le parent, une pour l'enfant.
+                            Gratuit pendant toute la beta. Aucune carte requise.
                         </motion.p>
                     </div>
 
                     {/* Right — Phone Mockup + Mascot */}
                     <div className="relative flex justify-center order-1 lg:order-2">
-                        <PhoneMockup className="relative z-10" />
+                        <PhoneMockup image={screenDashboard} alt="Dashboard El&Moi" className="relative z-10" />
 
                         {/* Floating mascot */}
                         <motion.img
-                            src={elephantMascot}
-                            alt="Mascotte El&Moi — éléphant"
+                            src={mascotDancing}
+                            alt="Mascotte El&Moi"
                             className="absolute -bottom-2 -left-4 sm:-left-10 w-28 sm:w-36 h-auto z-20 drop-shadow-xl"
                             initial={{ opacity: 0, x: -30, y: 20 }}
                             animate={{ opacity: 1, x: 0, y: 0 }}

@@ -1,9 +1,9 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { GOOGLE_PLAY_URL } from "../config";
+import { PARENT_APP_URL, CHILD_APK_URL } from "../config";
 import Container from "../components/Container";
 import Button from "../components/Button";
-import elephantMascot from "../assets/Main El&Moi.png";
+import mascotThumbsup from "../assets/mascot-thumbsup.png";
 
 export default function CTABanner() {
     const ref = useRef(null);
@@ -29,7 +29,7 @@ export default function CTABanner() {
                         className="inline-block mb-8"
                     >
                         <img
-                            src={elephantMascot}
+                            src={mascotThumbsup}
                             alt="Mascotte El&Moi"
                             className="w-20 h-20 sm:w-24 sm:h-24 drop-shadow-2xl"
                             style={{ animation: "float 5s ease-in-out infinite" }}
@@ -42,7 +42,7 @@ export default function CTABanner() {
                         transition={{ duration: 0.6, delay: 0.15 }}
                         className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight text-balance"
                     >
-                        Prêt à changer les règles ?
+                        Testez ce soir. Gratuit.
                     </motion.h2>
 
                     <motion.p
@@ -51,18 +51,17 @@ export default function CTABanner() {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className="mt-5 text-lg text-white/50 max-w-md mx-auto"
                     >
-                        Rejoignez les familles qui construisent un cadre juste.
-                        Gratuit pendant la bêta.
+                        Installation en 2 minutes. Desinstallez quand vous voulez.
                     </motion.p>
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.5, delay: 0.45 }}
-                        className="mt-10"
+                        className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center"
                     >
                         <Button
-                            href={GOOGLE_PLAY_URL}
+                            href={PARENT_APP_URL}
                             className="!bg-white !text-slate-900 hover:!bg-slate-50 !shadow-xl !shadow-black/20 !px-8 !py-4 !text-base"
                             icon={
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -72,9 +71,30 @@ export default function CTABanner() {
                                 </svg>
                             }
                         >
-                            Télécharger l'application Parent
+                            Installer l'app Parent
+                        </Button>
+                        <Button
+                            href={CHILD_APK_URL}
+                            variant="outline-white"
+                            className="!px-7 !py-3.5"
+                            icon={
+                                <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                                    <path d="M17.523 2.226a.75.75 0 010 1.06l-1.706 1.707A6.467 6.467 0 0118.5 10.5h-13a6.467 6.467 0 012.683-5.507L6.477 3.286a.75.75 0 011.06-1.06l1.96 1.96a6.43 6.43 0 015.006 0l1.96-1.96a.75.75 0 011.06 0zM8.25 8.25a.75.75 0 100 1.5.75.75 0 000-1.5zm7.5 0a.75.75 0 100 1.5.75.75 0 000-1.5zM5.5 12v5.5A2.5 2.5 0 008 20h8a2.5 2.5 0 002.5-2.5V12h-13z"/>
+                                </svg>
+                            }
+                        >
+                            Telecharger l'app Enfant
                         </Button>
                     </motion.div>
+
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={isInView ? { opacity: 1 } : {}}
+                        transition={{ duration: 0.5, delay: 0.6 }}
+                        className="mt-6 text-sm text-white/30"
+                    >
+                        Aucune carte requise.
+                    </motion.p>
                 </div>
             </Container>
 

@@ -5,6 +5,8 @@ const variants = {
         "bg-primary text-white hover:bg-primary-dark shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30",
     secondary:
         "bg-white text-slate-700 border-2 border-slate-200 hover:border-primary hover:text-primary shadow-sm hover:shadow-md",
+    "outline-white":
+        "bg-transparent text-white border-2 border-white/60 hover:bg-white/10 hover:border-white shadow-sm",
 };
 
 export default function Button({
