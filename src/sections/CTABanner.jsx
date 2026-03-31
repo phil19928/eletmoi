@@ -62,18 +62,16 @@ export default function CTABanner() {
                     >
                         <Button
                             href={PARENT_APP_URL}
-                            className="!bg-white !text-slate-900 hover:!bg-slate-50 !shadow-xl !shadow-black/20 !px-10 !py-4 !text-base"
-                            icon={
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                                    <polyline points="7 10 12 15 17 10" />
-                                    <line x1="12" y1="15" x2="12" y2="3" />
-                                </svg>
-                            }
+                            className="!bg-white !text-slate-900 hover:!bg-slate-50 !shadow-xl !shadow-black/20 !px-8 !py-4 !rounded-2xl !gap-4"
                         >
+                            <span className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-primary">
+                                    <path d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" />
+                                </svg>
+                            </span>
                             <span className="flex flex-col items-start leading-tight">
-                                <span className="text-[10px] font-normal opacity-70 tracking-wide uppercase">Continuer sur la</span>
-                                <span className="text-base font-bold">Web-app</span>
+                                <span className="text-[10px] font-medium text-slate-400 tracking-widest uppercase">Continuer sur la</span>
+                                <span className="text-lg font-bold tracking-tight text-slate-900">Web-app</span>
                             </span>
                         </Button>
                     </motion.div>
