@@ -11,7 +11,7 @@ const faqs = [
       "Oui, deux apps complémentaires : une pour vous (parent), une pour votre enfant. Vous téléchargez d'abord l'app parent sur votre téléphone — c'est votre tableau de bord. Une fois connecté, l'app vous guide pour installer l'app enfant sur le téléphone de votre enfant. Vous pouvez scanner un code QR directement depuis l'app parent, ou télécharger le lien manuellement. Les deux apps communiquent ensemble : vous gérez le temps, votre enfant le voit en temps réel.",
   },
   {
-    question: "Qu'est-ce que la beta exactement ?",
+    question: "Qu'est-ce que la bêta exactement ?",
     answer:
       "El&Moi fonctionne complètement maintenant — vous pouvez l'utiliser tous les jours. Bêta signifie simplement qu'on ajoute des améliorations chaque semaine grâce à vos retours. C'est gratuit, sans engagement. Si ça ne vous plaît pas, vous pouvez désinstaller à tout moment.",
   },
