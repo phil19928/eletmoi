@@ -71,7 +71,10 @@ export default function CTABanner() {
                                 </svg>
                             }
                         >
-                            Continuer sur la web-app
+                            <span className="flex flex-col items-start leading-tight">
+                                <span className="text-[10px] font-normal opacity-70 tracking-wide uppercase">Continuer sur la</span>
+                                <span className="text-base font-bold">Web-app</span>
+                            </span>
                         </Button>
                     </motion.div>
 

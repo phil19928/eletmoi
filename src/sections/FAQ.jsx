@@ -8,12 +8,7 @@ const faqs = [
   {
     question: "Comment ça marche ? Il y a vraiment deux apps ?",
     answer:
-      "Oui, deux apps complémentaires : une pour vous (parent), une pour votre enfant. Vous téléchargez d'abord l'app parent sur votre téléphone — c'est votre tableau de bord. Une fois connecté, l'app vous guide pour installer l'app enfant sur le téléphone de votre enfant. Vous pouvez scanner un code QR directement depuis l'app parent, ou télécharger le lien manuellement. Les deux apps communiquent ensemble : vous gérez le temps, votre enfant le voit en temps réel.",
-  },
-  {
-    question: "Qu'est-ce que la bêta exactement ?",
-    answer:
-      "El&Moi fonctionne complètement maintenant — vous pouvez l'utiliser tous les jours. Bêta signifie simplement qu'on ajoute des améliorations chaque semaine grâce à vos retours. C'est gratuit, sans engagement. Si ça ne vous plaît pas, vous pouvez désinstaller à tout moment.",
+      "Oui, deux apps complémentaires : une pour vous (parent), une pour votre enfant. Vous téléchargez d'abord l'app parent sur votre téléphone — c'est votre tableau de bord. Une fois connecté, l'app vous guide pour installer l'app enfant sur le téléphone de votre enfant. Vous pouvez scanner un QR code directement depuis l'app parent, ou télécharger le lien manuellement. Les deux apps communiquent ensemble : vous gérez le temps, votre enfant le voit en temps réel.",
   },
   {
     question:
@@ -44,17 +39,23 @@ const faqs = [
   {
     question: "Ça marche sur iPhone ?",
     answer:
-      "Pas encore. La bêta est sur Android uniquement pour l'instant. On travaille sur iOS et on vous préviendra dès qu'elle est prête. L'app parent fonctionne sur navigateur (web), donc vous pouvez l'utiliser depuis n'importe quel téléphone.",
+      "Pas encore. La phase test est sur Android uniquement pour l'instant. On travaille sur iOS et on vous préviendra dès qu'elle est prête. L'app parent fonctionne sur navigateur (web), donc vous pouvez l'utiliser depuis n'importe quel téléphone.",
   },
   {
-    question: "C'est vraiment gratuit en bêta ?",
+    question: "C'est vraiment gratuit?",
     answer:
-      "Oui, complètement gratuit. Zéro abonnement, zéro limite. On vous demande juste vos retours pour améliorer l'app. Une fois qu'on sort de bêta, on annoncera la tarification — mais les utilisateurs bêta auront une surprise.",
+      "Oui, complètement gratuit. Zéro abonnement, zéro limite. On vous demande juste vos retours pour améliorer l'app. Une fois qu'on sort du phase test, on annoncera la tarification",
   },
   {
     question: "Que se passe-t-il si j'ai un problème ?",
     answer:
-      "On est là. Vous pouvez nous contacter directement depuis l'app ou par email. En bêta, on répond en moins de 24h — on veut vraiment que ça marche pour vous.",
+      "On est là. Vous pouvez nous contacter directement depuis l'app ou par email.",
+  },
+  {
+    question:
+      "Pourquoi je dois installer l'app enfant manuellement ? C'est pas automatique ?",
+    answer:
+      "L'installation manuelle fait partie du processus — c'est comme ça qu'on vous guide étape par étape. Une fois connecté à l'app parent, on vous montre exactement où cliquer. Comme l'app enfant n'est pas encore sur le Play Store (on la teste d'abord avec vous), elle se télécharge sous forme de fichier. Android va probablement afficher un message d'avertissement du type 'Cette source inconnue peut être dangereuse'. C'est normal — c'est juste Android qui vous prévient qu'elle ne vient pas du Play Store officiel. Pas de panique, c'est un comportement standard. On vous guide à chaque étape.",
   },
 ];
 

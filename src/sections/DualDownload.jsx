@@ -76,7 +76,10 @@ export default function DualDownload() {
                         </div>
 
                         <Button href={PARENT_APP_URL} className="w-full !justify-center">
-                            Continuer sur la web-app
+                            <span className="flex flex-col items-start leading-tight">
+                                <span className="text-[10px] font-normal opacity-80 tracking-wide uppercase">Continuer sur la</span>
+                                <span className="text-base font-bold">Web-app</span>
+                            </span>
                         </Button>
 
                         <p className="mt-4 text-xs text-slate-400 text-center">

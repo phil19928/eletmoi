@@ -87,7 +87,10 @@ export default function Hero() {
                             <div className="relative">
                                 <div className="absolute inset-0 rounded-full bg-primary/30 animate-pulse-ring pointer-events-none" />
                                 <Button href={PARENT_APP_URL} icon={<DownloadIcon />} className="relative z-10 !px-10 !py-4 !text-base">
-                                    Continuer sur la web-app
+                                    <span className="flex flex-col items-start leading-tight">
+                                        <span className="text-[10px] font-normal opacity-80 tracking-wide uppercase">Continuer sur la</span>
+                                        <span className="text-base font-bold">Web-app</span>
+                                    </span>
                                 </Button>
                             </div>
                         </motion.div>

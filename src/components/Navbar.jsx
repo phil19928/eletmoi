@@ -55,8 +55,10 @@ export default function Navbar() {
                             <polyline points="7 10 12 15 17 10" />
                             <line x1="12" y1="15" x2="12" y2="3" />
                         </svg>
-                        <span className="hidden sm:inline">Continuer sur la web-app</span>
-                        <span className="sm:hidden">Continuer sur la web-app</span>
+                        <span className="flex flex-col items-start leading-tight">
+                            <span className="text-[9px] font-normal opacity-80 tracking-wide uppercase">Continuer sur la</span>
+                            <span className="text-sm font-bold">Web-app</span>
+                        </span>
                     </motion.a>
                 </div>
             </div>
