@@ -26,7 +26,7 @@ const explainers = [
   {
     title: "Contrôle du temps",
     description:
-      "Parent : ajoute, retire ou bloque les apps divertissement en un clic. Sans négociation.",
+      "Parent : ajoute, retire du temps ou bloque les apps divertissement en un clic. Sans négociation.",
     icon: (
       <svg
         viewBox="0 0 24 24"

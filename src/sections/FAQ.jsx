@@ -44,7 +44,7 @@ const faqs = [
   {
     question: "C'est vraiment gratuit?",
     answer:
-      "Oui, complètement gratuit. Zéro abonnement, zéro limite. On vous demande juste vos retours pour améliorer l'app. Une fois qu'on sort du phase test, on annoncera la tarification",
+      "Oui, complètement gratuit. Zéro abonnement, zéro limite. On vous demande juste vos retours pour améliorer l'app. Une fois qu'on sort du phase test, on annoncera la tarification.",
   },
   {
     question: "Que se passe-t-il si j'ai un problème ?",
