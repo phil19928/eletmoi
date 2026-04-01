@@ -19,7 +19,7 @@ const faqs = [
   {
     question: "Comment j'installe l'app enfant sur son téléphone ?",
     answer:
-      "Super simple. Une fois que vous vous connectez à l'app parent, elle vous guide pas à pas. Scanner le code QR depuis l'app parent avec le téléphone de votre enfant — ça ouvre le lien de téléchargement automatiquement. On est là si vous avez une question.",
+      "Super simple. Une fois que vous vous connectez à l'app parent, elle vous guide pas à pas. Scanner le QR code depuis l'app parent avec le téléphone de votre enfant — ça ouvre le lien de téléchargement automatiquement. On est là si vous avez une question.",
   },
   {
     question: "Mes données sont sécurisées ?",

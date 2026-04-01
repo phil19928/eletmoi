@@ -8,7 +8,7 @@ const explainers = [
   {
     title: "Ratio réglable",
     description:
-      "Vous décidez : 10 min d'apprentissage = 20, 30 ou 40 min de divertissement.",
+      "Vous décidez : 10 min d'apprentissage = 10, 20, ou 30 min de divertissement.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -80,7 +80,7 @@ export default function Smartloop() {
       <Container>
         <div className="text-center mb-12">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary-dark text-xs font-semibold tracking-wide uppercase mb-4">
-            La Boucle d'Or
+            Un Cercle Vertueux
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
             Une{" "}
