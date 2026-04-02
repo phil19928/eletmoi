@@ -33,10 +33,10 @@ export default function Footer() {
                             Mentions légales
                         </a>
                         <a
-                            href="mailto:contact@eletmoi.app"
+                            href="mailto:eletmoi.app@gmail.com"
                             className="hover:text-primary transition-colors"
                         >
-                            contact@eletmoi.app
+                            eletmoi.app@gmail.com
                         </a>
                     </motion.div>
                 </div>
