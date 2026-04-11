@@ -15,7 +15,7 @@ const features = [
           <svg
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#6D98C2"
+            stroke="#7A9E88"
             strokeWidth="1.5"
             className="w-8 h-8"
           >
@@ -39,7 +39,7 @@ const features = [
             <svg
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#6D98C2"
+              stroke="#7A9E88"
               strokeWidth="1.5"
               className="w-7 h-7"
             >
@@ -58,11 +58,11 @@ const features = [
           <span className="text-[9px] text-slate-400 font-medium">QR Code</span>
         </div>
         {/* Child phone */}
-        <div className="w-20 sm:w-24 h-36 sm:h-44 rounded-2xl border-2 border-emerald-300/40 bg-emerald-50/50 flex flex-col items-center justify-center gap-2">
-          <svg viewBox="0 0 24 24" fill="#10B981" className="w-8 h-8">
+        <div className="w-20 sm:w-24 h-36 sm:h-44 rounded-2xl border-2 border-secondary/30 bg-secondary-very-light/50 flex flex-col items-center justify-center gap-2">
+          <svg viewBox="0 0 24 24" fill="#6D98C2" className="w-8 h-8">
             <path d="M17.523 2.226a.75.75 0 010 1.06l-1.706 1.707A6.467 6.467 0 0118.5 10.5h-13a6.467 6.467 0 012.683-5.507L6.477 3.286a.75.75 0 011.06-1.06l1.96 1.96a6.43 6.43 0 015.006 0l1.96-1.96a.75.75 0 011.06 0zM8.25 8.25a.75.75 0 100 1.5.75.75 0 000-1.5zm7.5 0a.75.75 0 100 1.5.75.75 0 000-1.5zM5.5 12v5.5A2.5 2.5 0 008 20h8a2.5 2.5 0 002.5-2.5V12h-13z" />
           </svg>
-          <span className="text-[10px] font-semibold text-emerald-700">
+          <span className="text-[10px] font-semibold text-secondary-dark">
             Enfant
           </span>
         </div>
@@ -145,19 +145,19 @@ const features = [
             {/* Shield shape */}
             <motion.path
               d="M50 8 L88 28 L88 56 C88 76 68 92 50 96 C32 92 12 76 12 56 L12 28 Z"
-              fill="#EAF2FB"
-              stroke="#6D98C2"
+              fill="#EDF3F0"
+              stroke="#7A9E88"
               strokeWidth="2.5"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
               transition={{ duration: 1.5, ease: "easeOut" }}
             />
             {/* Lock icon inside */}
-            <rect x="38" y="46" width="24" height="20" rx="3" fill="#6D98C2" />
+            <rect x="38" y="46" width="24" height="20" rx="3" fill="#7A9E88" />
             <path
               d="M44 46 V38 C44 34 47 31 50 31 C53 31 56 34 56 38 V46"
               fill="none"
-              stroke="#6D98C2"
+              stroke="#7A9E88"
               strokeWidth="3"
               strokeLinecap="round"
             />

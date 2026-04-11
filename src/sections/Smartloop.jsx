@@ -9,6 +9,7 @@ const explainers = [
     title: "Ratio réglable",
     description:
       "Vous décidez : 10 min d'apprentissage = 10, 20, ou 30 min de divertissement.",
+    variant: "secondary",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -17,7 +18,7 @@ const explainers = [
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="w-6 h-6 text-primary"
+        className="w-6 h-6 text-secondary"
       >
         <path d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
       </svg>
@@ -27,6 +28,7 @@ const explainers = [
     title: "Contrôle du temps",
     description:
       "Parent : ajoute, retire du temps ou bloque les apps divertissement en un clic. Sans négociation.",
+    variant: "primary",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -46,6 +48,7 @@ const explainers = [
     title: "Blocage auto",
     description:
       "École, nuit, repas : le divertissement se coupe. Sans discussion.",
+    variant: "secondary",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -54,7 +57,7 @@ const explainers = [
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="w-6 h-6 text-primary"
+        className="w-6 h-6 text-secondary"
       >
         <path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
@@ -107,7 +110,11 @@ export default function Smartloop() {
               variants={cardVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className="flex flex-col items-center text-center p-6 rounded-2xl bg-primary-very-light/40 border border-primary/10"
+              className={`flex flex-col items-center text-center p-6 rounded-2xl border ${
+                item.variant === "secondary"
+                  ? "bg-secondary-very-light/40 border-secondary/10"
+                  : "bg-primary-very-light/40 border-primary/10"
+              }`}
             >
               <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-4 shadow-sm">
                 {item.icon}

@@ -40,7 +40,7 @@ export default function DualDownload() {
                         transition={{ duration: 0.6 }}
                         className="relative bg-white rounded-3xl p-8 shadow-sm border border-primary/20 overflow-hidden group card-hover"
                     >
-                        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary-dark to-blue-600 transition-all duration-500 group-hover:h-2" />
+                        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary-dark to-primary transition-all duration-500 group-hover:h-2" />
 
                         <div className="flex items-center gap-4 mb-6 mt-2">
                             <div className="w-14 h-14 rounded-2xl bg-primary-very-light flex items-center justify-center">

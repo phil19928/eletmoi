@@ -4,7 +4,7 @@ export default function PhoneMockup({ image, alt = "", className = "" }) {
     return (
         <div className={`relative mx-auto ${className}`} style={{ width: 280 }}>
             {/* Glow ring behind the phone */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[620px] rounded-[3rem] bg-gradient-to-br from-primary via-primary-light to-cyan-300 opacity-30 blur-2xl glow-pulse pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[620px] rounded-[3rem] bg-gradient-to-br from-primary via-primary-light to-primary-light opacity-30 blur-2xl glow-pulse pointer-events-none" />
 
             {/* Phone frame */}
             <motion.div
@@ -22,12 +22,12 @@ export default function PhoneMockup({ image, alt = "", className = "" }) {
                 </div>
 
                 {/* Screen */}
-                <div className="relative aspect-[9/19.5] rounded-[2rem] overflow-hidden bg-gradient-to-br from-primary-very-light via-white to-primary-light/20">
+                <div className="relative aspect-[9/19.5] rounded-[2rem] overflow-hidden bg-[#F0F3F1]">
                     {image ? (
                         <img
                             src={image}
                             alt={alt}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-contain scale-[1.5]"
                         />
                     ) : (
                         <div className="w-full h-full flex flex-col items-center justify-center gap-8 p-8">
@@ -40,9 +40,9 @@ export default function PhoneMockup({ image, alt = "", className = "" }) {
                             {/* Timer circle */}
                             <div className="relative">
                                 <svg width="120" height="120" viewBox="0 0 120 120">
-                                    <circle cx="60" cy="60" r="52" fill="none" stroke="#EAF2FB" strokeWidth="6" />
+                                    <circle cx="60" cy="60" r="52" fill="none" stroke="#EDF3F0" strokeWidth="6" />
                                     <motion.circle
-                                        cx="60" cy="60" r="52" fill="none" stroke="#6D98C2" strokeWidth="6"
+                                        cx="60" cy="60" r="52" fill="none" stroke="#7A9E88" strokeWidth="6"
                                         strokeLinecap="round"
                                         strokeDasharray="327"
                                         initial={{ strokeDashoffset: 327 }}

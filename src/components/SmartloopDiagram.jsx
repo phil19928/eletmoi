@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 
 const nodes = [
-    { cx: 200, cy: 50, label: "Apprendre", icon: "M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25", color: "#6D98C2" },
+    { cx: 200, cy: 50, label: "Apprendre", icon: "M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25", color: "#7A9E88" },
     { cx: 60, cy: 280, label: "Gagner", icon: "M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z", color: "#F59E0B" },
-    { cx: 340, cy: 280, label: "Jouer", icon: "M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z", color: "#10B981" },
+    { cx: 340, cy: 280, label: "Jouer", icon: "M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z", color: "#6D98C2" },
 ];
 
 // Curved paths connecting the nodes
@@ -23,7 +23,7 @@ export default function SmartloopDiagram() {
                         <motion.path
                             d={d}
                             fill="none"
-                            stroke="#6D98C2"
+                            stroke="#7A9E88"
                             strokeWidth="2"
                             strokeOpacity="0.2"
                             strokeDasharray="6 4"
@@ -31,7 +31,7 @@ export default function SmartloopDiagram() {
                         <motion.path
                             d={d}
                             fill="none"
-                            stroke="#6D98C2"
+                            stroke="#7A9E88"
                             strokeWidth="2.5"
                             strokeOpacity="0.6"
                             strokeLinecap="round"
@@ -49,7 +49,7 @@ export default function SmartloopDiagram() {
                 {/* Arrow heads */}
                 <defs>
                     <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-                        <polygon points="0 0, 8 3, 0 6" fill="#6D98C2" fillOpacity="0.5" />
+                        <polygon points="0 0, 8 3, 0 6" fill="#7A9E88" fillOpacity="0.5" />
                     </marker>
                 </defs>
                 {paths.map((d, i) => (
@@ -68,8 +68,8 @@ export default function SmartloopDiagram() {
                 {/* Traveling dot */}
                 <motion.circle
                     r="5"
-                    fill="#6D98C2"
-                    filter="drop-shadow(0 0 6px rgba(109,152,194,0.6))"
+                    fill="#7A9E88"
+                    filter="drop-shadow(0 0 6px rgba(122,158,136,0.6))"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: [0, 1, 1, 1, 0] }}
                     transition={{ duration: 6, repeat: Infinity, delay: 2.5 }}
