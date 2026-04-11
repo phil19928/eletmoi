@@ -26,7 +26,7 @@ export default function DualDownload() {
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
                         Prêt en{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
-                            2 minutes.
+                            5 minutes.
                         </span>
                     </h2>
                 </div>
@@ -38,7 +38,7 @@ export default function DualDownload() {
                         initial={{ opacity: 0, y: 40 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.6 }}
-                        className="relative bg-white rounded-3xl p-8 shadow-sm border border-primary/20 overflow-hidden group card-hover"
+                        className="relative bg-white rounded-3xl p-5 sm:p-8 shadow-sm border border-primary/20 overflow-hidden group card-hover"
                     >
                         <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary-dark to-primary transition-all duration-500 group-hover:h-2" />
 
@@ -88,7 +88,7 @@ export default function DualDownload() {
                         </Button>
 
                         <p className="mt-4 text-xs text-slate-400 text-center">
-                            App Enfant en phase bêta — accès par téléchargement.{" "}
+                            App Enfant en phase de test — accès par téléchargement.{" "}
                             <span className="text-primary-dark font-medium">Play Store bientôt.</span>
                         </p>
                     </motion.div>

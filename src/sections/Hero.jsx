@@ -3,13 +3,8 @@ import { PARENT_APP_URL } from "../config";
 import Container from "../components/Container";
 import Button from "../components/Button";
 import PhoneMockup from "../components/PhoneMockup";
-import mascotDancing from "../assets/mascot-dancing.png";
 import screenDashboard from "../assets/dashboarddesign.png";
-
-const floatingBadges = [
-  { text: "10 min de lecture", x: "75%", y: "12%", delay: 1.2 },
-  { text: "= 20 min de YouTube", x: "78%", y: "65%", delay: 1.8 },
-];
+import screenEnfant from "../assets/screen-enfant.png";
 
 export default function Hero() {
   return (
@@ -49,10 +44,10 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-amber-50 text-amber-700 text-sm font-semibold tracking-wide uppercase mb-8 border border-amber-200/50 shadow-sm shadow-amber-100"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 text-amber-700 text-[10px] sm:text-xs font-semibold tracking-wide uppercase mb-5 sm:mb-8 border border-amber-200/50 shadow-sm shadow-amber-100"
             >
               <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-              Bêta privée &middot; 100% gratuit &middot; Web
+              Phase de test &middot; 100% gratuit &middot; Web
             </motion.span>
 
             <motion.h1
@@ -61,10 +56,10 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] font-bold tracking-tight text-slate-900 leading-[1.08] text-balance"
             >
-              Fini les crises
+              Moins de scroll.
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-dark to-primary-dark animated-gradient">
-                pour le téléphone.
+                Plus de progrès.
               </span>
             </motion.h1>
 
@@ -74,8 +69,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="mt-7 text-lg sm:text-xl text-slate-500 max-w-md mx-auto lg:mx-0 leading-relaxed"
             >
-              El&Moi pose une règle simple : ton enfant gagne son temps d'écran
-              en apprenant. Pas de cris. Pas de négociation. Un cadre juste.
+              10 minutes d'apprentissage = 20 minutes de divertissement. Votre enfant voit le compteur, comprend la règle, et gagne son temps d'écran.
             </motion.p>
 
             <motion.div
@@ -85,12 +79,13 @@ export default function Hero() {
               className="mt-10 flex justify-center lg:justify-start"
             >
               <div className="relative">
-                <div className="absolute inset-0 rounded-full bg-primary/30 animate-pulse-ring pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl bg-primary/20 animate-pulse-ring pointer-events-none" />
                 <Button
                   href={PARENT_APP_URL}
+                  variant="card"
                   className="relative z-10 !px-8 !py-4 !rounded-2xl !gap-4"
                 >
-                  <span className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <span className="w-9 h-9 rounded-xl bg-primary-very-light flex items-center justify-center flex-shrink-0 text-primary">
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
@@ -104,10 +99,10 @@ export default function Hero() {
                     </svg>
                   </span>
                   <span className="flex flex-col items-start leading-tight">
-                    <span className="text-[10px] font-medium opacity-75 tracking-widest uppercase">
+                    <span className="text-[10px] font-medium text-slate-400 tracking-widest uppercase">
                       Continuer sur la
                     </span>
-                    <span className="text-lg font-bold tracking-tight">
+                    <span className="text-lg font-bold tracking-tight text-slate-900">
                       Web-app
                     </span>
                   </span>
@@ -134,49 +129,52 @@ export default function Hero() {
                   strokeLinejoin="round"
                 />
               </svg>
-              Gratuit pendant toute la bêta. Aucune carte requise.
+              Gratuit pendant toute la phase de test. Aucune carte requise.
             </motion.p>
           </div>
 
-          {/* Right — Phone Mockup + Mascot */}
-          <div className="relative flex justify-center order-1 lg:order-2">
-            <PhoneMockup
-              image={screenDashboard}
-              alt="Dashboard El&Moi"
-              className="relative z-10"
-            />
+          {/* Right — Two Phone Mockups */}
+          <div className="relative flex items-start justify-center gap-3 sm:gap-5 lg:gap-6 order-1 lg:order-2 py-6 lg:py-10">
 
-            {/* Floating mascot */}
-            <motion.img
-              src={mascotDancing}
-              alt="Mascotte El&Moi"
-              className="absolute -bottom-2 -left-4 sm:-left-10 w-28 sm:w-36 h-auto z-20 drop-shadow-xl"
-              initial={{ opacity: 0, x: -30, y: 20 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
-              style={{ animation: "float 5s ease-in-out 1.5s infinite" }}
-            />
+            {/* Background blob */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 sm:w-[32rem] sm:h-[32rem] bg-gradient-to-br from-primary-very-light via-secondary-very-light/60 to-cyan-100/30 rounded-full blur-3xl -z-0 pointer-events-none" />
 
-            {/* Floating badges */}
-            {floatingBadges.map((badge) => (
-              <motion.div
-                key={badge.text}
-                className="absolute hidden lg:flex items-center gap-1.5 px-4 py-2 rounded-2xl bg-white/90 shadow-xl shadow-slate-900/8 text-xs font-semibold text-slate-700 border border-slate-100/80 backdrop-blur-sm z-30"
-                style={{ left: badge.x, top: badge.y }}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  duration: 0.5,
-                  delay: badge.delay,
-                  type: "spring",
-                }}
-              >
-                {badge.text}
-              </motion.div>
-            ))}
+            {/* App Parent */}
+            <motion.div
+              className="flex flex-col items-center gap-2 sm:gap-3 relative z-10"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary-dark text-[10px] sm:text-xs font-semibold border border-primary/20 shadow-sm whitespace-nowrap">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                App Parent
+              </span>
+              <div className="w-[130px] sm:w-[155px] md:w-[175px] lg:w-[200px] xl:w-[225px]">
+                <PhoneMockup image={screenDashboard} alt="App Parent El&Moi" />
+              </div>
+            </motion.div>
 
-            {/* Large gradient blob behind phone */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 sm:w-[28rem] sm:h-[28rem] bg-gradient-to-br from-primary-very-light via-primary-light/20 to-cyan-100/30 rounded-full blur-3xl -z-0 pointer-events-none" />
+            {/* App Enfant — décalé vers le bas */}
+            <motion.div
+              className="flex flex-col items-center gap-2 sm:gap-3 mt-10 sm:mt-14 lg:mt-16 relative z-10"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 text-secondary-dark text-[10px] sm:text-xs font-semibold border border-secondary/20 shadow-sm whitespace-nowrap">
+                <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                App Enfant
+              </span>
+              <div className="w-[130px] sm:w-[155px] md:w-[175px] lg:w-[200px] xl:w-[225px]">
+                <PhoneMockup
+                  image={screenEnfant}
+                  alt="App Enfant El&Moi"
+                  imageClassName="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </Container>

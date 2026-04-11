@@ -7,6 +7,8 @@ const variants = {
         "bg-white text-slate-700 border-2 border-slate-200 hover:border-primary hover:text-primary shadow-sm hover:shadow-md",
     "outline-white":
         "bg-transparent text-white border-2 border-white/60 hover:bg-white/10 hover:border-white shadow-sm",
+    card:
+        "bg-white text-slate-900 border border-slate-200 shadow-md hover:shadow-xl hover:border-slate-300",
 };
 
 export default function Button({

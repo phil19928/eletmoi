@@ -7,7 +7,7 @@ const features = [
   {
     title: "Deux applis, un seul cadre",
     description:
-      "L'app Parent (web) contrôle. L'app Enfant (Android) applique. Connectées par QR code en 30 secondes.",
+      "L'app Parent (web) contrôle. L'app Enfant (Android) applique. Connectées par QR code en 5 mins.",
     visual: (
       <div className="flex items-center justify-center gap-4 sm:gap-6">
         {/* Parent phone */}

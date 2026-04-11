@@ -1,33 +1,31 @@
 import { motion } from "framer-motion";
 
-export default function PhoneMockup({ image, alt = "", className = "" }) {
+export default function PhoneMockup({ image, alt = "", className = "", imageClassName = "w-full h-full object-cover" }) {
     return (
-        <div className={`relative mx-auto ${className}`} style={{ width: 280 }}>
-            {/* Glow ring behind the phone */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[620px] rounded-[3rem] bg-gradient-to-br from-primary via-primary-light to-primary-light opacity-30 blur-2xl glow-pulse pointer-events-none" />
+        <div className={`relative mx-auto w-full ${className}`}>
+            {/* Glow — proportional to phone size */}
+            <div
+                className="absolute rounded-[3rem] bg-gradient-to-br from-primary via-primary-light to-primary-light opacity-25 blur-2xl glow-pulse pointer-events-none"
+                style={{ inset: "-18% -22%" }}
+            />
 
             {/* Phone frame */}
             <motion.div
                 initial={{ opacity: 0, scale: 0.9, y: 30 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                className="relative rounded-[2.5rem] border-[5px] border-slate-800 bg-slate-900 shadow-2xl shadow-slate-900/40 overflow-hidden"
+                className="relative rounded-[1.25rem] sm:rounded-[1.75rem] lg:rounded-[2.5rem] border-[3px] sm:border-[4px] lg:border-[5px] border-slate-800 bg-slate-900 shadow-2xl shadow-slate-900/40 overflow-hidden"
             >
                 {/* Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-slate-800 rounded-b-2xl z-10" />
-
-                {/* Status bar dots */}
-                <div className="absolute top-2 left-1/2 -translate-x-1/2 flex items-center gap-1 z-20">
-                    <div className="w-2 h-2 rounded-full bg-slate-600" />
-                </div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[42%] h-3 sm:h-4 lg:h-6 bg-slate-800 rounded-b-lg sm:rounded-b-xl lg:rounded-b-2xl z-10" />
 
                 {/* Screen */}
-                <div className="relative aspect-[9/19.5] rounded-[2rem] overflow-hidden bg-[#F0F3F1]">
+                <div className="relative aspect-[9/19.5] rounded-[0.75rem] sm:rounded-[1.25rem] lg:rounded-[2rem] overflow-hidden bg-[#F0F3F1]">
                     {image ? (
                         <img
                             src={image}
                             alt={alt}
-                            className="w-full h-full object-contain scale-[1.5]"
+                            className={imageClassName}
                         />
                     ) : (
                         <div className="w-full h-full flex flex-col items-center justify-center gap-8 p-8">
@@ -74,7 +72,7 @@ export default function PhoneMockup({ image, alt = "", className = "" }) {
             </motion.div>
 
             {/* Reflection */}
-            <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 rounded-[1.25rem] sm:rounded-[1.75rem] lg:rounded-[2.5rem] bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
         </div>
     );
 }

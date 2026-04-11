@@ -46,18 +46,18 @@ export default function Navbar() {
                         href={PARENT_APP_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold bg-primary text-white hover:bg-primary-dark shadow-md shadow-primary/20 hover:shadow-lg transition-all duration-200"
+                        whileHover={{ scale: 1.03, y: -1 }}
+                        whileTap={{ scale: 0.97 }}
+                        className="inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-white text-slate-900 border border-slate-200 shadow-md hover:shadow-lg hover:border-slate-300 transition-all duration-200"
                     >
-                        <span className="w-7 h-7 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+                        <span className="w-7 h-7 rounded-lg bg-primary-very-light flex items-center justify-center flex-shrink-0 text-primary">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
                                 <path d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" />
                             </svg>
                         </span>
                         <span className="flex flex-col items-start leading-tight">
-                            <span className="text-[9px] font-medium opacity-75 tracking-widest uppercase">Continuer sur la</span>
-                            <span className="text-sm font-bold tracking-tight">Web-app</span>
+                            <span className="text-[9px] font-medium text-slate-400 tracking-widest uppercase">Continuer sur la</span>
+                            <span className="text-sm font-bold tracking-tight text-slate-900">Web-app</span>
                         </span>
                     </motion.a>
                 </div>

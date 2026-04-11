@@ -9,7 +9,7 @@ const valueProps = [
                 <path d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
             </svg>
         ),
-        text: "100% gratuit pendant la bêta",
+        text: "100% gratuit pendant la phase de test",
     },
     {
         icon: (
@@ -46,7 +46,7 @@ export default function BetaTesters() {
                         transition={{ duration: 0.5 }}
                         className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary-dark text-xs font-semibold tracking-wide uppercase mb-6"
                     >
-                        Bêta privée
+                        Phase de test privée
                     </motion.span>
 
                     <motion.h2
@@ -68,7 +68,7 @@ export default function BetaTesters() {
                         transition={{ duration: 0.5, delay: 0.25 }}
                         className="mt-6 text-lg text-slate-500 leading-relaxed"
                     >
-                        El&Moi est en bêta. Ça veut dire que vous faites partie des premiers
+                        El&Moi est en phase de test. Ça veut dire que vous faites partie des premiers
                         parents à tester, à critiquer, à améliorer. Votre avis change le produit.
                         Littéralement.
                     </motion.p>
