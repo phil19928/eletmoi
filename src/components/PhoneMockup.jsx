@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function PhoneMockup({ image, alt = "", className = "", imageClassName = "w-full h-full object-cover" }) {
+export default function PhoneMockup({ image, alt = "", className = "", imageClassName = "w-full h-full object-cover scale-[1.4]" }) {
     return (
         <div className={`relative mx-auto w-full ${className}`}>
             {/* Glow — proportional to phone size */}

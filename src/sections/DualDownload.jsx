@@ -26,7 +26,7 @@ export default function DualDownload() {
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
                         Prêt en{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
-                            5 minutes.
+                            5 á 10 minutes.
                         </span>
                     </h2>
                 </div>

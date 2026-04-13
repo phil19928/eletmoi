@@ -3,8 +3,8 @@ import { PARENT_APP_URL } from "../config";
 import Container from "../components/Container";
 import Button from "../components/Button";
 import PhoneMockup from "../components/PhoneMockup";
-import screenDashboard from "../assets/dashboarddesign.png";
-import screenEnfant from "../assets/screen-enfant.png";
+import screenDashboard from "../assets/parentappdashboard.png";
+import screenEnfant from "../assets/childappdashboard.png";
 
 export default function Hero() {
   return (
@@ -170,7 +170,6 @@ export default function Hero() {
                 <PhoneMockup
                   image={screenEnfant}
                   alt="App Enfant El&Moi"
-                  imageClassName="w-full h-full object-cover"
                 />
               </div>
             </motion.div>

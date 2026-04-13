@@ -51,7 +51,7 @@ export default function CTABanner() {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className="mt-5 text-lg text-white/50 max-w-md mx-auto"
                     >
-                        Installation en 2 minutes. Désinstallez quand vous voulez.
+                        Installation en 5 à 10 minutes. Désinstallez quand vous voulez.
                     </motion.p>
 
                     <motion.div
