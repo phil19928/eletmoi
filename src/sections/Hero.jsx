@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { PARENT_APP_URL } from "../config";
 import Container from "../components/Container";
 import Button from "../components/Button";
 import PhoneMockup from "../components/PhoneMockup";
@@ -47,7 +46,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 text-amber-700 text-[10px] sm:text-xs font-semibold tracking-wide uppercase mb-5 sm:mb-8 border border-amber-200/50 shadow-sm shadow-amber-100"
             >
               <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-              Phase de test &middot; 100% gratuit &middot; Web
+              Bientôt disponible &middot; 100% gratuit &middot; iOS & Android
             </motion.span>
 
             <motion.h1
@@ -69,7 +68,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="mt-7 text-lg sm:text-xl text-slate-500 max-w-md mx-auto lg:mx-0 leading-relaxed"
             >
-              10 minutes d'apprentissage = 20 minutes de divertissement. Votre enfant voit le compteur, comprend la règle, et gagne son temps d'écran.
+              Avec Lumen, 10 minutes d'apprentissage ou de microformation deviennent 20 minutes de divertissement. Votre enfant suit son compteur et gagne son temps d'écran en apprenant.
             </motion.p>
 
             <motion.div
@@ -81,7 +80,7 @@ export default function Hero() {
               <div className="relative">
                 <div className="absolute inset-0 rounded-2xl bg-primary/20 animate-pulse-ring pointer-events-none" />
                 <Button
-                  href={PARENT_APP_URL}
+                  href="https://www.instagram.com/eletmoi.app?igsh=MXJzZTkxcmF2OHU0ZQ%3D%3D&utm_source=qr"
                   variant="card"
                   className="relative z-10 !px-8 !py-4 !rounded-2xl !gap-4"
                 >
@@ -100,10 +99,10 @@ export default function Hero() {
                   </span>
                   <span className="flex flex-col items-start leading-tight">
                     <span className="text-[10px] font-medium text-slate-400 tracking-widest uppercase">
-                      Continuer sur la
+                      Arrive très vite —
                     </span>
                     <span className="text-lg font-bold tracking-tight text-slate-900">
-                      Web-app
+                      Suivre le lancement
                     </span>
                   </span>
                 </Button>
@@ -129,7 +128,7 @@ export default function Hero() {
                   strokeLinejoin="round"
                 />
               </svg>
-              Gratuit pendant toute la phase de test. Aucune carte requise.
+              100% gratuit. Aucune carte requise.
             </motion.p>
           </div>
 

@@ -1,6 +1,5 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { PARENT_APP_URL } from "../config";
 import Container from "../components/Container";
 import Button from "../components/Button";
 import mascotThumbsup from "../assets/mascot-thumbsup.png";
@@ -42,7 +41,7 @@ export default function CTABanner() {
                         transition={{ duration: 0.6, delay: 0.15 }}
                         className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight text-balance"
                     >
-                        Testez ce soir. Gratuit.
+                        Bientôt disponible. Gratuit.
                     </motion.h2>
 
                     <motion.p
@@ -61,7 +60,7 @@ export default function CTABanner() {
                         className="mt-10 flex justify-center"
                     >
                         <Button
-                            href={PARENT_APP_URL}
+                            href="https://www.instagram.com/eletmoi.app?igsh=MXJzZTkxcmF2OHU0ZQ%3D%3D&utm_source=qr"
                             className="!bg-white !text-slate-900 hover:!bg-slate-50 !shadow-xl !shadow-black/20 !px-8 !py-4 !rounded-2xl !gap-4"
                         >
                             <span className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -70,8 +69,8 @@ export default function CTABanner() {
                                 </svg>
                             </span>
                             <span className="flex flex-col items-start leading-tight">
-                                <span className="text-[10px] font-medium text-slate-400 tracking-widest uppercase">Continuer sur la</span>
-                                <span className="text-lg font-bold tracking-tight text-slate-900">Web-app</span>
+                                <span className="text-[10px] font-medium text-slate-400 tracking-widest uppercase">Arrive très vite —</span>
+                                <span className="text-lg font-bold tracking-tight text-slate-900">Suivre le lancement</span>
                             </span>
                         </Button>
                     </motion.div>

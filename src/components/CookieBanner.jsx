@@ -46,12 +46,12 @@ export default function CookieBanner() {
                                     </a>
                                 </p>
                             </div>
-                            <div className="flex items-center gap-2.5 flex-shrink-0">
+                            <div className="flex w-full sm:w-auto items-center gap-2.5 flex-shrink-0">
                                 <motion.button
                                     onClick={handleRefuse}
                                     whileHover={{ scale: 1.03 }}
                                     whileTap={{ scale: 0.97 }}
-                                    className="px-5 py-2 rounded-xl text-sm font-medium text-slate-500 bg-slate-100 hover:bg-slate-200 transition-colors cursor-pointer"
+                                    className="flex-1 sm:flex-none px-5 py-2 rounded-xl text-sm font-medium text-slate-500 bg-slate-100 hover:bg-slate-200 transition-colors cursor-pointer"
                                 >
                                     Refuser
                                 </motion.button>
@@ -59,7 +59,7 @@ export default function CookieBanner() {
                                     onClick={handleAccept}
                                     whileHover={{ scale: 1.03 }}
                                     whileTap={{ scale: 0.97 }}
-                                    className="px-5 py-2 rounded-xl text-sm font-semibold text-white bg-primary hover:bg-primary-dark shadow-md shadow-primary/20 transition-colors cursor-pointer"
+                                    className="flex-1 sm:flex-none px-5 py-2 rounded-xl text-sm font-semibold text-white bg-primary hover:bg-primary-dark shadow-md shadow-primary/20 transition-colors cursor-pointer"
                                 >
                                     Accepter
                                 </motion.button>

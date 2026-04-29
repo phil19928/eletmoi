@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { PARENT_APP_URL } from "../config";
 import elephantMascot from "../assets/Main El&Moi.png";
 
 export default function Navbar() {
@@ -14,6 +13,7 @@ export default function Navbar() {
 
     return (
         <motion.nav
+            aria-label="Navigation principale"
             initial={{ y: -80, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -23,7 +23,7 @@ export default function Navbar() {
                 }`}
         >
             <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-                <a href="#" className="flex items-center gap-2.5 group">
+                <a href="#" aria-label="Retour à l'accueil" className="flex items-center gap-2.5 group">
                     <img src={elephantMascot} alt="El&Moi" className="w-8 h-8" />
                     <span className="text-xl font-bold tracking-tight font-display text-slate-900">
                         El<span className="text-primary group-hover:text-primary-dark transition-colors">&</span>Moi
@@ -37,15 +37,19 @@ export default function Navbar() {
                     <a href="#features" className="hidden md:inline text-sm text-slate-500 hover:text-primary transition-colors font-medium">
                         Fonctionnalités
                     </a>
+                    <a href="#lumen" className="hidden md:inline text-sm text-slate-500 hover:text-primary transition-colors font-medium">
+                        Lumen
+                    </a>
                     <a href="#faq" className="hidden md:inline text-sm text-slate-500 hover:text-primary transition-colors font-medium">
                         FAQ
                     </a>
 
                     {/* CTA button */}
                     <motion.a
-                        href={PARENT_APP_URL}
+                        href="https://www.instagram.com/eletmoi.app?igsh=MXJzZTkxcmF2OHU0ZQ%3D%3D&utm_source=qr"
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Suivre le lancement El&Moi sur Instagram"
                         whileHover={{ scale: 1.03, y: -1 }}
                         whileTap={{ scale: 0.97 }}
                         className="inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-white text-slate-900 border border-slate-200 shadow-md hover:shadow-lg hover:border-slate-300 transition-all duration-200"
@@ -56,8 +60,8 @@ export default function Navbar() {
                             </svg>
                         </span>
                         <span className="flex flex-col items-start leading-tight">
-                            <span className="text-[9px] font-medium text-slate-400 tracking-widest uppercase">Continuer sur la</span>
-                            <span className="text-sm font-bold tracking-tight text-slate-900">Web-app</span>
+                            <span className="text-[9px] font-medium text-slate-400 tracking-widest uppercase">Arrive très vite</span>
+                            <span className="text-sm font-bold tracking-tight text-slate-900">Lancement</span>
                         </span>
                     </motion.a>
                 </div>

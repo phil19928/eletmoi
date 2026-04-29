@@ -5,6 +5,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
     overflow-x: hidden;
   }
 
@@ -14,6 +15,8 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
+    background: #ffffff;
+    color: #0f172a;
   }
 
   h1,
@@ -22,6 +25,15 @@
   h4 {
     font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
   }
+}
+
+::selection {
+  background: rgba(122, 158, 136, 0.22);
+  color: #0f172a;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
 }
 
 *:focus-visible {
@@ -127,4 +139,41 @@ details summary::-webkit-details-marker {
 
 .text-balance {
   text-wrap: balance;
+}
+
+.section-smartloop-bg {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(122, 158, 136, 0.13), transparent 32rem),
+    radial-gradient(circle at 82% 8%, rgba(109, 152, 194, 0.10), transparent 30rem),
+    linear-gradient(180deg, #ffffff 0%, #f8fbf9 42%, #eef6f2 100%);
+}
+
+.section-features-bg {
+  background:
+    radial-gradient(circle at 86% 26%, rgba(109, 152, 194, 0.12), transparent 31rem),
+    radial-gradient(circle at 12% 64%, rgba(122, 158, 136, 0.10), transparent 28rem),
+    linear-gradient(180deg, #eef6f2 0%, #f7fbf9 48%, #edf5fb 100%);
+}
+
+.section-lumen-bg {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(122, 158, 136, 0.14), transparent 34rem),
+    radial-gradient(circle at 92% 24%, rgba(109, 152, 194, 0.12), transparent 30rem),
+    radial-gradient(circle at 8% 58%, rgba(245, 158, 11, 0.08), transparent 28rem),
+    linear-gradient(180deg, #edf5fb 0%, #fbfdfc 22%, #f4faf7 74%, #ffffff 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

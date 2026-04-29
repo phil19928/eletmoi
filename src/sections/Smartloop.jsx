@@ -200,7 +200,7 @@ export default function Smartloop() {
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <Section id="smartloop">
+    <Section id="smartloop" className="section-smartloop-bg overflow-hidden">
       <Container>
         <div className="text-center mb-12">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary-dark text-xs font-semibold tracking-wide uppercase mb-4">
@@ -230,14 +230,20 @@ export default function Smartloop() {
                 variants={cardVariants}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
-                className={`flex flex-col p-5 rounded-2xl border ${
+                whileHover={{ y: -6 }}
+                className={`group relative flex flex-col overflow-hidden p-5 rounded-2xl border shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-slate-200/70 ${
                   step.color === "secondary"
                     ? "bg-secondary-very-light/40 border-secondary/10"
                     : "bg-primary-very-light/40 border-primary/10"
                 }`}
               >
+                <div
+                  className={`absolute inset-x-0 top-0 h-1 opacity-60 transition-opacity duration-300 group-hover:opacity-100 ${
+                    step.color === "secondary" ? "bg-secondary" : "bg-primary"
+                  }`}
+                />
                 {/* Illustration */}
-                <div className="mb-5">
+                <div className="mb-5 mt-1">
                   <Visual isInView={isInView} />
                 </div>
 

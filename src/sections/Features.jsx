@@ -7,7 +7,7 @@ const features = [
   {
     title: "Deux applis, un seul cadre",
     description:
-      "L'app Parent (web) contrôle. L'app Enfant (Android) applique. Connectées par QR code en 5 mins.",
+      "L'app Parent (web) contrôle. L'app Enfant (iOS & Android) applique. Connectées par QR code en 5 mins.",
     visual: (
       <div className="flex items-center justify-center gap-4 sm:gap-6">
         {/* Parent phone */}
@@ -181,7 +181,7 @@ const features = [
 
 export default function Features() {
   return (
-    <Section id="features">
+    <Section id="features" className="section-features-bg overflow-hidden">
       <Container>
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary-dark text-xs font-semibold tracking-wide uppercase mb-4">
@@ -235,9 +235,11 @@ function FeatureRow({ feature, index }) {
         className={`flex justify-center ${isEven ? "lg:order-2" : "lg:order-1"}`}
         initial={{ opacity: 0, x: isEven ? 40 : -40 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
+        whileHover={{ y: -4 }}
         transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
       >
-        <div className="w-full max-w-sm p-8 rounded-3xl bg-gradient-to-br from-slate-50 to-primary-very-light/30 border border-slate-100">
+        <div className="relative w-full max-w-sm overflow-hidden p-8 rounded-3xl bg-gradient-to-br from-slate-50 to-primary-very-light/30 border border-slate-100 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-slate-200/70">
+          <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary to-secondary opacity-70" />
           {feature.visual}
         </div>
       </motion.div>
