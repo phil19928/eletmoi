@@ -194,20 +194,82 @@ const cardVariants = {
   }),
 };
 
+/* ── Features compactes ──────────────────────────────────────────── */
+const compactFeatures = [
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+      </svg>
+    ),
+    title: "Deux apps, un seul cadre",
+    desc: "App Parent (web) + App Enfant (iOS & Android). Synchronisées, connectées par QR code en 5 minutes.",
+    tag: "QR code · 5 min",
+    iconColor: "text-primary-dark",
+    iconBg: "bg-primary/10",
+    accent: "from-primary to-primary-dark",
+    bg: "bg-gradient-to-br from-primary-very-light to-white",
+    border: "border-primary/20",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+    title: "Chaque minute est visible",
+    desc: "Compteur en temps réel : temps gagné, dépensé, restant. Votre enfant gère son solde lui-même.",
+    tag: "Gagné · Dépensé · Restant",
+    iconColor: "text-secondary-dark",
+    iconBg: "bg-secondary/10",
+    accent: "from-secondary to-secondary-dark",
+    bg: "bg-gradient-to-br from-secondary-very-light to-white",
+    border: "border-secondary/20",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+      </svg>
+    ),
+    title: "Impossible à contourner",
+    desc: "Anti-désinstallation, blocage par plages horaires. Fonctionne même hors ligne.",
+    tag: "École · Nuit · Repas",
+    iconColor: "text-slate-700",
+    iconBg: "bg-slate-200/80",
+    accent: "from-slate-400 to-slate-600",
+    bg: "bg-gradient-to-br from-slate-50 to-white",
+    border: "border-slate-200",
+  },
+];
+
 /* ── Section ─────────────────────────────────────────────────────── */
 export default function Smartloop() {
   const ref = useRef(null);
+  const featRef = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
+  const featInView = useInView(featRef, { once: true, margin: "-60px" });
 
   return (
     <Section id="smartloop" className="section-smartloop-bg overflow-hidden">
       <Container>
+        {/* Pain hook + heading */}
         <div className="text-center mb-12">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-slate-400 text-base sm:text-lg mb-4 italic"
+          >
+            Il est 19h. Votre enfant est sur TikTok depuis une heure.
+            Pas de conflit — juste une règle claire.
+          </motion.p>
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary-dark text-xs font-semibold tracking-wide uppercase mb-4">
             Smartloop
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight text-balance">
-            La Smartloop : une règle simple{" "}
+            Une règle simple{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
               en trois étapes.
             </span>
@@ -242,12 +304,9 @@ export default function Smartloop() {
                     step.color === "secondary" ? "bg-secondary" : "bg-primary"
                   }`}
                 />
-                {/* Illustration */}
                 <div className="mb-5 mt-1">
                   <Visual isInView={isInView} />
                 </div>
-
-                {/* Numéro + titre */}
                 <div className="flex items-baseline gap-2 mb-1.5">
                   <span
                     className={`text-sm font-extrabold font-display flex-shrink-0 ${
@@ -260,13 +319,44 @@ export default function Smartloop() {
                     {step.title}
                   </h3>
                 </div>
-
                 <p className="text-slate-500 text-sm leading-relaxed">
                   {step.description}
                 </p>
               </motion.div>
             );
           })}
+        </div>
+
+        {/* Compact features grid */}
+        <div ref={featRef} className="mt-12 pt-10 border-t border-slate-100">
+          <div className="grid sm:grid-cols-3 gap-5 lg:gap-6">
+            {compactFeatures.map((f, i) => (
+              <motion.div
+                key={f.title}
+                initial={{ opacity: 0, y: 24 }}
+                animate={featInView ? { opacity: 1, y: 0 } : {}}
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.45, delay: i * 0.12 }}
+                className={`relative overflow-hidden rounded-2xl p-6 border ${f.border} ${f.bg} shadow-sm hover:shadow-md transition-shadow duration-300`}
+              >
+                {/* Accent bar */}
+                <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${f.accent}`} />
+
+                {/* Icon */}
+                <div className={`w-12 h-12 rounded-xl ${f.iconBg} flex items-center justify-center mb-4 ${f.iconColor}`}>
+                  {f.icon}
+                </div>
+
+                <h4 className="font-extrabold text-slate-900 text-base mb-2">{f.title}</h4>
+                <p className="text-sm text-slate-500 leading-relaxed mb-5">{f.desc}</p>
+
+                {/* Tag */}
+                <div className="inline-flex items-center px-3 py-1.5 bg-white/80 rounded-lg border border-slate-100 shadow-sm">
+                  <span className="text-[10px] font-bold text-slate-500 tracking-wider uppercase">{f.tag}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </Container>
     </Section>

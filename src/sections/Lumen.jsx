@@ -100,18 +100,6 @@ const ways = [
             "Un catalogue de microformations courtes (3–5 min) organisées en univers, sur la cybersécurité et l'éducation numérique. Chaque contenu est calibré pour les 7–10, 10–13, 13–17 ou adultes.",
         example: "Finir une microformation → gagner du temps",
     },
-    {
-        icon: <IconChat />,
-        color: "bg-amber-50 text-amber-700",
-        accent: "border-amber-200/60",
-        bar: "from-amber-200 via-amber-400 to-amber-200",
-        tag: "IA générative",
-        title: "Demander à Lumen",
-        subtitle: "Poser une question, recevoir une microformation",
-        description:
-            "L'enfant pose une question à Lumen en langage naturel. Lumen génère une microformation personnalisée à la volée, adaptée à son âge, avec un mini-quiz à la fin.",
-        example: "\"C'est quoi un VPN ?\" → microformation + quiz → temps gagné",
-    },
 ];
 
 const ageTabs = [
@@ -277,33 +265,6 @@ const univers = [
     },
 ];
 
-const roadmap = [
-    {
-        icon: <IconActivity />,
-        title: "Activité physique",
-        description:
-            "Chaque pas compte. Le podomètre transforme l'effort physique en temps de divertissement. 5 000 pas = 30 minutes.",
-        color: "bg-slate-50",
-        iconColor: "bg-slate-100 text-slate-500",
-    },
-    {
-        icon: <IconTask />,
-        title: "Missions & tâches",
-        description:
-            "Le parent crée des missions (ranger sa chambre, sortir le chien…). L'enfant valide, le parent confirme, le temps est crédité.",
-        color: "bg-slate-50",
-        iconColor: "bg-slate-100 text-slate-500",
-    },
-    {
-        icon: <IconFish />,
-        title: "Cyber Tests",
-        description:
-            "Lumen envoie un faux email de phishing sur le téléphone de l'enfant. S'il détecte l'arnaque, il gagne du temps bonus. Un entraînement en conditions réelles.",
-        color: "bg-slate-50",
-        iconColor: "bg-slate-100 text-slate-500",
-    },
-];
-
 // ─── Sub-sections ─────────────────────────────────────────────────────────────
 
 function HeroLumen() {
@@ -352,11 +313,10 @@ function HeroLumen() {
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-tight text-balance"
             >
-                Lumen —{" "}
+                Lumen — votre enfant choisit{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-dark to-primary-dark">
-                    l'éducation numérique
+                    comment gagner son temps d'écran.
                 </span>
-                {" "}qui récompense
             </motion.h2>
 
             <motion.p
@@ -365,28 +325,33 @@ function HeroLumen() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="mt-6 text-lg sm:text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto"
             >
-                Votre enfant apprend à se protéger en ligne.{" "}
-                <span className="text-slate-700 font-medium">Et il gagne du temps d'écran en le faisant.</span>
+                Apps d'apprentissage ou formations numériques.{" "}
+                <span className="text-slate-700 font-medium">Lumen propose, l'enfant s'engage, le temps se débloque.</span>
             </motion.p>
 
-            {/* Stat pills */}
+            {/* Stats */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="mt-10 flex flex-wrap items-center justify-center gap-3"
+                className="mt-10 flex flex-wrap items-start justify-center gap-8 sm:gap-12"
             >
                 {[
-                    "3–5 min par microformation",
-                    "Adapté à chaque public",
-                    "5 univers cyber",
-                    "35 microformations",
-                    "Quiz + récompense immédiate",
-                ].map((pill) => (
-                    <span key={pill} className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary-very-light text-primary-dark text-xs font-semibold border border-primary/20">
-                        <IconStar />
-                        {pill}
-                    </span>
+                    { num: "35", label: "microformations", sub: "3–5 min · quiz final" },
+                    { num: "5", label: "univers cyber", sub: "cybersec & numérique" },
+                    { num: "4", label: "publics cibles", sub: "7–10 · 10–13 · 13–17 · Adulte" },
+                ].map((s, i) => (
+                    <motion.div
+                        key={s.num}
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.45, delay: 0.65 + i * 0.1 }}
+                        className="text-center"
+                    >
+                        <div className="text-4xl sm:text-5xl font-extrabold text-primary-dark tracking-tight">{s.num}</div>
+                        <div className="text-sm font-semibold text-slate-800 mt-1">{s.label}</div>
+                        <div className="text-xs text-slate-400 mt-0.5">{s.sub}</div>
+                    </motion.div>
                 ))}
             </motion.div>
         </div>
@@ -619,10 +584,6 @@ function ParentSection() {
             title: "Suivi de progression en temps réel",
             desc: "Microformations complétées, quiz réussis, temps gagné — tout est visible dans le tableau de bord parent.",
         },
-        {
-            title: "Notifications d'apprentissage",
-            desc: "Recevez un résumé des microformations que votre enfant a terminées cette semaine.",
-        },
     ];
 
     return (
@@ -677,54 +638,6 @@ function ParentSection() {
     );
 }
 
-function RoadmapSection() {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-60px" });
-
-    return (
-        <div ref={ref} className="mt-20 sm:mt-24 -mx-5 border-y border-white/70 bg-white/45 px-5 py-10 backdrop-blur-sm sm:-mx-6 sm:px-6 sm:py-12 lg:-mx-8 lg:px-8">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5 }}
-                className="text-center mb-12"
-            >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/80 text-slate-500 text-xs font-semibold tracking-wide uppercase mb-4 border border-slate-200/80 shadow-sm">
-                    Bientôt disponible
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-500">
-                    La suite arrive
-                </h3>
-                <p className="mt-2 text-slate-500 text-sm max-w-md mx-auto">
-                    Ces fonctionnalités sont en développement actif. Elles rejoindront Lumen progressivement.
-                </p>
-            </motion.div>
-
-            <div className="grid sm:grid-cols-3 gap-4">
-                {roadmap.map((item, i) => (
-                    <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.5, delay: i * 0.1 }}
-                        className="relative overflow-hidden rounded-3xl border border-white/80 bg-white/70 p-6 shadow-sm"
-                    >
-                        {/* Bientôt badge */}
-                        <span className="absolute top-4 right-4 inline-block px-2.5 py-0.5 rounded-full bg-slate-200 text-slate-500 text-[9px] font-bold tracking-widest uppercase">
-                            Bientôt
-                        </span>
-                        <div className={`inline-flex items-center justify-center w-11 h-11 rounded-2xl ${item.iconColor} mb-4`}>
-                            {item.icon}
-                        </div>
-                        <h4 className="text-base font-bold text-slate-500 mb-2">{item.title}</h4>
-                        <p className="text-sm text-slate-400 leading-relaxed">{item.description}</p>
-                    </motion.div>
-                ))}
-            </div>
-        </div>
-    );
-}
-
 function CTALumen() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-60px" });
@@ -735,7 +648,7 @@ function CTALumen() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="mt-20 sm:mt-24 text-center"
+            className="mt-10 sm:mt-14 text-center"
         >
             <div className="inline-block max-w-xl w-full">
                 <div className="relative rounded-3xl bg-gradient-to-br from-primary-very-light via-white to-secondary-very-light border border-primary/20 p-8 sm:p-10 overflow-hidden shadow-lg shadow-primary/10">
@@ -759,7 +672,6 @@ function CTALumen() {
                             </svg>
                             Suivre le lancement sur Instagram
                         </Button>
-                        <p className="mt-4 text-xs text-slate-400">100% gratuit · Aucune carte requise</p>
                     </div>
                 </div>
             </div>
@@ -771,18 +683,15 @@ function CTALumen() {
 
 export default function Lumen() {
     return (
-        <section id="lumen" className="section-lumen-bg relative py-20 sm:py-24 lg:py-28 overflow-hidden">
+        <section id="lumen" className="section-lumen-bg relative pt-20 sm:pt-24 lg:pt-28 pb-6 overflow-hidden">
             {/* Background blobs */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/4 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/4 rounded-full blur-3xl pointer-events-none" />
 
             <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
                 <HeroLumen />
-                <WaysSection />
                 <CatalogueSection />
-                <AgeSection />
                 <ParentSection />
-                <RoadmapSection />
                 <CTALumen />
             </div>
         </section>

@@ -34,9 +34,6 @@ export default function Navbar() {
                     <a href="#smartloop" className="hidden md:inline text-sm text-slate-500 hover:text-primary transition-colors font-medium">
                         Smartloop
                     </a>
-                    <a href="#features" className="hidden md:inline text-sm text-slate-500 hover:text-primary transition-colors font-medium">
-                        Fonctionnalités
-                    </a>
                     <a href="#lumen" className="hidden md:inline text-sm text-slate-500 hover:text-primary transition-colors font-medium">
                         Lumen
                     </a>

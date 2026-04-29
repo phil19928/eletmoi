@@ -53,7 +53,7 @@ export default function FAQ() {
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <Section id="faq">
+    <Section id="faq" className="!pt-10 sm:!pt-14">
       <Container>
         <div className="text-center mb-14">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary-dark text-xs font-semibold tracking-wide uppercase mb-4">

@@ -4,6 +4,8 @@ import Button from "../components/Button";
 import PhoneMockup from "../components/PhoneMockup";
 import screenDashboard from "../assets/parentappdashboard.png";
 import screenEnfant from "../assets/childappdashboard.png";
+import badgeAppStore from "../assets/badge--app-store.png";
+import badgePlayStore from "../assets/Google_Play_Store_badge_FR.svg.png";
 
 export default function Hero() {
   return (
@@ -46,7 +48,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 text-amber-700 text-[10px] sm:text-xs font-semibold tracking-wide uppercase mb-5 sm:mb-8 border border-amber-200/50 shadow-sm shadow-amber-100"
             >
               <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-              Bientôt disponible &middot; 100% gratuit &middot; iOS & Android
+              Bientôt disponible &middot; iOS & Android
             </motion.span>
 
             <motion.h1
@@ -66,16 +68,17 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-7 text-lg sm:text-xl text-slate-500 max-w-md mx-auto lg:mx-0 leading-relaxed"
+              className="mt-6 text-lg sm:text-xl text-slate-500 max-w-md mx-auto lg:mx-0 leading-relaxed"
             >
-              Avec Lumen, 10 minutes d'apprentissage ou de microformation deviennent 20 minutes de divertissement. Votre enfant suit son compteur et gagne son temps d'écran en apprenant.
+              Votre enfant apprend 10 min — il gagne 20 min d'écran.
+              Un échange transparent que toute la famille comprend et accepte.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="mt-10 flex justify-center lg:justify-start"
+              className="mt-8 flex justify-center lg:justify-start"
             >
               <div className="relative">
                 <div className="absolute inset-0 rounded-2xl bg-primary/20 animate-pulse-ring pointer-events-none" />
@@ -109,27 +112,22 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.9 }}
-              className="mt-5 text-xs text-slate-400 text-center lg:text-left flex items-center gap-1.5 justify-center lg:justify-start"
+            {/* Store badges */}
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.0 }}
+              className="mt-8 inline-block text-left"
             >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                className="w-3.5 h-3.5"
-              >
-                <path
-                  d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              100% gratuit. Aucune carte requise.
-            </motion.p>
+              <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest mb-2">
+                Bientôt disponible sur
+              </p>
+              <div className="flex items-center gap-3">
+                <img src={badgeAppStore} alt="Disponible sur l'App Store" className="h-9 opacity-70 hover:opacity-100 transition-opacity duration-200" />
+                <img src={badgePlayStore} alt="Disponible sur Google Play" className="h-9 opacity-70 hover:opacity-100 transition-opacity duration-200" />
+              </div>
+            </motion.div>
+
           </div>
 
           {/* Right — Two Phone Mockups */}

@@ -35,22 +35,35 @@ export default function CTABanner() {
                         />
                     </motion.div>
 
+                    <motion.p
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.5 }}
+                        className="text-primary-light text-sm font-semibold tracking-widest uppercase mb-4"
+                    >
+                        Bientôt disponible
+                    </motion.p>
+
                     <motion.h2
                         initial={{ opacity: 0, y: 30 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.15 }}
-                        className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight text-balance"
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] text-balance"
                     >
-                        Bientôt disponible. Gratuit.
+                        Votre famille mérite<br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-primary">
+                            mieux que des conflits.
+                        </span>
                     </motion.h2>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                        className="mt-5 text-lg text-white/50 max-w-md mx-auto"
+                        transition={{ duration: 0.5, delay: 0.25 }}
+                        className="mt-5 text-lg text-white/50 max-w-lg mx-auto leading-relaxed"
                     >
-                        Installation en 5 à 10 minutes. Désinstallez quand vous voulez.
+                        Rejoignez les premières familles qui testent El&amp;Moi.
+                        Suivez le lancement sur Instagram.
                     </motion.p>
 
                     <motion.div
