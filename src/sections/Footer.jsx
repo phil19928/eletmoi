@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MENTIONS_LEGALES_URL } from "../config";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
@@ -27,12 +27,6 @@ export default function Footer() {
                         className="flex items-center gap-6 text-sm"
                     >
                         <a
-                            href={MENTIONS_LEGALES_URL}
-                            className="hover:text-primary transition-colors"
-                        >
-                            Mentions légales
-                        </a>
-                        <a
                             href="mailto:contact@eletmoi.fr"
                             className="hover:text-primary transition-colors"
                         >
@@ -41,8 +35,16 @@ export default function Footer() {
                     </motion.div>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-white/10 text-center text-xs text-white/30">
-                    © {new Date().getFullYear()} El&Moi. Tous droits réservés.
+                <div className="mt-8 pt-6 border-t border-white/10 text-center text-xs text-white/40 flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+                    <Link to="/mentions-legales" className="hover:text-primary transition-colors">Mentions légales</Link>
+                    <span>·</span>
+                    <Link to="/confidentialite" className="hover:text-primary transition-colors">Politique de confidentialité</Link>
+                    <span>·</span>
+                    <Link to="/cgv" className="hover:text-primary transition-colors">CGV</Link>
+                    <span>·</span>
+                    <Link to="/cgu" className="hover:text-primary transition-colors">CGU</Link>
+                    <span className="hidden sm:inline">·</span>
+                    <span className="w-full sm:w-auto">© {new Date().getFullYear()} El&amp;Moi. Tous droits réservés.</span>
                 </div>
             </div>
         </footer>

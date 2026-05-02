@@ -40,6 +40,9 @@ export default function Navbar() {
                     <a href="#faq" className="hidden md:inline text-sm text-slate-500 hover:text-primary transition-colors font-medium">
                         FAQ
                     </a>
+                    <a href="#tarifs" className="hidden md:inline text-sm text-slate-500 hover:text-primary transition-colors font-medium">
+                        Tarifs
+                    </a>
 
                     {/* CTA button */}
                     <motion.a
