@@ -97,14 +97,14 @@ const ways = [
         title: "Microformations",
         subtitle: "Des contenus adaptés à chaque public",
         description:
-            "Un catalogue de microformations courtes (3–5 min) organisées en univers, sur la cybersécurité et l'éducation numérique. Chaque contenu est calibré pour les 7–10, 10–13, 13–17 ou adultes.",
+            "Un catalogue de microformations courtes (3–5 min) organisées en univers, sur la cybersécurité et l'éducation numérique. Chaque contenu est calibré pour les 8–11, 12–14, 15–17 ou adultes.",
         example: "Finir une microformation → gagner du temps",
     },
 ];
 
 const ageTabs = [
     {
-        label: "7–10 ans",
+        label: "8–11 ans",
         emoji: "🐣",
         color: "bg-amber-50 text-amber-700 border-amber-200",
         activeColor: "bg-amber-500 text-white",
@@ -117,7 +117,7 @@ const ageTabs = [
         badge: "Vocabulaire enfantin · Analogies du quotidien",
     },
     {
-        label: "10–13 ans",
+        label: "12–14 ans",
         emoji: "🚀",
         color: "bg-secondary-very-light text-secondary-dark border-secondary/30",
         activeColor: "bg-secondary text-white",
@@ -130,7 +130,7 @@ const ageTabs = [
         badge: "Exemples réels · Règles pratiques",
     },
     {
-        label: "13–17 ans",
+        label: "15–17 ans",
         emoji: "⚡",
         color: "bg-primary-very-light text-primary-dark border-primary/20",
         activeColor: "bg-primary-dark text-white",
@@ -170,14 +170,14 @@ const univers = [
         mood: "Des scénarios du quotidien pour reconnaître les signaux faibles et éviter les arnaques.",
         takeaways: ["Messages suspects", "Faux cadeaux", "Achats en ligne"],
         formations: [
-            { label: "Hameçonnage / Phishing — email, SMS, appel", ages: ["7–10", "10–13", "13–17", "Adulte"] },
-            { label: "Les 9 signes d'un message suspect", ages: ["7–10", "10–13", "13–17", "Adulte"] },
-            { label: "Arnaques aux faux concours & cadeaux", ages: ["7–10", "10–13", "13–17", "Adulte"] },
-            { label: "Faux support technique (Microsoft, Apple qui appellent)", ages: ["10–13", "13–17", "Adulte"] },
-            { label: "Usurpation d'identité", ages: ["10–13", "13–17", "Adulte"] },
-            { label: "Ransomware (rançon numérique)", ages: ["13–17", "Adulte"] },
-            { label: "Arnaques aux achats en ligne", ages: ["7–10", "10–13", "13–17", "Adulte"] },
-            { label: "Vishing (arnaques par téléphone vocal)", ages: ["13–17", "Adulte"] },
+            { label: "Hameçonnage / Phishing — email, SMS, appel", ages: ["8–11", "12–14", "15–17", "Adulte"] },
+            { label: "Les 9 signes d'un message suspect", ages: ["8–11", "12–14", "15–17", "Adulte"] },
+            { label: "Arnaques aux faux concours & cadeaux", ages: ["8–11", "12–14", "15–17", "Adulte"] },
+            { label: "Faux support technique (Microsoft, Apple qui appellent)", ages: ["12–14", "15–17", "Adulte"] },
+            { label: "Usurpation d'identité", ages: ["12–14", "15–17", "Adulte"] },
+            { label: "Ransomware (rançon numérique)", ages: ["15–17", "Adulte"] },
+            { label: "Arnaques aux achats en ligne", ages: ["8–11", "12–14", "15–17", "Adulte"] },
+            { label: "Vishing (arnaques par téléphone vocal)", ages: ["15–17", "Adulte"] },
         ],
     },
     {
@@ -192,13 +192,13 @@ const univers = [
         mood: "Des gestes simples qui rendent les comptes, les appareils et les connexions plus sûrs.",
         takeaways: ["Mots de passe", "2FA", "Appareils protégés"],
         formations: [
-            { label: "Mots de passe — créer, ne pas partager", ages: ["7–10", "10–13", "13–17", "Adulte"] },
-            { label: "Double authentification (2FA)", ages: ["10–13", "13–17", "Adulte"] },
-            { label: "Gestionnaire de mots de passe", ages: ["13–17", "Adulte"] },
-            { label: "Wi-Fi public — les risques", ages: ["10–13", "13–17", "Adulte"] },
-            { label: "Mises à jour & correctifs de sécurité", ages: ["13–17", "Adulte"] },
-            { label: "Sauvegardes numériques", ages: ["13–17", "Adulte"] },
-            { label: "Antivirus & protection de l'appareil", ages: ["10–13", "13–17", "Adulte"] },
+            { label: "Mots de passe — créer, ne pas partager", ages: ["8–11", "12–14", "15–17", "Adulte"] },
+            { label: "Double authentification (2FA)", ages: ["12–14", "15–17", "Adulte"] },
+            { label: "Gestionnaire de mots de passe", ages: ["15–17", "Adulte"] },
+            { label: "Wi-Fi public — les risques", ages: ["12–14", "15–17", "Adulte"] },
+            { label: "Mises à jour & correctifs de sécurité", ages: ["15–17", "Adulte"] },
+            { label: "Sauvegardes numériques", ages: ["15–17", "Adulte"] },
+            { label: "Antivirus & protection de l'appareil", ages: ["12–14", "15–17", "Adulte"] },
         ],
     },
     {
@@ -213,12 +213,12 @@ const univers = [
         mood: "Une lecture claire des données personnelles, de la géolocalisation et de la réputation numérique.",
         takeaways: ["Vie privée", "Cookies", "Réputation"],
         formations: [
-            { label: "C'est quoi une donnée personnelle ?", ages: ["7–10", "10–13", "13–17"] },
-            { label: "Privacy-by-design & RGPD", ages: ["13–17", "Adulte"] },
-            { label: "Cookies & trackers pub", ages: ["10–13", "13–17", "Adulte"] },
-            { label: "Géolocalisation — qui te suit ?", ages: ["7–10", "10–13", "13–17", "Adulte"] },
-            { label: "Empreinte numérique & réputation", ages: ["10–13", "13–17", "Adulte"] },
-            { label: "Cambridge Analytica & scandales data", ages: ["13–17", "Adulte"] },
+            { label: "C'est quoi une donnée personnelle ?", ages: ["8–11", "12–14", "15–17"] },
+            { label: "Privacy-by-design & RGPD", ages: ["15–17", "Adulte"] },
+            { label: "Cookies & trackers pub", ages: ["12–14", "15–17", "Adulte"] },
+            { label: "Géolocalisation — qui te suit ?", ages: ["8–11", "12–14", "15–17", "Adulte"] },
+            { label: "Empreinte numérique & réputation", ages: ["12–14", "15–17", "Adulte"] },
+            { label: "Cambridge Analytica & scandales data", ages: ["15–17", "Adulte"] },
         ],
     },
     {
@@ -233,13 +233,13 @@ const univers = [
         mood: "IA, deepfakes, biais et fake news deviennent concrets, sans jargon inutile.",
         takeaways: ["Deepfakes", "Fake news", "IA générative"],
         formations: [
-            { label: "C'est quoi l'IA ? — en simple", ages: ["7–10", "10–13", "13–17", "Adulte"] },
-            { label: "Comment fonctionne ChatGPT/Claude/etc. ?", ages: ["13–17", "Adulte"] },
-            { label: "Deepfakes — voir ne suffit plus", ages: ["10–13", "13–17", "Adulte"] },
-            { label: "Fake news & vérification de l'info", ages: ["10–13", "13–17", "Adulte"] },
-            { label: "Biais algorithmiques", ages: ["13–17", "Adulte"] },
-            { label: "IA & droit d'auteur, plagiat", ages: ["13–17", "Adulte"] },
-            { label: "Phishing par IA (emails générés, voix clonée)", ages: ["13–17", "Adulte"] },
+            { label: "C'est quoi l'IA ? — en simple", ages: ["8–11", "12–14", "15–17", "Adulte"] },
+            { label: "Comment fonctionne ChatGPT/Claude/etc. ?", ages: ["15–17", "Adulte"] },
+            { label: "Deepfakes — voir ne suffit plus", ages: ["12–14", "15–17", "Adulte"] },
+            { label: "Fake news & vérification de l'info", ages: ["12–14", "15–17", "Adulte"] },
+            { label: "Biais algorithmiques", ages: ["15–17", "Adulte"] },
+            { label: "IA & droit d'auteur, plagiat", ages: ["15–17", "Adulte"] },
+            { label: "Phishing par IA (emails générés, voix clonée)", ages: ["15–17", "Adulte"] },
         ],
     },
     {
@@ -254,13 +254,13 @@ const univers = [
         mood: "Des repères pour publier, signaler, gérer son temps et reconnaître les situations à risque.",
         takeaways: ["Profil privé", "Signalement", "Cyberharcèlement"],
         formations: [
-            { label: "Profil public vs privé", ages: ["7–10", "10–13", "13–17", "Adulte"] },
-            { label: "Algorithmes — pourquoi cette vidéo ?", ages: ["10–13", "13–17", "Adulte"] },
-            { label: "Bulles de filtre", ages: ["13–17", "Adulte"] },
-            { label: "Cyberharcèlement — reconnaître & réagir", ages: ["7–10", "10–13", "13–17", "Adulte"] },
-            { label: "Signaler un contenu", ages: ["7–10", "10–13", "13–17", "Adulte"] },
-            { label: "Temps d'écran & dopamine", ages: ["10–13", "13–17", "Adulte"] },
-            { label: "Grooming & manipulation en ligne", ages: ["10–13", "13–17"] },
+            { label: "Profil public vs privé", ages: ["8–11", "12–14", "15–17", "Adulte"] },
+            { label: "Algorithmes — pourquoi cette vidéo ?", ages: ["12–14", "15–17", "Adulte"] },
+            { label: "Bulles de filtre", ages: ["15–17", "Adulte"] },
+            { label: "Cyberharcèlement — reconnaître & réagir", ages: ["8–11", "12–14", "15–17", "Adulte"] },
+            { label: "Signaler un contenu", ages: ["8–11", "12–14", "15–17", "Adulte"] },
+            { label: "Temps d'écran & dopamine", ages: ["12–14", "15–17", "Adulte"] },
+            { label: "Grooming & manipulation en ligne", ages: ["12–14", "15–17"] },
         ],
     },
 ];
@@ -339,7 +339,7 @@ function HeroLumen() {
                 {[
                     { num: "35", label: "microformations", sub: "3–5 min · quiz final" },
                     { num: "5", label: "univers cyber", sub: "cybersec & numérique" },
-                    { num: "4", label: "publics cibles", sub: "7–10 · 10–13 · 13–17 · Adulte" },
+                    { num: "4", label: "publics cibles", sub: "8–11 · 12–14 · 15–17 · Adulte" },
                 ].map((s, i) => (
                     <motion.div
                         key={s.num}
