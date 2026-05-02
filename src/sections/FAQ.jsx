@@ -23,7 +23,7 @@ const faqs = [
   {
     question: "C'est pour quel âge ?",
     answer:
-      "El&Moi est conçu pour les enfants et ados de 6 à 17 ans. Les formations Lumen s'adaptent automatiquement à trois tranches d'âge : 6-8 ans, 9-12 ans et 13-17 ans. Le vocabulaire, les exemples et la complexité changent selon l'âge de votre enfant.",
+      "El&Moi est conçu pour les enfants et ados de 6 à 17 ans. Les formations Lumen s'adaptent automatiquement à trois tranches d'âge : 8-11 ans, 12-14 ans et 15-17 ans. Le vocabulaire, les exemples et la complexité changent selon l'âge de votre enfant.",
   },
   {
     question: "Est-ce que ça fonctionne sur iPhone et Android ?",
