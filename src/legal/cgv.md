@@ -4,7 +4,7 @@
 
 ## Article 1 — Objet
 
-Les présentes Conditions Générales de Vente régissent les conditions de souscription et d'utilisation des offres payantes du Service El&Moi, commercialisées par la société C&S Associés, SAS au capital de 2 000 euros, immatriculée au RCS de Saverne sous le numéro 104 151 048, dont le siège social est situé au 8 Rue Saint-Sébastien, 67210 Bernardswiller.
+Les présentes Conditions Générales de Vente régissent les conditions de souscription et d'utilisation des offres payantes du Service El&Moi, commercialisées par la société C&S Associés, SAS au capital de 2 000 euros, immatriculée au RCS de Saverne sous le numéro 104 151 048 00014, dont le siège social est situé au 8 Rue Saint-Sébastien, 67210 Bernardswiller.
 
 ## Article 2 — Offres et tarifs
 

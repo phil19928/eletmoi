@@ -10,7 +10,7 @@ Le responsable du traitement des données personnelles collectées dans le cadre
 |---|---|
 | **Société** | C&S Associés, SAS au capital de 2 000 euros |
 | **Siège social** | 8 Rue Saint-Sébastien, 67210 Bernardswiller |
-| **RCS** | Saverne — 104 151 048 |
+| **RCS** | Saverne — 104 151 048 00014 |
 | **Représentant** | Monsieur Philippe Swamy, Président |
 | **Contact** | contact@eletmoi.fr |
 
