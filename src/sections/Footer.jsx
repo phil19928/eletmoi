@@ -43,6 +43,8 @@ export default function Footer() {
                     <Link to="/cgv" className="hover:text-primary transition-colors">CGV</Link>
                     <span>·</span>
                     <Link to="/cgu" className="hover:text-primary transition-colors">CGU</Link>
+                    <span>·</span>
+                    <a href="https://www.cs-associes.fr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Un produit de C&amp;S Associés</a>
                     <span className="hidden sm:inline">·</span>
                     <span className="w-full sm:w-auto">© {new Date().getFullYear()} El&amp;Moi. Tous droits réservés.</span>
                 </div>

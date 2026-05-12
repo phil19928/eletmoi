@@ -9,7 +9,7 @@
 | **Éditeur** | C&S Associés, SAS au capital de 2 000 euros — RCS Saverne 104 151 048 00014 |
 | **Siège social** | 8 Rue Saint-Sébastien, 67210 Bernardswiller |
 | **Directeur de la publication** | Monsieur Philippe Narayana Swamy, Président |
-| **Contact** | contact@eletmoi.fr |
+| **Contact** | contact@eletmoi.fr ou contact@cs-associes.fr |
 | **Hébergeur** | OVHcloud, 2 rue Kellermann, 59100 Roubaix, France |
 
 El&Moi est un service de gestion du temps d'écran à destination des familles. Il permet aux parents (ci-après « l'Utilisateur Parent ») de définir des règles encadrant l'utilisation du téléphone de leur enfant (ci-après « l'Utilisateur Enfant »), selon un mécanisme de récompense lié à l'apprentissage (le « Smartloop »).
@@ -123,7 +123,7 @@ En tout état de cause, la responsabilité totale de l'Éditeur au titre du Serv
 
 ### 9.1 — Par l'Utilisateur
 
-L'Utilisateur Parent peut à tout moment supprimer son compte et résilier son abonnement depuis les paramètres de l'Application Parent ou en contactant l'Éditeur à l'adresse contact@eletmoi.fr.
+L'Utilisateur Parent peut à tout moment supprimer son compte et résilier son abonnement depuis les paramètres de l'Application Parent ou en contactant l'Éditeur à l'adresse contact@eletmoi.fr ou contact@cs-associes.fr.
 
 La suppression du compte entraîne la suppression de toutes les données associées dans un délai de 30 jours, conformément à la Politique de Confidentialité.
 

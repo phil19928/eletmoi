@@ -8,7 +8,7 @@
 | **RCS** | Saverne — 104 151 048 00014 |
 | **Siège social** | 8 Rue Saint-Sébastien, 67210 Bernardswiller |
 | **Directeur de la publication** | Philippe Swamy |
-| **Contact** | contact@eletmoi.fr |
+| **Contact** | contact@eletmoi.fr ou contact@cs-associes.fr |
 
 ## Hébergeur
 

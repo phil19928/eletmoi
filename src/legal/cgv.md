@@ -42,7 +42,7 @@ Si l'Utilisateur a expressément demandé à bénéficier du Service avant l'exp
 
 ### Formulaire type de rétractation
 
-> À l'attention de C&S Associés — 8 Rue Saint Sébastien, 67210 Bernardswiller — contact@eletmoi.fr
+> À l'attention de C&S Associés — 8 Rue Saint Sébastien, 67210 Bernardswiller — contact@eletmoi.fr ou contact@cs-associes.fr
 >
 > Je vous notifie par la présente ma rétractation du contrat portant sur la souscription à l'offre El&Moi Famille.
 >

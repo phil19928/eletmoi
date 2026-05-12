@@ -12,7 +12,7 @@ Le responsable du traitement des données personnelles collectées dans le cadre
 | **Siège social** | 8 Rue Saint-Sébastien, 67210 Bernardswiller |
 | **RCS** | Saverne — 104 151 048 00014 |
 | **Représentant** | Monsieur Philippe Swamy, Président |
-| **Contact** | contact@eletmoi.fr |
+| **Contact** | contact@eletmoi.fr ou contact@cs-associes.fr |
 
 ## Article 2 — Engagement envers la protection des mineurs
 
