@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import Container from "../components/Container";
 import Button from "../components/Button";
 import PhoneMockup from "../components/PhoneMockup";
-import screenDashboard from "../assets/parentappdashboard.png";
-import screenEnfant from "../assets/childappdashboard.png";
+import screenDashboard from "../assets/parentdashboard.png";
+import screenEnfant from "../assets/enfantdashboard.png";
 import badgeAppStore from "../assets/badge--app-store.png";
 import badgePlayStore from "../assets/Google_Play_Store_badge_FR.svg.png";
 
@@ -41,16 +41,6 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left — Text */}
           <div className="text-center lg:text-left order-2 lg:order-1">
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 text-amber-700 text-[10px] sm:text-xs font-semibold tracking-wide uppercase mb-5 sm:mb-8 border border-amber-200/50 shadow-sm shadow-amber-100"
-            >
-              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-              Bientôt disponible &middot; iOS & Android
-            </motion.span>
-
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -83,7 +73,7 @@ export default function Hero() {
               <div className="relative">
                 <div className="absolute inset-0 rounded-2xl bg-primary/20 animate-pulse-ring pointer-events-none" />
                 <Button
-                  href="https://www.instagram.com/eletmoi.app?igsh=MXJzZTkxcmF2OHU0ZQ%3D%3D&utm_source=qr"
+                  href="https://eletmoi.app"
                   variant="card"
                   className="relative z-10 !px-8 !py-4 !rounded-2xl !gap-4"
                 >
@@ -100,28 +90,19 @@ export default function Hero() {
                       <path d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" />
                     </svg>
                   </span>
-                  <span className="flex flex-col items-start leading-tight">
-                    <span className="text-[10px] font-medium text-slate-400 tracking-widest uppercase">
-                      Arrive très vite —
-                    </span>
-                    <span className="text-lg font-bold tracking-tight text-slate-900">
-                      Suivre le lancement
-                    </span>
+                  <span className="text-lg font-normal tracking-tight text-slate-900">
+                    Commencer gratuitement
                   </span>
                 </Button>
               </div>
             </motion.div>
 
-            {/* Store badges */}
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.0 }}
-              className="mt-8 inline-block text-left"
+              className="mt-8 inline-block"
             >
-              <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest mb-2">
-                Bientôt disponible sur
-              </p>
               <div className="flex items-center gap-3">
                 <img src={badgeAppStore} alt="Disponible sur l'App Store" className="h-9 opacity-70 hover:opacity-100 transition-opacity duration-200" />
                 <img src={badgePlayStore} alt="Disponible sur Google Play" className="h-9 opacity-70 hover:opacity-100 transition-opacity duration-200" />
@@ -175,12 +156,6 @@ export default function Hero() {
         </div>
       </Container>
 
-      {/* Curved divider */}
-      <div className="curve-divider">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" fill="#EDF3F080">
-          <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6.01,71.42-16.31,105.56-28.91C957,34.44,1031.36,12.75,1100,21.72c32.35,4.22,63.58,14.68,100,27.53V0Z" />
-        </svg>
-      </div>
     </section>
   );
 }

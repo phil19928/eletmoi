@@ -35,15 +35,6 @@ export default function CTABanner() {
                         />
                     </motion.div>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.5 }}
-                        className="text-primary-light text-sm font-semibold tracking-widest uppercase mb-4"
-                    >
-                        Bientôt disponible
-                    </motion.p>
-
                     <motion.h2
                         initial={{ opacity: 0, y: 30 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -62,8 +53,7 @@ export default function CTABanner() {
                         transition={{ duration: 0.5, delay: 0.25 }}
                         className="mt-5 text-lg text-white/50 max-w-lg mx-auto leading-relaxed"
                     >
-                        Rejoignez les premières familles qui testent El&amp;Moi.
-                        Suivez le lancement sur Instagram.
+                        Rejoignez les premières familles qui placent l'apprentissage et la préparation au cœur de la relation de leurs enfants avec les écrans.
                     </motion.p>
 
                     <motion.div
@@ -73,7 +63,7 @@ export default function CTABanner() {
                         className="mt-10 flex justify-center"
                     >
                         <Button
-                            href="https://www.instagram.com/eletmoi.app?igsh=MXJzZTkxcmF2OHU0ZQ%3D%3D&utm_source=qr"
+                            href="https://eletmoi.app"
                             className="!bg-white !text-slate-900 hover:!bg-slate-50 !shadow-xl !shadow-black/20 !px-8 !py-4 !rounded-2xl !gap-4"
                         >
                             <span className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -81,10 +71,7 @@ export default function CTABanner() {
                                     <path d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" />
                                 </svg>
                             </span>
-                            <span className="flex flex-col items-start leading-tight">
-                                <span className="text-[10px] font-medium text-slate-400 tracking-widest uppercase">Arrive très vite —</span>
-                                <span className="text-lg font-bold tracking-tight text-slate-900">Suivre le lancement</span>
-                            </span>
+                            <span className="text-lg font-normal tracking-tight text-slate-900">Commencer gratuitement</span>
                         </Button>
                     </motion.div>
 

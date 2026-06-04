@@ -46,10 +46,10 @@ export default function Navbar() {
 
                     {/* CTA button */}
                     <motion.a
-                        href="https://www.instagram.com/eletmoi.app?igsh=MXJzZTkxcmF2OHU0ZQ%3D%3D&utm_source=qr"
+                        href="https://eletmoi.app"
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="Suivre le lancement El&Moi sur Instagram"
+                        aria-label="Accéder à l'application El&Moi"
                         whileHover={{ scale: 1.03, y: -1 }}
                         whileTap={{ scale: 0.97 }}
                         className="inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-white text-slate-900 border border-slate-200 shadow-md hover:shadow-lg hover:border-slate-300 transition-all duration-200"
@@ -59,10 +59,7 @@ export default function Navbar() {
                                 <path d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" />
                             </svg>
                         </span>
-                        <span className="flex flex-col items-start leading-tight">
-                            <span className="text-[9px] font-medium text-slate-400 tracking-widest uppercase">Arrive très vite</span>
-                            <span className="text-sm font-bold tracking-tight text-slate-900">Lancement</span>
-                        </span>
+                        <span className="text-sm font-normal tracking-tight text-slate-900">Commencer gratuitement</span>
                     </motion.a>
                 </div>
             </div>

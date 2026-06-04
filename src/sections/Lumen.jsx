@@ -3,8 +3,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import Button from "../components/Button";
 import lumenAvatar from "../assets/Lumen2.png";
 
-const INSTAGRAM_URL =
-    "https://www.instagram.com/eletmoi.app?igsh=MXJzZTkxcmF2OHU0ZQ%3D%3D&utm_source=qr";
+const INSTAGRAM_URL = "https://eletmoi.app";
 
 // ─── Icons ───────────────────────────────────────────────────────────────────
 
@@ -334,7 +333,7 @@ function HeroLumen() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="mt-10 flex flex-wrap items-start justify-center gap-8 sm:gap-12"
+                className="mt-10 grid grid-cols-3 divide-x divide-slate-200 max-w-xl mx-auto"
             >
                 {[
                     { num: "35", label: "microformations", sub: "3–5 min · quiz final" },
@@ -346,11 +345,11 @@ function HeroLumen() {
                         initial={{ opacity: 0, y: 12 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.45, delay: 0.65 + i * 0.1 }}
-                        className="text-center"
+                        className="flex flex-col items-center text-center px-4 py-2"
                     >
-                        <div className="text-4xl sm:text-5xl font-extrabold text-primary-dark tracking-tight">{s.num}</div>
+                        <div className="text-3xl sm:text-4xl font-extrabold text-primary-dark tracking-tight">{s.num}</div>
                         <div className="text-sm font-semibold text-slate-800 mt-1">{s.label}</div>
-                        <div className="text-xs text-slate-400 mt-0.5">{s.sub}</div>
+                        <div className="text-xs text-slate-400 mt-0.5 leading-snug">{s.sub}</div>
                     </motion.div>
                 ))}
             </motion.div>
@@ -662,15 +661,13 @@ function CTALumen() {
                             Parmi les premières familles
                         </h3>
                         <p className="text-slate-500 mb-7 leading-relaxed">
-                            Rejoignez la communauté El&Moi sur Instagram pour suivre le lancement de Lumen et être notifié en avant-première.
+                            Rejoignez les premières familles qui placent l'apprentissage et la préparation au cœur de la relation de leurs enfants avec les écrans.
                         </p>
                         <Button href={INSTAGRAM_URL} className="w-full sm:w-auto !px-8 !py-4 !rounded-2xl">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                <path d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" />
                             </svg>
-                            Suivre le lancement sur Instagram
+                            Commencer gratuitement
                         </Button>
                     </div>
                 </div>

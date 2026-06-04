@@ -2,8 +2,6 @@ import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Section from "../components/Section";
 import Container from "../components/Container";
-import Button from "../components/Button";
-import { PARENT_APP_URL } from "../config";
 
 function Check() {
   return (
@@ -48,7 +46,7 @@ export default function Pricing() {
   const isAnnual = billing === "annuel";
 
   return (
-    <Section id="tarifs" alt>
+    <Section id="tarifs">
       <Container>
         <div ref={ref}>
           {/* Header */}
@@ -151,9 +149,6 @@ export default function Pricing() {
                 </li>
               </ul>
 
-              <Button variant="secondary" href={PARENT_APP_URL} className="w-full">
-                Commencer gratuitement
-              </Button>
             </motion.div>
 
             {/* Famille */}
@@ -211,9 +206,6 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <Button variant="primary" href={PARENT_APP_URL} className="w-full">
-                Passer à Famille
-              </Button>
             </motion.div>
           </div>
 

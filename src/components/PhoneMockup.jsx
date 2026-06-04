@@ -1,14 +1,8 @@
 import { motion } from "framer-motion";
 
-export default function PhoneMockup({ image, alt = "", className = "", imageClassName = "w-full h-full object-cover scale-[1.4]" }) {
+export default function PhoneMockup({ image, alt = "", className = "", imageClassName = "w-full h-full object-contain" }) {
     return (
-        <div className={`relative mx-auto w-full ${className}`}>
-            {/* Glow — proportional to phone size */}
-            <div
-                className="absolute rounded-[3rem] bg-gradient-to-br from-primary via-primary-light to-primary-light opacity-25 blur-2xl glow-pulse pointer-events-none"
-                style={{ inset: "-18% -22%" }}
-            />
-
+        <div className={`relative isolate mx-auto w-full ${className}`}>
             {/* Phone frame */}
             <motion.div
                 initial={{ opacity: 0, scale: 0.9, y: 30 }}
@@ -20,7 +14,7 @@ export default function PhoneMockup({ image, alt = "", className = "", imageClas
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[42%] h-3 sm:h-4 lg:h-6 bg-slate-800 rounded-b-lg sm:rounded-b-xl lg:rounded-b-2xl z-10" />
 
                 {/* Screen */}
-                <div className="relative aspect-[9/19.5] rounded-[0.75rem] sm:rounded-[1.25rem] lg:rounded-[2rem] overflow-hidden bg-[#F0F3F1]">
+                <div className="relative z-20 aspect-[9/19.5] rounded-[0.75rem] sm:rounded-[1.25rem] lg:rounded-[2rem] overflow-hidden bg-[#F0F3F1]">
                     {image ? (
                         <img
                             src={image}

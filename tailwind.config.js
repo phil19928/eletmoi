@@ -22,8 +22,9 @@ export default {
         accent: "#F59E0B",
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        display: ["Space Grotesk", "Inter", "system-ui", "sans-serif"],
+        sans: ["Roboto", "system-ui", "sans-serif"],
+        display: ["Roboto", "system-ui", "sans-serif"],
+        kanit: ["Kanit", "system-ui", "sans-serif"],
       },
       keyframes: {
         "fade-in-up": {
