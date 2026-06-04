@@ -33,7 +33,7 @@ const faqs = [
   {
     question: "C'est vraiment gratuit ?",
     answer:
-      "L'offre El&Moi Essentiel est gratuite, sans limite de durée. Un parent, un enfant, la Smartloop complète, le contrôle du temps d'écran, les plages horaires, le blocage, et une formation Lumen pour découvrir. C'est un vrai produit complet, pas une version bridée. L'offre El&Moi Famille à 4,99 euros par mois, c'est pour les familles qui veulent ajouter un deuxième parent, plusieurs enfants, ou accéder à toutes les formations Lumen en illimité.",
+      "L'offre El&Moi Essentiel est gratuite, sans limite de durée. Un parent, un enfant, la Smartloop complète, le contrôle du temps d'écran, les plages horaires, le blocage, et une formation Lumen pour découvrir. C'est un vrai produit complet, pas une version bridée. L'offre El&Moi Famille à 7,99 euros par mois, ou 59,99 euros par an, c'est pour les familles qui veulent ajouter un deuxième parent, plusieurs enfants, ou accéder à toutes les formations Lumen en illimité.",
   },
   {
     question: "Est-ce que El&Moi espionne mon enfant ?",
