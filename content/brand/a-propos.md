@@ -43,9 +43,6 @@ cta:
 ogImage: /og/a-propos.png
 imageAlt: 'L''équipe d''El&Moi, application française d''encadrement du temps d''écran'
 ---
-
-El&Moi est une application française. Elle est née en Alsace, dans une maison où la question du téléphone revenait tous les soirs.
-
 ## Pourquoi nous l'avons créée
 
 Nous avons essayé les outils existants. Ils font tous à peu près la même chose : ils bloquent.
@@ -77,4 +74,4 @@ Vos données restent en Europe.
 
 Vous êtes journaliste ? Notre [espace presse](/presse/) réunit les faits vérifiables, les citations attribuables et le contact direct.
 
-Une question, une erreur repérée, une proposition de partenariat (école, association, comité d'entreprise) : {{email_contact}}
+Une question, une erreur repérée, une proposition de partenariat (école, association, comité d'entreprise) : contact@eletmoi.fr

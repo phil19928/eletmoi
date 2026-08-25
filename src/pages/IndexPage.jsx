@@ -1,10 +1,11 @@
-import { useRef } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 
 import Navbar from "../components/Navbar";
 import Footer from "../sections/Footer";
 import CookieBanner from "../components/CookieBanner";
+import FeaturedCarousel from "../components/article/FeaturedCarousel";
 import { frenchDate, isoDateTime } from "../lib/date";
 import {
   ARTICLES_BY_ID,
@@ -16,115 +17,76 @@ import {
 /**
  * Le blog, hub unique de tout le contenu éditorial.
  *
- * Cinq briques thématiques — une par cluster — puis une section par brique
- * listant ses articles. Concentrer les contenus au même endroit simplifie la
- * navigation et évite d'éparpiller le maillage interne sur plusieurs pages de
- * liste : c'est un seul point d'entrée à faire remonter, pas cinq.
- *
- * Les URLs des articles ne changent pas : elles restent sur /blog/,
- * /comparatif/, /guides/ et /lumen/.
+ * Trois niveaux de lecture : un carrousel des articles à la une, une barre de
+ * filtres par thématique, puis la grille complète. Le filtre est purement
+ * visuel — tous les articles restent montés dans le DOM, donc présents dans le
+ * HTML prérendu quel que soit le filtre actif.
  */
 
-/** Une couleur par famille : le lecteur situe le type de contenu d'un coup d'œil. */
+/** Une couleur par famille, reprise de la charte du site. */
 const ACCENTS = {
-  primary: {
-    pill: "bg-primary/10 text-primary-dark border-primary/20",
-    brick: "hover:border-primary/40 hover:shadow-primary/5",
-    dot: "bg-primary",
-  },
-  secondary: {
-    pill: "bg-secondary/10 text-secondary-dark border-secondary/20",
-    brick: "hover:border-secondary/40 hover:shadow-secondary/5",
-    dot: "bg-secondary",
-  },
-  accent: {
-    pill: "bg-accent/10 text-amber-700 border-accent/20",
-    brick: "hover:border-accent/40 hover:shadow-accent/5",
-    dot: "bg-accent",
-  },
+  A: { pill: "bg-secondary/10 text-secondary-dark border-secondary/20", chip: "bg-secondary text-white", dot: "bg-secondary" },
+  B: { pill: "bg-accent/10 text-amber-700 border-accent/20", chip: "bg-accent text-white", dot: "bg-accent" },
+  C: { pill: "bg-primary/10 text-primary-dark border-primary/20", chip: "bg-primary text-white", dot: "bg-primary" },
+  D: { pill: "bg-primary/10 text-primary-dark border-primary/20", chip: "bg-primary text-white", dot: "bg-primary" },
+  E: { pill: "bg-secondary/10 text-secondary-dark border-secondary/20", chip: "bg-secondary text-white", dot: "bg-secondary" },
+  F: { pill: "bg-slate-100 text-slate-600 border-slate-200", chip: "bg-slate-700 text-white", dot: "bg-slate-400" },
 };
 
-function ClusterBrick({ brick, count, index }) {
-  const accent = ACCENTS[brick.accent] ?? ACCENTS.primary;
-
-  return (
-    <motion.li
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.45, delay: Math.min(index, 5) * 0.06 }}
-    >
-      <a
-        href={`#${brick.anchor}`}
-        className={`group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${accent.brick}`}
-      >
-        <span className="flex items-center gap-2">
-          <span aria-hidden="true" className={`w-2 h-2 rounded-full ${accent.dot}`} />
-          <span className="font-semibold text-slate-900 leading-snug">
-            {brick.label}
-          </span>
-        </span>
-        <span className="mt-2 text-sm text-slate-500 leading-relaxed flex-1">
-          {brick.tagline}
-        </span>
-        <span className="mt-4 text-xs font-medium text-slate-400">
-          {count === 0
-            ? "Bientôt"
-            : `${count} article${count > 1 ? "s" : ""}`}
-        </span>
-      </a>
-    </motion.li>
-  );
-}
-
-function ArticleCard({ article, accent, index }) {
+function ArticleCard({ article, index }) {
   const author = AUTHORS[article.author];
-  const styles = ACCENTS[accent] ?? ACCENTS.primary;
+  const accent = ACCENTS[article.cluster] ?? ACCENTS.F;
 
   return (
     <motion.li
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, delay: Math.min(index, 4) * 0.07 }}
+      layout
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, delay: Math.min(index, 6) * 0.04 }}
     >
       <Link
         to={article.route}
-        className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-xl hover:shadow-primary/5 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
+        className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-xl hover:shadow-primary/5 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
       >
-        <span
-          className={`self-start rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-wide ${styles.pill}`}
-        >
-          {article.clusterLabel}
-        </span>
+        <div className="aspect-[1200/630] bg-slate-100 overflow-hidden">
+          <img
+            src={article.thumb}
+            alt=""
+            width="600"
+            height="315"
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+          />
+        </div>
 
-        <h3 className="mt-4 text-lg font-bold text-slate-900 leading-snug text-balance group-hover:text-primary-dark transition-colors">
-          {article.h1}
-        </h3>
+        <div className="flex flex-1 flex-col p-5">
+          <span
+            className={`self-start rounded-full border px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${accent.pill}`}
+          >
+            {article.clusterLabel}
+          </span>
 
-        <p className="mt-3 text-sm text-slate-500 leading-relaxed flex-1">
-          {article.metaDescription}
-        </p>
+          <h3 className="mt-3 font-bold text-slate-900 leading-snug text-balance group-hover:text-primary-dark transition-colors">
+            {article.h1}
+          </h3>
 
-        <span className="mt-5 flex items-center gap-3 border-t border-slate-100 pt-4 text-xs text-slate-400">
-          {author?.avatar ? (
-            <img
-              src={author.avatar}
-              alt=""
-              width="24"
-              height="24"
-              loading="lazy"
-              decoding="async"
-              className="w-6 h-6 rounded-full object-cover"
-            />
-          ) : null}
-          <span className="text-slate-500">{author?.name}</span>
-          <span aria-hidden="true">·</span>
-          <span>{article.readingTime} min</span>
-          <time dateTime={isoDateTime(article.dateModified)} className="ml-auto">
-            {frenchDate(article.dateModified)}
-          </time>
-        </span>
+          <p className="mt-2 text-sm text-slate-500 leading-relaxed line-clamp-2 flex-1">
+            {article.metaDescription}
+          </p>
+
+          <span className="mt-4 flex items-center gap-2 border-t border-slate-100 pt-3 text-xs text-slate-400">
+            {author?.avatar ? (
+              <img src={author.avatar} alt="" width="20" height="20" loading="lazy" className="w-5 h-5 rounded-full object-cover" />
+            ) : null}
+            <span className="text-slate-500">{author?.name}</span>
+            <span aria-hidden="true">·</span>
+            <span>{article.readingTime} min</span>
+            <time dateTime={isoDateTime(article.dateModified)} className="ml-auto">
+              {frenchDate(article.dateModified)}
+            </time>
+          </span>
+        </div>
       </Link>
     </motion.li>
   );
@@ -132,104 +94,124 @@ function ArticleCard({ article, accent, index }) {
 
 export default function IndexPage({ route }) {
   const page = INDEX_PAGES.find((p) => p.path === route);
-  const headerRef = useRef(null);
-  const headerInView = useInView(headerRef, { once: true });
+  const [filter, setFilter] = useState("all");
+  const gridRef = useRef(null);
+  const gridInView = useInView(gridRef, { once: true, margin: "-80px" });
 
-  const published = page.articles.map((id) => ARTICLES_BY_ID[id]).filter(Boolean);
+  const articles = useMemo(
+    () =>
+      page.articles
+        .map((id) => ARTICLES_BY_ID[id])
+        .filter(Boolean)
+        .sort((a, b) => b.datePublished.localeCompare(a.datePublished)),
+    [page]
+  );
 
-  const byCluster = BLOG_CLUSTERS.map((brick) => ({
-    ...brick,
-    articles: published
-      .filter((a) => a.cluster === brick.cluster)
-      .sort((a, b) => b.datePublished.localeCompare(a.datePublished)),
-  }));
+  // À la une : les piliers d'abord, puis les articles prioritaires. Quatre au
+  // maximum — au-delà, personne ne fait défiler jusqu'au bout.
+  const featured = useMemo(
+    () =>
+      [...articles]
+        .sort(
+          (a, b) =>
+            Number(b.isPillar) - Number(a.isPillar) ||
+            (a.priority ?? "P3").localeCompare(b.priority ?? "P3") ||
+            b.dateModified.localeCompare(a.dateModified)
+        )
+        .slice(0, 4),
+    [articles]
+  );
+
+  const counts = useMemo(() => {
+    const map = { all: articles.length };
+    for (const a of articles) map[a.cluster] = (map[a.cluster] ?? 0) + 1;
+    return map;
+  }, [articles]);
+
+  const visible =
+    filter === "all" ? articles : articles.filter((a) => a.cluster === filter);
+
+  const chips = [
+    { key: "all", label: "Tous", accent: ACCENTS.F },
+    ...BLOG_CLUSTERS.filter((b) => counts[b.cluster]).map((b) => ({
+      key: b.cluster,
+      label: b.label,
+      accent: ACCENTS[b.cluster] ?? ACCENTS.F,
+    })),
+  ];
 
   return (
     <div className="min-h-screen bg-white font-sans antialiased flex flex-col">
       <Navbar />
 
       <main className="flex-1">
-        <header
-          ref={headerRef}
-          className="section-features-bg pt-28 pb-14 sm:pt-32 sm:pb-16"
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={headerInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-[1000px] mx-auto px-5 sm:px-8 text-center"
-          >
-            <nav aria-label="Fil d'Ariane" className="mb-5 text-sm text-slate-500">
+        <header className="section-features-bg pt-28 pb-10 sm:pt-32 sm:pb-12">
+          <div className="max-w-[1080px] mx-auto px-5 sm:px-8">
+            <nav aria-label="Fil d'Ariane" className="mb-4 text-sm text-slate-500">
               <Link to="/" className="hover:text-primary transition-colors">
                 Accueil
               </Link>
-              <span aria-hidden="true" className="mx-2 text-slate-300">
-                /
-              </span>
-              <span aria-current="page" className="text-slate-700 font-medium">
-                Blog
-              </span>
+              <span aria-hidden="true" className="mx-2 text-slate-300">/</span>
+              <span aria-current="page" className="text-slate-700 font-medium">Blog</span>
             </nav>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-balance">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-balance max-w-3xl">
               Tout pour accompagner votre enfant en ligne
             </h1>
-            <p className="mt-5 text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-slate-600 leading-relaxed max-w-2xl">
               {page.description}
             </p>
-
-            {/* Les cinq briques : point d'entrée thématique du hub. */}
-            <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 list-none pl-0 text-left">
-              {byCluster.map((brick, index) => (
-                <ClusterBrick
-                  key={brick.cluster}
-                  brick={brick}
-                  count={brick.articles.length}
-                  index={index}
-                />
-              ))}
-            </ul>
-          </motion.div>
+          </div>
         </header>
 
-        <div className="max-w-[1000px] mx-auto px-5 sm:px-8 py-14 sm:py-20 space-y-20">
-          {byCluster.map((brick) => (
-            <section
-              key={brick.cluster}
-              id={brick.anchor}
-              aria-labelledby={`${brick.anchor}-titre`}
-              className="scroll-mt-24"
-            >
-              <div className="flex items-baseline justify-between gap-4 mb-6">
-                <h2
-                  id={`${brick.anchor}-titre`}
-                  className="text-2xl sm:text-3xl font-bold text-slate-900"
-                >
-                  {brick.label}
-                </h2>
-                <span className="text-sm text-slate-400 whitespace-nowrap">
-                  {brick.articles.length || "—"}
-                </span>
-              </div>
+        {/* À la une — chevauche le bas de l'en-tête dégradé. */}
+        <div className="section-features-bg pb-14 sm:pb-16">
+          <div className="max-w-[1080px] mx-auto px-5 sm:px-8">
+            <FeaturedCarousel articles={featured} accents={ACCENTS} />
+          </div>
+        </div>
 
-              {brick.articles.length === 0 ? (
-                <p className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-6 text-sm text-slate-400">
-                  Les premiers articles de cette thématique arrivent bientôt.
-                </p>
-              ) : (
-                <ul className="grid gap-5 sm:grid-cols-2 auto-rows-fr list-none pl-0">
-                  {brick.articles.map((article, index) => (
-                    <ArticleCard
-                      key={article.id}
-                      article={article}
-                      accent={brick.accent}
-                      index={index}
-                    />
-                  ))}
-                </ul>
-              )}
-            </section>
-          ))}
+        <div className="max-w-[1080px] mx-auto px-5 sm:px-8 py-12 sm:py-16">
+          <div className="flex flex-wrap items-center gap-2 mb-8">
+            {chips.map((chip) => {
+              const active = filter === chip.key;
+              return (
+                <button
+                  key={chip.key}
+                  type="button"
+                  onClick={() => setFilter(chip.key)}
+                  aria-pressed={active}
+                  className={`rounded-full border px-4 py-2 text-sm font-medium transition-all ${
+                    active
+                      ? `${chip.accent.chip} border-transparent shadow-sm`
+                      : "bg-white text-slate-600 border-slate-200 hover:border-slate-300"
+                  }`}
+                >
+                  {chip.label}
+                  <span className={`ml-2 text-xs ${active ? "opacity-70" : "text-slate-400"}`}>
+                    {counts[chip.key] ?? 0}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          <ul
+            ref={gridRef}
+            className={`grid gap-6 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr list-none pl-0 transition-opacity duration-300 ${
+              gridInView ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            {visible.map((article, index) => (
+              <ArticleCard key={article.id} article={article} index={index} />
+            ))}
+          </ul>
+
+          {visible.length === 0 ? (
+            <p className="text-slate-400 text-center py-10">
+              Aucun article dans cette thématique pour le moment.
+            </p>
+          ) : null}
         </div>
       </main>
 
