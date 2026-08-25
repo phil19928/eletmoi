@@ -13,6 +13,9 @@ import { frenchDate, isoDateTime } from "../../lib/date";
  * Toutes les diapositives sont **montées en permanence** et seulement
  * translatées : une diapositive rendue conditionnellement serait absente du
  * HTML prérendu, donc invisible pour les moteurs.
+ *
+ * Aucune image : c'est la couleur de la thématique qui porte la distinction
+ * visuelle, et le titre occupe toute la place.
  */
 export default function FeaturedCarousel({ articles, accents }) {
   const [index, setIndex] = useState(0);
@@ -73,46 +76,59 @@ export default function FeaturedCarousel({ articles, accents }) {
                 aria-roledescription="diapositive"
                 aria-label={`${i + 1} sur ${count}`}
                 aria-hidden={i !== index}
-                className="w-full flex-shrink-0"
+                className="w-full flex-shrink-0 flex"
               >
                 <Link
                   to={article.route}
                   tabIndex={i === index ? 0 : -1}
-                  className="group grid md:grid-cols-2 items-stretch"
+                  // w-full est indispensable : sans lui le lien se dimensionne
+                  // à son contenu, et le bandeau de couleur n'atteint pas le
+                  // bord de la carte.
+                  className="group flex w-full flex-1 flex-col"
                 >
-                  <div className="relative aspect-[1200/630] md:aspect-auto md:h-full bg-slate-100 overflow-hidden">
-                    <img
-                      src={article.thumb}
-                      alt=""
-                      width="600"
-                      height="315"
-                      // La première diapositive est l'élément le plus visible
-                      // au chargement : elle ne doit pas être différée.
-                      loading={i === 0 ? "eager" : "lazy"}
-                      fetchpriority={i === 0 ? "high" : undefined}
-                      decoding="async"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                  </div>
+                  {/* Bandeau de couleur : ce qui distingue les thématiques
+                      maintenant qu'il n'y a plus de visuel. Il reste collé en
+                      haut, le contenu se centrant dans l'espace restant. */}
+                  <span
+                    aria-hidden="true"
+                    className={`h-1.5 w-full flex-shrink-0 ${accent.dot}`}
+                  />
 
-                  <div className="flex flex-col justify-center p-7 sm:p-10">
-                    <span
-                      className={`self-start rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-wide ${accent.pill}`}
-                    >
-                      {article.clusterLabel}
-                    </span>
-                    <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-slate-900 leading-tight text-balance group-hover:text-primary-dark transition-colors">
-                      {article.h1}
-                    </h2>
-                    <p className="mt-3 text-slate-500 leading-relaxed line-clamp-3">
-                      {article.metaDescription}
-                    </p>
-                    <span className="mt-5 flex items-center gap-3 text-xs text-slate-400">
-                      <span>{article.readingTime} min de lecture</span>
-                      <span aria-hidden="true">·</span>
-                      <time dateTime={isoDateTime(article.dateModified)}>
+                  <div className="flex flex-1 flex-col justify-center px-7 py-10 sm:px-14 sm:py-14 max-w-3xl">
+                    <span className="flex flex-wrap items-center gap-3">
+                      <span
+                        className={`rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-wide ${accent.pill}`}
+                      >
+                        {article.clusterLabel}
+                      </span>
+                      <span className="text-xs text-slate-400">
+                        {article.readingTime} min de lecture
+                      </span>
+                      <span aria-hidden="true" className="text-slate-300">·</span>
+                      <time
+                        dateTime={isoDateTime(article.dateModified)}
+                        className="text-xs text-slate-400"
+                      >
                         {frenchDate(article.dateModified)}
                       </time>
+                    </span>
+
+                    <h2 className="mt-5 text-2xl sm:text-4xl font-bold text-slate-900 leading-[1.15] text-balance group-hover:text-primary-dark transition-colors">
+                      {article.h1}
+                    </h2>
+
+                    <p className="mt-4 text-slate-500 leading-relaxed sm:text-lg">
+                      {article.metaDescription}
+                    </p>
+
+                    <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-primary-dark">
+                      Lire l'article
+                      <span
+                        aria-hidden="true"
+                        className="transition-transform duration-200 group-hover:translate-x-1"
+                      >
+                        →
+                      </span>
                     </span>
                   </div>
                 </Link>

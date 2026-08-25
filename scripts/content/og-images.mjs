@@ -12,7 +12,7 @@
 
 import { writeFile, mkdir, readFile, rm } from "node:fs/promises";
 import { existsSync } from "node:fs";
-import { spawn, execFileSync } from "node:child_process";
+import { spawn } from "node:child_process";
 import path from "node:path";
 import os from "node:os";
 import { pathToFileURL } from "node:url";
@@ -88,38 +88,6 @@ function template(article, logoDataUri) {
   </div>
   <h1>${escapeHtml(article.h1)}</h1>
   <div class="foot"><span>eletmoi.fr</span><span class="dot"></span><span>${article.readingTime} min de lecture</span></div>
-</body></html>`;
-}
-
-/**
- * Gabarit de vignette pour les cartes du blog.
- *
- * Volontairement **sans le titre** : contrairement à une image sociale, qui
- * apparaît seule dans un fil, une vignette est collée au titre de la carte.
- * L'y répéter donne un doublon disgracieux. Il ne reste donc que l'identité
- * visuelle : dégradé du cluster, formes, marque.
- */
-function thumbTemplate(article, logoDataUri) {
-  const theme = THEMES[article.cluster] ?? THEMES.F;
-  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{width:1200px;height:630px;position:relative;overflow:hidden;
-       background:linear-gradient(135deg,${theme.accent}26 0%,${theme.from} 45%,#ffffff 100%)}
-  .ring{position:absolute;border-radius:50%;border:3px solid ${theme.accent}26}
-  .r1{width:900px;height:900px;top:-330px;right:-260px}
-  .r2{width:640px;height:640px;bottom:-300px;left:-180px}
-  .r3{width:380px;height:380px;top:120px;left:120px;border-style:dashed;opacity:.7}
-  .blob{position:absolute;border-radius:50%;filter:blur(70px)}
-  .b1{width:520px;height:520px;background:${theme.accent}3d;top:-160px;right:-100px}
-  .b2{width:420px;height:420px;background:${theme.accent}2b;bottom:-180px;left:-80px}
-  .mascot{position:absolute;right:96px;bottom:64px;width:300px;height:300px;
-          opacity:.96;filter:drop-shadow(0 24px 48px ${theme.accent}40)}
-  .bar{position:absolute;left:0;top:0;bottom:0;width:14px;background:${theme.accent}}
-</style></head><body>
-  <div class="blob b1"></div><div class="blob b2"></div>
-  <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
-  <div class="bar"></div>
-  <img class="mascot" src="${logoDataUri}" alt="">
 </body></html>`;
 }
 
@@ -215,33 +183,6 @@ export async function generate({ force = false } = {}) {
       console.log(`  ✓ ${article.ogImage.padEnd(42)} ${article.h1.slice(0, 44)}`);
     }
   });
-
-  // Vignettes des cartes. Une image sociale pèse ~285 Ko : en afficher douze
-  // sur une page de liste coûterait 3,3 Mo. Rendu séparé, puis JPEG 600 px.
-  const thumbs = path.join(OUT_DIR, "thumbs");
-  await mkdir(thumbs, { recursive: true });
-  const todoThumbs = ARTICLES.filter(
-    (a) => force || !existsSync(path.join(thumbs, path.basename(a.ogImage).replace(/\.png$/, ".jpg")))
-  );
-
-  if (todoThumbs.length > 0) {
-    console.log(`\n${c.bold}Vignettes${c.reset} — ${todoThumbs.length} à générer\n`);
-    await withChrome(async () => {
-      for (const article of todoThumbs) {
-        const raw = path.join(thumbs, path.basename(article.ogImage));
-        const out = raw.replace(/\.png$/, ".jpg");
-        await capture(thumbTemplate(article, logoDataUri), raw);
-        try {
-          execFileSync("sips", ["-Z", "600", "-s", "format", "jpeg",
-            "-s", "formatOptions", "76", raw, "--out", out], { stdio: "ignore" });
-          await rm(raw, { force: true });
-        } catch {
-          console.log(`  ${c.yellow}sips absent : ${path.basename(out)} reste en PNG${c.reset}`);
-        }
-        console.log(`  ✓ ${path.basename(out)}`);
-      }
-    });
-  }
 
   console.log(
     `\n  ${c.dim}Commitez public/og/ : ces fichiers ne sont pas régénérés au build.${c.reset}\n`

@@ -48,30 +48,22 @@ function ArticleCard({ article, index }) {
         to={article.route}
         className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-xl hover:shadow-primary/5 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
       >
-        <div className="aspect-[1200/630] bg-slate-100 overflow-hidden">
-          <img
-            src={article.thumb}
-            alt=""
-            width="600"
-            height="315"
-            loading="lazy"
-            decoding="async"
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-          />
-        </div>
+        {/* Bandeau de couleur en tête de carte : il remplace la vignette
+            comme repère visuel de la thématique. */}
+        <span aria-hidden="true" className={`h-1 w-full ${accent.dot}`} />
 
-        <div className="flex flex-1 flex-col p-5">
+        <div className="flex flex-1 flex-col p-6">
           <span
             className={`self-start rounded-full border px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide ${accent.pill}`}
           >
             {article.clusterLabel}
           </span>
 
-          <h3 className="mt-3 font-bold text-slate-900 leading-snug text-balance group-hover:text-primary-dark transition-colors">
+          <h3 className="mt-4 text-lg font-bold text-slate-900 leading-snug text-balance group-hover:text-primary-dark transition-colors">
             {article.h1}
           </h3>
 
-          <p className="mt-2 text-sm text-slate-500 leading-relaxed line-clamp-2 flex-1">
+          <p className="mt-3 text-sm text-slate-500 leading-relaxed line-clamp-3 flex-1">
             {article.metaDescription}
           </p>
 
@@ -146,7 +138,9 @@ export default function IndexPage({ route }) {
 
       <main className="flex-1">
         <header className="section-features-bg pt-28 pb-10 sm:pt-32 sm:pb-12">
-          <div className="max-w-[1080px] mx-auto px-5 sm:px-8">
+          {/* Centré, comme le carrousel juste en dessous : aligné à gauche,
+              le titre paraissait collé au bord sur les écrans larges. */}
+          <div className="max-w-[1080px] mx-auto px-5 sm:px-8 text-center">
             <nav aria-label="Fil d'Ariane" className="mb-4 text-sm text-slate-500">
               <Link to="/" className="hover:text-primary transition-colors">
                 Accueil
@@ -155,10 +149,10 @@ export default function IndexPage({ route }) {
               <span aria-current="page" className="text-slate-700 font-medium">Blog</span>
             </nav>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-balance max-w-3xl">
+            <h1 className="mx-auto max-w-3xl text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-balance">
               Tout pour accompagner votre enfant en ligne
             </h1>
-            <p className="mt-4 text-lg text-slate-600 leading-relaxed max-w-2xl">
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
               {page.description}
             </p>
           </div>

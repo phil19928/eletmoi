@@ -97,7 +97,6 @@ export async function build({ quiet = false } = {}) {
       isPillar: Boolean(entry?.isPillar),
       priority: entry?.priority ?? "P3",
       wave: entry?.wave ?? "V5",
-      thumb: a.ogImage.replace(/^\/og\//, "/og/thumbs/").replace(/\.png$/, ".jpg"),
       readingTime: readingTime(a.body),
       wordCount: a.body.split(/\s+/).filter(Boolean).length,
       dir: registry.byId.get(a.id).dir,
