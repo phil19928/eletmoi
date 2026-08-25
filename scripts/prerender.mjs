@@ -23,6 +23,17 @@ const { ROUTES, NOT_FOUND_ROUTE, SITE_URL } = await import(
 );
 const { render } = await import(pathToFileURL(SSR_ENTRY).href);
 
+/**
+ * URL canonique d'une route.
+ *
+ * Les routes sont écrites en <route>/index.html : Netlify les sert alors sur
+ * <route>/ et redirige <route> en 301. Le canonical et le sitemap doivent
+ * donc porter le slash final, sinon ils désignent une URL qui redirige — ce
+ * que Search Console signale en « Page avec redirection ».
+ */
+const canonicalUrl = (routePath) =>
+  routePath === "/" ? SITE_URL + "/" : `${SITE_URL}${routePath}/`;
+
 const escapeHtml = (value) =>
   String(value)
     .replace(/&/g, "&amp;")
@@ -77,6 +88,9 @@ function applyHead(html, { title, description, canonical, noindex = false }) {
       /<\/title>/i,
       '</title>\n  <meta name="robots" content="noindex" />'
     );
+    // La 404 est servie sur n'importe quelle URL inconnue : déclarer une
+    // canonique n'aurait aucun sens, elle désignerait une page inexistante.
+    out = out.replace(/\s*<link\s+rel=["']canonical["'][^>]*>/i, "");
   }
 
   return out;
@@ -89,7 +103,7 @@ function applyHead(html, { title, description, canonical, noindex = false }) {
  * s'est produit : une classe [^"'] coupait au premier apostrophe et laissait
  * un fragment de l'ancienne description). On revalide donc le résultat.
  */
-function verifyHead(html, { title, description, canonical }, routePath) {
+function verifyHead(html, { title, description, canonical }, routePath, expect = {}) {
   const head = html.slice(0, html.indexOf("</head>"));
   const decode = (s) =>
     s
@@ -123,6 +137,7 @@ function verifyHead(html, { title, description, canonical }, routePath) {
   ];
 
   for (const [label, pattern, expected] of checks) {
+    if (label === "canonical" && expect.canonical === false) continue;
     const match = head.match(pattern);
     if (!match) {
       throw new Error(`${routePath} : ${label} introuvable dans le <head> généré.`);
@@ -206,7 +221,7 @@ function lastModified(source) {
 function buildSitemap(entries) {
   const urls = entries
     .map(({ path: routePath, priority, changefreq, lastmod }) => {
-      const loc = new URL(routePath, SITE_URL).href;
+      const loc = canonicalUrl(routePath);
       return [
         "  <url>",
         `    <loc>${escapeHtml(loc)}</loc>`,
@@ -225,7 +240,7 @@ function buildSitemap(entries) {
 
 async function writeRoute(template, route, { noindex = false, file } = {}) {
   const markup = await render(route.path);
-  const canonical = new URL(route.path, SITE_URL).href;
+  const canonical = canonicalUrl(route.path);
 
   const head = {
     title: route.title,
@@ -234,7 +249,8 @@ async function writeRoute(template, route, { noindex = false, file } = {}) {
   };
 
   let html = applyHead(template, { ...head, noindex });
-  verifyHead(html, head, route.path);
+  // La 404 n'a volontairement pas de canonique (voir applyHead).
+  verifyHead(html, head, route.path, { canonical: !noindex });
   html = injectBody(html, markup);
 
   verifyAssets(html, route.path);

@@ -55,6 +55,11 @@ createServer(async (req, res) => {
   const url = decodeURIComponent(req.url.split("?")[0]);
   const relative = path.normalize(url).replace(/^(\.\.[/\\])+/, "");
 
+  // Netlify sert <route>/index.html sur <route>/ et redirige <route> en 301.
+  if (!url.endsWith("/") && (await isFile(path.join(DIST, relative, "index.html")))) {
+    return res.writeHead(301, { location: `${url}/` }).end();
+  }
+
   for (const file of [
     path.join(DIST, relative),
     path.join(DIST, relative, "index.html"),
