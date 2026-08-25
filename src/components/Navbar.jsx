@@ -1,9 +1,33 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 import elephantMascot from "../assets/Main El&Moi.png";
+
+/**
+ * La navigation ramène aux sections de l'accueil, pas aux pages produit.
+ *
+ * L'accueil est le parcours de présentation : cliquer « Smartloop » doit y
+ * conduire, pas ouvrir une page de fond. Les pages produit restent
+ * accessibles depuis le lien « En savoir plus » de chaque section et depuis le
+ * pied de page. Seul « Blog » mène à une page, parce que c'est un univers à
+ * part entière.
+ *
+ * Le chemin « / » devant l'ancre est indispensable : depuis /blog/un-article,
+ * un simple « #smartloop » ne mènerait nulle part.
+ */
+const NAV_ITEMS = [
+    { to: "/#smartloop", label: "Smartloop" },
+    { to: "/#lumen", label: "Lumen" },
+    { to: "/#tarifs", label: "Tarifs" },
+    { to: "/blog", label: "Blog" },
+];
+
+const navLink =
+    "hidden md:inline text-sm transition-colors font-medium";
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
+    const { pathname } = useLocation();
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 20);
@@ -23,26 +47,38 @@ export default function Navbar() {
                 }`}
         >
             <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-                <a href="#" aria-label="Retour à l'accueil" className="flex items-center gap-2.5 group">
+                <Link to="/" aria-label="Retour à l'accueil" className="flex items-center gap-2.5 group">
                     <img src={elephantMascot} alt="El&Moi" className="w-8 h-8" />
                     <span className="text-xl font-bold tracking-tight font-display text-slate-900">
                         El<span className="text-primary group-hover:text-primary-dark transition-colors">&</span>Moi
                     </span>
-                </a>
+                </Link>
 
                 <div className="flex items-center gap-4">
-                    <a href="#smartloop" className="hidden md:inline text-sm text-slate-500 hover:text-primary transition-colors font-medium">
-                        Smartloop
-                    </a>
-                    <a href="#lumen" className="hidden md:inline text-sm text-slate-500 hover:text-primary transition-colors font-medium">
-                        Lumen
-                    </a>
-                    <a href="#faq" className="hidden md:inline text-sm text-slate-500 hover:text-primary transition-colors font-medium">
-                        FAQ
-                    </a>
-                    <a href="#tarifs" className="hidden md:inline text-sm text-slate-500 hover:text-primary transition-colors font-medium">
-                        Tarifs
-                    </a>
+                    {/* Pages réelles, plus des ancres : depuis /blog/... une ancre
+                        « #smartloop » ne mènerait nulle part. La page courante est
+                        signalée, sinon on ne sait plus où l'on est. */}
+                    {NAV_ITEMS.map((item) => {
+                        // Seules les entrées qui mènent à une page peuvent
+                        // être « courantes » ; une ancre ne l'est jamais.
+                        const active =
+                            !item.to.includes("#") &&
+                            (pathname === item.to || pathname.startsWith(`${item.to}/`));
+                        return (
+                            <Link
+                                key={item.to}
+                                to={item.to}
+                                aria-current={active ? "page" : undefined}
+                                className={`${navLink} ${
+                                    active
+                                        ? "text-primary-dark border-b-2 border-primary pb-0.5"
+                                        : "text-slate-500 hover:text-primary"
+                                }`}
+                            >
+                                {item.label}
+                            </Link>
+                        );
+                    })}
 
                     {/* CTA button */}
                     <motion.a

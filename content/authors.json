@@ -1,0 +1,14 @@
+{
+  "$comment": "Signaux E-E-A-T : ces informations sont vérifiables par un lecteur et par Google. Elles ne doivent jamais être inventées.",
+  "authors": {
+    "philippe": {
+      "name": "Philippe",
+      "role": "Cofondateur d'El&Moi",
+      "bio": "Passionné par la technologie et la nature, je travaille depuis plus de 10 ans dans le numérique et les nouvelles technologies. Avec El&Moi, je veux contribuer à construire un environnement numérique plus sain et éducatif pour les générations futures.",
+      "avatar": "/authors/philippe.jpg",
+      "avatarLarge": "/authors/philippe@2x.jpg",
+      "url": "/a-propos",
+      "sameAs": []
+    }
+  }
+}

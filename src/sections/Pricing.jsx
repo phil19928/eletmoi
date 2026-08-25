@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Section from "../components/Section";
 import Container from "../components/Container";
+import SectionLink from "../components/SectionLink";
 
 function Check() {
   return (
@@ -219,6 +220,7 @@ export default function Pricing() {
             Sans engagement · Annulez quand vous voulez · Pas de carte bancaire requise pour l'offre gratuite
           </motion.p>
         </div>
+        <SectionLink to="/tarifs">Voir le détail des formules</SectionLink>
       </Container>
     </Section>
   );

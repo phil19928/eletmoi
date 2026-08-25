@@ -48,6 +48,19 @@ export default function Footer() {
                     </motion.div>
                 </div>
 
+                {/* Navigation : sans ces liens, les pages produit n'étaient
+                    atteignables que par la barre du haut. */}
+                <nav
+                    aria-label="Pages du site"
+                    className="mt-10 pt-8 border-t border-white/10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm"
+                >
+                    <Link to="/smartloop" className="hover:text-primary transition-colors">Le Smartloop</Link>
+                    <Link to="/lumen" className="hover:text-primary transition-colors">Lumen</Link>
+                    <Link to="/tarifs" className="hover:text-primary transition-colors">Tarifs</Link>
+                    <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
+                    <Link to="/a-propos" className="hover:text-primary transition-colors">Qui sommes-nous</Link>
+                </nav>
+
                 <div className="mt-8 pt-6 border-t border-white/10 flex flex-col items-center gap-3">
                     <p className="max-w-2xl text-center text-xs leading-relaxed text-white/40">
                         El&amp;Moi — prononcé « El et Moi » — est une application de contrôle parental

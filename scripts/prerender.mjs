@@ -23,6 +23,13 @@ const { ROUTES, NOT_FOUND_ROUTE, SITE_URL } = await import(
 );
 const { render } = await import(pathToFileURL(SSR_ENTRY).href);
 
+const { ARTICLES_BY_ROUTE, AUTHORS, ARTICLES, INDEX_PAGES } = await import(
+  pathToFileURL(path.join(ROOT, "src", "content", "manifest.js")).href
+);
+const { buildJsonLd, renderJsonLd } = await import(
+  pathToFileURL(path.join(ROOT, "scripts", "content", "jsonld.mjs")).href
+);
+
 /**
  * URL canonique d'une route.
  *
@@ -62,7 +69,7 @@ function setMeta(html, attr, name, content) {
   return html.replace(pattern, `$1"${escapeHtml(content)}"`);
 }
 
-function applyHead(html, { title, description, canonical, noindex = false }) {
+function applyHead(html, { title, description, canonical, noindex = false, ogImage, imageAlt, jsonLd }) {
   let out = html;
 
   if (!/<title>[^<]*<\/title>/i.test(out)) {
@@ -82,6 +89,28 @@ function applyHead(html, { title, description, canonical, noindex = false }) {
     throw new Error("Balise <link rel=\"canonical\"> introuvable dans le gabarit.");
   }
   out = out.replace(canonicalPattern, `$1"${escapeHtml(canonical)}"`);
+
+  // hreflang auto-référençant. Sans effet tant qu'il n'existe qu'une version
+  // linguistique, mais il déclare explicitement la cible France.
+  out = out.replace(
+    /(<link\s+rel=["']canonical["'][^>]*>)/i,
+    `$1\n  <link rel="alternate" hreflang="fr-FR" href="${escapeHtml(canonical)}" />` +
+      `\n  <link rel="alternate" hreflang="x-default" href="${escapeHtml(canonical)}" />`
+  );
+
+  // Image sociale propre à l'article, sinon celle du site.
+  if (ogImage) {
+    const absolute = ogImage.startsWith("http") ? ogImage : `${SITE_URL}${ogImage}`;
+    out = setMeta(out, "property", "og:image", absolute);
+    out = setMeta(out, "name", "twitter:image", absolute);
+    if (imageAlt) out = setMeta(out, "property", "og:image:alt", imageAlt);
+  }
+
+  // Le JSON-LD dépendant de la route s'ajoute à celui du gabarit
+  // (Organization + WebSite, communs à toutes les pages).
+  if (jsonLd) {
+    out = out.replace(/<\/head>/i, `${jsonLd}</head>`);
+  }
 
   if (noindex) {
     out = out.replace(
@@ -238,17 +267,75 @@ function buildSitemap(entries) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }
 
+/** Flux RSS 2.0 du blog. Les dates RFC 822 sont imposées par la spécification. */
+function buildRss(articles) {
+  const rfc822 = (iso) => new Date(`${iso}T12:00:00Z`).toUTCString();
+  const items = articles
+    .map((a) =>
+      [
+        "    <item>",
+        `      <title>${escapeHtml(a.h1)}</title>`,
+        `      <link>${escapeHtml(canonicalUrl(a.route))}</link>`,
+        `      <guid isPermaLink="true">${escapeHtml(canonicalUrl(a.route))}</guid>`,
+        `      <description>${escapeHtml(a.metaDescription)}</description>`,
+        `      <pubDate>${rfc822(a.datePublished)}</pubDate>`,
+        `      <category>${escapeHtml(a.clusterLabel)}</category>`,
+        "    </item>",
+      ].join("\n")
+    )
+    .join("\n");
+
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+    "  <channel>",
+    "    <title>El&amp;Moi — Blog</title>",
+    `    <link>${SITE_URL}/blog/</link>`,
+    "    <description>Encadrer le temps d'écran des enfants : cadre légal, repères pratiques et parentalité numérique.</description>",
+    "    <language>fr-FR</language>",
+    `    <lastBuildDate>${rfc822(articles[0].dateModified)}</lastBuildDate>`,
+    `    <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml" />`,
+    items,
+    "  </channel>",
+    "</rss>",
+    "",
+  ].join("\n");
+}
+
 async function writeRoute(template, route, { noindex = false, file } = {}) {
   const markup = await render(route.path);
   const canonical = canonicalUrl(route.path);
 
+  const article = ARTICLES_BY_ROUTE[route.path] ?? null;
   const head = {
     title: route.title,
     description: route.description,
     canonical,
   };
 
-  let html = applyHead(template, { ...head, noindex });
+  let html = applyHead(template, {
+    ...head,
+    noindex,
+    ogImage: article?.ogImage,
+    imageAlt: article?.imageAlt,
+    // Pas de données structurées sur la 404 : elle est en noindex.
+    jsonLd: noindex
+      ? null
+      : renderJsonLd(
+          buildJsonLd({
+            route,
+            article,
+            authors: AUTHORS,
+            label: article?.h1 ?? route.title.split(" |")[0],
+            // Les pages d'index reçoivent un CollectionPage listant leurs articles.
+            indexArticles: INDEX_PAGES.some((p) => p.path === route.path)
+              ? ARTICLES.filter((a) =>
+                  INDEX_PAGES.find((p) => p.path === route.path).articles.includes(a.id)
+                )
+              : null,
+          })
+        ),
+  });
   // La 404 n'a volontairement pas de canonique (voir applyHead).
   verifyHead(html, head, route.path, { canonical: !noindex });
   html = injectBody(html, markup);
@@ -290,7 +377,10 @@ for (const route of ROUTES) {
     path: route.path,
     priority: route.priority,
     changefreq: route.changefreq,
-    lastmod: lastModified(route.source),
+    // Le dateModified du frontmatter fait foi (§6.4). Les routes statiques,
+    // qui n'en ont pas, retombent sur la date du dernier commit du fichier
+    // source — jamais sur la date de build.
+    lastmod: route.lastmod ?? lastModified(route.source),
   });
 }
 
@@ -305,14 +395,33 @@ console.log(`  ✓ ${"404".padEnd(20)} → ${path.relative(ROOT, notFound.outFil
 await writeFile(path.join(DIST, "sitemap.xml"), buildSitemap(sitemapEntries), "utf8");
 console.log(`\n  ✓ sitemap.xml — ${sitemapEntries.length} URLs`);
 
-// Contrôle final : le mot-clé principal doit être présent dans le HTML brut.
+// Flux RSS des articles de blog (clusters A et D).
+const feedArticles = Object.values(ARTICLES_BY_ROUTE)
+  .filter((a) => a.route.startsWith("/blog/"))
+  .sort((a, b) => b.datePublished.localeCompare(a.datePublished))
+  .slice(0, 30);
+
+if (feedArticles.length > 0) {
+  await writeFile(path.join(DIST, "rss.xml"), buildRss(feedArticles), "utf8");
+  console.log(`  ✓ rss.xml — ${feedArticles.length} article(s)`);
+}
+
+// Contrôle final : le HTML prérendu doit contenir du texte réel, pas une
+// coquille vide. Volontairement générique — une assertion sur une expression
+// de marque précise deviendrait fausse au premier changement de copy.
 const home = await readFile(path.join(DIST, "index.html"), "utf8");
-const bodyOnly = home.slice(home.indexOf("<body"));
-if (!/contrôle parental/i.test(bodyOnly)) {
+const homeBody = home.slice(home.indexOf("<body"));
+const visibleText = homeBody
+  .replace(/<script[\s\S]*?<\/script>/gi, " ")
+  .replace(/<[^>]*>/g, " ")
+  .replace(/\s+/g, " ")
+  .trim();
+
+if (visibleText.length < 500) {
   throw new Error(
-    "Le HTML prérendu de la page d'accueil ne contient pas « contrôle parental » " +
-      "dans le <body> — le rendu a probablement échoué silencieusement."
+    `Page d'accueil : seulement ${visibleText.length} caractères de texte visible ` +
+      "dans le HTML prérendu — le rendu a probablement échoué silencieusement."
   );
 }
 
-console.log("  ✓ contenu vérifié dans le <body> de la page d'accueil\n");
+console.log(`  ✓ ${visibleText.length} caractères de texte visible sur l'accueil\n`);

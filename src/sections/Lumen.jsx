@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import Button from "../components/Button";
 import lumenAvatar from "../assets/Lumen2.png";
+import SectionLink from "../components/SectionLink";
 
 const INSTAGRAM_URL = "https://eletmoi.app";
 
@@ -690,6 +691,7 @@ export default function Lumen() {
                 <CatalogueSection />
                 <ParentSection />
                 <CTALumen />
+                <SectionLink to="/lumen">Découvrir les parcours Lumen</SectionLink>
             </div>
         </section>
     );

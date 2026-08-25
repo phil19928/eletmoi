@@ -3,6 +3,7 @@ import { useRef } from "react";
 import Section from "../components/Section";
 import Container from "../components/Container";
 import SmartloopDiagram from "../components/SmartloopDiagram";
+import SectionLink from "../components/SectionLink";
 
 /* ── Visuel 1 : Classification des apps ─────────────────────────── */
 function ClassifyVisual({ isInView }) {
@@ -358,6 +359,7 @@ export default function Smartloop() {
             ))}
           </div>
         </div>
+        <SectionLink to="/smartloop">Comment fonctionne le Smartloop</SectionLink>
       </Container>
     </Section>
   );

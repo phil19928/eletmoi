@@ -5,7 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs",
+    "content:build": "node scripts/content/build.mjs",
+    "content:new": "node scripts/content/new.mjs",
+    "content:ingest": "node scripts/content/ingest.mjs",
+    "content:links": "node scripts/content/links.mjs",
+    "content:og": "node scripts/content/og-images.mjs",
+    "content:status": "node scripts/content/status.mjs",
+    "seo:check": "node scripts/content/check.mjs",
+    "seo:ping": "node scripts/content/ping.mjs",
+    "build": "npm run content:build && vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs",
     "preview": "node scripts/serve-dist.mjs"
   },
   "dependencies": {
@@ -19,8 +27,10 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.16",
+    "gray-matter": "^4.0.3",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.0",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "zod": "^4.4.3"
   }
 }
