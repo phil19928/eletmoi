@@ -24,7 +24,6 @@ export default {
       fontFamily: {
         sans: ["Roboto", "system-ui", "sans-serif"],
         display: ["Roboto", "system-ui", "sans-serif"],
-        kanit: ["Kanit", "system-ui", "sans-serif"],
       },
       keyframes: {
         "fade-in-up": {

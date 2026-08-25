@@ -269,9 +269,9 @@ export default function Smartloop() {
             Smartloop
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight text-balance">
-            Une règle simple{" "}
+            La gestion du temps d'écran{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
-              en trois étapes.
+              en trois étapes simples.
             </span>
           </h2>
         </div>

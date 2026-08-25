@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import { MotionConfig } from "framer-motion";
@@ -10,10 +11,16 @@ import FAQ from "./sections/FAQ";
 import CTABanner from "./sections/CTABanner";
 import Pricing from "./sections/Pricing";
 import Footer from "./sections/Footer";
-import MentionsLegales from "./pages/MentionsLegales";
-import Confidentialite from "./pages/Confidentialite";
-import CGV from "./pages/CGV";
-import CGU from "./pages/CGU";
+import NotFound from "./pages/NotFound";
+
+// Chargées à la demande : elles embarquent react-markdown + remark-gfm (48 Ko
+// gzip) dont la page d'accueil n'a aucun besoin. Le prérendu les résout au
+// build (renderToPipeableStream attend les frontières Suspense), donc leur
+// contenu reste présent dans le HTML statique.
+const MentionsLegales = lazy(() => import("./pages/MentionsLegales"));
+const Confidentialite = lazy(() => import("./pages/Confidentialite"));
+const CGV = lazy(() => import("./pages/CGV"));
+const CGU = lazy(() => import("./pages/CGU"));
 
 function LandingPage() {
   return (
@@ -31,19 +38,34 @@ function LandingPage() {
   );
 }
 
-export default function App() {
+function PageFallback() {
+  return <div className="min-h-screen bg-white" />;
+}
+
+// Agnostique du routeur : monté sous BrowserRouter côté client et sous
+// StaticRouter au prérendu (voir entry-server.jsx).
+export function AppRoutes() {
   return (
     <MotionConfig reducedMotion="user">
-      <BrowserRouter>
-        <ScrollToTop />
+      <ScrollToTop />
+      <Suspense fallback={<PageFallback />}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/confidentialite" element={<Confidentialite />} />
           <Route path="/cgv" element={<CGV />} />
           <Route path="/cgu" element={<CGU />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </Suspense>
     </MotionConfig>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
 }

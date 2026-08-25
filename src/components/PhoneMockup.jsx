@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function PhoneMockup({ image, alt = "", className = "", imageClassName = "w-full h-full object-contain" }) {
+export default function PhoneMockup({ image, alt = "", className = "", imageClassName = "w-full h-full object-contain", priority = false }) {
     return (
         <div className={`relative isolate mx-auto w-full ${className}`}>
             {/* Phone frame */}
@@ -20,6 +20,9 @@ export default function PhoneMockup({ image, alt = "", className = "", imageClas
                             src={image}
                             alt={alt}
                             className={imageClassName}
+                            {...(priority
+                                ? { fetchpriority: "high", decoding: "sync" }
+                                : { loading: "lazy", decoding: "async" })}
                         />
                     ) : (
                         <div className="w-full h-full flex flex-col items-center justify-center gap-8 p-8">

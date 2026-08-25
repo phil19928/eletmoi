@@ -64,8 +64,8 @@ export default function FAQ() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary-dark text-xs font-semibold tracking-wide uppercase mb-4">
             FAQ
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
-            Des questions ?
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight text-balance">
+            Questions fréquentes sur le contrôle parental
           </h2>
           <p className="mt-3 text-slate-500 max-w-xl mx-auto">
             Les réponses essentielles, sans jargon technique.

@@ -49,6 +49,11 @@ export default function Footer() {
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-white/10 flex flex-col items-center gap-3">
+                    <p className="max-w-2xl text-center text-xs leading-relaxed text-white/40">
+                        El&amp;Moi — prononcé « El et Moi » — est une application de contrôle parental
+                        française qui limite le temps d'écran des enfants et le transforme en temps
+                        d'apprentissage. Données hébergées en France.
+                    </p>
                     <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-white/50">
                         <Link to="/mentions-legales" className="hover:text-primary transition-colors">Mentions légales</Link>
                         <Link to="/confidentialite" className="hover:text-primary transition-colors">Politique de confidentialité</Link>

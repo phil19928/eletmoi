@@ -2,7 +2,18 @@
   command = "npm run build"
   publish = "dist"
 
+# Les assets portent un hash de contenu dans leur nom : ils sont immuables.
+# Sans cette règle, Netlify sert max-age=0 et chaque visiteur récurrent
+# refait un aller-retour de revalidation pour rien.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    cache-control = "public, max-age=31536000, immutable"
+
+# Toutes les routes sont prérendues en fichiers statiques (voir
+# scripts/prerender.mjs), donc le fallback SPA n'a plus lieu d'être.
+# Une URL inconnue doit renvoyer un vrai 404, pas la page d'accueil en 200.
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "/404.html"
+  status = 404

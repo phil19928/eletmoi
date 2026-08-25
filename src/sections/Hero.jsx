@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Container from "../components/Container";
 import Button from "../components/Button";
 import PhoneMockup from "../components/PhoneMockup";
+import { APP_STORE_URL, PLAY_STORE_URL } from "../config";
 import screenDashboard from "../assets/parentdashboard.png";
 import screenEnfant from "../assets/enfantdashboard.png";
 import badgeAppStore from "../assets/badge--app-store.png";
@@ -45,12 +46,13 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] font-bold tracking-tight text-slate-900 leading-[1.08] text-balance"
+              className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] font-bold tracking-tight text-slate-900 leading-[1.12] text-balance"
             >
-              Moins de scroll.
-              <br />
+              L'application de contrôle parental
+              <br className="hidden sm:block" />{" "}
+              qui transforme{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-dark to-primary-dark animated-gradient">
-                Plus de progrès.
+                le temps d'écran
               </span>
             </motion.h1>
 
@@ -104,8 +106,24 @@ export default function Hero() {
               className="mt-8 inline-block"
             >
               <div className="flex items-center gap-3">
-                <img src={badgeAppStore} alt="Disponible sur l'App Store" className="h-9 opacity-70 hover:opacity-100 transition-opacity duration-200" />
-                <img src={badgePlayStore} alt="Disponible sur Google Play" className="h-9 opacity-70 hover:opacity-100 transition-opacity duration-200" />
+                <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
+                  <img
+                    src={badgeAppStore}
+                    alt="Télécharger l'application de contrôle parental El&Moi sur iPhone iOS"
+                    width="109"
+                    height="36"
+                    className="h-9 w-auto opacity-70 hover:opacity-100 transition-opacity duration-200"
+                  />
+                </a>
+                <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
+                  <img
+                    src={badgePlayStore}
+                    alt="Télécharger l'application de limitation de temps d'écran El&Moi sur Android"
+                    width="122"
+                    height="36"
+                    className="h-9 w-auto opacity-70 hover:opacity-100 transition-opacity duration-200"
+                  />
+                </a>
               </div>
             </motion.div>
 
@@ -129,7 +147,11 @@ export default function Hero() {
                 App Parent
               </span>
               <div className="w-[130px] sm:w-[155px] md:w-[175px] lg:w-[200px] xl:w-[225px]">
-                <PhoneMockup image={screenDashboard} alt="App Parent El&Moi" />
+                <PhoneMockup
+                  image={screenDashboard}
+                  alt="Tableau de bord parent El&Moi : suivi du temps d'écran par application"
+                  priority
+                />
               </div>
             </motion.div>
 
@@ -147,7 +169,8 @@ export default function Hero() {
               <div className="w-[130px] sm:w-[155px] md:w-[175px] lg:w-[200px] xl:w-[225px]">
                 <PhoneMockup
                   image={screenEnfant}
-                  alt="App Enfant El&Moi"
+                  alt="App enfant El&Moi : compteur de temps d'écran gagné en apprenant"
+                  priority
                 />
               </div>
             </motion.div>
