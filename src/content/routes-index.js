@@ -14,6 +14,7 @@ export const ARTICLE_ROUTES = [
   "/smartloop",
   "/tarifs",
   "/comparatif",
+  "/guides/controle-parental-android",
   "/guides/installation",
   "/lumen/deepfakes"
 ];

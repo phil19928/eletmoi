@@ -25,7 +25,7 @@ un changement impose une redirection 301 dans `netlify.toml`.
 
 ## Source de vérité
 
-`content/registry.json` décrit les 61 articles planifiés. Rien ne se publie sans
+`content/registry.json` décrit les 62 articles planifiés. Rien ne se publie sans
 y figurer. Le registre alimente `src/seo/routes.js`, `src/content/manifest.js`
 et `src/content/bodies.js` — **ces trois fichiers sont générés**, ne jamais les
 éditer à la main.
@@ -41,19 +41,43 @@ et `src/content/bodies.js` — **ces trois fichiers sont générés**, ne jamais
 - Tableaux comparatifs en **HTML natif**, jamais en image
 - Aucun chiffre sans source, aucune promesse de résultat, aucun vocabulaire médical ou diagnostique
 
-## Marque
+## Stratégie de mots-clés
 
-L'expression « contrôle parental » est bannie du corps de texte des articles.
-Vocabulaire : *encadrement*, *temps gagné*, *autonomie*, *accompagnement
-numérique*, *gestion du temps d'écran*.
+« Contrôle parental » **est le vocabulaire du marché** : c'est ce que les parents
+tapent dans Google. On l'emploie sans réserve — titres, corps de texte, URL,
+métadonnées. Notre approche est différente de celle des concurrents, mais on ne
+gagne pas une requête qu'on refuse de prononcer.
 
-Elle reste autorisée en `metaTitle`, `metaDescription`, URL, JSON-LD, `alt`, et
-**une seule fois** dans un titre reprenant la question du lecteur (donc
-interrogatif). La règle est appliquée par `npm run seo:check` sur `content/`.
+Le vocabulaire de marque — *encadrement*, *temps gagné*, *autonomie*,
+*accompagnement numérique* — sert à **expliquer ce qu'on fait**, pas à esquiver
+le mot-clé. Les deux cohabitent dans le même article : on entre par la requête du
+parent, on ressort avec notre positionnement.
 
-> Le site vitrine existant (Hero, FAQ, Footer) contient encore trois
-> occurrences, antérieures à cette règle. Elles sont volontairement hors du
-> périmètre de la vérification — décision à trancher séparément.
+### Familles de requêtes
+
+| Famille | Requêtes |
+|---|---|
+| **Cœur de marché** | contrôle parental · contrôle parental Android · contrôle parental iPhone · application contrôle parental · application contrôle parental gratuite · meilleur contrôle parental · contrôle parental adolescent · contrôle parental enfant · logiciel contrôle parental |
+| **Temps d'écran** | temps écran enfant · temps écran adolescent · limiter temps écran enfant · réduire temps écran · application temps écran · combien de temps écran par âge · limite temps écran Android · limite temps écran iPhone · gérer temps écran enfant |
+| **Concurrents & alternatives** | alternative Family Link · Family Link alternative · Family Link ou Qustodio · Qustodio alternative · meilleure alternative Family Link · contrôle parental sans abonnement · contrôle parental gratuit Android |
+| **Problèmes concrets** | bloquer TikTok enfant · limiter TikTok adolescent · bloquer Instagram enfant · limiter YouTube enfant · téléphone enfant la nuit · bloquer téléphone enfant à distance · limiter applications enfant · horaires téléphone enfant · premier smartphone enfant |
+| **Positionnement El&Moi** | autonomie numérique enfant · responsabiliser enfant smartphone · éducation numérique enfant · apprendre à gérer temps écran · bonnes habitudes numériques · sensibilisation cybersécurité enfant · sécurité numérique enfant · apprendre les dangers internet · algorithme TikTok enfant · addiction écran enfant |
+
+### Les 10 priorités des prochains contenus
+
+1. contrôle parental Android
+2. contrôle parental iPhone
+3. alternative Family Link
+4. application contrôle parental gratuite
+5. limiter temps écran enfant
+6. temps écran adolescent
+7. bloquer TikTok enfant
+8. premier smartphone enfant
+9. contrôle parental adolescent
+10. meilleur contrôle parental 2026
+
+> `content/seo.config.mjs` → `BANNED_PHRASES` est **vide** depuis le 29 août 2026.
+> Le mécanisme reste en place si une expression doit un jour être surveillée.
 
 ## Interdits absolus
 

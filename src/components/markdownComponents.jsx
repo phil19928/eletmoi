@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { slugifyHeading, nodeToText } from "../lib/slugify";
 import { isInternalHref, qualifyRel } from "../lib/links";
@@ -65,6 +66,65 @@ function MarkdownLink({ href = "", children }) {
   );
 }
 
+/**
+ * Capture d'écran animée.
+ *
+ * Écrite `![alt](/media/nom.mp4 "légende")` dans le Markdown, comme une image :
+ * l'auteur n'a pas à savoir que c'est une vidéo, et `seo:check` continue
+ * d'exiger un alt. La même capture pèse 5 Mo en GIF contre 165 Ko en h264 —
+ * seul le second format est acceptable pour le LCP d'une page d'article.
+ *
+ * Muette, en boucle, sans contrôles : elle se comporte comme un GIF. Sauf si le
+ * système demande moins d'animations, auquel cas elle reste sur son poster et
+ * rend les contrôles natifs, à la main du lecteur.
+ */
+function Capture({ src, alt }) {
+  // `matchMedia` n'existe pas au prérendu : on part du comportement par défaut
+  // (animé) et on corrige au montage, côté navigateur uniquement.
+  const [reduced, setReduced] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => setReduced(query.matches);
+    sync();
+    query.addEventListener("change", sync);
+    return () => query.removeEventListener("change", sync);
+  }, []);
+
+  return (
+    <video
+      src={src}
+      poster={src.replace(/\.mp4$/, ".jpg")}
+      aria-label={alt}
+      autoPlay={!reduced}
+      controls={reduced}
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      className="w-full rounded-2xl border border-slate-200"
+    />
+  );
+}
+
+/**
+ * Paragraphe de corps de texte.
+ *
+ * Markdown emballe une image seule dans un paragraphe. Or notre rendu d'image
+ * est un `<figure>`, contenu de type bloc : `<p><figure>…</figure></p>` est du
+ * HTML invalide, que le navigateur corrige en fermant le `<p>` avant la figure.
+ * Le DOM obtenu ne correspondrait plus au HTML prérendu et React signalerait une
+ * divergence d'hydratation. Dans ce cas précis, on rend donc sans `<p>`.
+ */
+function Paragraph({ node, children, className }) {
+  const content = (node?.children ?? []).filter(
+    (n) => n.type !== "text" || n.value.trim() !== ""
+  );
+  const isLoneImage = content.length === 1 && content[0].tagName === "img";
+
+  return isLoneImage ? <>{children}</> : <p className={className}>{children}</p>;
+}
+
 /** Base commune : typographie de lecture longue. */
 const base = {
   h1: ({ children }) => (
@@ -75,8 +135,8 @@ const base = {
   h2: ({ children }) => <Heading level={2}>{children}</Heading>,
   h3: ({ children }) => <Heading level={3}>{children}</Heading>,
   h4: ({ children }) => <Heading level={4}>{children}</Heading>,
-  p: ({ children }) => (
-    <p className="text-slate-700 leading-[1.75] mb-5">{children}</p>
+  p: (props) => (
+    <Paragraph {...props} className="text-slate-700 leading-[1.75] mb-5" />
   ),
   ul: ({ children }) => (
     <ul className="list-disc marker:text-primary text-slate-700 mb-5 space-y-2 pl-6 leading-[1.75]">
@@ -104,16 +164,20 @@ const base = {
       {children}
     </code>
   ),
-  img: ({ src, alt, title }) => (
+  img: ({ src = "", alt, title }) => (
     // Le alt est obligatoire : seo:check échoue sur une image sans alternative.
     <figure className="my-8">
-      <img
-        src={src}
-        alt={alt ?? ""}
-        loading="lazy"
-        decoding="async"
-        className="w-full rounded-2xl border border-slate-200"
-      />
+      {/\.mp4$/.test(src) ? (
+        <Capture src={src} alt={alt ?? ""} />
+      ) : (
+        <img
+          src={src}
+          alt={alt ?? ""}
+          loading="lazy"
+          decoding="async"
+          className="w-full rounded-2xl border border-slate-200"
+        />
+      )}
       {title ? (
         <figcaption className="mt-2 text-sm text-slate-500 text-center">
           {title}
@@ -157,8 +221,8 @@ export const legalComponents = {
   h3: ({ children }) => (
     <h3 className="text-lg font-semibold text-gray-800 mb-2 mt-6">{children}</h3>
   ),
-  p: ({ children }) => (
-    <p className="text-gray-700 leading-relaxed mb-4">{children}</p>
+  p: (props) => (
+    <Paragraph {...props} className="text-gray-700 leading-relaxed mb-4" />
   ),
 };
 

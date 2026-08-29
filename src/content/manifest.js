@@ -471,14 +471,14 @@ export const ARTICLES = [
         "reason": "cible non publiée"
       },
       {
-        "id": "C13",
-        "anchor": "Nuit, devoirs, repas : paramétrer des plages sans téléphone",
-        "context": "body",
-        "route": "/guides/plages-horaires",
-        "title": "Nuit, devoirs, repas : paramétrer des plages sans téléphone",
+        "id": "C3",
+        "anchor": "Contrôle parental Android : le guide complet",
+        "context": "related",
+        "route": "/guides/controle-parental-android",
+        "title": "Contrôle parental Android : le guide complet (pilier)",
         "cluster": "C",
-        "resolved": false,
-        "reason": "cible non publiée"
+        "resolved": true,
+        "reason": null
       },
       {
         "id": "F1",
@@ -489,6 +489,16 @@ export const ARTICLES = [
         "cluster": "F",
         "resolved": true,
         "reason": null
+      },
+      {
+        "id": "C13",
+        "anchor": "Nuit, devoirs, repas : paramétrer des plages sans téléphone",
+        "context": "body",
+        "route": "/guides/plages-horaires",
+        "title": "Nuit, devoirs, repas : paramétrer des plages sans téléphone",
+        "cluster": "C",
+        "resolved": false,
+        "reason": "cible non publiée"
       }
     ],
     "externalSources": [
@@ -1061,6 +1071,16 @@ export const ARTICLES = [
         "cluster": "F",
         "resolved": true,
         "reason": null
+      },
+      {
+        "id": "C3",
+        "anchor": "Contrôle parental Android : le guide complet",
+        "context": "related",
+        "route": "/guides/controle-parental-android",
+        "title": "Contrôle parental Android : le guide complet (pilier)",
+        "cluster": "C",
+        "resolved": true,
+        "reason": null
       }
     ],
     "externalSources": [
@@ -1171,6 +1191,180 @@ export const ARTICLES = [
     }
   },
   {
+    "id": "C3",
+    "slug": "controle-parental-android",
+    "cluster": "C",
+    "clusterLabel": "Tutoriels & configuration",
+    "route": "/guides/controle-parental-android",
+    "template": "guide",
+    "h1": "Contrôle parental Android : le guide simple pour les parents",
+    "metaTitle": "Contrôle parental Android : le guide 2026 pour les parents",
+    "metaDescription": "Contrôle parental Android : Family Link pas à pas, les autorisations à accorder, les limites par application et quoi faire si votre enfant les contourne.",
+    "canonical": "https://eletmoi.fr/guides/controle-parental-android/",
+    "datePublished": "2026-08-29",
+    "dateModified": "2026-08-29",
+    "author": "philippe",
+    "reviewedBy": null,
+    "keywordPrimary": "contrôle parental android",
+    "searchIntent": "informational",
+    "ogImage": "/og/controle-parental-android.png",
+    "imageAlt": "Un parent règle les limites de temps d'écran sur le téléphone Android de son enfant",
+    "isPillar": true,
+    "priority": "P1",
+    "wave": "V1",
+    "readingTime": 10,
+    "wordCount": 1988,
+    "dir": "guides",
+    "internalLinks": [
+      {
+        "id": "A1",
+        "anchor": "la loi sur les réseaux sociaux et les moins de 15 ans",
+        "context": "body",
+        "route": "/blog/loi-reseaux-sociaux-moins-15-ans",
+        "title": "Loi du 21 juillet 2026 : ce qui change pour votre enfant au 1er septembre",
+        "cluster": "A",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "B1",
+        "anchor": "notre comparatif des 8 solutions d'encadrement",
+        "context": "body",
+        "route": "/comparatif",
+        "title": "Comparatif 2026 : 8 façons d'encadrer le téléphone d'un enfant (pilier)",
+        "cluster": "B",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "D1",
+        "anchor": "combien de temps d'écran par âge",
+        "context": "body",
+        "route": "/blog/temps-ecran-par-age",
+        "title": "Combien de temps d'écran par âge (pilier)",
+        "cluster": "D",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "C1",
+        "anchor": "installer El&Moi en quelques minutes",
+        "context": "related",
+        "route": "/guides/installation",
+        "title": "Installer El&Moi en 5 minutes, pas à pas",
+        "cluster": "C",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "F1",
+        "anchor": "le Smartloop : comment ça marche",
+        "context": "cta",
+        "route": "/smartloop",
+        "title": "Le Smartloop : comment ça marche",
+        "cluster": "F",
+        "resolved": true,
+        "reason": null
+      }
+    ],
+    "externalSources": [
+      {
+        "title": "Google Family Link — présentation officielle",
+        "publisher": "Google",
+        "url": "https://families.google/familylink/",
+        "accessedOn": "2026-08-29",
+        "rel": "nofollow noopener",
+        "target": "_blank",
+        "kind": "unknown"
+      },
+      {
+        "title": "Installer Qustodio sur un appareil Android",
+        "publisher": "Qustodio",
+        "url": "https://help.qustodio.com/hc/fr/articles/360005404737-Comment-installer-Qustodio-sur-un-appareil-Android",
+        "accessedOn": "2026-08-29",
+        "rel": "nofollow noopener",
+        "target": "_blank",
+        "kind": "commercial"
+      },
+      {
+        "title": "Pourquoi et comment Qustodio utilise les paramètres d'accessibilité d'Android",
+        "publisher": "Qustodio",
+        "url": "https://help.qustodio.com/hc/fr/articles/360005219838-Pourquoi-et-comment-Qustodio-utilise-t-elle-les-param%C3%A8tres-d-accessibilit%C3%A9-d-Android",
+        "accessedOn": "2026-08-29",
+        "rel": "nofollow noopener",
+        "target": "_blank",
+        "kind": "commercial"
+      },
+      {
+        "title": "Politique de confidentialité",
+        "publisher": "Qustodio",
+        "url": "https://www.qustodio.com/en/family/privacy/",
+        "accessedOn": "2026-08-29",
+        "rel": "nofollow noopener",
+        "target": "_blank",
+        "kind": "commercial"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quel est le meilleur contrôle parental gratuit sur Android ?",
+        "a": "Google Family Link est l'une des solutions les plus complètes pour commencer gratuitement : temps d'écran, applications, plages horaires et réglages liés aux services Google. El&Moi est gratuit pour un enfant et adopte une approche différente, centrée sur la responsabilisation et l'apprentissage."
+      },
+      {
+        "q": "Peut-on limiter le temps passé sur une seule application ?",
+        "a": "Oui. Family Link permet de définir des limites quotidiennes par application. La plupart des autres solutions proposent leurs propres quotas et horaires."
+      },
+      {
+        "q": "Un contrôle parental peut-il voir tout ce que fait un enfant ?",
+        "a": "Cela dépend de l'application et des autorisations accordées. Certaines se limitent au temps d'écran et au blocage. D'autres demandent des accès beaucoup plus larges. Lisez les autorisations demandées et la politique de confidentialité avant d'installer."
+      },
+      {
+        "q": "Peut-on utiliser deux applications de contrôle parental en même temps ?",
+        "a": "Oui, à condition qu'elles ne fassent pas la même chose. Family Link pour le filtrage et les téléchargements, El&Moi pour le temps et l'apprentissage : les deux cohabitent sans se gêner."
+      },
+      {
+        "q": "Mon enfant a désactivé le contrôle parental. Que faire ?",
+        "a": "Vérifiez d'abord les autorisations, en particulier l'accessibilité et l'optimisation de batterie, qui sont les causes les plus fréquentes. Puis parlez-en avec lui : un contournement répété veut souvent dire que la règle est vécue comme injuste."
+      },
+      {
+        "q": "Faut-il surveiller le téléphone d'un adolescent ?",
+        "a": "Il n'y a pas de réponse valable pour toutes les familles. Plus un enfant grandit, plus son besoin d'intimité évolue, et les règles avec lui. Le contrôle parental peut rester un filet de sécurité tout en laissant plus de place au dialogue."
+      }
+    ],
+    "comparisonTable": null,
+    "howToSteps": [
+      {
+        "name": "Installez Family Link sur votre téléphone",
+        "text": "Depuis le Play Store, installez Family Link sur votre téléphone et connectez-vous avec votre compte Google."
+      },
+      {
+        "name": "Créez ou reliez le compte de votre enfant",
+        "text": "Si votre enfant a moins de 13 ans, vous créez pour lui un compte Google géré par les parents. S'il en a déjà un, vous pouvez le rattacher à votre groupe familial."
+      },
+      {
+        "name": "Reliez son téléphone",
+        "text": "Family Link vous affiche un code à saisir sur l'appareil de votre enfant. Suivez les écrans, ils s'enchaînent tout seuls."
+      },
+      {
+        "name": "Réglez les limites",
+        "text": "Depuis votre application, vous accédez à son profil : temps d'écran quotidien, heure de coucher, limites par application."
+      },
+      {
+        "name": "Réglez les contenus",
+        "text": "Toujours depuis son profil : validation des téléchargements, filtres sur Chrome, YouTube et la recherche Google."
+      },
+      {
+        "name": "Vérifiez sur son téléphone",
+        "text": "Prenez son téléphone et regardez si la limite s'affiche bien. Un réglage jamais vérifié est un réglage qui ne s'applique pas."
+      }
+    ],
+    "cta": {
+      "label": "Télécharger El&Moi gratuitement",
+      "target": "stores",
+      "utm": "organic_c_controle-parental-android"
+    }
+  },
+  {
     "id": "C1",
     "slug": "installation",
     "cluster": "C",
@@ -1198,13 +1392,13 @@ export const ARTICLES = [
     "internalLinks": [
       {
         "id": "C3",
-        "anchor": "Gérer le temps d'écran sur Android : guide complet",
+        "anchor": "Contrôle parental Android : le guide complet",
         "context": "body",
-        "route": "/guides/temps-ecran-android",
-        "title": "Gérer le temps d'écran sur Android : guide complet (pilier)",
+        "route": "/guides/controle-parental-android",
+        "title": "Contrôle parental Android : le guide complet (pilier)",
         "cluster": "C",
-        "resolved": false,
-        "reason": "cible non publiée"
+        "resolved": true,
+        "reason": null
       },
       {
         "id": "C11",
@@ -1472,6 +1666,7 @@ export const INDEX_PAGES = [
       "A3",
       "D1",
       "B1",
+      "C3",
       "C1",
       "E1"
     ]

@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Sources média : lourdes, et déjà converties dans public/media/.
+# Gardées en local, hors de l'historique. `git add -f` pour en versionner une.
+assets-src/*
+!assets-src/README.md

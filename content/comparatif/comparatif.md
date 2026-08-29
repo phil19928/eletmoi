@@ -31,6 +31,9 @@ internalLinks:
   - id: F2
     anchor: 'Lumen : la cybersécurité en format court, par âge'
     context: cta
+  - id: C3
+    anchor: 'Contrôle parental Android : le guide complet'
+    context: related
 externalSources:
   - title: Tarifs Qustodio Premium
     publisher: Qustodio

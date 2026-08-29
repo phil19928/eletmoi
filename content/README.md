@@ -6,7 +6,7 @@ Tout ce qui se publie sur eletmoi.fr part d'ici.
 
 ```
 content/
-  registry.json        source de vérité : 61 articles planifiés
+  registry.json        source de vérité : 62 articles planifiés
   authors.json         auteurs (signaux E-E-A-T) — jamais inventés
   schema.mjs           schéma Zod du frontmatter
   seo.config.mjs       règles ajustables (limites, domaines, expressions bannies)
@@ -79,7 +79,7 @@ vraiment sont ceux **placés dans le texte**, avec une ancre descriptive :
 
 ```markdown
 Le paramétrage diffère selon la plateforme : voir notre guide pour
-[gérer le temps d'écran sur Android](/guides/temps-ecran-android/).
+[le contrôle parental sur Android](/guides/controle-parental-android/).
 ```
 
 Jamais « cliquez ici » — le validateur le refuse.
@@ -126,12 +126,14 @@ sitemap et Search Console qui font le travail.
 
 ## Règle de marque
 
-« Contrôle parental » est banni du corps de texte. Vocabulaire : encadrement,
-temps gagné, autonomie, accompagnement numérique.
+« Contrôle parental » **s'emploie librement**, corps de texte compris : c'est la
+requête des parents, donc celle qu'on doit gagner. Le vocabulaire de marque —
+encadrement, temps gagné, autonomie, accompagnement numérique — sert à expliquer
+notre approche, pas à contourner le mot-clé.
 
-Exception autorisée en `metaTitle`, `metaDescription`, URL, JSON-LD, `alt`, et
-une seule fois dans un titre **interrogatif** reprenant la question du lecteur.
-Les zones autorisées sont listées dans `seo.config.mjs` → `BANNED_PHRASES`.
+Les familles de requêtes et les dix priorités éditoriales sont dans `CLAUDE.md`,
+section « Stratégie de mots-clés ». `seo.config.mjs` → `BANNED_PHRASES` est vide
+depuis le 29 août 2026 ; le mécanisme reste disponible.
 
 ## Ce qu'on n'invente jamais
 

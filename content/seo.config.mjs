@@ -23,35 +23,25 @@ export const LIMITS = {
  * autorisées.
  *
  * `scope: "content"` : la règle ne s'applique qu'aux articles de content/.
- * Le site vitrine existant (Hero, FAQ, Footer) est signalé en information, pas
- * en erreur — voir README.md, section « Règle de marque ».
+ *
+ * Vide depuis le 29 août 2026. « Contrôle parental » y figurait ; l'expression
+ * est désormais assumée, parce que c'est celle que les parents tapent dans
+ * Google (voir CLAUDE.md, « Stratégie de mots-clés »). Le mécanisme est
+ * conservé : `checkBannedPhrases` (scripts/content/check.mjs) itère simplement
+ * sur un tableau vide.
+ *
+ * Pour réactiver une règle, ajouter une entrée de cette forme :
+ *
+ *   {
+ *     phrase: "expression à surveiller",
+ *     scope: "content",
+ *     severity: "warn",          // "error" pour bloquer le build
+ *     allowedFields: ["metaTitle", "metaDescription", "slug"],
+ *     allowedInHeadings: 1,      // tolérance dans les titres visibles
+ *     headingMustBeQuestion: true,
+ *   }
  */
-export const BANNED_PHRASES = [
-  {
-    phrase: "contrôle parental",
-    scope: "content",
-    // "warn" : signalé sans bloquer. Passer à "error" pour rendre la règle
-    // bloquante — les articles de la vague V0 utilisent volontairement
-    // l'expression dans leurs titres, décision éditoriale assumée.
-    severity: "warn",
-    // Champs du frontmatter où l'expression reste permise (intention SEO).
-    allowedFields: [
-      "metaTitle",
-      "metaDescription",
-      "canonical",
-      "route",
-      "slug",
-      "keywordPrimary",
-      "keywordsSecondary",
-      "imageAlt",
-      "ogImage",
-    ],
-    // Autorisée une seule fois dans un titre visible, s'il reprend la question
-    // du lecteur (donc formulé de façon interrogative).
-    allowedInHeadings: 1,
-    headingMustBeQuestion: true,
-  },
-];
+export const BANNED_PHRASES = [];
 
 
 /** Clusters pour lesquels une source institutionnelle est obligatoire. */

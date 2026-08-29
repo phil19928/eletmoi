@@ -31,11 +31,14 @@ internalLinks:
   - id: D8
     anchor: Écrans et sommeil de l'adolescent
     context: body
-  - id: C13
-    anchor: 'Nuit, devoirs, repas : paramétrer des plages sans téléphone'
-    context: body
+  - id: C3
+    anchor: 'Contrôle parental Android : le guide complet'
+    context: related
   - id: F1
     anchor: 'Le Smartloop : comment ça marche'
+    context: body
+  - id: C13
+    anchor: 'Nuit, devoirs, repas : paramétrer des plages sans téléphone'
     context: body
 externalSources:
   - title: Santé des enfants et usages des écrans

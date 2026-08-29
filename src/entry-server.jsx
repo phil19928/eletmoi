@@ -29,7 +29,15 @@ export function render(url) {
               callback();
             },
             final(callback) {
-              resolve(Buffer.concat(chunks).toString("utf8"));
+              // Le tampon de renderToPipeableStream fait 2048 octets et il est
+              // pré-rempli de zéros. Quand un caractère multi-octets tombe à
+              // cheval sur la fin du tampon, l'octet de queue non réécrit est
+              // émis tel quel : un \0 se glisse alors au milieu du texte
+              // (constaté sur « Données & Vie privée », à l'offset 2047 d'un
+              // tampon). Invisible en relecture, mais bien présent dans le HTML
+              // livré. On le retire ici : aucun \0 n'a de sens dans du HTML.
+              const html = Buffer.concat(chunks).toString("utf8");
+              resolve(html.replace(/\0/g, ""));
               callback();
             },
           });

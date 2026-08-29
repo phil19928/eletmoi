@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import elephantMascot from "../assets/Main El&Moi.png";
+import elephantMascot from "../assets/logo-eletmoi.png";
 
 /**
  * La navigation ramène aux sections de l'accueil, pas aux pages produit.

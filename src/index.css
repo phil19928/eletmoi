@@ -63,24 +63,6 @@ details summary::-webkit-details-marker {
   animation: gradient-shift 6s ease infinite;
 }
 
-@keyframes glow-pulse {
-
-  0%,
-  100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.6;
-    transform: scale(1.05);
-  }
-}
-
-.glow-pulse {
-  animation: glow-pulse 3s ease-in-out infinite;
-}
-
 @keyframes shimmer {
   0% {
     transform: translateX(-100%);

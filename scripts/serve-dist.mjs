@@ -30,6 +30,8 @@ const TYPES = {
   ".txt": "text/plain; charset=utf-8",
   ".ico": "image/x-icon",
   ".json": "application/json",
+  ".mp4": "video/mp4",
+  ".webm": "video/webm",
 };
 
 const isFile = async (p) => {
@@ -47,7 +49,9 @@ const send = (res, status, body, file) =>
       // Mêmes en-têtes de cache que netlify.toml, pour vérifier au bon endroit.
       "cache-control": file.includes(`${path.sep}assets${path.sep}`)
         ? "public, max-age=31536000, immutable"
-        : "public, max-age=0, must-revalidate",
+        : file.includes(`${path.sep}media${path.sep}`)
+          ? "public, max-age=2592000"
+          : "public, max-age=0, must-revalidate",
     })
     .end(body);
 

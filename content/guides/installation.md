@@ -22,7 +22,7 @@ reviewCycle: quarterly
 author: philippe
 internalLinks:
   - id: C3
-    anchor: 'Gérer le temps d''écran sur Android : guide complet'
+    anchor: 'Contrôle parental Android : le guide complet'
     context: body
   - id: C11
     anchor: >-

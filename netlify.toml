@@ -10,6 +10,13 @@
   [headers.values]
     cache-control = "public, max-age=31536000, immutable"
 
+# Les médias d'article ne portent pas de hash : ils peuvent être remplacés par
+# une nouvelle capture sous le même nom. Un mois de cache, pas « immutable ».
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    cache-control = "public, max-age=2592000"
+
 # Toutes les routes sont prérendues en fichiers statiques (voir
 # scripts/prerender.mjs), donc le fallback SPA n'a plus lieu d'être.
 # Une URL inconnue doit renvoyer un vrai 404, pas la page d'accueil en 200.

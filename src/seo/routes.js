@@ -52,7 +52,7 @@ export const ROUTES = [
     "description": "Cadre légal, comparatifs, guides de configuration, parentalité numérique et sécurité en ligne : tous nos contenus pour accompagner les enfants sans conflit.",
     "priority": 0.7,
     "changefreq": "weekly",
-    "lastmod": "2026-08-25"
+    "lastmod": "2026-08-29"
   },
   {
     "path": "/blog/entree-en-6e-smartphone",
@@ -143,6 +143,15 @@ export const ROUTES = [
     "changefreq": "monthly",
     "lastmod": "2026-08-25",
     "articleId": "B1"
+  },
+  {
+    "path": "/guides/controle-parental-android",
+    "title": "Contrôle parental Android : le guide 2026 pour les parents",
+    "description": "Contrôle parental Android : Family Link pas à pas, les autorisations à accorder, les limites par application et quoi faire si votre enfant les contourne.",
+    "priority": 0.7,
+    "changefreq": "monthly",
+    "lastmod": "2026-08-29",
+    "articleId": "C3"
   },
   {
     "path": "/guides/installation",

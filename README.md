@@ -60,39 +60,50 @@ Pour le modifier :
 ## 🎨 Structure du projet
 
 ```
-el-et-moi-landing/
+eletmoi-main/
+├── content/                   éditorial — source de vérité
+│   ├── registry.json          les 62 articles planifiés, URLs figées
+│   ├── authors.json           signaux E-E-A-T
+│   ├── schema.mjs             frontmatter typé (zod)
+│   ├── seo.config.mjs         limites, clusters, règles ajustables
+│   └── {blog,comparatif,guides,lumen,brand}/*.md
+├── scripts/
+│   ├── content/               new · ingest · build · check · links · og · ping
+│   ├── prerender.mjs          HTML statique + sitemap.xml + rss.xml
+│   └── serve-dist.mjs         `npm run preview`, fidèle à Netlify
 ├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx
-│   │   ├── Hero.jsx
-│   │   ├── ProblemSolution.jsx
-│   │   ├── HowItWorks.jsx
-│   │   ├── Features.jsx
-│   │   ├── WhyFamiliesLove.jsx
-│   │   ├── FAQ.jsx
-│   │   ├── FinalCTA.jsx
-│   │   └── Footer.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   ├── index.css
-│   └── config.js
-├── index.html
-├── package.json
-├── vite.config.js
-├── tailwind.config.js
-├── postcss.config.js
-├── netlify.toml
-└── README.md
+│   ├── sections/              blocs de la page d'accueil
+│   │   ├── Hero.jsx  Smartloop.jsx  Lumen.jsx
+│   │   └── FAQ.jsx   Pricing.jsx    CTABanner.jsx  Footer.jsx
+│   ├── components/            Navbar, Button, Container, Section…
+│   │   └── article/           gabarits d'article (ArticleLayout, FaqBlock…)
+│   ├── pages/                 ArticlePage, IndexPage, pages légales, 404
+│   ├── lib/                   links, headings, slugify, date, markdown
+│   ├── legal/*.md             CGU, CGV, confidentialité, mentions légales
+│   ├── content/               ⚠️ GÉNÉRÉ — manifest, bodies, routes-index
+│   ├── seo/routes.js          ⚠️ GÉNÉRÉ
+│   ├── App.jsx                routage (articles en import paresseux)
+│   └── entry-server.jsx       point d'entrée du prérendu
+├── public/
+│   ├── og/                    cartes sociales 1200×630 (`npm run content:og`)
+│   └── media/                 médias d'article (MP4 + poster)
+├── assets-src/                sources non déployées, voir son README
+└── netlify.toml
 ```
+
+Les fichiers marqués **GÉNÉRÉ** sont réécrits par `npm run content:build` : ne
+jamais les éditer à la main. Le détail du pipeline éditorial est dans
+[`content/README.md`](content/README.md) et les règles dans
+[`CLAUDE.md`](CLAUDE.md).
 
 ## 📝 Notes
 
-- La police **Inter** est chargée depuis Google Fonts
-- Les icônes **Material Icons** sont utilisées via Google Fonts
-- Le design est **pixel-perfect** par rapport au HTML original
-- Tous les textes "L et moi" ont été remplacés par "El&Moi"
+- La police **Roboto** est chargée depuis Google Fonts (`index.html`)
 - Les CTA pointent vers `APP_DOWNLOAD_URL` défini dans `src/config.js`
-- Le dark mode est supporté via les classes `dark:*` (pas de toggle implémenté pour l'instant)
+- Toutes les routes sont **prérendues** : `npm run build` produit un fichier
+  HTML statique par URL, avec ses métadonnées et son JSON-LD
+- Ne pas utiliser `vite preview` — il ne résout pas les index de
+  sous-répertoires. `npm run preview` passe par `scripts/serve-dist.mjs`
 
 ## 🔧 Technologies utilisées
 
