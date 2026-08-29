@@ -13,7 +13,7 @@
 import { writeFile, mkdir, readFile, rm } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { spawn } from "node:child_process";
-import { stat, unlink } from "node:fs/promises";
+import { stat, unlink, open } from "node:fs/promises";
 import path from "node:path";
 import os from "node:os";
 import { pathToFileURL } from "node:url";
@@ -173,9 +173,28 @@ async function capture(html, outFile) {
  * Le tramage de Sierra rend les dégradés du gabarit sans bande visible. Si
  * ffmpeg n'est pas installé, ou si le résultat n'est pas plus léger, on garde
  * le PNG d'origine : la génération ne doit jamais échouer pour une optimisation.
+ *
+ * Une image à canal alpha est laissée telle quelle. `format=rgb24` aplatirait
+ * la transparence sur du noir — l'erreur a déjà été commise sur le logo du
+ * site, qui s'est retrouvé dans un carré noir sur le fond sombre de l'accueil.
+ * Les cartes sociales sont opaques par construction, mais la garde reste : rien
+ * ne dit que le gabarit le restera.
  */
+async function hasAlpha(file) {
+  // Octet 25 de l'en-tête PNG : type de couleur. 4 = gris+alpha, 6 = RGBA.
+  const head = Buffer.alloc(26);
+  const fh = await open(file, "r");
+  try {
+    await fh.read(head, 0, 26, 0);
+  } finally {
+    await fh.close();
+  }
+  return head[25] === 4 || head[25] === 6;
+}
+
 async function shrink(file) {
   const before = (await stat(file)).size;
+  if (await hasAlpha(file)) return { before, after: before, skipped: true, alpha: true };
   const palette = `${file}.palette.png`;
   const out = `${file}.min.png`;
 
@@ -228,10 +247,11 @@ export async function generate({ force = false } = {}) {
       const out = path.join(ROOT, "public", article.ogImage.replace(/^\//, ""));
       await mkdir(path.dirname(out), { recursive: true });
       await capture(template(article, logoDataUri), out);
-      const { before, after, skipped } = await shrink(out);
+      const res = await shrink(out);
+      const { before, after, skipped } = res;
       const kb = (n) => `${Math.round(n / 1024)} Ko`;
       const gain = skipped
-        ? `${c.yellow}${kb(before)} (ffmpeg absent)${c.reset}`
+        ? `${c.yellow}${kb(before)} (${res.alpha ? "alpha préservé" : "ffmpeg absent"})${c.reset}`
         : `${kb(before)} → ${c.green}${kb(after)}${c.reset}`;
       console.log(`  ✓ ${article.ogImage.padEnd(42)} ${gain}`);
     }
