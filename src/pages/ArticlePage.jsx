@@ -22,21 +22,38 @@ export default function ArticlePage({ route, body }) {
   const author = AUTHORS[article.author] ?? null;
   const reviewer = article.reviewedBy ? AUTHORS[article.reviewedBy] ?? null : null;
 
-  // Complète le maillage sortant avec des articles du même cluster, sans
-  // jamais proposer l'article courant ni doublonner un lien déjà explicite.
+  // Complète le maillage sortant, sans jamais proposer l'article courant ni
+  // doublonner un lien déjà explicite.
+  //
+  // Le même cluster d'abord, c'est le plus pertinent. Mais tant que le plan
+  // éditorial n'est pas écrit, un cluster ne compte souvent qu'un ou deux
+  // articles publiés : s'y limiter laissait « À lire aussi » avec une seule
+  // carte. On élargit donc aux autres clusters, piliers en tête — ce sont les
+  // pages qui couvrent le sujet le plus largement.
+  //
+  // Tout vient du manifeste, qui ne contient que des articles publiés : aucune
+  // liste à tenir à jour, et un nouvel article entre dans le maillage au
+  // premier build qui suit sa publication.
   const explicit = new Set(article.internalLinks.map((l) => l.id));
-  const suggestions = ARTICLES.filter(
+  const candidates = ARTICLES.filter(
     (a) =>
-      a.cluster === article.cluster &&
       a.id !== article.id &&
-      !explicit.has(a.id)
-  ).map((a) => ({
-    id: a.id,
-    route: a.route,
-    h1: a.h1,
-    clusterLabel: a.clusterLabel,
-    resolved: true,
-  }));
+      !explicit.has(a.id) &&
+      a.template !== "brand"
+  );
+
+  const rank = (a) =>
+    (a.cluster === article.cluster ? 0 : 2) + (a.isPillar ? 0 : 1);
+
+  const suggestions = [...candidates]
+    .sort((a, b) => rank(a) - rank(b) || b.datePublished.localeCompare(a.datePublished))
+    .map((a) => ({
+      id: a.id,
+      route: a.route,
+      h1: a.h1,
+      clusterLabel: a.clusterLabel,
+      resolved: true,
+    }));
 
   return (
     <ArticleLayout

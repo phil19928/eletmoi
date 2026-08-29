@@ -137,7 +137,7 @@ function checkInternalLinks(article, registry, publishedIds, report) {
     if (!publishedIds.has(link.id)) {
       report.warn(
         `lien interne « ${link.id} » (${target.route}) : cible non publiée, ` +
-          `rendue en texte simple`
+          `ignorée dans « À lire aussi » — une page publiée prend sa place`
       );
     }
   }

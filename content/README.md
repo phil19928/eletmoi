@@ -70,11 +70,16 @@ internalLinks:
 ```
 
 L'URL est résolue au build. Si la cible n'est pas encore publiée, le lien est
-rendu **en texte simple** — jamais un lien mort en production.
+**simplement ignoré** dans « À lire aussi », et un article publié prend sa place :
+jamais de lien mort, jamais d'encart annonçant une page que personne ne peut
+lire. Rien à retirer ni à remettre à la main — déclarez le lien dès maintenant,
+il apparaîtra au premier build suivant la publication de la cible.
 
 ### 4. Insérer les liens dans le corps
 
-Les `internalLinks` alimentent le bloc « À lire aussi ». Les liens qui comptent
+Les `internalLinks` alimentent le bloc « À lire aussi », complété par des
+articles publiés — même cluster d'abord, piliers ensuite — pour que le bloc soit
+toujours plein sans qu'aucune liste ne soit tenue à la main. Les liens qui comptent
 vraiment sont ceux **placés dans le texte**, avec une ancre descriptive :
 
 ```markdown
