@@ -2,6 +2,27 @@
   command = "npm run build"
   publish = "dist"
 
+# En-têtes de sécurité, appliqués à tout le site.
+#
+# Pas de Content-Security-Policy ici : la page charge gtag depuis
+# googletagmanager.com, les polices depuis Google Fonts, et exécute deux scripts
+# inline (JSON-LD, initialisation gtag). Une CSP correcte demande de lister ces
+# origines et de traiter l'inline — à faire, mais à tester avant, sous peine de
+# casser l'analytique en silence.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Empêche l'affichage du site dans une iframe tierce (clickjacking).
+    x-frame-options = "SAMEORIGIN"
+    # Interdit au navigateur de deviner un type MIME différent de celui servi.
+    x-content-type-options = "nosniff"
+    # Transmet l'origine, jamais l'URL complète, vers un autre domaine.
+    referrer-policy = "strict-origin-when-cross-origin"
+    # HTTPS obligatoire pendant deux ans. Netlify sert déjà tout en TLS.
+    strict-transport-security = "max-age=63072000; includeSubDomains"
+    # Le site n'utilise aucune de ces API : on les refuse explicitement.
+    permissions-policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+
 # Les assets portent un hash de contenu dans leur nom : ils sont immuables.
 # Sans cette règle, Netlify sert max-age=0 et chaque visiteur récurrent
 # refait un aller-retour de revalidation pour rien.

@@ -69,7 +69,21 @@ function setMeta(html, attr, name, content) {
   return html.replace(pattern, `$1"${escapeHtml(content)}"`);
 }
 
-function applyHead(html, { title, description, canonical, noindex = false, ogImage, imageAlt, jsonLd }) {
+/**
+ * Insère une balise meta absente du gabarit, juste après og:type.
+ *
+ * setMeta refuse volontairement de créer une balise : si index.html perd une
+ * balise attendue, on veut une erreur, pas un head silencieusement incomplet.
+ * Les `article:*` sont un autre cas — elles n'ont de sens que sur un article,
+ * et les poser vides sur /tarifs ou /cgv serait faux. Elles sont donc ajoutées
+ * à la demande.
+ */
+function addMeta(html, property, content) {
+  const tag = `  <meta property="${property}" content="${escapeHtml(content)}" />\n`;
+  return html.replace(/([ \t]*<meta property="og:type"[^>]*>\n)/i, `$1${tag}`);
+}
+
+function applyHead(html, { title, description, canonical, noindex = false, ogImage, imageAlt, jsonLd, article = null }) {
   let out = html;
 
   if (!/<title>[^<]*<\/title>/i.test(out)) {
@@ -97,6 +111,17 @@ function applyHead(html, { title, description, canonical, noindex = false, ogIma
     `$1\n  <link rel="alternate" hreflang="fr-FR" href="${escapeHtml(canonical)}" />` +
       `\n  <link rel="alternate" hreflang="x-default" href="${escapeHtml(canonical)}" />`
   );
+
+  // og:type. Le gabarit déclare « website » ; sur un article, Facebook et
+  // LinkedIn attendent « article » et exploitent les dates qui l'accompagnent.
+  // Les pages de marque restent des pages de site, pas des publications.
+  if (article && article.template !== "brand") {
+    out = setMeta(out, "property", "og:type", "article");
+    const author = article.author ? AUTHORS[article.author]?.name : null;
+    if (author) out = addMeta(out, "article:author", author);
+    out = addMeta(out, "article:modified_time", article.dateModified);
+    out = addMeta(out, "article:published_time", article.datePublished);
+  }
 
   // Image sociale propre à l'article, sinon celle du site.
   if (ogImage) {
@@ -316,6 +341,7 @@ async function writeRoute(template, route, { noindex = false, file } = {}) {
   let html = applyHead(template, {
     ...head,
     noindex,
+    article,
     ogImage: article?.ogImage,
     imageAlt: article?.imageAlt,
     // Pas de données structurées sur la 404 : elle est en noindex.
