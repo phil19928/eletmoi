@@ -13,6 +13,7 @@
 import { writeFile, mkdir, readFile, rm } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { spawn } from "node:child_process";
+import { stat, unlink } from "node:fs/promises";
 import path from "node:path";
 import os from "node:os";
 import { pathToFileURL } from "node:url";
@@ -160,6 +161,53 @@ async function capture(html, outFile) {
   ws.close();
 }
 
+/**
+ * Réduit une capture Chrome à une palette de 256 couleurs.
+ *
+ * Chrome écrit un PNG truecolor : ~290 Ko pour un dégradé plat et du texte,
+ * soit trois fois ce que coûte la même image en palettisé. Ces cartes ne sont
+ * chargées que par les robots des réseaux sociaux au moment d'un partage, donc
+ * le poids ne pèse pas sur la navigation — mais il pèse sur le dépôt, et
+ * `public/og/` en était la moitié.
+ *
+ * Le tramage de Sierra rend les dégradés du gabarit sans bande visible. Si
+ * ffmpeg n'est pas installé, ou si le résultat n'est pas plus léger, on garde
+ * le PNG d'origine : la génération ne doit jamais échouer pour une optimisation.
+ */
+async function shrink(file) {
+  const before = (await stat(file)).size;
+  const palette = `${file}.palette.png`;
+  const out = `${file}.min.png`;
+
+  const run = (args) =>
+    new Promise((resolve) => {
+      const p = spawn("ffmpeg", ["-hide_banner", "-loglevel", "error", ...args]);
+      p.on("error", () => resolve(false));
+      p.on("close", (code) => resolve(code === 0));
+    });
+
+  const ok =
+    (await run(["-i", file, "-vf", "format=rgb24,palettegen=max_colors=256", "-y", palette])) &&
+    (await run([
+      "-i", file, "-i", palette,
+      "-lavfi", "format=rgb24[x];[x][1:v]paletteuse=dither=sierra2_4a",
+      "-y", out,
+    ]));
+
+  await unlink(palette).catch(() => {});
+  if (!ok) {
+    await unlink(out).catch(() => {});
+    return { before, after: before, skipped: true };
+  }
+
+  const after = (await stat(out)).size;
+  if (after < before) {
+    await writeFile(file, await readFile(out));
+  }
+  await unlink(out).catch(() => {});
+  return { before, after: Math.min(after, before), skipped: false };
+}
+
 export async function generate({ force = false } = {}) {
   const { ARTICLES } = await import(
     pathToFileURL(path.join(ROOT, "src", "content", "manifest.js")).href
@@ -180,7 +228,12 @@ export async function generate({ force = false } = {}) {
       const out = path.join(ROOT, "public", article.ogImage.replace(/^\//, ""));
       await mkdir(path.dirname(out), { recursive: true });
       await capture(template(article, logoDataUri), out);
-      console.log(`  ✓ ${article.ogImage.padEnd(42)} ${article.h1.slice(0, 44)}`);
+      const { before, after, skipped } = await shrink(out);
+      const kb = (n) => `${Math.round(n / 1024)} Ko`;
+      const gain = skipped
+        ? `${c.yellow}${kb(before)} (ffmpeg absent)${c.reset}`
+        : `${kb(before)} → ${c.green}${kb(after)}${c.reset}`;
+      console.log(`  ✓ ${article.ogImage.padEnd(42)} ${gain}`);
     }
   });
 
