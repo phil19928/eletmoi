@@ -5,6 +5,7 @@ import { MotionConfig } from "framer-motion";
 import Navbar from "./components/Navbar";
 import CookieBanner from "./components/CookieBanner";
 import Hero from "./sections/Hero";
+import SocialProof from "./sections/SocialProof";
 import Smartloop from "./sections/Smartloop";
 import Lumen from "./sections/Lumen";
 import FAQ from "./sections/FAQ";
@@ -67,6 +68,7 @@ function LandingPage() {
     <div className="min-h-screen bg-white font-sans antialiased">
       <Navbar />
       <Hero />
+      <SocialProof />
       <Smartloop />
       <Lumen />
       <FAQ />

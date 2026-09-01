@@ -10,7 +10,15 @@
  * la route.
  */
 
+import { readFileSync } from "node:fs";
+
 import { SITE_URL } from "../../content/seo.config.mjs";
+
+// Les avis affichés sur l'accueil, relus ici pour être aussi balisés. Même
+// fichier que le carrousel : une seule source, pas de recopie à maintenir.
+const REVIEWS = JSON.parse(
+  readFileSync(new URL("../../src/data/reviews.json", import.meta.url), "utf8")
+).reviews;
 
 const ORG_ID = `${SITE_URL}/#organization`;
 
@@ -132,11 +140,43 @@ const itemListNode = (article) => ({
 /**
  * Fiche produit, sur l'accueil et les pages de marque.
  *
- * Pas d'aggregateRating : agréger une note sur un seul avis serait trompeur,
- * et Google ignore — voire sanctionne — ce type de déclaration. À rétablir
- * quand il y aura du volume réel et sourcé.
+ * Toujours pas d'aggregateRating, alors même que reviews.json porte désormais
+ * une note et un nombre d'avis : agréger sur ce volume resterait trompeur, et
+ * Google ignore — voire sanctionne — ce type de déclaration. Ces deux valeurs
+ * servent l'affichage, pas le balisage. À rétablir quand il y aura du volume
+ * réel et sourcé.
+ *
+ * Les avis individuels, eux, sont déclarés — mais seulement sur l'accueil
+ * (`withReviews`), car ce nœud est partagé par les pages de marque via le même
+ * @id : sans ce garde, les mêmes avis se retrouveraient sur six URL.
+ *
+ * Un champ absent des données n'est jamais comblé : pas de note inventée, pas
+ * d'auteur générique. « Utilisateur vérifié » est un libellé d'interface, il
+ * n'a rien à faire dans des données structurées.
  */
-function softwareNode(article) {
+function reviewNode(review) {
+  return {
+    "@type": "Review",
+    inLanguage: "fr-FR",
+    reviewBody: review.text,
+    ...(review.title ? { name: review.title } : {}),
+    ...(review.author
+      ? { author: { "@type": "Person", name: review.author } }
+      : {}),
+    ...(review.rating
+      ? {
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: String(review.rating),
+            bestRating: "5",
+            worstRating: "1",
+          },
+        }
+      : {}),
+  };
+}
+
+function softwareNode(article, { withReviews = false } = {}) {
   const node = {
     "@type": "MobileApplication",
     "@id": `${SITE_URL}/#app`,
@@ -171,6 +211,7 @@ function softwareNode(article) {
     ],
   };
   if (article?.metaDescription) node.description = article.metaDescription;
+  if (withReviews && REVIEWS.length) node.review = REVIEWS.map(reviewNode);
   return node;
 }
 
@@ -214,7 +255,7 @@ export function buildJsonLd({ route, article = null, authors = {}, label, indexA
   // L'accueil porte la fiche produit : elle est retirée du gabarit index.html
   // pour ne pas se retrouver dupliquée sur les pages de marque.
   if (route.path === "/") {
-    graph.push(softwareNode(null));
+    graph.push(softwareNode(null, { withReviews: true }));
     return graph;
   }
 

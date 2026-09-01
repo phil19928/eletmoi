@@ -124,6 +124,17 @@ details summary::-webkit-details-marker {
   text-wrap: balance;
 }
 
+/* Piste de carrousel : la barre de défilement native casse l'alignement des
+   cartes et double une affordance déjà portée par les points de pagination. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .section-smartloop-bg {
   background:
     radial-gradient(circle at 18% 18%, rgba(122, 158, 136, 0.13), transparent 32rem),

@@ -1,0 +1,60 @@
+{
+  "stats": {
+    "downloads": "100+",
+    "downloadsLabel": "téléchargements",
+    "rating": "5,0",
+    "reviewCount": 10,
+    "stores": [
+      "App Store",
+      "Google Play"
+    ],
+    "lastUpdated": "2026-09-01"
+  },
+  "reviews": [
+    {
+      "id": "gp-001",
+      "author": "Steven",
+      "source": "google_play",
+      "rating": 5,
+      "title": "Super",
+      "text": "Un super moyen de lier le divertissement à l'apprentissage !",
+      "helpful": 1
+    },
+    {
+      "id": "as-001",
+      "author": null,
+      "source": "app_store",
+      "rating": 5,
+      "title": "Une appli innovante et utile pour nos enfants !",
+      "text": "Une super appli, avec une idée vraiment innovante et utile ! En tant que parent, je trouve l'approche d'El&Moi particulièrement intéressante pour aider les enfants et les jeunes à mieux gérer leur temps d'écran de façon éducative et positive. Une vraie réponse à un enjeu important de nos jours. Bravo !",
+      "helpful": null
+    },
+    {
+      "id": "gp-002",
+      "author": "Matchar rtz",
+      "source": "google_play",
+      "rating": 5,
+      "title": "Contrôle parental revisité",
+      "text": "J'aime bien le concept, ce genre d'appli manquait. Elle est super facile à prendre en main, hâte de voir la suite.",
+      "helpful": 1
+    },
+    {
+      "id": "as-002",
+      "author": null,
+      "source": "app_store",
+      "rating": 5,
+      "title": "Super appli",
+      "text": "Un immense bravo !! Une application intuitive, fluide et vraiment agréable à utiliser au quotidien. L'expérience est soignée, les fonctionnalités sont pertinentes et tout est pensé pour simplifier la vie des utilisateurs. On sent qu'il y a un vrai travail derrière le développement. C'est rare de trouver une appli aussi pratique et bien conçue. Je la recommande sans hésiter à 100% !!",
+      "helpful": null
+    },
+    {
+      "id": "as-003",
+      "author": null,
+      "source": "app_store",
+      "rating": 5,
+      "title": "Chouette",
+      "text": "Enfant adore ce concept et app !",
+      "helpful": null
+    }
+  ]
+}
