@@ -58,9 +58,14 @@ export const STATIC_ROUTE_DEFAULTS = {
 /**
  * Le blog est le hub unique de tout le contenu éditorial.
  *
- * Une seule page d'index, organisée en cinq briques thématiques — une par
+ * Une seule page d'index, organisée en six briques thématiques — une par
  * cluster. Concentrer les contenus au même endroit simplifie la navigation et
  * évite d'éparpiller le maillage interne sur plusieurs pages de liste.
+ *
+ * Les pages de marque (cluster F) y figurent au même titre que les articles :
+ * elles restent atteignables par la barre de navigation et le pied de page,
+ * mais rien ne justifiait qu'elles soient absentes de la seule liste
+ * exhaustive du site.
  *
  * Les URLs des articles ne changent pas pour autant : elles restent figées sur
  * /blog/, /comparatif/, /guides/ et /lumen/.
@@ -71,12 +76,12 @@ export const INDEX_ROUTES = [
     title: "Blog — encadrer le temps d'écran des enfants | El&Moi",
     description:
       "Cadre légal, comparatifs, guides de configuration, parentalité numérique et sécurité en ligne : tous nos contenus pour accompagner les enfants sans conflit.",
-    clusters: ["A", "B", "C", "D", "E"],
+    clusters: ["A", "B", "C", "D", "E", "F"],
   },
 ];
 
 /**
- * Les cinq briques du hub, dans l'ordre d'affichage. L'ancre sert à la fois de
+ * Les six briques du hub, dans l'ordre d'affichage. L'ancre sert à la fois de
  * cible de navigation interne et d'identifiant de section.
  */
 export const BLOG_CLUSTERS = [
@@ -114,5 +119,12 @@ export const BLOG_CLUSTERS = [
     label: "Lumen — sécurité en ligne",
     tagline: "Deepfakes, arnaques, harcèlement : ce qu'un ado doit savoir.",
     accent: "secondary",
+  },
+  {
+    cluster: "F",
+    anchor: "el-et-moi",
+    label: "Pages de marque",
+    tagline: "Le Smartloop, Lumen, les tarifs et qui nous sommes.",
+    accent: "slate",
   },
 ];

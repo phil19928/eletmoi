@@ -15,7 +15,7 @@ import {
 } from "../content/manifest";
 
 /**
- * Le blog, hub unique de tout le contenu éditorial.
+ * Le blog, hub unique de tout le contenu du site — articles et pages de marque.
  *
  * Trois niveaux de lecture : un carrousel des articles à la une, une barre de
  * filtres par thématique, puis la grille complète. Le filtre est purement
@@ -101,9 +101,14 @@ export default function IndexPage({ route }) {
 
   // À la une : les piliers d'abord, puis les articles prioritaires. Quatre au
   // maximum — au-delà, personne ne fait défiler jusqu'au bout.
+  //
+  // Les pages de marque en sont écartées : elles ont leur place dans la grille
+  // et dans les filtres, mais mettre /tarifs « à la une » d'un hub de contenu
+  // ferait passer une page produit pour un article.
   const featured = useMemo(
     () =>
-      [...articles]
+      articles
+        .filter((a) => a.cluster !== "F")
         .sort(
           (a, b) =>
             Number(b.isPillar) - Number(a.isPillar) ||

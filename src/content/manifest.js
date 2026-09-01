@@ -1658,13 +1658,19 @@ export const INDEX_PAGES = [
       "B",
       "C",
       "D",
-      "E"
+      "E",
+      "F"
     ],
     "articles": [
       "D7",
       "A1",
       "A3",
       "D1",
+      "F4",
+      "F2",
+      "F8",
+      "F1",
+      "F3",
       "B1",
       "C3",
       "C1",
@@ -1708,6 +1714,13 @@ export const BLOG_CLUSTERS = [
     "label": "Lumen — sécurité en ligne",
     "tagline": "Deepfakes, arnaques, harcèlement : ce qu'un ado doit savoir.",
     "accent": "secondary"
+  },
+  {
+    "cluster": "F",
+    "anchor": "el-et-moi",
+    "label": "Pages de marque",
+    "tagline": "Le Smartloop, Lumen, les tarifs et qui nous sommes.",
+    "accent": "slate"
   }
 ];
 
