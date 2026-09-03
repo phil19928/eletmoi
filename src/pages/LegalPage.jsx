@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import SiteLink from "../components/SiteLink";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Footer from "../sections/Footer";
@@ -9,12 +9,12 @@ export default function LegalPage({ content }) {
     <div className="min-h-screen bg-white font-sans antialiased flex flex-col">
       <div className="flex-1">
         <div className="max-w-[800px] mx-auto px-5 sm:px-8 py-10 sm:py-14">
-          <Link
+          <SiteLink
             to="/"
             className="inline-block mb-8 text-sm text-gray-400 hover:text-primary transition-colors"
           >
             ← Retour à l'accueil
-          </Link>
+          </SiteLink>
           <ReactMarkdown components={legalComponents} remarkPlugins={[remarkGfm]}>
             {content}
           </ReactMarkdown>

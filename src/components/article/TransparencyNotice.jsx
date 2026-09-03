@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import SiteLink from "../SiteLink";
 import { frenchDate, isoDateTime } from "../../lib/date";
 
 /**
@@ -16,12 +16,12 @@ export default function TransparencyNotice({ verifiedOn }) {
           Nous éditons El&Moi.
         </span>{" "}
         Cette comparaison est donc écrite par une partie prenante.{" "}
-        <Link
+        <SiteLink
           to="/a-propos"
           className="text-primary-dark hover:underline underline-offset-2"
         >
           Voici notre méthode de comparaison
-        </Link>
+        </SiteLink>
         , les critères retenus et la façon dont nous testons les solutions
         concurrentes.
         {verifiedOn ? (

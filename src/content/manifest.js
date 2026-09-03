@@ -12,11 +12,12 @@ export const ARTICLES = [
     "route": "/blog/entree-en-6e-smartphone",
     "template": "article",
     "h1": "Entrée en 6e : faut-il donner un smartphone à votre enfant ?",
-    "metaTitle": "Entrée en 6e : faut-il donner un smartphone à son enfant ?",
-    "metaDescription": "Votre enfant entre en 6e et réclame un téléphone. Comment décider, quoi régler avant de lui donner, et les règles à poser dès le premier jour.",
+    "metaTitle": "Premier téléphone en 6e : âge, règles et contrôle parental",
+    "metaDescription": "À quel âge donner un premier smartphone ? Les règles à poser dès l'entrée en 6e, le temps d'écran à encadrer et les outils de contrôle parental utiles.",
     "canonical": "https://eletmoi.fr/blog/entree-en-6e-smartphone/",
     "datePublished": "2026-08-25",
-    "dateModified": "2026-08-25",
+    "dateModified": "2026-09-03",
+    "factsVerifiedOn": null,
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "smartphone entrée en 6e",
@@ -26,7 +27,7 @@ export const ARTICLES = [
     "isPillar": false,
     "priority": "P1",
     "wave": "V0",
-    "wordCount": 733,
+    "wordCount": 1702,
     "dir": "blog",
     "internalLinks": [
       {
@@ -88,6 +89,36 @@ export const ARTICLES = [
         "cluster": "F",
         "resolved": true,
         "reason": null
+      },
+      {
+        "id": "B1",
+        "anchor": "Comparatif 2026 : 8 solutions de contrôle parental",
+        "context": "body",
+        "route": "/comparatif",
+        "title": "Comparatif 2026 : 8 façons d'encadrer le téléphone d'un enfant (pilier)",
+        "cluster": "B",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "C3",
+        "anchor": "Contrôle parental Android : le guide complet",
+        "context": "body",
+        "route": "/guides/controle-parental-android",
+        "title": "Contrôle parental Android : le guide complet (pilier)",
+        "cluster": "C",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "E1",
+        "anchor": "Deepfakes : l'expliquer à un enfant, 3 exercices",
+        "context": "related",
+        "route": "/lumen/deepfakes",
+        "title": "Deepfakes : l'expliquer à un enfant, 3 exercices",
+        "cluster": "E",
+        "resolved": true,
+        "reason": null
       }
     ],
     "externalSources": [
@@ -96,9 +127,9 @@ export const ARTICLES = [
         "publisher": "jeprotegemonenfant.gouv.fr",
         "url": "https://jeprotegemonenfant.gouv.fr/",
         "accessedOn": "2026-08-25",
-        "rel": "nofollow noopener",
+        "rel": "noopener",
         "target": "_blank",
-        "kind": "unknown"
+        "kind": "institutional"
       },
       {
         "title": "Prévention et accompagnement des jeunes en ligne",
@@ -153,6 +184,7 @@ export const ARTICLES = [
     "canonical": "https://eletmoi.fr/blog/loi-reseaux-sociaux-moins-15-ans/",
     "datePublished": "2026-08-25",
     "dateModified": "2026-09-03",
+    "factsVerifiedOn": null,
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "loi réseaux sociaux moins de 15 ans",
@@ -162,7 +194,7 @@ export const ARTICLES = [
     "isPillar": false,
     "priority": "P1",
     "wave": "V0",
-    "wordCount": 589,
+    "wordCount": 647,
     "dir": "blog",
     "internalLinks": [
       {
@@ -232,18 +264,18 @@ export const ARTICLES = [
         "publisher": "info.gouv.fr",
         "url": "https://www.info.gouv.fr/actualite/interdiction-des-telephones-portables-au-lycee-ce-que-dit-la-loi",
         "accessedOn": "2026-09-03",
-        "rel": "nofollow noopener",
+        "rel": "noopener",
         "target": "_blank",
-        "kind": "unknown"
+        "kind": "institutional"
       },
       {
         "title": "Décision n° 2026-911 DC du 14 août 2026",
         "publisher": "Conseil constitutionnel",
         "url": "https://www.conseil-constitutionnel.fr/decision/2026/2026911DC.htm",
         "accessedOn": "2026-09-03",
-        "rel": "nofollow noopener",
+        "rel": "noopener",
         "target": "_blank",
-        "kind": "unknown"
+        "kind": "institutional"
       },
       {
         "title": "LOI n° 2026-813 du 24 août 2026",
@@ -277,9 +309,9 @@ export const ARTICLES = [
         "publisher": "jeprotegemonenfant.gouv.fr",
         "url": "https://jeprotegemonenfant.gouv.fr/",
         "accessedOn": "2026-08-25",
-        "rel": "nofollow noopener",
+        "rel": "noopener",
         "target": "_blank",
-        "kind": "unknown"
+        "kind": "institutional"
       }
     ],
     "faq": [
@@ -325,6 +357,7 @@ export const ARTICLES = [
     "canonical": "https://eletmoi.fr/blog/portable-interdit-lycee-2026/",
     "datePublished": "2026-08-25",
     "dateModified": "2026-09-03",
+    "factsVerifiedOn": null,
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "portable interdit lycée",
@@ -334,7 +367,7 @@ export const ARTICLES = [
     "isPillar": false,
     "priority": "P1",
     "wave": "V0",
-    "wordCount": 557,
+    "wordCount": 581,
     "dir": "blog",
     "internalLinks": [
       {
@@ -386,6 +419,16 @@ export const ARTICLES = [
         "cluster": "F",
         "resolved": true,
         "reason": null
+      },
+      {
+        "id": "E1",
+        "anchor": "Deepfakes : l'expliquer à un enfant, 3 exercices",
+        "context": "body",
+        "route": "/lumen/deepfakes",
+        "title": "Deepfakes : l'expliquer à un enfant, 3 exercices",
+        "cluster": "E",
+        "resolved": true,
+        "reason": null
       }
     ],
     "externalSources": [
@@ -394,9 +437,9 @@ export const ARTICLES = [
         "publisher": "info.gouv.fr",
         "url": "https://www.info.gouv.fr/actualite/interdiction-des-telephones-portables-au-lycee-ce-que-dit-la-loi",
         "accessedOn": "2026-09-03",
-        "rel": "nofollow noopener",
+        "rel": "noopener",
         "target": "_blank",
-        "kind": "unknown"
+        "kind": "institutional"
       },
       {
         "title": "Interdiction du téléphone portable de l'école au lycée",
@@ -412,9 +455,9 @@ export const ARTICLES = [
         "publisher": "jeprotegemonenfant.gouv.fr",
         "url": "https://jeprotegemonenfant.gouv.fr/",
         "accessedOn": "2026-08-25",
-        "rel": "nofollow noopener",
+        "rel": "noopener",
         "target": "_blank",
-        "kind": "unknown"
+        "kind": "institutional"
       },
       {
         "title": "Vos droits et démarches",
@@ -469,6 +512,7 @@ export const ARTICLES = [
     "canonical": "https://eletmoi.fr/blog/temps-ecran-par-age/",
     "datePublished": "2026-08-25",
     "dateModified": "2026-08-25",
+    "factsVerifiedOn": null,
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "temps d'écran par âge",
@@ -478,7 +522,7 @@ export const ARTICLES = [
     "isPillar": true,
     "priority": "P1",
     "wave": "V1",
-    "wordCount": 727,
+    "wordCount": 766,
     "dir": "blog",
     "internalLinks": [
       {
@@ -510,6 +554,16 @@ export const ARTICLES = [
         "cluster": "D",
         "resolved": false,
         "reason": "cible non publiée"
+      },
+      {
+        "id": "B1",
+        "anchor": "Comparatif 2026 : 8 solutions de contrôle parental",
+        "context": "body",
+        "route": "/comparatif",
+        "title": "Comparatif 2026 : 8 façons d'encadrer le téléphone d'un enfant (pilier)",
+        "cluster": "B",
+        "resolved": true,
+        "reason": null
       },
       {
         "id": "C3",
@@ -566,9 +620,9 @@ export const ARTICLES = [
         "publisher": "jeprotegemonenfant.gouv.fr",
         "url": "https://jeprotegemonenfant.gouv.fr/",
         "accessedOn": "2026-08-25",
-        "rel": "nofollow noopener",
+        "rel": "noopener",
         "target": "_blank",
-        "kind": "unknown"
+        "kind": "institutional"
       }
     ],
     "faq": [
@@ -614,6 +668,7 @@ export const ARTICLES = [
     "canonical": "https://eletmoi.fr/a-propos/",
     "datePublished": "2026-08-25",
     "dateModified": "2026-08-25",
+    "factsVerifiedOn": null,
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "el&moi qui sommes nous",
@@ -690,6 +745,7 @@ export const ARTICLES = [
     "canonical": "https://eletmoi.fr/lumen/",
     "datePublished": "2026-08-25",
     "dateModified": "2026-08-25",
+    "factsVerifiedOn": null,
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "sécurité en ligne enfant",
@@ -797,6 +853,7 @@ export const ARTICLES = [
     "canonical": "https://eletmoi.fr/presse/",
     "datePublished": "2026-08-25",
     "dateModified": "2026-08-25",
+    "factsVerifiedOn": null,
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "el&moi presse",
@@ -863,6 +920,7 @@ export const ARTICLES = [
     "canonical": "https://eletmoi.fr/smartloop/",
     "datePublished": "2026-08-25",
     "dateModified": "2026-08-25",
+    "factsVerifiedOn": null,
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "contrôle parental éducatif",
@@ -964,6 +1022,7 @@ export const ARTICLES = [
     "canonical": "https://eletmoi.fr/tarifs/",
     "datePublished": "2026-08-25",
     "dateModified": "2026-08-25",
+    "factsVerifiedOn": null,
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "el&moi prix",
@@ -1064,7 +1123,8 @@ export const ARTICLES = [
     "metaDescription": "Family Link, Temps d'écran, Qustodio, Xooloo, Kaspersky, Bark, Kizzo, El&Moi : ce que chacun fait vraiment, et lesquels se cumulent sans se gêner.",
     "canonical": "https://eletmoi.fr/comparatif/",
     "datePublished": "2026-08-25",
-    "dateModified": "2026-08-25",
+    "dateModified": "2026-09-03",
+    "factsVerifiedOn": "2026-08-25",
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "meilleur contrôle parental 2026",
@@ -1074,7 +1134,7 @@ export const ARTICLES = [
     "isPillar": true,
     "priority": "P1",
     "wave": "V1",
-    "wordCount": 1576,
+    "wordCount": 2432,
     "dir": "comparatif",
     "internalLinks": [
       {
@@ -1104,6 +1164,16 @@ export const ARTICLES = [
         "route": "/comparatif/google-family-link",
         "title": "Alternative à Google Family Link",
         "cluster": "B",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "D1",
+        "anchor": "Temps d'écran par âge : les repères disponibles",
+        "context": "body",
+        "route": "/blog/temps-ecran-par-age",
+        "title": "Combien de temps d'écran par âge (pilier)",
+        "cluster": "D",
         "resolved": true,
         "reason": null
       },
@@ -1248,6 +1318,7 @@ export const ARTICLES = [
     "canonical": "https://eletmoi.fr/comparatif/google-family-link/",
     "datePublished": "2026-09-03",
     "dateModified": "2026-09-03",
+    "factsVerifiedOn": null,
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "alternative family link",
@@ -1299,6 +1370,16 @@ export const ARTICLES = [
         "cluster": "C",
         "resolved": true,
         "reason": null
+      },
+      {
+        "id": "F4",
+        "anchor": "Qui sommes-nous et comment nous testons",
+        "context": "body",
+        "route": "/a-propos",
+        "title": "Qui sommes-nous et comment nous testons (E-E-A-T)",
+        "cluster": "F",
+        "resolved": true,
+        "reason": null
       }
     ],
     "externalSources": [
@@ -1334,9 +1415,9 @@ export const ARTICLES = [
         "publisher": "Service Public",
         "url": "https://www.service-public.gouv.fr/particuliers/actualites/A19051",
         "accessedOn": "2026-09-03",
-        "rel": "nofollow noopener",
+        "rel": "noopener",
         "target": "_blank",
-        "kind": "unknown"
+        "kind": "institutional"
       },
       {
         "title": "Interdiction du téléphone portable de l'école au lycée et numérique raisonné",
@@ -1406,6 +1487,7 @@ export const ARTICLES = [
     "canonical": "https://eletmoi.fr/guides/controle-parental-android/",
     "datePublished": "2026-08-29",
     "dateModified": "2026-09-03",
+    "factsVerifiedOn": null,
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "contrôle parental android",
@@ -1434,6 +1516,16 @@ export const ARTICLES = [
         "context": "body",
         "route": "/comparatif",
         "title": "Comparatif 2026 : 8 façons d'encadrer le téléphone d'un enfant (pilier)",
+        "cluster": "B",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "B2",
+        "anchor": "Alternative à Google Family Link : le comparatif 2026",
+        "context": "related",
+        "route": "/comparatif/google-family-link",
+        "title": "Alternative à Google Family Link",
         "cluster": "B",
         "resolved": true,
         "reason": null
@@ -1485,9 +1577,9 @@ export const ARTICLES = [
         "publisher": "info.gouv.fr",
         "url": "https://www.info.gouv.fr/actualite/interdiction-des-telephones-portables-au-lycee-ce-que-dit-la-loi",
         "accessedOn": "2026-09-03",
-        "rel": "nofollow noopener",
+        "rel": "noopener",
         "target": "_blank",
-        "kind": "unknown"
+        "kind": "institutional"
       },
       {
         "title": "Google Family Link — présentation officielle",
@@ -1598,6 +1690,7 @@ export const ARTICLES = [
     "canonical": "https://eletmoi.fr/guides/installation/",
     "datePublished": "2026-08-25",
     "dateModified": "2026-08-25",
+    "factsVerifiedOn": null,
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "el&moi installation",
@@ -1755,6 +1848,7 @@ export const ARTICLES = [
     "canonical": "https://eletmoi.fr/guides/parametres-restreints-android/",
     "datePublished": "2026-09-03",
     "dateModified": "2026-09-03",
+    "factsVerifiedOn": null,
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "paramètres restreints android",
@@ -1793,6 +1887,16 @@ export const ARTICLES = [
         "context": "cta",
         "route": "/smartloop",
         "title": "La Smartloop : comment ça marche",
+        "cluster": "F",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "F2",
+        "anchor": "Lumen : la cybersécurité en format court, par âge",
+        "context": "body",
+        "route": "/lumen",
+        "title": "Lumen : la cybersécurité en format court, par âge",
         "cluster": "F",
         "resolved": true,
         "reason": null
@@ -1886,6 +1990,7 @@ export const ARTICLES = [
     "canonical": "https://eletmoi.fr/lumen/deepfakes/",
     "datePublished": "2026-08-25",
     "dateModified": "2026-08-25",
+    "factsVerifiedOn": null,
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "expliquer deepfake enfant",
@@ -1963,9 +2068,9 @@ export const ARTICLES = [
         "publisher": "Ministère de l'Intérieur",
         "url": "https://www.internet-signalement.gouv.fr/",
         "accessedOn": "2026-08-25",
-        "rel": "nofollow noopener",
+        "rel": "noopener",
         "target": "_blank",
-        "kind": "unknown"
+        "kind": "institutional"
       }
     ],
     "faq": [

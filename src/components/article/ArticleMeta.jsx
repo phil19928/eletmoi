@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import SiteLink from "../SiteLink";
 import { frenchDate, isoDateTime } from "../../lib/date";
 
 /**
@@ -43,12 +43,12 @@ export default function ArticleMeta({ datePublished, dateModified, author }) {
           </span>
           <span>
             Par{" "}
-            <Link
+            <SiteLink
               to={author.url ?? "/a-propos"}
               className="text-primary-dark hover:underline underline-offset-2"
             >
               {author.name}
-            </Link>
+            </SiteLink>
           </span>
         </>
       ) : null}

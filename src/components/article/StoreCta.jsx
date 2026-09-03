@@ -1,6 +1,6 @@
 import { APP_STORE_URL, PLAY_STORE_URL } from "../../config";
-import badgeAppStore from "../../assets/badge--app-store.png";
-import badgePlayStore from "../../assets/Google_Play_Store_badge_FR.svg.png";
+import badgeAppStore from "../../assets/Newapplelogo.png";
+import badgePlayStore from "../../assets/Newgooglelogo.png";
 
 /**
  * Double bouton de téléchargement.
@@ -47,11 +47,11 @@ export default function StoreCta({
           <img
             src={badgeAppStore}
             alt="Télécharger l'application enfant El&Moi sur l'App Store pour iPhone"
-            width="109"
-            height="36"
+            width="164"
+            height="48"
             loading="lazy"
             decoding="async"
-            className="h-9 w-auto"
+            className="h-12 w-auto"
           />
         </a>
         <a
@@ -62,11 +62,11 @@ export default function StoreCta({
           <img
             src={badgePlayStore}
             alt="Télécharger l'application enfant El&Moi sur Google Play pour Android"
-            width="122"
-            height="36"
+            width="164"
+            height="48"
             loading="lazy"
             decoding="async"
-            className="h-9 w-auto"
+            className="h-12 w-auto"
           />
         </a>
       </div>

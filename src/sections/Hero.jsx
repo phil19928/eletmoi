@@ -5,8 +5,8 @@ import PhoneMockup from "../components/PhoneMockup";
 import { APP_STORE_URL, PARENT_APP_URL, PLAY_STORE_URL } from "../config";
 import screenDashboard from "../assets/parentdashboard.png";
 import screenEnfant from "../assets/enfantdashboard.png";
-import badgeAppStore from "../assets/badge--app-store.png";
-import badgePlayStore from "../assets/Google_Play_Store_badge_FR.svg.png";
+import badgeAppStore from "../assets/Newapplelogo.png";
+import badgePlayStore from "../assets/Newgooglelogo.png";
 
 export default function Hero() {
   return (
@@ -59,70 +59,103 @@ export default function Hero() {
               Un échange transparent que toute la famille comprend et accepte.
             </p>
 
+            {/*
+              Deux parcours, empilés — pas côte à côte.
+
+              Le parent ouvre une page web, l'enfant installe une application :
+              deux gestes, deux personnes. Ils méritent d'être séparés, mais la
+              colonne de texte du hero ne fait que 504 px sur desktop : deux
+              colonnes y comprimaient les badges à 130 px de large au lieu de
+              191 (`max-width: 100%` de Tailwind écrase alors l'image à hauteur
+              fixe). D'où l'empilement, avec un séparateur étiqueté.
+
+              `shrink-0` sur les deux liens : sans lui, un badge redevient
+              déformable dès que la place manque, sans rien signaler.
+            */}
             <div
               style={{ animationDelay: "160ms" }}
-              className="animate-enter mt-8 flex justify-center lg:justify-start"
+              className="animate-enter mt-10 flex flex-col items-center gap-6 lg:items-start"
             >
-              <div className="relative">
-                <div className="absolute inset-0 rounded-2xl bg-primary/20 animate-pulse-ring pointer-events-none" />
-                <Button
-                  href={PARENT_APP_URL}
-                  variant="card"
-                  className="relative z-10 !px-8 !py-4 !rounded-2xl !gap-4"
-                >
-                  <span className="w-9 h-9 rounded-xl bg-primary-very-light flex items-center justify-center flex-shrink-0 text-primary">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.75"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="w-5 h-5"
-                    >
-                      <path d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" />
-                    </svg>
-                  </span>
-                  <span className="text-lg font-normal tracking-tight text-slate-900">
-                    Accès Parent
-                  </span>
-                </Button>
+              {/* Parcours parent */}
+              <div className="flex flex-col items-center lg:items-start">
+                <div className="relative">
+                  <div className="absolute inset-0 rounded-2xl bg-primary/20 animate-pulse-ring pointer-events-none" />
+                  <Button
+                    href={PARENT_APP_URL}
+                    variant="card"
+                    className="relative z-10 !px-8 !py-4 !rounded-2xl !gap-4 whitespace-nowrap"
+                  >
+                    <span className="w-9 h-9 rounded-xl bg-primary-very-light flex items-center justify-center flex-shrink-0 text-primary">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.75"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="w-5 h-5"
+                      >
+                        <path d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" />
+                      </svg>
+                    </span>
+                    <span className="text-lg font-normal tracking-tight text-slate-900">
+                      Accès Parent
+                    </span>
+                  </Button>
+                </div>
+                <p className="mt-3 text-sm text-slate-400">
+                  Gratuit, dans votre navigateur — rien à installer.
+                </p>
               </div>
-            </div>
 
-            <p
-              style={{ animationDelay: "220ms" }}
-              className="animate-enter mt-3 text-sm text-slate-400"
-            >
-              Gratuit, dans votre navigateur — rien à installer.
-            </p>
+              {/*
+                Parcours enfant, dans un encadré.
 
-            <div
-              style={{ animationDelay: "280ms" }}
-              className="animate-enter mt-8 inline-block text-left"
-            >
-              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                Application enfant
-              </p>
-              <div className="flex items-center gap-3">
-                <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">
-                  <img
-                    src={badgeAppStore}
-                    alt="Télécharger l'application enfant El&Moi sur iPhone (App Store)"
-                    width="109"
-                    height="36"
-                    className="h-9 w-auto opacity-70 hover:opacity-100 transition-opacity duration-200"
-                  />
-                </a>
-                <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">
-                  <img
-                    src={badgePlayStore}
-                    alt="Télécharger l'application enfant El&Moi sur Android (Google Play)"
-                    width="122"
-                    height="36"
-                    className="h-9 w-auto opacity-70 hover:opacity-100 transition-opacity duration-200"
-                  />
-                </a>
+                Le bouton parent est une carte (variant `card`) : l'encadrer de
+                la même façon fait des deux parcours deux objets de même nature,
+                posés l'un sous l'autre, au lieu d'une étiquette flottante.
+
+                Largeurs vérifiées : encadré = badges + 32 px de rembourrage,
+                soit 426 px au-delà de sm (2 × 191 + 12 + 32) — la colonne de
+                texte la plus étroite du hero fait 440 px à 1024 px de large.
+                En mobile, h-10 : à h-11 les 312 px de badges plus le
+                rembourrage dépassaient les 320 px utiles d'un écran de 360.
+              */}
+              <div className="w-full rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm sm:w-auto">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  Application enfant
+                </p>
+
+                <div className="flex items-center justify-center gap-3 sm:justify-start">
+                  <a
+                    href={APP_STORE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0"
+                  >
+                    <img
+                      src={badgeAppStore}
+                      alt="Télécharger l'application enfant El&Moi sur iPhone (App Store)"
+                      width="191"
+                      height="56"
+                      className="h-10 w-auto transition-opacity duration-200 hover:opacity-80 sm:h-14"
+                    />
+                  </a>
+                  <a
+                    href={PLAY_STORE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0"
+                  >
+                    <img
+                      src={badgePlayStore}
+                      alt="Télécharger l'application enfant El&Moi sur Android (Google Play)"
+                      width="191"
+                      height="56"
+                      className="h-10 w-auto transition-opacity duration-200 hover:opacity-80 sm:h-14"
+                    />
+                  </a>
+                </div>
               </div>
             </div>
 

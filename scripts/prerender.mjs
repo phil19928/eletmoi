@@ -9,7 +9,7 @@
  */
 
 import { execFileSync } from "node:child_process";
-import { existsSync } from "node:fs";
+import { existsSync, statSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -257,6 +257,54 @@ function verifyAssets(html, routePath) {
   return referenced.size;
 }
 
+const isFile = (absolute) => {
+  try {
+    return statSync(absolute).isFile();
+  } catch {
+    return false;
+  }
+};
+
+/**
+ * Garde-fou : tout lien interne doit désigner l'URL réellement servie en 200.
+ *
+ * Netlify sert `<route>/` et redirige `<route>` en 301. Un lien interne sans
+ * slash final envoie donc chaque robot sur une redirection — c'est ce que
+ * Search Console remonte en « Page avec redirection », et ça a vécu des mois
+ * sans que rien ne le signale. Un lien vers une route inexistante est pire
+ * encore : /guides n'a jamais été une page, et les trois guides pointaient
+ * dessus depuis leur fil d'Ariane.
+ *
+ * Les chemins qui désignent un fichier réellement présent dans dist/ (assets,
+ * médias, cartes sociales, favicons) sont laissés tranquilles.
+ */
+function verifyInternalLinks(html, routePath) {
+  const known = new Set(ROUTES.map((r) => r.path));
+  const problems = [];
+
+  for (const [, href] of html.matchAll(/\shref="(\/[^"]*)"/g)) {
+    const target = href.split(/[#?]/)[0];
+    if (target === "" || target === "/") continue;
+    // `existsSync` seul ne suffit pas : /blog/ correspond au dossier dist/blog,
+    // qui existe. Seul un vrai fichier dispense du contrôle de route.
+    if (isFile(path.join(DIST, decodeURIComponent(target)))) continue;
+
+    const withoutSlash = target.replace(/\/$/, "");
+    if (!known.has(withoutSlash)) {
+      problems.push(`${href} — aucune route de ce nom, et aucun fichier dans dist/`);
+    } else if (!target.endsWith("/")) {
+      problems.push(`${href} — sans slash final : Netlify y répondra 301`);
+    }
+  }
+
+  if (problems.length > 0) {
+    throw new Error(
+      `Liens internes non canoniques sur ${routePath} :\n` +
+        [...new Set(problems)].map((m) => `  - ${m}`).join("\n")
+    );
+  }
+}
+
 /** Date du dernier commit touchant le fichier source, pour un <lastmod> honnête. */
 function lastModified(source) {
   if (!source) return null;
@@ -367,6 +415,7 @@ async function writeRoute(template, route, { noindex = false, file } = {}) {
   html = injectBody(html, markup);
 
   verifyAssets(html, route.path);
+  verifyInternalLinks(html, route.path);
 
   const outFile =
     file ??

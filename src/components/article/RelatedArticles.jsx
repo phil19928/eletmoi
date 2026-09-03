@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import SiteLink from "../SiteLink";
 
 /**
  * Maillage interne sortant, en fin d'article.
@@ -39,7 +39,7 @@ export default function RelatedArticles({ links = [], suggestions = [] }) {
 
           return (
             <li key={item.id}>
-              <Link
+              <SiteLink
                 to={item.route}
                 className="block h-full rounded-2xl border border-slate-200 bg-white p-4 hover:border-primary/40 hover:shadow-md transition-all"
               >
@@ -49,7 +49,7 @@ export default function RelatedArticles({ links = [], suggestions = [] }) {
                     {item.clusterLabel}
                   </span>
                 ) : null}
-              </Link>
+              </SiteLink>
             </li>
           );
         })}

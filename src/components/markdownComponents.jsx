@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import SiteLink from "./SiteLink";
 import { slugifyHeading, nodeToText } from "../lib/slugify";
 import { isInternalHref, qualifyRel } from "../lib/links";
 
@@ -39,7 +39,7 @@ function Heading({ level, children }) {
 
 /**
  * Lien de corps de texte.
- * Interne → <Link> react-router (navigation sans rechargement).
+ * Interne → <SiteLink> (navigation sans rechargement, URL avec slash final).
  * Externe → rel/target calculés, jamais laissés au hasard.
  */
 function MarkdownLink({ href = "", children }) {
@@ -52,9 +52,9 @@ function MarkdownLink({ href = "", children }) {
         {children}
       </a>
     ) : (
-      <Link to={href} className={className}>
+      <SiteLink to={href} className={className}>
         {children}
-      </Link>
+      </SiteLink>
     );
   }
 

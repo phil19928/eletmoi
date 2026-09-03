@@ -56,11 +56,11 @@ export const ROUTES = [
   },
   {
     "path": "/blog/entree-en-6e-smartphone",
-    "title": "Entrée en 6e : faut-il donner un smartphone à son enfant ?",
-    "description": "Votre enfant entre en 6e et réclame un téléphone. Comment décider, quoi régler avant de lui donner, et les règles à poser dès le premier jour.",
+    "title": "Premier téléphone en 6e : âge, règles et contrôle parental",
+    "description": "À quel âge donner un premier smartphone ? Les règles à poser dès l'entrée en 6e, le temps d'écran à encadrer et les outils de contrôle parental utiles.",
     "priority": 0.6,
     "changefreq": "monthly",
-    "lastmod": "2026-08-25",
+    "lastmod": "2026-09-03",
     "articleId": "D7"
   },
   {
@@ -141,7 +141,7 @@ export const ROUTES = [
     "description": "Family Link, Temps d'écran, Qustodio, Xooloo, Kaspersky, Bark, Kizzo, El&Moi : ce que chacun fait vraiment, et lesquels se cumulent sans se gêner.",
     "priority": 0.8,
     "changefreq": "monthly",
-    "lastmod": "2026-08-25",
+    "lastmod": "2026-09-03",
     "articleId": "B1"
   },
   {

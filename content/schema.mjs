@@ -80,6 +80,12 @@ export const articleSchema = z
     // Dates — obligatoires, affichées à l'écran et dans le JSON-LD
     datePublished: isoDate,
     dateModified: isoDate,
+    // Date de vérification des faits cités (tarifs, fonctionnalités
+    // concurrentes). Distincte de `dateModified` : retoucher la structure d'un
+    // comparatif ne revérifie pas les tarifs qu'il annonce, et le bandeau de
+    // transparence ne doit pas le laisser croire. À défaut, il retombe sur
+    // `dateModified`.
+    factsVerifiedOn: isoDate.optional(),
     reviewCycle: z
       .enum(["monthly", "quarterly", "biannual", "annual"])
       .default("quarterly"),

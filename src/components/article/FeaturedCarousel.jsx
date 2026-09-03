@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import SiteLink from "../SiteLink";
 import { frenchDate, isoDateTime } from "../../lib/date";
 
 /**
@@ -78,7 +78,7 @@ export default function FeaturedCarousel({ articles, accents }) {
                 aria-hidden={i !== index}
                 className="w-full flex-shrink-0 flex"
               >
-                <Link
+                <SiteLink
                   to={article.route}
                   tabIndex={i === index ? 0 : -1}
                   // w-full est indispensable : sans lui le lien se dimensionne
@@ -127,7 +127,7 @@ export default function FeaturedCarousel({ articles, accents }) {
                       </span>
                     </span>
                   </div>
-                </Link>
+                </SiteLink>
               </div>
             );
           })}

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import SiteLink from "../SiteLink";
 
 /**
  * Encart auteur — signal E-E-A-T.
@@ -57,12 +57,12 @@ export default function AuthorBox({ author, reviewer = null }) {
             </p>
           ) : null}
 
-          <Link
+          <SiteLink
             to={author.url ?? "/a-propos"}
             className="mt-3 inline-block text-sm text-primary-dark hover:underline underline-offset-2"
           >
             Qui sommes-nous et comment nous testons →
-          </Link>
+          </SiteLink>
         </div>
       </div>
     </aside>

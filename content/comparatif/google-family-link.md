@@ -36,6 +36,9 @@ internalLinks:
   - id: C1
     anchor: 'Installer El&Moi en 5 minutes, pas à pas'
     context: body
+  - id: F4
+    anchor: Qui sommes-nous et comment nous testons
+    context: body
 externalSources:
   - accessedOn: '2026-09-03'
     title: Google Family Link

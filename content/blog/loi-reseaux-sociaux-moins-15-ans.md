@@ -135,11 +135,13 @@ Les modalités exactes de vérification de l'âge, si elles reviennent dans un f
 
 ## Ce que vous pouvez faire dès maintenant
 
-**Parlez-en avant que ça arrive.** Une règle qui tombe sans prévenir est vécue comme une punition. Une règle discutée deux mois avant est vécue comme un cadre. Ce n'est pas le même hiver à la maison.
+**Parlez-en avant que ça arrive.** Une règle qui tombe sans prévenir est vécue comme une punition. Une règle discutée deux mois avant est vécue comme un cadre. Ce n'est pas le même hiver à la maison. C'est vrai dès le début : les familles qui posent le cadre au moment de [donner un téléphone à leur enfant](/blog/entree-en-6e-smartphone/) renégocient beaucoup moins ensuite.
 
 **Faites l'inventaire.** Demandez-lui simplement quelles applications il utilise et lesquelles comptent vraiment pour lui. Vous serez peut-être surpris : l'essentiel de ses échanges se passe souvent sur une seule d'entre elles.
 
 **Anticipez le vide.** Un ado qui perd deux heures de scroll par jour ne les remplace pas tout seul par du violon. C'est précisément le moment où un cadre clair aide : des règles connues à l'avance, et autre chose à faire de son téléphone.
+
+**Choisissez l'outil avant d'en avoir besoin.** Les solutions ne se valent pas selon l'âge et selon le téléphone : nous les passons en revue dans [notre comparatif des 8 solutions](/comparatif/), avec leurs limites.
 
 **Ne comptez pas uniquement sur la loi.** Une interdiction n'apprend pas à repérer une arnaque, une fausse vidéo ou un inconnu insistant. Ces situations continueront d'exister sur les messageries et les jeux. Ce qui protège votre enfant, c'est ce qu'il sait.
 

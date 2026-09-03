@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import SiteLink from "../SiteLink";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -78,7 +78,7 @@ export default function BrandLayout({ article, body }) {
             <ul className="grid gap-3 sm:grid-cols-2 list-none pl-0">
               {others.map((page) => (
                 <li key={page.route}>
-                  <Link
+                  <SiteLink
                     to={page.route}
                     className="block h-full rounded-2xl border border-slate-200 bg-white p-4 hover:border-primary/40 hover:shadow-md transition-all"
                   >
@@ -88,7 +88,7 @@ export default function BrandLayout({ article, body }) {
                     <span className="block text-sm text-slate-500 mt-1">
                       {page.hint}
                     </span>
-                  </Link>
+                  </SiteLink>
                 </li>
               ))}
             </ul>

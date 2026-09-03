@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import SiteLink from "../components/SiteLink";
 import Footer from "../sections/Footer";
 
 export default function NotFound() {
@@ -15,12 +15,12 @@ export default function NotFound() {
           <p className="mt-4 text-slate-500 leading-relaxed">
             Le lien est peut-être erroné, ou la page a été déplacée.
           </p>
-          <Link
+          <SiteLink
             to="/"
             className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-primary text-white font-semibold shadow-md shadow-primary/20 hover:bg-primary-dark transition-colors"
           >
             ← Retour à l'accueil
-          </Link>
+          </SiteLink>
         </div>
       </div>
       <Footer />

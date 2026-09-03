@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import SiteLink from "../SiteLink";
 
 /**
  * Fil d'Ariane visible. Son pendant structuré (BreadcrumbList) est injecté au
@@ -25,12 +25,12 @@ export default function Breadcrumbs({ items = [] }) {
                 </span>
               ) : (
                 <>
-                  <Link
+                  <SiteLink
                     to={item.route}
                     className="hover:text-primary transition-colors"
                   >
                     {item.label}
-                  </Link>
+                  </SiteLink>
                   <span aria-hidden="true" className="text-slate-300">
                     /
                   </span>

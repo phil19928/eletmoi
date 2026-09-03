@@ -13,6 +13,7 @@
 import { readFileSync } from "node:fs";
 
 import { SITE_URL } from "../../content/seo.config.mjs";
+import { indexLabel, sectionCrumb } from "../../src/lib/breadcrumbs.js";
 
 // La FAQ de l'accueil. Même fichier que la section React (`sections/FAQ`) :
 // le texte balisé est donc, par construction, celui qui est affiché.
@@ -22,27 +23,22 @@ const HOME_FAQ = JSON.parse(
 
 const ORG_ID = `${SITE_URL}/#organization`;
 
-const SECTION_LABELS = {
-  blog: "Blog",
-  comparatif: "Comparatifs",
-  guides: "Guides",
-  lumen: "Lumen",
-};
-
 const abs = (routePath) =>
   routePath === "/" ? `${SITE_URL}/` : `${SITE_URL}${routePath}/`;
 
-/** Fil d'Ariane structuré — doit refléter exactement le fil visible. */
+/**
+ * Fil d'Ariane structuré — doit refléter exactement le fil visible.
+ *
+ * Le maillon intermédiaire vient du même helper que `ArticleLayout` : les deux
+ * fils ne peuvent plus diverger, et aucun n'annonce une racine de cluster qui
+ * n'est pas une page (/guides déclarait un 404).
+ */
 function breadcrumb(routePath, label) {
-  const segments = routePath.split("/").filter(Boolean);
   const items = [{ name: "Accueil", item: `${SITE_URL}/` }];
 
-  if (segments.length > 1 && SECTION_LABELS[segments[0]]) {
-    items.push({
-      name: SECTION_LABELS[segments[0]],
-      item: `${SITE_URL}/${segments[0]}/`,
-    });
-  }
+  const section = sectionCrumb(routePath);
+  if (section) items.push({ name: section.label, item: abs(section.route) });
+
   items.push({ name: label, item: abs(routePath) });
 
   return {
@@ -215,7 +211,21 @@ function collectionNode(route, articles) {
 }
 
 export function buildJsonLd({ route, article = null, authors = {}, label, indexArticles = null }) {
-  const graph = [breadcrumb(route.path, label ?? route.title)];
+  // Un BreadcrumbList n'est déclaré que là où un fil d'Ariane est réellement
+  // affiché : les articles (ArticleLayout) et les pages de liste (IndexPage).
+  //
+  // L'accueil n'en affiche aucun — et en produisait un dégénéré, « Accueil »
+  // puis le titre de la page pointant tous deux sur https://eletmoi.fr/. Les
+  // pages de marque (BrandLayout) et les pages légales (LegalPage) n'en
+  // affichent pas non plus. Les baliser contredirait la règle Google : ne pas
+  // baliser ce que le lecteur ne voit pas.
+  const showsBreadcrumb =
+    Boolean(indexArticles) || Boolean(article && article.template !== "brand");
+
+  // Une page de liste porte son libellé court, celui qu'affiche son fil
+  // visible ; les articles gardent leur H1.
+  const crumb = (indexArticles ? indexLabel(route.path) : null) ?? label ?? route.title;
+  const graph = showsBreadcrumb ? [breadcrumb(route.path, crumb)] : [];
 
   if (indexArticles) {
     graph.push(collectionNode(route, indexArticles));

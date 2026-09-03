@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import SiteLink from "./SiteLink";
 
 /**
  * Lien « En savoir plus » sous une section de l'accueil.
@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 export default function SectionLink({ to, children }) {
   return (
     <div className="mt-12 text-center">
-      <Link
+      <SiteLink
         to={to}
         className="group inline-flex items-center gap-2 rounded-2xl border border-primary/25 bg-white/80 px-6 py-3 text-sm font-semibold text-primary-dark shadow-sm hover:border-primary/50 hover:shadow-md transition-all"
       >
@@ -22,7 +22,7 @@ export default function SectionLink({ to, children }) {
         >
           →
         </span>
-      </Link>
+      </SiteLink>
     </div>
   );
 }

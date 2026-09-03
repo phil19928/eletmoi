@@ -31,6 +31,9 @@ internalLinks:
   - id: B1
     anchor: notre comparatif des 8 solutions d'encadrement
     context: body
+  - id: B2
+    anchor: 'Alternative à Google Family Link : le comparatif 2026'
+    context: related
   - id: D1
     anchor: combien de temps d'écran par âge
     context: body

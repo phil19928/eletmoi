@@ -5,6 +5,7 @@ import Navbar from "../Navbar";
 import Footer from "../../sections/Footer";
 import CookieBanner from "../CookieBanner";
 import { articleComponents } from "../markdownComponents";
+import { sectionCrumb } from "../../lib/breadcrumbs";
 
 import Breadcrumbs from "./Breadcrumbs";
 import ArticleMeta from "./ArticleMeta";
@@ -19,23 +20,14 @@ import SourcesBox from "./SourcesBox";
 import AuthorBox from "./AuthorBox";
 import RelatedArticles from "./RelatedArticles";
 
-/** Racine de cluster → libellé du fil d'Ariane. */
-const SECTION_LABELS = {
-  blog: "Blog",
-  comparatif: "Comparatifs",
-  guides: "Guides",
-  lumen: "Lumen",
-};
-
 function breadcrumbItems(article) {
   const items = [{ label: "Accueil", route: "/" }];
-  const segments = article.route.split("/").filter(Boolean);
 
-  // Les pages de marque (/smartloop, /tarifs…) sont à la racine : pas de niveau
-  // intermédiaire à afficher.
-  if (segments.length > 1 && SECTION_LABELS[segments[0]]) {
-    items.push({ label: SECTION_LABELS[segments[0]], route: `/${segments[0]}` });
-  }
+  // Les pages de marque (/smartloop, /tarifs…) sont à la racine, et toutes les
+  // racines de cluster ne sont pas des pages : `sectionCrumb` ne rend un
+  // maillon que s'il mène quelque part.
+  const section = sectionCrumb(article.route);
+  if (section) items.push(section);
 
   // Le dernier maillon reprend le H1, qui peut être très long. On le coupe
   // proprement au mot : un fil d'Ariane sert à situer, pas à tout redire.
@@ -95,7 +87,7 @@ export default function ArticleLayout({
 
         <article className="max-w-[760px] mx-auto px-5 sm:px-8 py-10 sm:py-14">
           {isComparison ? (
-            <TransparencyNotice verifiedOn={article.dateModified} />
+            <TransparencyNotice verifiedOn={article.factsVerifiedOn ?? article.dateModified} />
           ) : null}
 
           {isNews ? <UpdateNotice date={article.dateModified} /> : null}

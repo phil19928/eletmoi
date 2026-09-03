@@ -32,6 +32,9 @@ internalLinks:
   - id: F1
     anchor: 'La Smartloop : comment ça marche'
     context: cta
+  - id: F2
+    anchor: 'Lumen : la cybersécurité en format court, par âge'
+    context: body
 externalSources:
   - accessedOn: '2026-09-03'
     title: Modifier les paramètres restreints d'une application

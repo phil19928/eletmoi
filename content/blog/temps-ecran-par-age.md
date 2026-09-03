@@ -31,6 +31,9 @@ internalLinks:
   - id: D8
     anchor: Écrans et sommeil de l'adolescent
     context: body
+  - id: B1
+    anchor: 'Comparatif 2026 : 8 solutions de contrôle parental'
+    context: body
   - id: C3
     anchor: 'Contrôle parental Android : le guide complet'
     context: related
@@ -135,6 +138,8 @@ Ce dernier point est aujourd'hui dépassé par les débats français et europée
 **Écrivez-la.** Une règle affichée sur le frigo se discute une fois. Une règle orale se rediscute tous les soirs.
 
 **Prévoyez ce qui se passe si elle n'est pas respectée**, à l'avance et calmement. Une sanction inventée dans l'énervement n'est jamais appliquée jusqu'au bout.
+
+**Outillez-la si vous en avez besoin.** Un plafond quotidien se règle depuis le téléphone lui-même, sans rien installer. Si vous voulez aller plus loin, nous détaillons [quelle application de contrôle parental choisir](/comparatif/) selon l'âge de l'enfant et son téléphone.
 
 **Faites-la évoluer.** [La règle de la 6e](/blog/entree-en-6e-smartphone/) ne tient pas en 3e. Renégociez chaque année, votre enfant le vivra comme une marque de confiance.
 

@@ -1,5 +1,6 @@
 import { useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import SiteLink from "../components/SiteLink";
+import { indexLabel } from "../lib/breadcrumbs";
 import { motion, useInView } from "framer-motion";
 
 import Navbar from "../components/Navbar";
@@ -44,7 +45,7 @@ function ArticleCard({ article, index }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, delay: Math.min(index, 6) * 0.04 }}
     >
-      <Link
+      <SiteLink
         to={article.route}
         className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-xl hover:shadow-primary/5 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
       >
@@ -77,7 +78,7 @@ function ArticleCard({ article, index }) {
             </time>
           </span>
         </div>
-      </Link>
+      </SiteLink>
     </motion.li>
   );
 }
@@ -145,11 +146,13 @@ export default function IndexPage({ route }) {
               le titre paraissait collé au bord sur les écrans larges. */}
           <div className="max-w-[1080px] mx-auto px-5 sm:px-8 text-center">
             <nav aria-label="Fil d'Ariane" className="mb-4 text-sm text-slate-500">
-              <Link to="/" className="hover:text-primary transition-colors">
+              <SiteLink to="/" className="hover:text-primary transition-colors">
                 Accueil
-              </Link>
+              </SiteLink>
               <span aria-hidden="true" className="mx-2 text-slate-300">/</span>
-              <span aria-current="page" className="text-slate-700 font-medium">Blog</span>
+              <span aria-current="page" className="text-slate-700 font-medium">
+                {indexLabel(route)}
+              </span>
             </nav>
 
             <h1 className="mx-auto max-w-3xl text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 text-balance">

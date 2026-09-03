@@ -72,6 +72,7 @@ export async function build({ quiet = false } = {}) {
       canonical: canonicalUrl(a.route),
       datePublished: a.datePublished,
       dateModified: a.dateModified,
+      factsVerifiedOn: a.factsVerifiedOn ?? null,
       author: a.author,
       reviewedBy: a.reviewedBy ?? null,
       keywordPrimary: a.keywordPrimary,

@@ -23,6 +23,12 @@ El&Moi : application française d'encadrement du temps d'écran par l'éducation
 Slugs en minuscules non accentuées, sans date. **Toute URL publiée est figée** :
 un changement impose une redirection 301 dans `netlify.toml`.
 
+Netlify sert `<route>/` et redirige `<route>` en 301 : **tout lien interne
+s'écrit avec le slash final**, comme le canonical et le sitemap. Côté React,
+`components/SiteLink` s'en charge — l'utiliser partout à la place du `Link` de
+react-router. `npm run build` échoue sur un lien sans slash ou vers une route
+inexistante (`verifyInternalLinks`, `scripts/prerender.mjs`).
+
 ## Source de vérité
 
 `content/registry.json` décrit les 62 articles planifiés. Rien ne se publie sans

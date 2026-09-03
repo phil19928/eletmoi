@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import SiteLink from "../components/SiteLink";
 
 export default function Footer() {
     return (
@@ -54,11 +54,11 @@ export default function Footer() {
                     aria-label="Pages du site"
                     className="mt-10 pt-8 border-t border-white/10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm"
                 >
-                    <Link to="/smartloop" className="hover:text-primary transition-colors">La Smartloop</Link>
-                    <Link to="/lumen" className="hover:text-primary transition-colors">Lumen</Link>
-                    <Link to="/tarifs" className="hover:text-primary transition-colors">Tarifs</Link>
-                    <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
-                    <Link to="/a-propos" className="hover:text-primary transition-colors">Qui sommes-nous</Link>
+                    <SiteLink to="/smartloop" className="hover:text-primary transition-colors">La Smartloop</SiteLink>
+                    <SiteLink to="/lumen" className="hover:text-primary transition-colors">Lumen</SiteLink>
+                    <SiteLink to="/tarifs" className="hover:text-primary transition-colors">Tarifs</SiteLink>
+                    <SiteLink to="/blog" className="hover:text-primary transition-colors">Blog</SiteLink>
+                    <SiteLink to="/a-propos" className="hover:text-primary transition-colors">Qui sommes-nous</SiteLink>
                 </nav>
 
                 <div className="mt-8 pt-6 border-t border-white/10 flex flex-col items-center gap-3">
@@ -68,14 +68,14 @@ export default function Footer() {
                         d'apprentissage. Données hébergées en France.
                     </p>
                     <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-white/50">
-                        <Link to="/mentions-legales" className="hover:text-primary transition-colors">Mentions légales</Link>
-                        <Link to="/confidentialite" className="hover:text-primary transition-colors">Politique de confidentialité</Link>
-                        <Link to="/cgv" className="hover:text-primary transition-colors">CGV</Link>
-                        <Link to="/cgu" className="hover:text-primary transition-colors">CGU</Link>
+                        <SiteLink to="/mentions-legales" className="hover:text-primary transition-colors">Mentions légales</SiteLink>
+                        <SiteLink to="/confidentialite" className="hover:text-primary transition-colors">Politique de confidentialité</SiteLink>
+                        <SiteLink to="/cgv" className="hover:text-primary transition-colors">CGV</SiteLink>
+                        <SiteLink to="/cgu" className="hover:text-primary transition-colors">CGU</SiteLink>
                     </div>
                     <div className="flex flex-col items-center gap-1 text-xs text-white/30">
                         <a href="https://www.cs-associes.fr" target="_blank" rel="noopener noreferrer" className="hover:text-white/50 transition-colors">Un produit de C&amp;S Associés</a>
-                        <span>© {new Date().getFullYear()} El&amp;Moi. Tous droits réservés.</span>
+                        <span>© {__BUILD_YEAR__} El&amp;Moi. Tous droits réservés.</span>
                     </div>
                 </div>
             </div>

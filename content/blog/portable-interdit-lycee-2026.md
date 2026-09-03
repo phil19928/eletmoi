@@ -37,6 +37,9 @@ internalLinks:
   - id: F2
     anchor: "Lumen : la cybersécurité en format court, par âge"
     context: body
+  - id: E1
+    anchor: "Deepfakes : l'expliquer à un enfant, 3 exercices"
+    context: body
 externalSources:
   - title: Interdiction des téléphones portables au lycée — ce que dit la loi
     publisher: info.gouv.fr
@@ -123,7 +126,7 @@ C'est le moment de regarder ce qui se passe entre 17h et 23h, pas seulement pend
 
 Trois choses simples et efficaces :
 
-**Fixez une heure de fin, pas une durée.** « Plus de téléphone après 22h » se respecte mieux que « pas plus de deux heures ». C'est plus facile à vérifier, et ça protège son sommeil.
+**Fixez une heure de fin, pas une durée.** « Plus de téléphone après 22h » se respecte mieux que « pas plus de deux heures ». C'est plus facile à vérifier, et ça protège son sommeil. Si la règle n'a jamais été posée, elle se rattrape : le cadre décrit pour un [premier téléphone au collège](/blog/entree-en-6e-smartphone/) fonctionne aussi au lycée.
 
 **Laissez-lui gagner son temps libre.** Un ado accepte beaucoup mieux une limite quand elle n'est pas arbitraire. C'est [le principe de la Smartloop](/smartloop/) : le temps de loisir se gagne en faisant autre chose d'utile, réviser par exemple. Ce n'est plus vous contre lui, c'est une règle qu'il connaît.
 

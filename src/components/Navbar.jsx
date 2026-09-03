@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import SiteLink from "./SiteLink";
 import elephantMascot from "../assets/logo-eletmoi.png";
 import { PARENT_APP_URL } from "../config";
 
@@ -45,12 +46,12 @@ export default function Navbar() {
                 }`}
         >
             <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-                <Link to="/" aria-label="Retour à l'accueil" className="flex items-center gap-2.5 group">
+                <SiteLink to="/" aria-label="Retour à l'accueil" className="flex items-center gap-2.5 group">
                     <img src={elephantMascot} alt="El&Moi" className="w-8 h-8" />
                     <span className="text-xl font-bold tracking-tight font-display text-slate-900">
                         El<span className="text-primary group-hover:text-primary-dark transition-colors">&</span>Moi
                     </span>
-                </Link>
+                </SiteLink>
 
                 <div className="flex items-center gap-4">
                     {/* Pages réelles, plus des ancres : depuis /blog/... une ancre
@@ -63,7 +64,7 @@ export default function Navbar() {
                             !item.to.includes("#") &&
                             (pathname === item.to || pathname.startsWith(`${item.to}/`));
                         return (
-                            <Link
+                            <SiteLink
                                 key={item.to}
                                 to={item.to}
                                 aria-current={active ? "page" : undefined}
@@ -74,7 +75,7 @@ export default function Navbar() {
                                 }`}
                             >
                                 {item.label}
-                            </Link>
+                            </SiteLink>
                         );
                     })}
 
