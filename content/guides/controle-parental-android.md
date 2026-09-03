@@ -21,7 +21,7 @@ searchIntent: informational
 canonical: 'https://eletmoi.fr/guides/controle-parental-android/'
 noindex: false
 datePublished: '2026-08-29'
-dateModified: '2026-08-29'
+dateModified: '2026-09-03'
 reviewCycle: quarterly
 author: philippe
 internalLinks:
@@ -37,10 +37,18 @@ internalLinks:
   - id: C1
     anchor: installer El&Moi en quelques minutes
     context: related
+  - id: C2
+    anchor: 'Paramètres restreints Android : comment les autoriser'
+    context: related
   - id: F1
-    anchor: 'le Smartloop : comment ça marche'
+    anchor: 'La Smartloop : comment ça marche'
     context: cta
 externalSources:
+  - accessedOn: '2026-09-03'
+    title: Interdiction des téléphones portables au lycée — ce que dit la loi
+    publisher: info.gouv.fr
+    url: >-
+      https://www.info.gouv.fr/actualite/interdiction-des-telephones-portables-au-lycee-ce-que-dit-la-loi
   - accessedOn: '2026-08-29'
     title: Google Family Link — présentation officielle
     publisher: Google
@@ -141,7 +149,7 @@ Le plus difficile n'est donc pas de trouver un contrôle parental Android. C'est
 
 Ce guide vous montre comment faire, concrètement, puis comment choisir.
 
-> **Rentrée 2026 : ce qui a changé.** La loi du 21 juillet 2026 interdit les réseaux sociaux aux moins de 15 ans et étend l'interdiction du téléphone au lycée. Si votre enfant a un compte TikTok, Instagram ou Snapchat, il est concerné. Nous détaillons les dates et les démarches dans notre article sur [la loi sur les réseaux sociaux et les moins de 15 ans](/blog/loi-reseaux-sociaux-moins-15-ans).
+> **Rentrée 2026 : ce qui a changé.** La loi du 24 août 2026 étend l'interdiction du téléphone au lycée. L'interdiction générale des réseaux sociaux aux moins de 15 ans, envisagée dans le texte adopté en juillet, a été censurée. Nous détaillons ce point dans notre article sur [la loi sur les réseaux sociaux et les moins de 15 ans](/blog/loi-reseaux-sociaux-moins-15-ans/).
 
 ## Ce qu'un contrôle parental Android peut faire
 
@@ -194,6 +202,8 @@ Voici ce qu'on va vous demander, et à quoi ça sert :
 | **Optimisation de batterie désactivée** | Empêcher le téléphone de fermer l'application pour économiser de l'énergie                    |
 
 Deux conseils. D'abord, **ne sautez pas l'accessibilité** : sans elle, aucun contrôle parental Android ne peut appliquer vos règles. Ensuite, si votre enfant a un **Xiaomi, un OPPO, un Vivo ou un Honor**, la marque ajoute ses propres réglages, souvent cachés dans un menu maison. Si un bouton ne semble rien faire, c'est souvent que le réglage est déjà actif : passez à la suite.
+
+Si Android affiche « Pour votre sécurité, ce paramètre n'est pas disponible pour le moment », il faut [autoriser les paramètres restreints Android](/guides/parametres-restreints-android/) avant de revenir activer l'accessibilité.
 
 ## Limiter une application précise
 
@@ -249,7 +259,7 @@ Il n'existe pas une bonne réponse pour toutes les familles.
 
 _Tarifs et fonctionnalités vérifiés le 29 août 2026. Nous éditons El&Moi : nous le disons plutôt que de faire semblant d'être neutres._
 
-Notre position est simple : un parent ne devrait pas avoir à choisir entre **tout laisser faire** et **tout surveiller**. Family Link fait très bien le socle Android classique. El&Moi apporte une autre logique par-dessus. [Voir notre comparatif complet des 8 solutions](/comparatif).
+Notre position est simple : un parent ne devrait pas avoir à choisir entre **tout laisser faire** et **tout surveiller**. Family Link fait très bien le socle Android classique. El&Moi apporte une autre logique par-dessus. [Voir notre comparatif complet des 8 solutions](/comparatif/).
 
 ## Notre approche : gagner du temps plutôt qu'en retirer
 
@@ -257,9 +267,9 @@ Quand nos enfants sont petits, nous faisons déjà ça dans la vraie vie. On ran
 
 Le smartphone peut fonctionner de la même manière. C'est ce qui nous a amenés à créer El&Moi.
 
-**Le Smartloop**, c'est notre principe de base : une minute passée sur une application d'apprentissage rapporte deux minutes de temps libre sur ses applications de divertissement. Vous classez les applications, vous fixez le ratio, le plafond quotidien et les heures sans téléphone. Lui sait exactement comment obtenir du temps, et ce n'est plus vous qui coupez.
+**La Smartloop**, c'est notre principe de base : une minute passée sur une application d'apprentissage rapporte deux minutes de temps libre sur ses applications de divertissement. Vous classez les applications, vous fixez le ratio, le plafond quotidien et les heures sans téléphone. Lui sait exactement comment obtenir du temps, et ce n'est plus vous qui coupez.
 
-**Lumen**, ce sont des micro-formations adaptées à son âge, deux minutes chacune. Comment créer un bon mot de passe. Pourquoi TikTok donne envie de rester dix minutes de plus. Comment fonctionne un algorithme de recommandation. Comment reconnaître un message suspect. Pourquoi réfléchir avant de partager une photo.
+**Lumen**, ce sont des modules intégrés à El&Moi, adaptés à son âge, de cinq à huit minutes chacun. Comment créer un bon mot de passe. Pourquoi TikTok donne envie de rester dix minutes de plus. Comment fonctionne un algorithme de recommandation. Comment reconnaître un message suspect. Pourquoi réfléchir avant de partager une photo.
 
 Le but n'est pas de faire d'un enfant de 10 ans un expert en cybersécurité. Le but est qu'à 16 ou 18 ans, les réflexes soient déjà là. Parce qu'à 18 ans, personne ne lui installera un contrôle parental, alors que les algorithmes, les arnaques et les contenus trompeurs, eux, seront toujours là.
 
@@ -277,7 +287,7 @@ Et nous ne cherchons pas à remplacer Family Link : gardez-le pour le filtrage e
 
 Le contrôle parental n'a pas besoin de disparaître d'un coup. Il peut simplement devenir de moins en moins présent.
 
-Si vous vous demandez quelle durée est raisonnable, voyez notre [guide du temps d'écran par âge](/blog/temps-ecran-par-age).
+Si vous vous demandez quelle durée est raisonnable, voyez notre [guide du temps d'écran par âge](/blog/temps-ecran-par-age/).
 
 ## Le meilleur contrôle parental est celui dont votre enfant aura de moins en moins besoin
 

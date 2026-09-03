@@ -37,7 +37,7 @@ En particulier :
 | Prénom de l'enfant | Personnalisation de l'interface | Consentement parental |
 | Âge ou date de naissance de l'enfant | Adaptation des règles et du contenu | Consentement parental |
 | Profil parent choisi (souple/équilibré/strict) | Configuration des règles par défaut | Exécution du contrat |
-| Règles définies par le parent (ratio, plages horaires, classification) | Fonctionnement du Smartloop | Exécution du contrat |
+| Règles définies par le parent (ratio, plages horaires, classification) | Fonctionnement de la Smartloop | Exécution du contrat |
 
 ### 3.2 — Données collectées automatiquement sur l'appareil de l'enfant
 

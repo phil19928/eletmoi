@@ -1,8 +1,8 @@
 # `src/data/reviews.json`
 
 Source unique de la section de preuve sociale de l'accueil : la barre de
-statistiques, le carrousel d'avis et les données structurées `Review` lisent
-toutes ce fichier. Aucun de ces chiffres n'est écrit en dur dans le JSX.
+statistiques et le carrousel d'avis lisent tous deux ce fichier. Aucun de ces
+chiffres n'est écrit en dur dans le JSX.
 
 ## Ajouter un avis
 
@@ -39,10 +39,8 @@ maintenir en ajoutant un avis.
 date fiable, et une date approximative sur un avis vaut moins que pas de date.
 
 **Ne jamais combler un champ manquant.** Une note ou un auteur inventé est
-interdit par `CLAUDE.md`, et le JSON-LD applique la même règle : `rating: null`
-n'émet pas de `reviewRating`, `author: null` n'émet pas d'`author`. Le libellé
-« Utilisateur vérifié » est un texte d'interface, il n'entre jamais dans les
-données structurées.
+interdit par `CLAUDE.md`. Le libellé « Utilisateur vérifié » est uniquement un
+texte d'interface pour les avis sans auteur public.
 
 ## Mettre à jour les chiffres
 
@@ -58,17 +56,17 @@ Tout se passe dans `stats` :
 
 `stats.reviewCount` (10) et la longueur du tableau `reviews` (5) sont deux
 volumes différents et c'est normal : tous les parents notent, peu commentent.
-Le carrousel et le JSON-LD n'affichent que les avis commentés.
+Le carrousel n'affiche que les avis commentés.
 
 ## Ce qui n'est volontairement pas fait
 
 - **L'autoplay s'arrête définitivement au premier geste tactile.** Il n'y a pas
   de survol sur mobile, donc aucun autre moyen de suspendre le défilement : un
   avis qu'on est en train de lire disparaîtrait sous les doigts.
-- **Pas d'`aggregateRating`** dans les données structurées, malgré la présence
-  de `rating` et `reviewCount`. Agréger sur ce volume serait trompeur, et
-  Google ignore voire sanctionne la déclaration. À rétablir quand le volume
-  sera consolidé et vérifiable.
+- **Pas de schema `Review` ni `AggregateRating`** pour ces avis externes, malgré
+  la présence de `rating` et `reviewCount`. Les avis viennent de l'App Store et
+  de Google Play : ils restent visibles sur la page, mais ne sont pas repris
+  dans les données structurées du site.
 - **Pas d'animation d'apparition** sur la section. Toutes les autres sections
   se révèlent au défilement via framer-motion, ce qui sérialise
   `style="opacity:0"` dans le HTML prérendu. Les avis doivent être peints dès
@@ -81,5 +79,38 @@ npm run build     # régénère le HTML statique et le JSON-LD de l'accueil
 ```
 
 Aucun `npm run content:build` n'est nécessaire : ce fichier ne passe pas par le
-codegen du registre éditorial. Le JSON-LD est produit au prérendu par
-`scripts/content/jsonld.mjs`, qui relit ce même fichier côté Node.
+codegen du registre éditorial. Les avis sont rendus par les composants React
+depuis ce fichier, sans balisage JSON-LD `Review`.
+
+---
+
+# `src/data/home-faq.json`
+
+Source unique de la FAQ de la page d'accueil. Deux consommateurs lisent ce
+fichier, et aucun autre ne redéclare ces textes :
+
+- `src/sections/FAQ.jsx` — l'accordéon affiché ;
+- `scripts/content/jsonld.mjs` — le balisage `FAQPage` injecté au prérendu.
+
+C'est ce qui garantit que le texte déclaré à Google est exactement celui que le
+visiteur lit. Modifier une réponse ici suffit : les deux suivent.
+
+## Ajouter ou modifier une question
+
+```json
+{
+  "q": "La question, telle qu'un parent la poserait.",
+  "a": "La réponse, en texte simple. Pas de Markdown : elle est rendue telle quelle."
+}
+```
+
+Pas de Markdown ni de HTML dans `a` : la réponse est affichée en texte brut par
+l'accordéon, et recopiée telle quelle dans le JSON-LD. Des balises y
+apparaîtraient en clair à l'écran comme dans les données structurées.
+
+## Pourquoi les réponses sont toujours dans le DOM
+
+L'accordéon monte **toutes** les réponses et se contente de les replier en CSS
+(`grid-template-rows`). Un accordéon qui ne monte son contenu qu'à l'ouverture
+laisse ses réponses absentes du HTML prérendu : le visiteur ne voit pas la
+différence, les moteurs si.

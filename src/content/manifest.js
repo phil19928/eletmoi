@@ -26,7 +26,6 @@ export const ARTICLES = [
     "isPillar": false,
     "priority": "P1",
     "wave": "V0",
-    "readingTime": 4,
     "wordCount": 733,
     "dir": "blog",
     "internalLinks": [
@@ -72,10 +71,10 @@ export const ARTICLES = [
       },
       {
         "id": "F1",
-        "anchor": "Le Smartloop : comment ça marche",
+        "anchor": "La Smartloop : comment ça marche",
         "context": "body",
         "route": "/smartloop",
-        "title": "Le Smartloop : comment ça marche",
+        "title": "La Smartloop : comment ça marche",
         "cluster": "F",
         "resolved": true,
         "reason": null
@@ -114,7 +113,7 @@ export const ARTICLES = [
     "faq": [
       {
         "q": "Est-ce qu'il peut avoir des réseaux sociaux en 6e ?",
-        "a": "Non. Depuis la loi de 2026, les réseaux sociaux sont interdits aux moins de 15 ans. Un enfant de 6e n'a pas l'âge d'y créer un compte."
+        "a": "L'interdiction générale prévue par la loi de 2026 a été censurée avant sa promulgation. Reste que la plupart des réseaux sociaux ne sont pas pensés pour un enfant de 6e, et que leurs conditions d'âge doivent être respectées."
       },
       {
         "q": "Et le téléphone au collège ?",
@@ -148,12 +147,12 @@ export const ARTICLES = [
     "clusterLabel": "Loi & actualité",
     "route": "/blog/loi-reseaux-sociaux-moins-15-ans",
     "template": "article",
-    "h1": "Réseaux sociaux interdits aux moins de 15 ans : ce qui change pour votre enfant",
-    "metaTitle": "Réseaux sociaux interdits aux moins de 15 ans : ce qui chang",
-    "metaDescription": "La loi du 21 juillet 2026 interdit les réseaux sociaux aux moins de 15 ans. Ce qui change au 1er septembre, qui est concerné, et quoi faire à la maison.",
+    "h1": "Réseaux sociaux et moins de 15 ans : ce qui reste de la loi 2026",
+    "metaTitle": "Réseaux sociaux moins de 15 ans : loi 2026 censurée",
+    "metaDescription": "Le Conseil constitutionnel a censuré l'interdiction des réseaux sociaux aux moins de 15 ans. Ce qui reste de la loi 2026, et quoi faire à la maison.",
     "canonical": "https://eletmoi.fr/blog/loi-reseaux-sociaux-moins-15-ans/",
     "datePublished": "2026-08-25",
-    "dateModified": "2026-08-25",
+    "dateModified": "2026-09-03",
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "loi réseaux sociaux moins de 15 ans",
@@ -163,8 +162,7 @@ export const ARTICLES = [
     "isPillar": false,
     "priority": "P1",
     "wave": "V0",
-    "readingTime": 3,
-    "wordCount": 561,
+    "wordCount": 589,
     "dir": "blog",
     "internalLinks": [
       {
@@ -189,20 +187,20 @@ export const ARTICLES = [
       },
       {
         "id": "A4",
-        "anchor": "1er janvier 2027 : les comptes existants de votre ado vont être suspendus",
+        "anchor": "Comptes existants : suivre l'évolution des règles pour les ados",
         "context": "body",
         "route": "/blog/comptes-existants-janvier-2027",
-        "title": "1er janvier 2027 : les comptes existants de votre ado vont être suspendus",
+        "title": "Comptes existants : suivre l'évolution des règles pour les ados",
         "cluster": "A",
         "resolved": false,
         "reason": "cible non publiée"
       },
       {
         "id": "F1",
-        "anchor": "Le Smartloop : comment ça marche",
+        "anchor": "La Smartloop : comment ça marche",
         "context": "body",
         "route": "/smartloop",
-        "title": "Le Smartloop : comment ça marche",
+        "title": "La Smartloop : comment ça marche",
         "cluster": "F",
         "resolved": true,
         "reason": null
@@ -229,6 +227,33 @@ export const ARTICLES = [
       }
     ],
     "externalSources": [
+      {
+        "title": "Interdiction des téléphones portables au lycée — ce que dit la loi",
+        "publisher": "info.gouv.fr",
+        "url": "https://www.info.gouv.fr/actualite/interdiction-des-telephones-portables-au-lycee-ce-que-dit-la-loi",
+        "accessedOn": "2026-09-03",
+        "rel": "nofollow noopener",
+        "target": "_blank",
+        "kind": "unknown"
+      },
+      {
+        "title": "Décision n° 2026-911 DC du 14 août 2026",
+        "publisher": "Conseil constitutionnel",
+        "url": "https://www.conseil-constitutionnel.fr/decision/2026/2026911DC.htm",
+        "accessedOn": "2026-09-03",
+        "rel": "nofollow noopener",
+        "target": "_blank",
+        "kind": "unknown"
+      },
+      {
+        "title": "LOI n° 2026-813 du 24 août 2026",
+        "publisher": "Légifrance",
+        "url": "https://www.legifrance.gouv.fr/eli/loi/2026/8/24/2026-813/jo/texte",
+        "accessedOn": "2026-09-03",
+        "rel": "noopener",
+        "target": "_blank",
+        "kind": "institutional"
+      },
       {
         "title": "Réseaux sociaux et protection des données",
         "publisher": "CNIL",
@@ -260,15 +285,15 @@ export const ARTICLES = [
     "faq": [
       {
         "q": "Mon enfant a 14 ans et un compte Instagram. Il va être supprimé ?",
-        "a": "Le compte est concerné par le second temps de la loi, prévu au 1er janvier 2027. Les plateformes ont annoncé qu'elles appliqueraient la mise en conformité dans ce délai."
+        "a": "Non, pas automatiquement au titre de cette loi. L'interdiction générale des réseaux sociaux aux moins de 15 ans a été censurée par le Conseil constitutionnel avant la promulgation du texte."
       },
       {
         "q": "Est-ce que je peux autoriser mon enfant malgré la loi ?",
-        "a": "La question de l'accord parental est traitée dans le texte et ses décrets d'application. Vérifiez l'état exact des règles sur les sites officiels : ce point a beaucoup bougé pendant les débats."
+        "a": "Au 3 septembre 2026, il n'existe pas d'interdiction générale en vigueur à autoriser ou contourner. Les règles restent à fixer à la maison et par les conditions d'âge propres aux plateformes."
       },
       {
         "q": "Comment les plateformes vont vérifier son âge ?",
-        "a": "Par des dispositifs de vérification d'âge encadrés, sur lesquels la CNIL s'est prononcée. Les méthodes retenues sont précisées par les textes d'application."
+        "a": "La loi promulguée ne crée pas l'obligation générale de vérification d'âge qui figurait dans le texte initial. Surveillez les futures annonces officielles si un nouveau texte est présenté."
       },
       {
         "q": "Est-ce que ça concerne aussi les messageries et les jeux en ligne ?",
@@ -299,7 +324,7 @@ export const ARTICLES = [
     "metaDescription": "Le portable est désormais interdit au lycée. Ce que prévoit la loi, les exceptions possibles, et comment en parler avec votre ado avant la rentrée.",
     "canonical": "https://eletmoi.fr/blog/portable-interdit-lycee-2026/",
     "datePublished": "2026-08-25",
-    "dateModified": "2026-08-25",
+    "dateModified": "2026-09-03",
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "portable interdit lycée",
@@ -309,8 +334,7 @@ export const ARTICLES = [
     "isPillar": false,
     "priority": "P1",
     "wave": "V0",
-    "readingTime": 3,
-    "wordCount": 542,
+    "wordCount": 557,
     "dir": "blog",
     "internalLinks": [
       {
@@ -345,10 +369,10 @@ export const ARTICLES = [
       },
       {
         "id": "F1",
-        "anchor": "Le Smartloop : comment ça marche",
+        "anchor": "La Smartloop : comment ça marche",
         "context": "body",
         "route": "/smartloop",
-        "title": "Le Smartloop : comment ça marche",
+        "title": "La Smartloop : comment ça marche",
         "cluster": "F",
         "resolved": true,
         "reason": null
@@ -365,6 +389,24 @@ export const ARTICLES = [
       }
     ],
     "externalSources": [
+      {
+        "title": "Interdiction des téléphones portables au lycée — ce que dit la loi",
+        "publisher": "info.gouv.fr",
+        "url": "https://www.info.gouv.fr/actualite/interdiction-des-telephones-portables-au-lycee-ce-que-dit-la-loi",
+        "accessedOn": "2026-09-03",
+        "rel": "nofollow noopener",
+        "target": "_blank",
+        "kind": "unknown"
+      },
+      {
+        "title": "Interdiction du téléphone portable de l'école au lycée",
+        "publisher": "Ministère de l'Éducation nationale",
+        "url": "https://www.education.gouv.fr/interdiction-du-telephone-portable-de-l-ecole-au-lycee-et-numerique-raisonne-455181",
+        "accessedOn": "2026-09-03",
+        "rel": "noopener",
+        "target": "_blank",
+        "kind": "institutional"
+      },
       {
         "title": "Ressources pour les parents d'élèves",
         "publisher": "jeprotegemonenfant.gouv.fr",
@@ -436,8 +478,7 @@ export const ARTICLES = [
     "isPillar": true,
     "priority": "P1",
     "wave": "V1",
-    "readingTime": 4,
-    "wordCount": 708,
+    "wordCount": 727,
     "dir": "blog",
     "internalLinks": [
       {
@@ -482,10 +523,10 @@ export const ARTICLES = [
       },
       {
         "id": "F1",
-        "anchor": "Le Smartloop : comment ça marche",
+        "anchor": "La Smartloop : comment ça marche",
         "context": "body",
         "route": "/smartloop",
-        "title": "Le Smartloop : comment ça marche",
+        "title": "La Smartloop : comment ça marche",
         "cluster": "F",
         "resolved": true,
         "reason": null
@@ -533,7 +574,7 @@ export const ARTICLES = [
     "faq": [
       {
         "q": "Deux heures par jour, c'est trop ?",
-        "a": "Ça dépend de ce que ce sont, et de ce qu'elles remplacent. Deux heures qui n'empiètent ni sur le sommeil ni sur le reste ne sont pas un problème. La même durée prise sur la nuit, oui."
+        "a": "Ça dépend des heures concernées et de ce qu'elles remplacent. Deux heures qui n'empiètent ni sur le sommeil ni sur le reste ne sont pas un problème. La même durée prise sur la nuit, oui."
       },
       {
         "q": "Faut-il compter le temps d'écran fait pour l'école ?",
@@ -582,7 +623,6 @@ export const ARTICLES = [
     "isPillar": false,
     "priority": "P1",
     "wave": "V0",
-    "readingTime": 2,
     "wordCount": 324,
     "dir": "brand",
     "internalLinks": [
@@ -598,10 +638,10 @@ export const ARTICLES = [
       },
       {
         "id": "F1",
-        "anchor": "Le Smartloop : comment ça marche",
+        "anchor": "La Smartloop : comment ça marche",
         "context": "cta",
         "route": "/smartloop",
-        "title": "Le Smartloop : comment ça marche",
+        "title": "La Smartloop : comment ça marche",
         "cluster": "F",
         "resolved": true,
         "reason": null
@@ -644,9 +684,9 @@ export const ARTICLES = [
     "clusterLabel": "Pages de marque",
     "route": "/lumen",
     "template": "brand",
-    "h1": "Lumen : apprendre à se protéger en ligne, deux minutes à la fois",
-    "metaTitle": "Lumen : apprendre à votre enfant à se protéger en ligne | El",
-    "metaDescription": "Deepfakes, arnaques, faux profils, harcèlement : Lumen apprend à votre enfant à les reconnaître, en modules courts adaptés à son âge. Premier module gratui",
+    "h1": "Lumen : apprendre à se protéger en ligne, un module à la fois",
+    "metaTitle": "Lumen : apprendre à se protéger en ligne, par âge | El&Moi",
+    "metaDescription": "Deepfakes, arnaques, faux profils, harcèlement : Lumen apprend à votre enfant à les reconnaître, en modules courts adaptés à son âge, dans El&Moi.",
     "canonical": "https://eletmoi.fr/lumen/",
     "datePublished": "2026-08-25",
     "dateModified": "2026-08-25",
@@ -659,16 +699,15 @@ export const ARTICLES = [
     "isPillar": false,
     "priority": "P1",
     "wave": "V0",
-    "readingTime": 3,
-    "wordCount": 547,
+    "wordCount": 549,
     "dir": "brand",
     "internalLinks": [
       {
         "id": "F1",
-        "anchor": "Le Smartloop : comment ça marche",
+        "anchor": "La Smartloop : comment ça marche",
         "context": "body",
         "route": "/smartloop",
-        "title": "Le Smartloop : comment ça marche",
+        "title": "La Smartloop : comment ça marche",
         "cluster": "F",
         "resolved": true,
         "reason": null
@@ -722,7 +761,7 @@ export const ARTICLES = [
       },
       {
         "q": "Combien de temps ça prend ?",
-        "a": "Deux minutes par module. C'est fait pour tenir dans un trajet de bus."
+        "a": "De cinq à huit minutes par module. C'est fait pour tenir dans un trajet de bus."
       },
       {
         "q": "Est-ce que je peux voir ce qu'il a appris ?",
@@ -767,16 +806,15 @@ export const ARTICLES = [
     "isPillar": false,
     "priority": "P2",
     "wave": "V0",
-    "readingTime": 2,
-    "wordCount": 468,
+    "wordCount": 487,
     "dir": "brand",
     "internalLinks": [
       {
         "id": "F1",
-        "anchor": "Le Smartloop : comment ça marche",
+        "anchor": "La Smartloop : comment ça marche",
         "context": "body",
         "route": "/smartloop",
-        "title": "Le Smartloop : comment ça marche",
+        "title": "La Smartloop : comment ça marche",
         "cluster": "F",
         "resolved": true,
         "reason": null
@@ -819,9 +857,9 @@ export const ARTICLES = [
     "clusterLabel": "Pages de marque",
     "route": "/smartloop",
     "template": "brand",
-    "h1": "Le Smartloop : le contrôle parental qui ne bloque pas, il fait gagner du temps",
+    "h1": "La Smartloop : le contrôle parental qui ne bloque pas, il fait gagner du temps",
     "metaTitle": "Smartloop : le contrôle parental qui ne bloque pas | El&Moi",
-    "metaDescription": "Avec le Smartloop, votre enfant gagne son temps d'écran en apprenant. 1 minute de révision = 2 minutes de jeu. Un contrôle parental qui évite les crises.",
+    "metaDescription": "Avec la Smartloop, votre enfant gagne son temps d'écran en apprenant. 1 minute de révision = 2 minutes de jeu. Un contrôle parental qui évite les crises.",
     "canonical": "https://eletmoi.fr/smartloop/",
     "datePublished": "2026-08-25",
     "dateModified": "2026-08-25",
@@ -830,12 +868,11 @@ export const ARTICLES = [
     "keywordPrimary": "contrôle parental éducatif",
     "searchIntent": "transactional",
     "ogImage": "/og/smartloop.png",
-    "imageAlt": "Écran de réglage du ratio Smartloop dans l'application parent El&Moi",
+    "imageAlt": "Écran de réglage du ratio Smartloop dans l'Accès Parent El&Moi",
     "isPillar": false,
     "priority": "P1",
     "wave": "V0",
-    "readingTime": 3,
-    "wordCount": 509,
+    "wordCount": 544,
     "dir": "brand",
     "internalLinks": [
       {
@@ -883,7 +920,7 @@ export const ARTICLES = [
     "faq": [
       {
         "q": "Mon enfant peut-il tricher en laissant l'appli ouverte sans rien faire ?",
-        "a": "Le temps est compté sur l'usage réel de l'application, pas sur le fait qu'elle soit affichée. Et vous voyez dans votre tableau de bord ce qu'il a fait, quand, et combien de temps."
+        "a": "El&Moi comptabilise le temps pendant lequel l'application d'apprentissage est utilisée au premier plan. Comme pour toute application, nous ne pouvons pas vérifier ce que l'enfant fait physiquement devant son écran. Vous suivez en revanche les temps d'utilisation, application par application, depuis votre Accès Parent."
       },
       {
         "q": "Est-ce que je peux quand même lui donner du temps à la main ?",
@@ -895,15 +932,15 @@ export const ARTICLES = [
       },
       {
         "q": "Est-ce que les modules Lumen font gagner du temps aussi ?",
-        "a": "Oui, si vous les classez comme apprentissage. Dans la version gratuite, votre enfant a accès à un module Lumen complet ; le catalogue entier fait partie de la formule Famille."
+        "a": "Oui. Les modules Lumen font partie d'El&Moi : ce n'est pas une application à installer ni à classer. Le temps passé à apprendre avec Lumen fait monter le compteur au même titre qu'une application d'apprentissage. Dans la formule Essentiel, votre enfant a accès à un module complet ; le catalogue entier fait partie de la formule Famille."
       },
       {
         "q": "À partir de quel âge ?",
-        "a": "Le Smartloop fonctionne bien dès le premier téléphone, autour de 9-11 ans, et reste pertinent au collège. Chez les plus grands, augmentez le ratio et laissez-leur plus de marge."
+        "a": "La Smartloop fonctionne bien dès le premier téléphone, autour de 9-11 ans, et reste pertinente au collège. Chez les plus grands, augmentez le ratio et laissez-leur plus de marge."
       },
       {
         "q": "Est-ce que vous lisez ses messages ?",
-        "a": "Non. Nous ne lisons pas les messages de votre famille et nous n'en avons pas besoin pour faire fonctionner le Smartloop. Vos données restent en Europe."
+        "a": "Non. Nous ne lisons pas les messages de votre famille et nous n'en avons pas besoin pour faire fonctionner la Smartloop. Vos données restent en Europe."
       }
     ],
     "comparisonTable": null,
@@ -936,16 +973,15 @@ export const ARTICLES = [
     "isPillar": false,
     "priority": "P1",
     "wave": "V0",
-    "readingTime": 2,
     "wordCount": 343,
     "dir": "brand",
     "internalLinks": [
       {
         "id": "F1",
-        "anchor": "Le Smartloop : comment ça marche",
+        "anchor": "La Smartloop : comment ça marche",
         "context": "body",
         "route": "/smartloop",
-        "title": "Le Smartloop : comment ça marche",
+        "title": "La Smartloop : comment ça marche",
         "cluster": "F",
         "resolved": true,
         "reason": null
@@ -1038,16 +1074,15 @@ export const ARTICLES = [
     "isPillar": true,
     "priority": "P1",
     "wave": "V1",
-    "readingTime": 8,
-    "wordCount": 1563,
+    "wordCount": 1576,
     "dir": "comparatif",
     "internalLinks": [
       {
         "id": "F1",
-        "anchor": "Le Smartloop : comment ça marche",
+        "anchor": "La Smartloop : comment ça marche",
         "context": "body",
         "route": "/smartloop",
-        "title": "Le Smartloop : comment ça marche",
+        "title": "La Smartloop : comment ça marche",
         "cluster": "F",
         "resolved": true,
         "reason": null
@@ -1059,6 +1094,16 @@ export const ARTICLES = [
         "route": "/tarifs",
         "title": "Tarifs : formule Essentiel gratuite et formule Famille",
         "cluster": "F",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "B2",
+        "anchor": "Alternative à Google Family Link : le comparatif 2026",
+        "context": "body",
+        "route": "/comparatif/google-family-link",
+        "title": "Alternative à Google Family Link",
+        "cluster": "B",
         "resolved": true,
         "reason": null
       },
@@ -1191,6 +1236,164 @@ export const ARTICLES = [
     }
   },
   {
+    "id": "B2",
+    "slug": "google-family-link",
+    "cluster": "B",
+    "clusterLabel": "Comparatifs",
+    "route": "/comparatif/google-family-link",
+    "template": "comparison",
+    "h1": "Alternative à Google Family Link : le comparatif 2026",
+    "metaTitle": "Alternative à Google Family Link : le comparatif 2026",
+    "metaDescription": "Family Link est gratuit et solide sur Android, mais limité sur iPhone. Notre comparatif 2026 : ce que vaut l'alternative, et quand rester chez Google.",
+    "canonical": "https://eletmoi.fr/comparatif/google-family-link/",
+    "datePublished": "2026-09-03",
+    "dateModified": "2026-09-03",
+    "author": "philippe",
+    "reviewedBy": null,
+    "keywordPrimary": "alternative family link",
+    "searchIntent": "commercial",
+    "ogImage": "/og/google-family-link.png",
+    "imageAlt": "Comparatif entre Google Family Link et El&Moi sur les fonctions de contrôle parental",
+    "isPillar": false,
+    "priority": "P1",
+    "wave": "V1",
+    "wordCount": 1019,
+    "dir": "comparatif",
+    "internalLinks": [
+      {
+        "id": "B1",
+        "anchor": "Comparatif 2026 : 8 façons d'encadrer le téléphone d'un enfant",
+        "context": "body",
+        "route": "/comparatif",
+        "title": "Comparatif 2026 : 8 façons d'encadrer le téléphone d'un enfant (pilier)",
+        "cluster": "B",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "F1",
+        "anchor": "La Smartloop : comment ça marche",
+        "context": "body",
+        "route": "/smartloop",
+        "title": "La Smartloop : comment ça marche",
+        "cluster": "F",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "F3",
+        "anchor": "Tarifs : formule Essentiel gratuite et formule Famille",
+        "context": "cta",
+        "route": "/tarifs",
+        "title": "Tarifs : formule Essentiel gratuite et formule Famille",
+        "cluster": "F",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "C1",
+        "anchor": "Installer El&Moi en 5 minutes, pas à pas",
+        "context": "body",
+        "route": "/guides/installation",
+        "title": "Installer El&Moi en 5 minutes, pas à pas",
+        "cluster": "C",
+        "resolved": true,
+        "reason": null
+      }
+    ],
+    "externalSources": [
+      {
+        "title": "Google Family Link",
+        "publisher": "Google",
+        "url": "https://families.google/familylink/",
+        "accessedOn": "2026-09-03",
+        "rel": "nofollow noopener",
+        "target": "_blank",
+        "kind": "unknown"
+      },
+      {
+        "title": "Frequently Asked Questions and Answers - Google Family Link",
+        "publisher": "Google",
+        "url": "https://families.google/familylink/faq/",
+        "accessedOn": "2026-09-03",
+        "rel": "nofollow noopener",
+        "target": "_blank",
+        "kind": "unknown"
+      },
+      {
+        "title": "Gérer l'iPhone ou l'iPad de votre enfant avec Temps d'écran",
+        "publisher": "Apple",
+        "url": "https://support.apple.com/fr-fr/108806",
+        "accessedOn": "2026-09-03",
+        "rel": "nofollow noopener",
+        "target": "_blank",
+        "kind": "commercial"
+      },
+      {
+        "title": "Interdiction du téléphone portable au lycée dès la rentrée 2026 : quelles sont les modalités ?",
+        "publisher": "Service Public",
+        "url": "https://www.service-public.gouv.fr/particuliers/actualites/A19051",
+        "accessedOn": "2026-09-03",
+        "rel": "nofollow noopener",
+        "target": "_blank",
+        "kind": "unknown"
+      },
+      {
+        "title": "Interdiction du téléphone portable de l'école au lycée et numérique raisonné",
+        "publisher": "Ministère de l'Éducation nationale",
+        "url": "https://www.education.gouv.fr/interdiction-du-telephone-portable-de-l-ecole-au-lycee-et-numerique-raisonne-455181",
+        "accessedOn": "2026-09-03",
+        "rel": "noopener",
+        "target": "_blank",
+        "kind": "institutional"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Family Link fonctionne-t-il vraiment sur iPhone ?",
+        "a": "Il s'installe, mais les fonctions de limitation dépendent d'API qu'Apple réserve à son propre système. Sur iPhone, Temps d'écran reste la base."
+      },
+      {
+        "q": "Peut-on utiliser Family Link et une autre application en même temps ?",
+        "a": "Oui. Family Link et El&Moi peuvent être utilisés ensemble. Pour éviter des blocages contradictoires, nous recommandons de ne laisser qu'un seul des deux outils gérer les limites de temps."
+      },
+      {
+        "q": "Mon enfant peut-il désinstaller l'application ?",
+        "a": "Nous verrouillons la désinstallation, et nous recommandons de le lui expliquer plutôt que de le cacher."
+      },
+      {
+        "q": "Que se passe-t-il aux 15 ans de mon enfant ?",
+        "a": "Google informe l'enfant et son parent qu'il peut mettre à jour son compte. L'autorisation d'un parent reste nécessaire pour arrêter la supervision tant qu'il est mineur."
+      },
+      {
+        "q": "Faut-il encore un outil de ce type maintenant que le téléphone est interdit au lycée ?",
+        "a": "L'interdiction porte sur le temps scolaire, depuis la rentrée 2026-2027. L'encadrement du téléphone en dehors du temps scolaire reste donc une question familiale."
+      },
+      {
+        "q": "Combien ça coûte ?",
+        "a": "Le détail est sur notre page Tarifs : une formule Essentiel gratuite, et la formule Famille à 7,99 € par mois ou 59,99 € par an."
+      }
+    ],
+    "comparisonTable": {
+      "competitors": [
+        "Google Family Link"
+      ],
+      "pillars": [
+        "Dimension éducative",
+        "Données et hébergement",
+        "Autonomie de l'enfant",
+        "Mise en route"
+      ],
+      "rows": []
+    },
+    "howToSteps": [],
+    "cta": {
+      "label": "Télécharger El&Moi gratuitement",
+      "target": "stores",
+      "utm": "organic_b_google-family-link"
+    }
+  },
+  {
     "id": "C3",
     "slug": "controle-parental-android",
     "cluster": "C",
@@ -1202,7 +1405,7 @@ export const ARTICLES = [
     "metaDescription": "Contrôle parental Android : Family Link pas à pas, les autorisations à accorder, les limites par application et quoi faire si votre enfant les contourne.",
     "canonical": "https://eletmoi.fr/guides/controle-parental-android/",
     "datePublished": "2026-08-29",
-    "dateModified": "2026-08-29",
+    "dateModified": "2026-09-03",
     "author": "philippe",
     "reviewedBy": null,
     "keywordPrimary": "contrôle parental android",
@@ -1212,8 +1415,7 @@ export const ARTICLES = [
     "isPillar": true,
     "priority": "P1",
     "wave": "V1",
-    "readingTime": 10,
-    "wordCount": 1988,
+    "wordCount": 2016,
     "dir": "guides",
     "internalLinks": [
       {
@@ -1257,17 +1459,36 @@ export const ARTICLES = [
         "reason": null
       },
       {
+        "id": "C2",
+        "anchor": "Paramètres restreints Android : comment les autoriser",
+        "context": "related",
+        "route": "/guides/parametres-restreints-android",
+        "title": "Paramètres restreints Android : à quoi ça sert, comment les autoriser",
+        "cluster": "C",
+        "resolved": true,
+        "reason": null
+      },
+      {
         "id": "F1",
-        "anchor": "le Smartloop : comment ça marche",
+        "anchor": "La Smartloop : comment ça marche",
         "context": "cta",
         "route": "/smartloop",
-        "title": "Le Smartloop : comment ça marche",
+        "title": "La Smartloop : comment ça marche",
         "cluster": "F",
         "resolved": true,
         "reason": null
       }
     ],
     "externalSources": [
+      {
+        "title": "Interdiction des téléphones portables au lycée — ce que dit la loi",
+        "publisher": "info.gouv.fr",
+        "url": "https://www.info.gouv.fr/actualite/interdiction-des-telephones-portables-au-lycee-ce-que-dit-la-loi",
+        "accessedOn": "2026-09-03",
+        "rel": "nofollow noopener",
+        "target": "_blank",
+        "kind": "unknown"
+      },
       {
         "title": "Google Family Link — présentation officielle",
         "publisher": "Google",
@@ -1386,8 +1607,7 @@ export const ARTICLES = [
     "isPillar": false,
     "priority": "P1",
     "wave": "V1",
-    "readingTime": 5,
-    "wordCount": 933,
+    "wordCount": 962,
     "dir": "guides",
     "internalLinks": [
       {
@@ -1396,6 +1616,16 @@ export const ARTICLES = [
         "context": "body",
         "route": "/guides/controle-parental-android",
         "title": "Contrôle parental Android : le guide complet (pilier)",
+        "cluster": "C",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "C2",
+        "anchor": "Paramètres restreints Android : comment les autoriser",
+        "context": "body",
+        "route": "/guides/parametres-restreints-android",
+        "title": "Paramètres restreints Android : à quoi ça sert, comment les autoriser",
         "cluster": "C",
         "resolved": true,
         "reason": null
@@ -1412,10 +1642,10 @@ export const ARTICLES = [
       },
       {
         "id": "C14",
-        "anchor": "Catégoriser les applications pour que le Smartloop fonctionne",
+        "anchor": "Catégoriser les applications pour que la Smartloop fonctionne",
         "context": "body",
         "route": "/guides/categoriser-applications",
-        "title": "Catégoriser les applications pour que le Smartloop fonctionne",
+        "title": "Catégoriser les applications pour que la Smartloop fonctionne",
         "cluster": "C",
         "resolved": false,
         "reason": "cible non publiée"
@@ -1432,10 +1662,10 @@ export const ARTICLES = [
       },
       {
         "id": "F1",
-        "anchor": "Le Smartloop : comment ça marche",
+        "anchor": "La Smartloop : comment ça marche",
         "context": "body",
         "route": "/smartloop",
-        "title": "Le Smartloop : comment ça marche",
+        "title": "La Smartloop : comment ça marche",
         "cluster": "F",
         "resolved": true,
         "reason": null
@@ -1464,7 +1694,7 @@ export const ARTICLES = [
     "faq": [
       {
         "q": "Faut-il installer l'application sur mon téléphone aussi ?",
-        "a": "Oui, mais ce n'est pas la même : vous installez l'application parent, votre enfant l'application enfant."
+        "a": "Non. Votre Accès Parent s'ouvre dans votre navigateur, sur téléphone ou ordinateur : il n'y a rien à installer de votre côté. Seule l'application enfant se télécharge, sur le téléphone de votre enfant."
       },
       {
         "q": "Est-ce que ça marche entre un iPhone et un Android ?",
@@ -1487,19 +1717,19 @@ export const ARTICLES = [
     "howToSteps": [
       {
         "name": "créez votre compte parent",
-        "text": "Sur votre téléphone, téléchargez l'application El&Moi et créez votre compte. Retenez qu'il y a deux applications différentes : la vôtre, l'application parent, et celle de votre enfant. Vous n'installerez jamais la même sur les deux téléphones. Une fois votre compte créé, l'assistant démarre. À parti"
+        "text": "Depuis votre téléphone ou votre ordinateur, ouvrez l'Accès Parent El&Moi dans votre navigateur et créez votre compte : vous n'avez rien à installer de votre côté. Seul votre enfant installe une application, sur son téléphone. Une fois votre compte créé, l'assistant démarre."
       },
       {
         "name": "répondez à deux questions",
-        "text": "L'assistant vous demande : - le prénom de votre enfant ; - le type de téléphone qu'il utilise, Android ou iPhone. Cette deuxième réponse est importante : les autorisations à donner ne sont pas les mêmes selon le système. C'est elle qui détermine tout le reste du parcours, donc prenez une seconde pou"
+        "text": "L'assistant vous demande : - le prénom de votre enfant ; - le type de téléphone qu'il utilise, Android ou iPhone. Cette deuxième réponse est importante : les autorisations à donner ne sont pas les mêmes selon le système. C'est elle qui détermine tout le reste du parcours, donc prenez une seconde pour vérifier plutôt que de répondre au hasard."
       },
       {
         "name": "jumelez les deux téléphones",
-        "text": "Votre application affiche un QR code. Sur le téléphone de votre enfant, téléchargez l'application enfant El&Moi depuis l'App Store ou Google Play, ouvrez-la, et scannez le QR code affiché sur votre écran. Les deux comptes sont maintenant liés. Le reste se passe sur le téléphone de votre enfant."
+        "text": "Votre Accès Parent affiche un QR code. Sur le téléphone de votre enfant, téléchargez l'application enfant El&Moi depuis l'App Store ou Google Play, ouvrez-la, et scannez le QR code affiché sur votre écran. Les deux comptes sont maintenant liés. Le reste se passe sur le téléphone de votre enfant."
       },
       {
         "name": "accordez les autorisations sur son téléphone",
-        "text": "C'est l'étape la plus longue, et la seule qui demande un peu de patience. Sans ces autorisations, l'application ne peut ni compter le temps d'usage, ni appliquer vos règles. Là encore, tout est guidé : l'assistant affiche le réglage à activer, vous ouvre le bon écran, et attend que ce soit fait avan"
+        "text": "C'est l'étape la plus longue, et la seule qui demande un peu de patience. Sans ces autorisations, l'application ne peut ni compter le temps d'usage, ni appliquer vos règles. Là encore, tout est guidé : l'assistant affiche le réglage à activer, vous ouvre le bon écran, et attend que ce soit fait avant de passer au suivant. Vous n'avez pas à chercher dans les menus."
       },
       {
         "name": "c'est installé",
@@ -1510,6 +1740,137 @@ export const ARTICLES = [
       "label": "Télécharger El&Moi gratuitement",
       "target": "stores",
       "utm": "organic_c_installation"
+    }
+  },
+  {
+    "id": "C2",
+    "slug": "parametres-restreints-android",
+    "cluster": "C",
+    "clusterLabel": "Tutoriels & configuration",
+    "route": "/guides/parametres-restreints-android",
+    "template": "guide",
+    "h1": "Paramètres restreints Android : à quoi ça sert, comment les autoriser",
+    "metaTitle": "Paramètres restreints Android : comment les autoriser",
+    "metaDescription": "Android bloque certains réglages pour certaines applications. Découvrez pourquoi ce message apparaît et comment autoriser les paramètres restreints.",
+    "canonical": "https://eletmoi.fr/guides/parametres-restreints-android/",
+    "datePublished": "2026-09-03",
+    "dateModified": "2026-09-03",
+    "author": "philippe",
+    "reviewedBy": null,
+    "keywordPrimary": "paramètres restreints android",
+    "searchIntent": "informational",
+    "ogImage": "/og/parametres-restreints-android.png",
+    "imageAlt": "Écran Android affichant le menu « Autoriser les paramètres restreints » d'une application",
+    "isPillar": false,
+    "priority": "P1",
+    "wave": "V1",
+    "wordCount": 833,
+    "dir": "guides",
+    "internalLinks": [
+      {
+        "id": "C3",
+        "anchor": "Contrôle parental Android : le guide complet",
+        "context": "body",
+        "route": "/guides/controle-parental-android",
+        "title": "Contrôle parental Android : le guide complet (pilier)",
+        "cluster": "C",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "C1",
+        "anchor": "Installer El&Moi en 5 minutes, pas à pas",
+        "context": "body",
+        "route": "/guides/installation",
+        "title": "Installer El&Moi en 5 minutes, pas à pas",
+        "cluster": "C",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "F1",
+        "anchor": "La Smartloop : comment ça marche",
+        "context": "cta",
+        "route": "/smartloop",
+        "title": "La Smartloop : comment ça marche",
+        "cluster": "F",
+        "resolved": true,
+        "reason": null
+      }
+    ],
+    "externalSources": [
+      {
+        "title": "Modifier les paramètres restreints d'une application",
+        "publisher": "Google (assistance Android)",
+        "url": "https://support.google.com/android/answer/12623953",
+        "accessedOn": "2026-09-03",
+        "rel": "nofollow noopener",
+        "target": "_blank",
+        "kind": "commercial"
+      },
+      {
+        "title": "Google Family Link",
+        "publisher": "Google",
+        "url": "https://families.google/familylink/",
+        "accessedOn": "2026-09-03",
+        "rel": "nofollow noopener",
+        "target": "_blank",
+        "kind": "unknown"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Autoriser les paramètres restreints, est-ce dangereux ?",
+        "a": "Cela dépend uniquement de l'application. La permission d'accessibilité donne accès à ce qui s'affiche à l'écran : ne l'accordez qu'à une application que vous avez choisie et installée vous-même."
+      },
+      {
+        "q": "Comment annuler l'autorisation ?",
+        "a": "Dans Paramètres → Accessibilité, désactivez le service concerné. Vous pouvez aussi désinstaller l'application, ce qui révoque tout."
+      },
+      {
+        "q": "Pourquoi mon téléphone ne propose pas ce menu ?",
+        "a": "Sur Android 12 et les versions antérieures, ce mécanisme n'existe pas sous cette forme. Sur Android 13 et les versions ultérieures, l'option peut également ne pas apparaître si l'application n'est pas concernée par une restriction, ou selon la version du système et le constructeur."
+      },
+      {
+        "q": "Mon enfant peut-il retirer l'autorisation lui-même ?",
+        "a": "Oui, si le téléphone n'est pas verrouillé par un code qu'il ignore. Protégez l'accès aux réglages par un code que vous êtes seul à connaître."
+      },
+      {
+        "q": "Faut-il refaire la manipulation après une mise à jour ?",
+        "a": "Non pour une mise à jour classique. Oui si vous changez de téléphone et que vous transférez les applications au lieu de les réinstaller."
+      }
+    ],
+    "comparisonTable": null,
+    "howToSteps": [
+      {
+        "name": "ouvrez les Paramètres",
+        "text": "Ouvrez Paramètres sur le téléphone concerné."
+      },
+      {
+        "name": "ouvrez la liste des applications",
+        "text": "Appuyez sur Applications. Si vous ne voyez pas la liste complète, cherchez « Voir toutes les applications » ou « Informations sur les applications »."
+      },
+      {
+        "name": "sélectionnez l'application à débloquer",
+        "text": "Sélectionnez dans la liste l'application à débloquer."
+      },
+      {
+        "name": "autorisez les paramètres restreints",
+        "text": "En haut à droite, ouvrez le menu ⋮ (trois points), puis « Autoriser les paramètres restreints »."
+      },
+      {
+        "name": "confirmez votre identité",
+        "text": "Confirmez avec le code de déverrouillage ou l'empreinte. C'est volontaire : Android veut être certain que c'est bien vous, et pas quelqu'un au téléphone en train de vous guider."
+      },
+      {
+        "name": "activez le service d'accessibilité",
+        "text": "Revenez dans Paramètres → Accessibilité → Applications installées et activez le service. C'est l'étape qu'on oublie le plus facilement : autoriser ne suffit pas, il faut ensuite activer."
+      }
+    ],
+    "cta": {
+      "label": "Télécharger El&Moi gratuitement",
+      "target": "stores",
+      "utm": "organic_c_parametres-restreints-android"
     }
   },
   {
@@ -1534,7 +1895,6 @@ export const ARTICLES = [
     "isPillar": false,
     "priority": "P1",
     "wave": "V3",
-    "readingTime": 3,
     "wordCount": 624,
     "dir": "lumen",
     "internalLinks": [
@@ -1672,8 +2032,10 @@ export const INDEX_PAGES = [
       "F1",
       "F3",
       "B1",
+      "B2",
       "C3",
       "C1",
+      "C2",
       "E1"
     ]
   }
@@ -1719,7 +2081,7 @@ export const BLOG_CLUSTERS = [
     "cluster": "F",
     "anchor": "el-et-moi",
     "label": "Pages de marque",
-    "tagline": "Le Smartloop, Lumen, les tarifs et qui nous sommes.",
+    "tagline": "La Smartloop, Lumen, les tarifs et qui nous sommes.",
     "accent": "slate"
   }
 ];

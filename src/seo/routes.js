@@ -52,7 +52,7 @@ export const ROUTES = [
     "description": "Cadre légal, comparatifs, guides de configuration, parentalité numérique et sécurité en ligne : tous nos contenus pour accompagner les enfants sans conflit.",
     "priority": 0.7,
     "changefreq": "weekly",
-    "lastmod": "2026-08-29"
+    "lastmod": "2026-09-03"
   },
   {
     "path": "/blog/entree-en-6e-smartphone",
@@ -65,11 +65,11 @@ export const ROUTES = [
   },
   {
     "path": "/blog/loi-reseaux-sociaux-moins-15-ans",
-    "title": "Réseaux sociaux interdits aux moins de 15 ans : ce qui chang",
-    "description": "La loi du 21 juillet 2026 interdit les réseaux sociaux aux moins de 15 ans. Ce qui change au 1er septembre, qui est concerné, et quoi faire à la maison.",
+    "title": "Réseaux sociaux moins de 15 ans : loi 2026 censurée",
+    "description": "Le Conseil constitutionnel a censuré l'interdiction des réseaux sociaux aux moins de 15 ans. Ce qui reste de la loi 2026, et quoi faire à la maison.",
     "priority": 0.6,
     "changefreq": "monthly",
-    "lastmod": "2026-08-25",
+    "lastmod": "2026-09-03",
     "articleId": "A1"
   },
   {
@@ -78,7 +78,7 @@ export const ROUTES = [
     "description": "Le portable est désormais interdit au lycée. Ce que prévoit la loi, les exceptions possibles, et comment en parler avec votre ado avant la rentrée.",
     "priority": 0.6,
     "changefreq": "monthly",
-    "lastmod": "2026-08-25",
+    "lastmod": "2026-09-03",
     "articleId": "A3"
   },
   {
@@ -101,8 +101,8 @@ export const ROUTES = [
   },
   {
     "path": "/lumen",
-    "title": "Lumen : apprendre à votre enfant à se protéger en ligne | El",
-    "description": "Deepfakes, arnaques, faux profils, harcèlement : Lumen apprend à votre enfant à les reconnaître, en modules courts adaptés à son âge. Premier module gratui",
+    "title": "Lumen : apprendre à se protéger en ligne, par âge | El&Moi",
+    "description": "Deepfakes, arnaques, faux profils, harcèlement : Lumen apprend à votre enfant à les reconnaître, en modules courts adaptés à son âge, dans El&Moi.",
     "priority": 0.9,
     "changefreq": "weekly",
     "lastmod": "2026-08-25",
@@ -120,7 +120,7 @@ export const ROUTES = [
   {
     "path": "/smartloop",
     "title": "Smartloop : le contrôle parental qui ne bloque pas | El&Moi",
-    "description": "Avec le Smartloop, votre enfant gagne son temps d'écran en apprenant. 1 minute de révision = 2 minutes de jeu. Un contrôle parental qui évite les crises.",
+    "description": "Avec la Smartloop, votre enfant gagne son temps d'écran en apprenant. 1 minute de révision = 2 minutes de jeu. Un contrôle parental qui évite les crises.",
     "priority": 0.9,
     "changefreq": "weekly",
     "lastmod": "2026-08-25",
@@ -145,12 +145,21 @@ export const ROUTES = [
     "articleId": "B1"
   },
   {
+    "path": "/comparatif/google-family-link",
+    "title": "Alternative à Google Family Link : le comparatif 2026",
+    "description": "Family Link est gratuit et solide sur Android, mais limité sur iPhone. Notre comparatif 2026 : ce que vaut l'alternative, et quand rester chez Google.",
+    "priority": 0.8,
+    "changefreq": "monthly",
+    "lastmod": "2026-09-03",
+    "articleId": "B2"
+  },
+  {
     "path": "/guides/controle-parental-android",
     "title": "Contrôle parental Android : le guide 2026 pour les parents",
     "description": "Contrôle parental Android : Family Link pas à pas, les autorisations à accorder, les limites par application et quoi faire si votre enfant les contourne.",
     "priority": 0.7,
     "changefreq": "monthly",
-    "lastmod": "2026-08-29",
+    "lastmod": "2026-09-03",
     "articleId": "C3"
   },
   {
@@ -161,6 +170,15 @@ export const ROUTES = [
     "changefreq": "monthly",
     "lastmod": "2026-08-25",
     "articleId": "C1"
+  },
+  {
+    "path": "/guides/parametres-restreints-android",
+    "title": "Paramètres restreints Android : comment les autoriser",
+    "description": "Android bloque certains réglages pour certaines applications. Découvrez pourquoi ce message apparaît et comment autoriser les paramètres restreints.",
+    "priority": 0.7,
+    "changefreq": "monthly",
+    "lastmod": "2026-09-03",
+    "articleId": "C2"
   },
   {
     "path": "/lumen/deepfakes",

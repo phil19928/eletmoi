@@ -10,7 +10,7 @@ import { frenchDate, isoDateTime } from "../../lib/date";
  * réellement de la publication, sinon elle donne une fausse impression de
  * révision.
  */
-export default function ArticleMeta({ datePublished, dateModified, author, readingTime }) {
+export default function ArticleMeta({ datePublished, dateModified, author }) {
   const updated = dateModified && dateModified !== datePublished;
 
   return (
@@ -33,15 +33,6 @@ export default function ArticleMeta({ datePublished, dateModified, author, readi
               {frenchDate(dateModified)}
             </time>
           </span>
-        </>
-      ) : null}
-
-      {readingTime ? (
-        <>
-          <span aria-hidden="true" className="text-slate-300">
-            ·
-          </span>
-          <span>{readingTime} min de lecture</span>
         </>
       ) : null}
 

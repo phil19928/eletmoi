@@ -14,8 +14,10 @@ export const BODY_LOADERS = {
   "/smartloop": () => import("../../content/brand/smartloop.md?raw"),
   "/tarifs": () => import("../../content/brand/tarifs.md?raw"),
   "/comparatif": () => import("../../content/comparatif/comparatif.md?raw"),
+  "/comparatif/google-family-link": () => import("../../content/comparatif/google-family-link.md?raw"),
   "/guides/controle-parental-android": () => import("../../content/guides/controle-parental-android.md?raw"),
   "/guides/installation": () => import("../../content/guides/installation.md?raw"),
+  "/guides/parametres-restreints-android": () => import("../../content/guides/parametres-restreints-android.md?raw"),
   "/lumen/deepfakes": () => import("../../content/lumen/deepfakes.md?raw"),
 };
 

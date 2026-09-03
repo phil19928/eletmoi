@@ -101,10 +101,6 @@ export default function FeaturedCarousel({ articles, accents }) {
                       >
                         {article.clusterLabel}
                       </span>
-                      <span className="text-xs text-slate-400">
-                        {article.readingTime} min de lecture
-                      </span>
-                      <span aria-hidden="true" className="text-slate-300">·</span>
                       <time
                         dateTime={isoDateTime(article.dateModified)}
                         className="text-xs text-slate-400"

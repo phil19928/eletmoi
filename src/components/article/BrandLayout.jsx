@@ -31,7 +31,7 @@ const HEADERS = {
 
 /** Navigation entre pages produit, en pied de contenu. */
 const SIBLINGS = [
-  { route: "/smartloop", label: "Le Smartloop", hint: "Comment le temps d'apprentissage débloque du temps libre" },
+  { route: "/smartloop", label: "La Smartloop", hint: "Comment le temps d'apprentissage débloque du temps libre" },
   { route: "/lumen", label: "Lumen", hint: "La cybersécurité en format court, par âge" },
   { route: "/tarifs", label: "Tarifs", hint: "Formule Essentiel gratuite et formule Famille" },
   { route: "/a-propos", label: "Qui sommes-nous", hint: "Notre méthode et nos choix" },

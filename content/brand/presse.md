@@ -21,7 +21,7 @@ reviewCycle: quarterly
 author: philippe
 internalLinks:
   - id: F1
-    anchor: 'Le Smartloop : comment ça marche'
+    anchor: 'La Smartloop : comment ça marche'
     context: body
   - id: F2
     anchor: 'Lumen : la cybersécurité en format court, par âge'
@@ -41,7 +41,7 @@ imageAlt: Espace presse d'El&Moi, application française d'encadrement du temps 
 ---
 
 Vous préparez un article sur le temps d'écran des enfants, la loi sur les
-réseaux sociaux ou les outils d'encadrement familial. Cette page rassemble ce
+réseaux sociaux ou les outils d'encadrement familial ? Cette page rassemble ce
 dont vous avez besoin pour nous citer sans avoir à nous écrire.
 
 **Contact direct : contact@eletmoi.fr** — nous répondons sous 24 heures ouvrées.
@@ -59,20 +59,21 @@ crédite du temps de divertissement.
 | **Éditeur** | C&S Associés SAS, RCS Saverne, SIRET 104 151 048 00014 |
 | **Siège** | 8 rue Saint-Sébastien, 67210 Bernardswiller (Bas-Rhin) |
 | **Lancement** | Application iOS publiée le 19 juillet 2026 |
-| **Plateformes** | iOS et Android pour l'enfant, application web pour le parent |
+| **Plateformes** | Application enfant sur iOS et Android ; Accès Parent en application web (rien à installer) |
 | **Modèle** | Formule Essentiel gratuite ; formule Famille à 7,99 €/mois ou 59,99 €/an |
 | **Données** | Hébergement européen, aucune lecture des messages de l'enfant, aucune revente à des tiers |
 
 ## Les deux briques du produit
 
-[Le Smartloop](/smartloop/) est le cœur : le parent classe les applications
+[La Smartloop](/smartloop/) est le cœur : le parent classe les applications
 entre apprentissage et divertissement, puis fixe un ratio. Une minute
 d'apprentissage crédite deux minutes de temps libre par défaut. L'enfant sait
 toujours comment récupérer du temps — il n'y a pas de mur arbitraire.
 
-[Lumen](/lumen/) est le volet éducatif : des modules courts de sécurité en
-ligne, adaptés par tranche d'âge, sur les deepfakes, les arnaques, le
-cyberharcèlement et les mots de passe.
+[Lumen](/lumen/) est le volet éducatif, intégré à la même application — ce
+n'est pas un service à part : des modules courts de sécurité en ligne, adaptés
+par tranche d'âge, sur les deepfakes, les arnaques, le cyberharcèlement et les
+mots de passe.
 
 ## Citations attribuables
 

@@ -51,6 +51,23 @@ export default {
           "0%": { transform: "scale(1)", opacity: "0.4" },
           "80%, 100%": { transform: "scale(1.5)", opacity: "0" },
         },
+        // Entrées « au-dessus de la ligne de flottaison ». Reprennent les
+        // valeurs que framer-motion appliquait, mais en CSS : une animation
+        // CSS démarre à la première peinture, alors qu'une animation JS
+        // attend l'hydratation de React — environ une seconde de texte
+        // invisible sur un mobile lent.
+        enter: {
+          "0%": { opacity: "0", transform: "translateY(18px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "enter-nav": {
+          "0%": { opacity: "0", transform: "translateY(-80px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "enter-phone": {
+          "0%": { opacity: "0", transform: "scale(0.9) translateY(30px)" },
+          "100%": { opacity: "1", transform: "scale(1) translateY(0)" },
+        },
       },
       animation: {
         "fade-in-up": "fade-in-up 0.8s ease-out forwards",
@@ -59,6 +76,11 @@ export default {
         "scale-in": "scale-in 0.6s ease-out forwards",
         "spin-slow": "spin-slow 20s linear infinite",
         "pulse-ring": "pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        // `both` et non `forwards` : sans l'état initial appliqué pendant le
+        // délai, l'élément clignote (visible, puis masqué au démarrage).
+        enter: "enter 0.5s ease-out both",
+        "enter-nav": "enter-nav 0.6s ease-out both",
+        "enter-phone": "enter-phone 0.8s ease-out both",
       },
     },
   },

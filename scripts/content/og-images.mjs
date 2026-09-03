@@ -88,7 +88,7 @@ function template(article, logoDataUri) {
     <div class="pill">${escapeHtml(theme.label)}</div>
   </div>
   <h1>${escapeHtml(article.h1)}</h1>
-  <div class="foot"><span>eletmoi.fr</span><span class="dot"></span><span>${article.readingTime} min de lecture</span></div>
+  <div class="foot"><span>eletmoi.fr</span></div>
 </body></html>`;
 }
 

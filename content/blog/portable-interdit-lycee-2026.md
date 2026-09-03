@@ -18,7 +18,7 @@ searchIntent: informational
 canonical: 'https://eletmoi.fr/blog/portable-interdit-lycee-2026/'
 noindex: false
 datePublished: '2026-08-25'
-dateModified: '2026-08-25'
+dateModified: '2026-09-03'
 reviewCycle: monthly
 author: philippe
 internalLinks:
@@ -32,12 +32,22 @@ internalLinks:
     anchor: "Nuit, devoirs, repas : paramétrer des plages sans téléphone"
     context: body
   - id: F1
-    anchor: "Le Smartloop : comment ça marche"
+    anchor: "La Smartloop : comment ça marche"
     context: body
   - id: F2
     anchor: "Lumen : la cybersécurité en format court, par âge"
     context: body
 externalSources:
+  - title: Interdiction des téléphones portables au lycée — ce que dit la loi
+    publisher: info.gouv.fr
+    url: >-
+      https://www.info.gouv.fr/actualite/interdiction-des-telephones-portables-au-lycee-ce-que-dit-la-loi
+    accessedOn: '2026-09-03'
+  - title: Interdiction du téléphone portable de l'école au lycée
+    publisher: Ministère de l'Éducation nationale
+    url: >-
+      https://www.education.gouv.fr/interdiction-du-telephone-portable-de-l-ecole-au-lycee-et-numerique-raisonne-455181
+    accessedOn: '2026-09-03'
   - title: Ressources pour les parents d'élèves
     publisher: jeprotegemonenfant.gouv.fr
     url: 'https://jeprotegemonenfant.gouv.fr/'
@@ -77,11 +87,11 @@ ogImage: /og/portable-interdit-lycee-2026.png
 imageAlt: Un lycéen range son téléphone avant d'entrer en cours
 ---
 
-> **25/08/2026** Article suivi et corrigé à chaque évolution du texte et des règlements intérieurs.
+> **Mise à jour du 3 septembre 2026.** Article suivi et corrigé après la promulgation de la loi du 24 août 2026 et les précisions officielles sur la rentrée.
 
 C'était déjà le cas à l'école et au collège depuis 2018. C'est maintenant le tour du lycée.
 
-[La loi adoptée le 21 juillet 2026](/blog/loi-reseaux-sociaux-moins-15-ans/) étend l'interdiction du téléphone portable aux lycées. Votre ado va donc rentrer, en septembre, dans un établissement où son téléphone n'a plus sa place en cours ni entre les cours.
+[La loi promulguée le 24 août 2026](/blog/loi-reseaux-sociaux-moins-15-ans/) étend l'interdiction du téléphone portable aux lycées. Votre ado va donc rentrer, en septembre, dans un établissement où son téléphone n'a plus sa place en cours ni entre les cours.
 
 ## Ce que dit la loi
 
@@ -115,7 +125,7 @@ Trois choses simples et efficaces :
 
 **Fixez une heure de fin, pas une durée.** « Plus de téléphone après 22h » se respecte mieux que « pas plus de deux heures ». C'est plus facile à vérifier, et ça protège son sommeil.
 
-**Laissez-lui gagner son temps libre.** Un ado accepte beaucoup mieux une limite quand elle n'est pas arbitraire. C'est [le principe du Smartloop](/smartloop/) : le temps de loisir se gagne en faisant autre chose d'utile, réviser par exemple. Ce n'est plus vous contre lui, c'est une règle qu'il connaît.
+**Laissez-lui gagner son temps libre.** Un ado accepte beaucoup mieux une limite quand elle n'est pas arbitraire. C'est [le principe de la Smartloop](/smartloop/) : le temps de loisir se gagne en faisant autre chose d'utile, réviser par exemple. Ce n'est plus vous contre lui, c'est une règle qu'il connaît.
 
 **Parlez du reste.** L'interdiction au lycée ne l'empêchera pas de recevoir un message d'arnaque ou de tomber sur [une fausse vidéo](/lumen/deepfakes/). C'est à ça que servent les modules Lumen : lui apprendre à les repérer lui-même.
 

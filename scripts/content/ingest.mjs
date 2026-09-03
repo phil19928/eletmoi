@@ -94,22 +94,55 @@ function parseSteps(parts) {
     .map((p) => ({
       name: p.title.replace(/^Étape\s*\d+\s*[:—-]\s*/i, "").trim(),
       text:
-        p.lines
-          .join(" ")
-          .replace(/[*_`#>]/g, "")
-          .replace(/\s+/g, " ")
-          .trim()
-          .slice(0, 300) || "Voir le détail dans l'article.",
+        clampToSentence(
+          p.lines
+            .join(" ")
+            .replace(/[*_`#>]/g, "")
+            .replace(/\s+/g, " ")
+            .trim(),
+          300
+        ) || "Voir le détail dans l'article.",
     }));
+}
+
+/**
+ * Coupe à `max` sans laisser un mot à moitié : ces textes sont affichés à
+ * l'écran (HowToSteps) et publiés dans le JSON-LD HowTo. Un `slice` brut a déjà
+ * produit des étapes qui s'arrêtaient sur « À parti » ou « prenez une seconde
+ * pou ». On préfère la dernière phrase complète, à défaut le dernier mot.
+ */
+function clampToSentence(text, max) {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  const sentence = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf(" ; "));
+  if (sentence > max * 0.6) return cut.slice(0, sentence + 1).trim();
+  const word = cut.lastIndexOf(" ");
+  return (word > 0 ? cut.slice(0, word) : cut).trim() + "…";
 }
 
 const isWorkSection = (title) =>
   /^(Notes de production|JSON-LD)/i.test(title ?? "");
 
+/**
+ * Un brouillon arrive souvent avec des gabarits `{{date}}` / `{{auteur}}` dans
+ * son frontmatter. Repris tels quels, ils produisent une date invalide et un
+ * auteur inconnu, que zod rejette bien plus loin avec un message obscur. On
+ * les traite comme absents : les valeurs par défaut de l'ingestion reprennent
+ * alors la main.
+ */
+function withoutPlaceholders(data) {
+  const clean = {};
+  for (const [key, value] of Object.entries(data)) {
+    if (typeof value === "string" && /\{\{\w+\}\}/.test(value)) continue;
+    clean[key] = value;
+  }
+  return clean;
+}
+
 export async function ingest(file, { id, publish = false } = {}) {
   const registry = await loadRegistry();
   const parsed = matter(await readFile(file, "utf8"));
-  const old = parsed.data;
+  const old = withoutPlaceholders(parsed.data);
 
   // L'id vient de l'argument, du frontmatter, ou de la route déclarée.
   const byRoute = new Map(registry.articles.map((a) => [a.route, a.id]));
@@ -182,8 +215,11 @@ export async function ingest(file, { id, publish = false } = {}) {
     route: entry.route,
     status: publish ? "published" : old.status ?? "draft",
     template: old.template ?? entry.template,
-    metaTitle: String(old.metaTitle ?? old.title ?? "").slice(0, 60),
-    metaDescription: String(old.metaDescription ?? old.meta_description ?? "").slice(0, 155),
+    metaTitle: clampToSentence(String(old.metaTitle ?? old.title ?? ""), 60),
+    metaDescription: clampToSentence(
+      String(old.metaDescription ?? old.meta_description ?? ""),
+      155
+    ),
     h1: old.h1 ?? entry.workingTitle,
     keywordPrimary: old.keywordPrimary ?? keywords[0] ?? entry.keywordPrimary,
     keywordsSecondary: old.keywordsSecondary ?? keywords.slice(1),

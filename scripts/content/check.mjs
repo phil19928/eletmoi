@@ -199,6 +199,16 @@ function checkInTextLinks(article, report) {
       report.error(`ancre non descriptive dans le corps : « ${anchor} »`);
     }
   }
+
+  // CommonMark interdit les liens imbriqués : `[a [b](/x)](/y)` s'affiche avec
+  // les crochets externes en toutes lettres. Le regex ci-dessus ne le voit pas
+  // (`[^\]]+` ne franchit pas le `]` interne), d'où ce contrôle séparé.
+  for (const [nested] of article.body.matchAll(/\[[^\]]*\[[^\]]*\]\([^)]*\)[^\]]*\]\([^)]*\)/g)) {
+    report.error(
+      `lien Markdown imbriqué — les crochets externes s'afficheront en clair : ` +
+        `« ${nested} »`
+    );
+  }
 }
 
 function checkExternalSources(article, report) {

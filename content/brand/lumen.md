@@ -5,11 +5,11 @@ cluster: F
 route: /lumen
 status: published
 template: brand
-metaTitle: 'Lumen : apprendre à votre enfant à se protéger en ligne | El'
+metaTitle: 'Lumen : apprendre à se protéger en ligne, par âge | El&Moi'
 metaDescription: >-
   Deepfakes, arnaques, faux profils, harcèlement : Lumen apprend à votre enfant
-  à les reconnaître, en modules courts adaptés à son âge. Premier module gratui
-h1: 'Lumen : apprendre à se protéger en ligne, deux minutes à la fois'
+  à les reconnaître, en modules courts adaptés à son âge, dans El&Moi.
+h1: 'Lumen : apprendre à se protéger en ligne, un module à la fois'
 keywordPrimary: sécurité en ligne enfant
 keywordsSecondary:
   - éducation numérique adolescent
@@ -24,7 +24,7 @@ reviewCycle: quarterly
 author: philippe
 internalLinks:
   - id: F1
-    anchor: "Le Smartloop : comment ça marche"
+    anchor: "La Smartloop : comment ça marche"
     context: body
   - id: E1
     anchor: "Deepfakes : l'expliquer à un enfant, 3 exercices"
@@ -45,7 +45,9 @@ faq:
       Non, et c'est un choix. On ne montre pas d'images choquantes et on ne
       dramatise pas. On explique un mécanisme, on donne un réflexe.
   - q: Combien de temps ça prend ?
-    a: Deux minutes par module. C'est fait pour tenir dans un trajet de bus.
+    a: >-
+      De cinq à huit minutes par module. C'est fait pour tenir dans un trajet de
+      bus.
   - q: Est-ce que je peux voir ce qu'il a appris ?
     a: >-
       Oui, vous voyez sa progression. Vous ne voyez pas ses conversations : ce
@@ -79,7 +81,7 @@ La seule protection qui fonctionne dans ces moments, c'est le réflexe de votre 
 
 ## Comment ça se passe
 
-Lumen, ce sont des modules très courts, directement dans l'application de votre enfant. Deux minutes. Un sujet à la fois. Une situation concrète, une question, une explication.
+Lumen, ce sont des modules courts, directement dans l'application de votre enfant. Cinq à huit minutes. Un sujet à la fois. Une situation concrète, une question, une explication.
 
 Pas de cours magistral, pas de leçon de morale. On lui montre un vrai cas, on lui demande ce qu'il ferait, on lui explique pourquoi.
 
@@ -105,9 +107,9 @@ Beaucoup de parents nous disent la même chose : le vrai déclic, ce n'est pas l
 
 ## Lumen fait partie d'El&Moi
 
-Lumen n'est pas une application de plus à installer. C'est un module intégré à l'application El&Moi, à côté [du Smartloop](/smartloop/) qui permet à votre enfant de gagner son temps d'écran en apprenant.
+Lumen n'est pas une application de plus à installer. C'est un module intégré à l'application El&Moi, à côté [de la Smartloop](/smartloop/) qui permet à votre enfant de gagner son temps d'écran en apprenant.
 
-Vous suivez sa progression depuis votre espace parent, sans le surveiller par-dessus l'épaule.
+Vous suivez sa progression depuis votre Accès Parent, sans le surveiller par-dessus l'épaule.
 
 ## Ce à quoi votre enfant a accès
 

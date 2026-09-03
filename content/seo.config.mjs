@@ -124,7 +124,7 @@ export const BLOG_CLUSTERS = [
     cluster: "F",
     anchor: "el-et-moi",
     label: "Pages de marque",
-    tagline: "Le Smartloop, Lumen, les tarifs et qui nous sommes.",
+    tagline: "La Smartloop, Lumen, les tarifs et qui nous sommes.",
     accent: "slate",
   },
 ];

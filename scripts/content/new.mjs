@@ -64,7 +64,7 @@ author: "philippe"
 internalLinks:
   - { id: "TODO", anchor: "À RÉÉCRIRE — ancre descriptive", context: "body" }
   - { id: "TODO", anchor: "À RÉÉCRIRE — ancre descriptive", context: "body" }
-  - { id: "F1", anchor: "le Smartloop", context: "cta" }
+  - { id: "F1", anchor: "la Smartloop", context: "cta" }
 
 # --- Sources externes (minimum 2${
     ["A", "D", "E"].includes(entry.cluster) ? ", dont 1 institutionnelle" : ""

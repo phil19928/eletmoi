@@ -72,8 +72,6 @@ function ArticleCard({ article, index }) {
               <img src={author.avatar} alt="" width="20" height="20" loading="lazy" className="w-5 h-5 rounded-full object-cover" />
             ) : null}
             <span className="text-slate-500">{author?.name}</span>
-            <span aria-hidden="true">·</span>
-            <span>{article.readingTime} min</span>
             <time dateTime={isoDateTime(article.dateModified)} className="ml-auto">
               {frenchDate(article.dateModified)}
             </time>

@@ -14,8 +14,10 @@ export const ARTICLE_ROUTES = [
   "/smartloop",
   "/tarifs",
   "/comparatif",
+  "/comparatif/google-family-link",
   "/guides/controle-parental-android",
   "/guides/installation",
+  "/guides/parametres-restreints-android",
   "/lumen/deepfakes"
 ];
 

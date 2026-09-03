@@ -23,7 +23,7 @@ reviewCycle: quarterly
 author: philippe
 internalLinks:
   - id: F1
-    anchor: "Le Smartloop : comment ça marche"
+    anchor: "La Smartloop : comment ça marche"
     context: body
   - id: F2
     anchor: "Lumen : la cybersécurité en format court, par âge"
@@ -83,7 +83,7 @@ L'abonnement annuel revient à 5 € par mois environ. C'est la seule différenc
 
 ## Ce qui est vraiment gratuit
 
-La version Essentiel n'est pas une démo bridée. Un parent, un enfant, un appareil : vous avez [le Smartloop](/smartloop/) en entier, les limites quotidiennes, les plages horaires et le tableau de bord.
+La version Essentiel n'est pas une démo bridée. Un parent, un enfant, un appareil : vous avez [la Smartloop](/smartloop/) en entier, les limites quotidiennes, les plages horaires et le tableau de bord.
 
 Côté [Lumen](/lumen/), votre enfant a accès à **un module complet**. De quoi voir concrètement à quoi ça ressemble et si ça lui parle. Le catalogue entier, avec tous les sujets et toutes les tranches d'âge, fait partie de la formule Famille.
 

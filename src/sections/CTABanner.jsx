@@ -3,6 +3,7 @@ import { useRef } from "react";
 import Container from "../components/Container";
 import Button from "../components/Button";
 import mascotThumbsup from "../assets/mascot-thumbsup.png";
+import { PARENT_APP_URL } from "../config";
 
 export default function CTABanner() {
     const ref = useRef(null);
@@ -63,7 +64,7 @@ export default function CTABanner() {
                         className="mt-10 flex justify-center"
                     >
                         <Button
-                            href="https://eletmoi.app"
+                            href={PARENT_APP_URL}
                             className="!bg-white !text-slate-900 hover:!bg-slate-50 !shadow-xl !shadow-black/20 !px-8 !py-4 !rounded-2xl !gap-4"
                         >
                             <span className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -71,7 +72,7 @@ export default function CTABanner() {
                                     <path d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" />
                                 </svg>
                             </span>
-                            <span className="text-lg font-normal tracking-tight text-slate-900">Commencer gratuitement</span>
+                            <span className="text-lg font-normal tracking-tight text-slate-900">Accès Parent</span>
                         </Button>
                     </motion.div>
 
@@ -81,7 +82,7 @@ export default function CTABanner() {
                         transition={{ duration: 0.5, delay: 0.6 }}
                         className="mt-6 text-sm text-white/30"
                     >
-                        Aucune carte requise.
+                        Accès Parent gratuit, dans votre navigateur. Aucune carte requise.
                     </motion.p>
                 </div>
             </Container>

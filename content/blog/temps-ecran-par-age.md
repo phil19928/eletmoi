@@ -35,7 +35,7 @@ internalLinks:
     anchor: 'Contrôle parental Android : le guide complet'
     context: related
   - id: F1
-    anchor: 'Le Smartloop : comment ça marche'
+    anchor: 'La Smartloop : comment ça marche'
     context: body
   - id: C13
     anchor: 'Nuit, devoirs, repas : paramétrer des plages sans téléphone'
@@ -56,9 +56,9 @@ externalSources:
 faq:
   - q: 'Deux heures par jour, c''est trop ?'
     a: >-
-      Ça dépend de ce que ce sont, et de ce qu'elles remplacent. Deux heures qui
-      n'empiètent ni sur le sommeil ni sur le reste ne sont pas un problème. La
-      même durée prise sur la nuit, oui.
+      Ça dépend des heures concernées et de ce qu'elles remplacent. Deux heures
+      qui n'empiètent ni sur le sommeil ni sur le reste ne sont pas un problème.
+      La même durée prise sur la nuit, oui.
   - q: Faut-il compter le temps d'écran fait pour l'école ?
     a: >-
       Non, comptez séparément. Ce qui pose question, c'est le temps de loisir
@@ -102,7 +102,7 @@ Cela dit, vous avez besoin de repères. Les voici.
 | **6-9 ans** | Environ une heure les jours d'école | Le premier accès à internet sans surveillance |
 | **9-11 ans** | Une à deux heures, écrans hors de la chambre | Le premier téléphone, souvent en 6e |
 | **11-13 ans** | Une règle claire compte plus qu'une durée précise | Les écrans le soir et le sommeil |
-| **13-15 ans** | Négociez la règle avec lui | Les réseaux sociaux, interdits avant 15 ans depuis 2026 |
+| **13-15 ans** | Négociez la règle avec lui | Les réseaux sociaux et les règles d'accès, en pleine évolution |
 | **15-18 ans** | Il gère, vous fixez les limites de nuit | Le rythme veille-sommeil et les nuits trop courtes |
 
 Ces repères s'inspirent des recommandations d'organismes de santé publique et des travaux français sur les enfants et les écrans. Ce sont des points de départ, pas des règles absolues.
@@ -116,7 +116,7 @@ Beaucoup de familles s'appuient sur les repères popularisés en France par le p
 - **pas d'internet seul avant 9 ans** ;
 - **pas de réseaux sociaux avant 12 ans**.
 
-Ce dernier point est aujourd'hui dépassé par la loi française, qui interdit les réseaux sociaux avant 15 ans depuis 2026.
+Ce dernier point est aujourd'hui dépassé par les débats français et européens autour de l'accès des mineurs aux réseaux sociaux. La règle continue d'évoluer : vérifiez l'état du droit avant de transformer ce repère éducatif en interdiction stricte.
 
 ## Ce qui compte plus que la durée
 

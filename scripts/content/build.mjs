@@ -38,22 +38,6 @@ const HEADER = (name) => `// ⚠️ FICHIER GÉNÉRÉ — ne pas modifier à la 
 
 const js = (value) => JSON.stringify(value, null, 2);
 
-/**
- * Temps de lecture en minutes, calculé au build.
- *
- * 200 mots/minute, référence usuelle pour du français courant. Le calcul est
- * fait ici et non dans le navigateur : la valeur se retrouve ainsi dans le
- * HTML prérendu, donc lisible sans exécuter de JavaScript.
- */
-function readingTime(markdown) {
-  const words = markdown
-    .replace(/```[\s\S]*?```/g, " ")
-    .replace(/[#>*_`\[\]()]/g, " ")
-    .split(/\s+/)
-    .filter(Boolean).length;
-  return Math.max(1, Math.round(words / 200));
-}
-
 export async function build({ quiet = false } = {}) {
   const registry = await loadRegistry();
   const authors = await loadAuthors();
@@ -97,7 +81,6 @@ export async function build({ quiet = false } = {}) {
       isPillar: Boolean(entry?.isPillar),
       priority: entry?.priority ?? "P3",
       wave: entry?.wave ?? "V5",
-      readingTime: readingTime(a.body),
       wordCount: a.body.split(/\s+/).filter(Boolean).length,
       dir: registry.byId.get(a.id).dir,
       internalLinks: resolveInternalLinks(a, registry, publishedIds),

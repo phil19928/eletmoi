@@ -1,0 +1,40 @@
+{
+  "faqs": [
+    {
+      "q": "Comment ça marche concrètement ?",
+      "a": "Il y a deux côtés. L'Accès Parent, c'est votre tableau de bord : il s'ouvre dans votre navigateur, sur téléphone ou ordinateur, vous n'avez rien à installer. L'application enfant, elle, s'installe sur le téléphone de votre enfant depuis l'App Store ou Google Play. Une fois les deux connectés par QR code, vous définissez les règles de temps d'écran et votre enfant les voit en temps réel sur son téléphone."
+    },
+    {
+      "q": "C'est quoi la différence avec Family Link ou Temps d'écran ?",
+      "a": "Family Link et Temps d'écran bloquent. Quand le temps est écoulé, écran noir, fin de la discussion. El&Moi fonctionne différemment : votre enfant peut regagner du temps en apprenant. Il utilise une application d'apprentissage, ou suit un module Lumen directement dans El&Moi, et son compteur remonte. C'est un échange, pas une punition. Il comprend les règles, il voit son compteur, il décide de ce qu'il en fait."
+    },
+    {
+      "q": "C'est quoi Lumen ?",
+      "a": "Lumen est notre catalogue de modules sur le numérique. Ce n'est pas une application à installer ni à classer : c'est un module intégré à El&Moi. Des contenus courts sur des sujets concrets : créer un bon mot de passe, reconnaître une arnaque en ligne, protéger ses données sur les réseaux sociaux. Chaque contenu est adapté à l'âge de votre enfant — un enfant de 9 ans ne reçoit pas le même module qu'un ado de 15 ans. En terminer un fait gagner du temps de divertissement, au même titre qu'une application d'apprentissage. Vous aussi, vous avez accès à tout le catalogue depuis votre Accès Parent : vous savez exactement ce que votre enfant apprend et vous pouvez en discuter ensemble."
+    },
+    {
+      "q": "C'est pour quel âge ?",
+      "a": "El&Moi est conçu pour les enfants et ados de 6 à 17 ans. Les modules Lumen s'adaptent automatiquement à trois tranches d'âge : 8-11 ans, 12-14 ans et 15-17 ans. Le vocabulaire, les exemples et la complexité changent selon l'âge de votre enfant."
+    },
+    {
+      "q": "Est-ce que ça fonctionne sur iPhone et Android ?",
+      "a": "Oui, l'application enfant est disponible sur les deux. Il y a une petite différence : sur Android, vous voyez le temps passé application par application. Sur iPhone, Apple ne permet pas ce niveau de détail, donc on fonctionne par catégories d'applications (jeux, réseaux sociaux, éducation, etc.) en utilisant les outils natifs d'Apple. Le résultat pour votre enfant est le même — la Smartloop fonctionne de la même façon sur les deux."
+    },
+    {
+      "q": "C'est vraiment gratuit ?",
+      "a": "L'offre El&Moi Essentiel est gratuite, sans limite de durée. Un parent, un enfant, la Smartloop complète, le contrôle du temps d'écran, les plages horaires, le blocage, et un module Lumen pour découvrir. C'est un vrai produit complet, pas une version bridée. L'offre El&Moi Famille à 7,99 euros par mois, ou 59,99 euros par an, c'est pour les familles qui veulent ajouter un deuxième parent, plusieurs enfants, ou accéder à tous les modules Lumen en illimité."
+    },
+    {
+      "q": "Est-ce qu'El&Moi espionne mon enfant ?",
+      "a": "Non. On ne lit pas ses messages. On ne regarde pas ses photos. On ne suit pas sa localisation. On n'enregistre pas son historique de navigation. La seule chose qu'on mesure, c'est le temps passé sur chaque application ou catégorie d'applications. C'est tout. Vos données sont hébergées en France chez OVH, elles ne sont jamais partagées avec des tiers."
+    },
+    {
+      "q": "Mon enfant peut contourner le système ?",
+      "a": "On a mis en place des protections techniques contre la désinstallation et le contournement. Mais on va être honnête : aucun système n'est infaillible, et un ado motivé trouvera toujours un moyen. C'est pour ça qu'El&Moi ne mise pas tout sur le contrôle. La Smartloop donne à votre enfant une raison de jouer le jeu plutôt que de le contourner. Pourquoi tricher quand tu peux gagner du temps en apprenant ?"
+    },
+    {
+      "q": "J'ai une question, je fais comment ?",
+      "a": "Vous pouvez nous écrire directement depuis votre Accès Parent ou par email. On est une petite équipe, on lit tout, et on répond vraiment."
+    }
+  ]
+}

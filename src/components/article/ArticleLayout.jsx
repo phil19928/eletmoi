@@ -89,7 +89,6 @@ export default function ArticleLayout({
               datePublished={article.datePublished}
               dateModified={article.dateModified}
               author={author}
-              readingTime={article.readingTime}
             />
           </div>
         </header>

@@ -122,7 +122,10 @@ export default function SocialProofBar() {
 
         <div className={ITEM}>
           <span className={`${VALUE} ${VALUE_SIZE}`}>{SOCIAL_PROOF.rating}</span>
-          <Stars rating={5} className="mt-1.5 w-3.5 h-3.5 sm:w-4 sm:h-4" />
+          <Stars
+            rating={Number(String(SOCIAL_PROOF.rating).replace(",", "."))}
+            className="mt-1.5 w-3.5 h-3.5 sm:w-4 sm:h-4"
+          />
           {/* Le volume qualifie la note : « 5,0 » seul ne dit pas sur
               combien d'avis elle porte. */}
           <span className={LABEL}>
@@ -139,7 +142,7 @@ export default function SocialProofBar() {
               href={APP_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="El&Moi sur l'App Store"
+              aria-label="Application enfant El&Moi sur l'App Store"
               className="transition-colors hover:text-slate-900"
             >
               <StoreLogo source="app_store" className="w-4 h-4 sm:w-[1.15rem] sm:h-[1.15rem]" />
@@ -148,13 +151,13 @@ export default function SocialProofBar() {
               href={PLAY_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="El&Moi sur Google Play"
+              aria-label="Application enfant El&Moi sur Google Play"
               className="transition-colors hover:text-slate-900"
             >
               <StoreLogo source="google_play" className="w-4 h-4 sm:w-[1.15rem] sm:h-[1.15rem]" />
             </a>
           </div>
-          <span className={LABEL}>disponible sur les 2 stores</span>
+          <span className={LABEL}>application enfant, 2 stores</span>
         </div>
       </div>
     </div>

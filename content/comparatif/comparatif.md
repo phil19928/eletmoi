@@ -23,10 +23,13 @@ reviewCycle: quarterly
 author: philippe
 internalLinks:
   - id: F1
-    anchor: 'Le Smartloop : comment ça marche'
+    anchor: 'La Smartloop : comment ça marche'
     context: body
   - id: F3
     anchor: 'Tarifs : formule Essentiel gratuite et formule Famille'
+    context: body
+  - id: B2
+    anchor: 'Alternative à Google Family Link : le comparatif 2026'
     context: body
   - id: F2
     anchor: 'Lumen : la cybersécurité en format court, par âge'
@@ -158,6 +161,8 @@ Gratuit, simple, déjà là si vous êtes sur Android. Vous fixez une limite quo
 **Choisissez-le si :** votre enfant a moins de 11 ans, tout le monde est sur Android, et vous voulez du gratuit sans réfléchir.
 
 **Et gardez-le :** Family Link gère très bien la validation des téléchargements et le filtrage de base. Rien ne vous empêche d'ajouter El&Moi par-dessus pour la partie temps d'écran et apprentissage.
+
+Pour le détail point par point, lisez notre [comparatif Family Link ou El&Moi](/comparatif/google-family-link/).
 
 ### Apple Temps d'écran
 

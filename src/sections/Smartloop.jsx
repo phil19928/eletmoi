@@ -204,7 +204,7 @@ const compactFeatures = [
       </svg>
     ),
     title: "Deux apps, un seul cadre",
-    desc: "App Parent (web) + App Enfant (iOS & Android). Synchronisées, connectées par QR code en 5 minutes.",
+    desc: "Accès Parent (web, rien à installer) + application enfant (iOS & Android). Connectés par QR code en 5 minutes.",
     tag: "QR code · 5 min",
     iconColor: "text-primary-dark",
     iconBg: "bg-primary/10",
@@ -359,7 +359,7 @@ export default function Smartloop() {
             ))}
           </div>
         </div>
-        <SectionLink to="/smartloop">Comment fonctionne le Smartloop</SectionLink>
+        <SectionLink to="/smartloop">Comment fonctionne la Smartloop</SectionLink>
       </Container>
     </Section>
   );

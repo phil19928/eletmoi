@@ -1,44 +1,12 @@
-import { useState, useRef } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Button from "../components/Button";
 import lumenAvatar from "../assets/Lumen2.png";
 import SectionLink from "../components/SectionLink";
+import { PARENT_APP_URL } from "../config";
 
-const INSTAGRAM_URL = "https://eletmoi.app";
 
 // ─── Icons ───────────────────────────────────────────────────────────────────
-
-function IconBook() {
-    return (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-            <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-        </svg>
-    );
-}
-
-function IconShield() {
-    return (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-            <path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-        </svg>
-    );
-}
-
-function IconChat() {
-    return (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-            <path d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
-        </svg>
-    );
-}
-
-function IconStar() {
-    return (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-            <path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-        </svg>
-    );
-}
 
 function IconParent() {
     return (
@@ -49,113 +17,7 @@ function IconParent() {
     );
 }
 
-function IconActivity() {
-    return (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-            <path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-        </svg>
-    );
-}
-
-function IconTask() {
-    return (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-            <path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-    );
-}
-
-function IconFish() {
-    return (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-            <path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-    );
-}
-
 // ─── Données ─────────────────────────────────────────────────────────────────
-
-const ways = [
-    {
-        icon: <IconBook />,
-        color: "bg-secondary-very-light text-secondary-dark",
-        accent: "border-secondary/30",
-        bar: "from-secondary/20 via-secondary to-secondary/20",
-        tag: "Smartloop",
-        title: "Apps éducatives",
-        subtitle: "Apprendre sur ses apps préférées",
-        description:
-            "Duolingo, Khan Academy, Photomath… Le temps passé sur les apps catégorisées comme apprentissage par le parent alimente directement le compteur Smartloop.",
-        example: "10 min sur Duolingo → 20 min de Netflix",
-    },
-    {
-        icon: <IconShield />,
-        color: "bg-primary-very-light text-primary-dark",
-        accent: "border-primary/30",
-        bar: "from-primary/20 via-primary to-primary/20",
-        tag: "Contenu expert",
-        title: "Microformations",
-        subtitle: "Des contenus adaptés à chaque public",
-        description:
-            "Un catalogue de microformations courtes (3–5 min) organisées en univers, sur la cybersécurité et l'éducation numérique. Chaque contenu est calibré pour les 8–11, 12–14, 15–17 ou adultes.",
-        example: "Finir une microformation → gagner du temps",
-    },
-];
-
-const ageTabs = [
-    {
-        label: "8–11 ans",
-        emoji: "🐣",
-        color: "bg-amber-50 text-amber-700 border-amber-200",
-        activeColor: "bg-amber-500 text-white",
-        cardColor: "bg-amber-50 border-amber-200/70",
-        tagColor: "bg-amber-100 text-amber-700",
-        title: "Langage simple, analogies ludiques",
-        topic: "Exemple : Créer un mot de passe sécurisé",
-        content:
-            "Un mot de passe, c'est comme la clé de ta maison. Si tu la donnes à tout le monde, n'importe qui peut entrer chez toi. Ton mot de passe, c'est pareil — garde-le secret, même avec tes meilleurs amis !",
-        badge: "Vocabulaire enfantin · Analogies du quotidien",
-    },
-    {
-        label: "12–14 ans",
-        emoji: "🚀",
-        color: "bg-secondary-very-light text-secondary-dark border-secondary/30",
-        activeColor: "bg-secondary text-white",
-        cardColor: "bg-secondary-very-light border-secondary/20",
-        tagColor: "bg-secondary/10 text-secondary-dark",
-        title: "Exemples concrets, mise en pratique",
-        topic: "Exemple : Créer un mot de passe sécurisé",
-        content:
-            "\"MonChien-Mange-3-Bananes!\" est 1 000 fois plus sûr que \"password123\". Pourquoi ? Il est long, mélange majuscules, chiffres et symboles, et n'est pas un vrai mot. N'utilise jamais le même mot de passe sur deux sites différents.",
-        badge: "Exemples réels · Règles pratiques",
-    },
-    {
-        label: "15–17 ans",
-        emoji: "⚡",
-        color: "bg-primary-very-light text-primary-dark border-primary/20",
-        activeColor: "bg-primary-dark text-white",
-        cardColor: "bg-primary-very-light border-primary/20",
-        tagColor: "bg-primary/10 text-primary-dark",
-        title: "Cas pratiques avancés, outils pros",
-        topic: "Exemple : Créer un mot de passe sécurisé",
-        content:
-            "Utilise un gestionnaire de mots de passe (Bitwarden, 1Password). Active l'authentification à deux facteurs (2FA) partout où c'est possible. Ne réutilise jamais un mot de passe. Si un service est compromis, change immédiatement.",
-        badge: "Outils réels · Cas avancés · Best practices",
-    },
-    {
-        label: "Adulte",
-        emoji: "🧭",
-        color: "bg-slate-100 text-slate-700 border-slate-200",
-        activeColor: "bg-slate-800 text-white",
-        cardColor: "bg-slate-50 border-slate-200",
-        tagColor: "bg-slate-200 text-slate-700",
-        title: "Contexte parent, prévention et bons réflexes",
-        topic: "Exemple : Créer un mot de passe sécurisé",
-        content:
-            "Pour protéger toute la famille, privilégiez un gestionnaire de mots de passe, activez la 2FA sur les comptes sensibles et vérifiez régulièrement les accès partagés. L'objectif est d'installer des réflexes simples, applicables au quotidien.",
-        badge: "Vision parent · Prévention familiale · Actions concrètes",
-    },
-];
 
 const univers = [
     {
@@ -265,6 +127,9 @@ const univers = [
     },
 ];
 
+const TOTAL_FORMATIONS = univers.reduce((n, u) => n + u.formations.length, 0);
+const PUBLICS = [...new Set(univers.flatMap((u) => u.formations.flatMap((f) => f.ages)))];
+
 // ─── Sub-sections ─────────────────────────────────────────────────────────────
 
 function HeroLumen() {
@@ -325,7 +190,7 @@ function HeroLumen() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="mt-6 text-lg sm:text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto"
             >
-                Apps d'apprentissage ou formations numériques.{" "}
+                Les microformations Lumen sont intégrées à El&Moi — rien à installer, rien à classer.{" "}
                 <span className="text-slate-700 font-medium">Lumen propose, l'enfant s'engage, le temps se débloque.</span>
             </motion.p>
 
@@ -337,9 +202,9 @@ function HeroLumen() {
                 className="mt-10 grid grid-cols-3 divide-x divide-slate-200 max-w-xl mx-auto"
             >
                 {[
-                    { num: "35", label: "microformations", sub: "3–5 min · quiz final" },
-                    { num: "5", label: "univers cyber", sub: "cybersec & numérique" },
-                    { num: "4", label: "publics cibles", sub: "8–11 · 12–14 · 15–17 · Adulte" },
+                    { num: String(TOTAL_FORMATIONS), label: "microformations", sub: "5–8 min · quiz final" },
+                    { num: String(univers.length), label: "univers cyber", sub: "cybersec & numérique" },
+                    { num: String(PUBLICS.length), label: "publics cibles", sub: PUBLICS.join(" · ") },
                 ].map((s, i) => (
                     <motion.div
                         key={s.num}
@@ -358,59 +223,9 @@ function HeroLumen() {
     );
 }
 
-function WaysSection() {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-60px" });
-
-    return (
-        <div ref={ref} className="mt-20 sm:mt-24 -mx-5 border-y border-white/70 bg-white/45 px-5 py-10 backdrop-blur-sm sm:-mx-6 sm:px-6 sm:py-12 lg:-mx-8 lg:px-8">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5 }}
-                className="text-center mb-12"
-            >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary-dark text-xs font-semibold tracking-wide uppercase mb-4">
-                    3 façons de gagner du temps
-                </span>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900">
-                    Apprendre, c'est gagner
-                </h3>
-            </motion.div>
-
-            <div className="grid sm:grid-cols-3 gap-5">
-                {ways.map((way, i) => (
-                    <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 40 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6, delay: i * 0.12 }}
-                        className={`group relative overflow-hidden bg-white rounded-3xl p-6 border ${way.accent} shadow-sm hover:shadow-lg transition-all duration-300 card-hover`}
-                    >
-                        <div className={`absolute inset-x-8 top-0 h-1 rounded-b-full bg-gradient-to-r ${way.bar} opacity-80 transition-all duration-300 group-hover:inset-x-6`} />
-                        <div className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl ${way.color} mb-4`}>
-                            {way.icon}
-                        </div>
-                        <span className={`inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-widest uppercase mb-3 ${way.color} opacity-80`}>
-                            {way.tag}
-                        </span>
-                        <h4 className="text-lg font-bold text-slate-900 mb-1">{way.title}</h4>
-                        <p className="text-sm text-slate-500 font-medium mb-3">{way.subtitle}</p>
-                        <p className="text-sm text-slate-500 leading-relaxed mb-4">{way.description}</p>
-                        <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-50 border border-slate-100">
-                            <span className="text-[11px] text-slate-400 font-mono leading-relaxed">{way.example}</span>
-                        </div>
-                    </motion.div>
-                ))}
-            </div>
-        </div>
-    );
-}
-
 function CatalogueSection() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-60px" });
-    const totalFormations = univers.reduce((acc, u) => acc + u.formations.length, 0);
 
     return (
         <div ref={ref} className="mt-20 sm:mt-24">
@@ -424,7 +239,7 @@ function CatalogueSection() {
                     Catalogue Lumen
                 </span>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900">
-                    5 univers de microformation
+                    {univers.length} univers de microformation
                 </h3>
             </motion.div>
 
@@ -435,9 +250,9 @@ function CatalogueSection() {
                 className="mb-6 flex flex-wrap justify-center gap-2.5"
             >
                 {[
-                    `${totalFormations} microformations`,
-                    "4 publics",
-                    "3–5 min",
+                    `${TOTAL_FORMATIONS} microformations`,
+                    `${PUBLICS.length} publics`,
+                    "5–8 min",
                     "Quiz final",
                 ].map((label) => (
                     <span key={label} className="rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-bold text-slate-500 shadow-sm">
@@ -476,101 +291,6 @@ function CatalogueSection() {
     );
 }
 
-function AgeSection() {
-    const [active, setActive] = useState(1);
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-60px" });
-    const tab = ageTabs[active];
-
-    return (
-        <div ref={ref} className="mt-20 sm:mt-24">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5 }}
-                className="text-center mb-12"
-            >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary-dark text-xs font-semibold tracking-wide uppercase mb-4">
-                    Adapté à chaque âge
-                </span>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900">
-                    Le même sujet.{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-dark">
-                        Quatre publics.
-                    </span>
-                </h3>
-                <p className="mt-3 text-slate-500 max-w-xl mx-auto">
-                    Lumen adapte le vocabulaire, les exemples et la profondeur de chaque microformation selon le public concerné.
-                </p>
-            </motion.div>
-
-            {/* Tabs */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.15 }}
-                className="flex flex-wrap justify-center gap-2 mb-8"
-            >
-                {ageTabs.map((t, i) => (
-                    <button
-                        key={i}
-                        type="button"
-                        onClick={() => setActive(i)}
-                        aria-pressed={active === i}
-                        className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
-                            active === i
-                                ? t.activeColor + " shadow-md"
-                                : "bg-white border border-slate-200 text-slate-500 hover:border-slate-300"
-                        }`}
-                    >
-                        <span>{t.emoji}</span>
-                        {t.label}
-                    </button>
-                ))}
-            </motion.div>
-
-            {/* Card */}
-            <div className="max-w-2xl mx-auto">
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={active}
-                        initial={{ opacity: 0, y: 16 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -16 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className={`rounded-3xl border p-7 sm:p-8 ${tab.cardColor}`}
-                    >
-                        <div className="flex items-start gap-4 mb-5">
-                            <div className={`inline-flex items-center justify-center w-11 h-11 rounded-2xl ${tab.tagColor} text-lg font-bold flex-shrink-0`}>
-                                {tab.emoji}
-                            </div>
-                            <div>
-                                <p className="text-xs font-bold tracking-widest uppercase text-slate-400 mb-0.5">{tab.topic}</p>
-                                <h4 className="text-base font-bold text-slate-900">{tab.title}</h4>
-                            </div>
-                        </div>
-
-                        {/* Chat bubble style */}
-                        <div className="bg-white rounded-2xl p-5 border border-white shadow-sm mb-4">
-                            <div className="flex items-start gap-3">
-                                <img src={lumenAvatar} alt="Lumen" className="w-8 h-8 rounded-full object-cover border border-primary/20 flex-shrink-0 mt-0.5" />
-                                <div>
-                                    <p className="text-[11px] font-bold text-primary-dark uppercase tracking-widest mb-2">Lumen</p>
-                                    <p className="text-slate-700 text-sm leading-relaxed">{tab.content}</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <span className={`inline-block px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase ${tab.tagColor}`}>
-                            {tab.badge}
-                        </span>
-                    </motion.div>
-                </AnimatePresence>
-            </div>
-        </div>
-    );
-}
-
 function ParentSection() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-60px" });
@@ -582,7 +302,7 @@ function ParentSection() {
         },
         {
             title: "Suivi de progression en temps réel",
-            desc: "Microformations complétées, quiz réussis, temps gagné — tout est visible dans le tableau de bord parent.",
+            desc: "Microformations complétées, quiz réussis, temps gagné — tout est visible depuis l'Accès Parent.",
         },
     ];
 
@@ -599,7 +319,7 @@ function ParentSection() {
                         >
                             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-white/80 text-xs font-semibold tracking-wide uppercase mb-6 border border-white/20">
                                 <IconParent />
-                                App Parent
+                                Accès Parent
                             </span>
                             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight mb-4">
                                 Le parent aussi<br />
@@ -664,11 +384,11 @@ function CTALumen() {
                         <p className="text-slate-500 mb-7 leading-relaxed">
                             Rejoignez les premières familles qui placent l'apprentissage et la préparation au cœur de la relation de leurs enfants avec les écrans.
                         </p>
-                        <Button href={INSTAGRAM_URL} className="w-full sm:w-auto !px-8 !py-4 !rounded-2xl">
+                        <Button href={PARENT_APP_URL} className="w-full sm:w-auto !px-8 !py-4 !rounded-2xl">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
                                 <path d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" />
                             </svg>
-                            Commencer gratuitement
+                            Accès Parent
                         </Button>
                     </div>
                 </div>

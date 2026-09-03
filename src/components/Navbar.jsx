@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import elephantMascot from "../assets/logo-eletmoi.png";
+import { PARENT_APP_URL } from "../config";
 
 /**
  * La navigation ramène aux sections de l'accueil, pas aux pages produit.
@@ -36,12 +37,9 @@ export default function Navbar() {
     }, []);
 
     return (
-        <motion.nav
+        <nav
             aria-label="Navigation principale"
-            initial={{ y: -80, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+            className={`animate-enter-nav fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
                     ? "glass shadow-lg shadow-slate-900/5 border-b border-white/40"
                     : "bg-transparent"
                 }`}
@@ -82,10 +80,10 @@ export default function Navbar() {
 
                     {/* CTA button */}
                     <motion.a
-                        href="https://eletmoi.app"
+                        href={PARENT_APP_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="Accéder à l'application El&Moi"
+                        aria-label="Ouvrir l'Accès Parent El&Moi"
                         whileHover={{ scale: 1.03, y: -1 }}
                         whileTap={{ scale: 0.97 }}
                         className="inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-white text-slate-900 border border-slate-200 shadow-md hover:shadow-lg hover:border-slate-300 transition-all duration-200"
@@ -95,10 +93,10 @@ export default function Navbar() {
                                 <path d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" />
                             </svg>
                         </span>
-                        <span className="text-sm font-normal tracking-tight text-slate-900">Commencer gratuitement</span>
+                        <span className="text-sm font-normal tracking-tight text-slate-900">Accès Parent</span>
                     </motion.a>
                 </div>
             </div>
-        </motion.nav>
+        </nav>
     );
 }

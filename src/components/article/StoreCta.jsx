@@ -31,6 +31,13 @@ export default function StoreCta({
       </p>
       {note ? <p className="text-sm text-slate-500 mb-5">{note}</p> : null}
 
+      {/* Les stores ne distribuent que l'application enfant : l'Accès Parent
+          est un espace web, rien à y installer. Sans cette précision, un
+          parent croit que le badge télécharge son application à lui. */}
+      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
+        Application enfant
+      </p>
+
       <div className="flex flex-wrap items-center justify-center gap-3">
         <a
           href={withUtm(APP_STORE_URL, campaign, position)}
@@ -39,7 +46,7 @@ export default function StoreCta({
         >
           <img
             src={badgeAppStore}
-            alt="Télécharger El&Moi sur l'App Store pour iPhone"
+            alt="Télécharger l'application enfant El&Moi sur l'App Store pour iPhone"
             width="109"
             height="36"
             loading="lazy"
@@ -54,7 +61,7 @@ export default function StoreCta({
         >
           <img
             src={badgePlayStore}
-            alt="Télécharger El&Moi sur Google Play pour Android"
+            alt="Télécharger l'application enfant El&Moi sur Google Play pour Android"
             width="122"
             height="36"
             loading="lazy"
@@ -63,6 +70,10 @@ export default function StoreCta({
           />
         </a>
       </div>
+
+      <p className="mt-4 text-xs text-slate-500">
+        L'Accès Parent, lui, s'ouvre dans votre navigateur — rien à installer.
+      </p>
     </section>
   );
 }

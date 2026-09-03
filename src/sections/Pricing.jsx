@@ -29,12 +29,12 @@ const ESSENTIEL = [
   "Plages horaires et blocage",
   "Notifications",
   "Suggestions d'apps",
-  "1 formation Lumen offerte",
+  "1 module Lumen offert",
 ];
 
 const FAMILLE = [
   "Tout dans Essentiel",
-  "Formations Lumen en illimité",
+  "Modules Lumen en illimité",
   "Parents illimités",
   "Enfants et appareils illimités",
 ];

@@ -14,11 +14,11 @@ import { readFileSync } from "node:fs";
 
 import { SITE_URL } from "../../content/seo.config.mjs";
 
-// Les avis affichés sur l'accueil, relus ici pour être aussi balisés. Même
-// fichier que le carrousel : une seule source, pas de recopie à maintenir.
-const REVIEWS = JSON.parse(
-  readFileSync(new URL("../../src/data/reviews.json", import.meta.url), "utf8")
-).reviews;
+// La FAQ de l'accueil. Même fichier que la section React (`sections/FAQ`) :
+// le texte balisé est donc, par construction, celui qui est affiché.
+const HOME_FAQ = JSON.parse(
+  readFileSync(new URL("../../src/data/home-faq.json", import.meta.url), "utf8")
+).faqs;
 
 const ORG_ID = `${SITE_URL}/#organization`;
 
@@ -98,15 +98,17 @@ function articleNode(article, authors) {
   return node;
 }
 
-const faqNode = (article) => ({
+const faqPageNode = (routePath, items) => ({
   "@type": "FAQPage",
-  "@id": `${abs(article.route)}#faq`,
-  mainEntity: article.faq.map((item) => ({
+  "@id": `${abs(routePath)}#faq`,
+  mainEntity: items.map((item) => ({
     "@type": "Question",
     name: item.q,
     acceptedAnswer: { "@type": "Answer", text: item.a },
   })),
 });
+
+const faqNode = (article) => faqPageNode(article.route, article.faq);
 
 const howToNode = (article) => ({
   "@type": "HowTo",
@@ -140,43 +142,12 @@ const itemListNode = (article) => ({
 /**
  * Fiche produit, sur l'accueil et les pages de marque.
  *
- * Toujours pas d'aggregateRating, alors même que reviews.json porte désormais
- * une note et un nombre d'avis : agréger sur ce volume resterait trompeur, et
- * Google ignore — voire sanctionne — ce type de déclaration. Ces deux valeurs
- * servent l'affichage, pas le balisage. À rétablir quand il y aura du volume
- * réel et sourcé.
- *
- * Les avis individuels, eux, sont déclarés — mais seulement sur l'accueil
- * (`withReviews`), car ce nœud est partagé par les pages de marque via le même
- * @id : sans ce garde, les mêmes avis se retrouveraient sur six URL.
- *
- * Un champ absent des données n'est jamais comblé : pas de note inventée, pas
- * d'auteur générique. « Utilisateur vérifié » est un libellé d'interface, il
- * n'a rien à faire dans des données structurées.
+ * Aucun Review ni aggregateRating n'est déclaré à partir des avis App Store /
+ * Google Play affichés sur la page : ils restent une preuve sociale visible,
+ * mais Google déconseille d'agréger dans nos données structurées des avis et
+ * notes provenant d'autres sites.
  */
-function reviewNode(review) {
-  return {
-    "@type": "Review",
-    inLanguage: "fr-FR",
-    reviewBody: review.text,
-    ...(review.title ? { name: review.title } : {}),
-    ...(review.author
-      ? { author: { "@type": "Person", name: review.author } }
-      : {}),
-    ...(review.rating
-      ? {
-          reviewRating: {
-            "@type": "Rating",
-            ratingValue: String(review.rating),
-            bestRating: "5",
-            worstRating: "1",
-          },
-        }
-      : {}),
-  };
-}
-
-function softwareNode(article, { withReviews = false } = {}) {
+function softwareNode(article = null) {
   const node = {
     "@type": "MobileApplication",
     "@id": `${SITE_URL}/#app`,
@@ -211,7 +182,6 @@ function softwareNode(article, { withReviews = false } = {}) {
     ],
   };
   if (article?.metaDescription) node.description = article.metaDescription;
-  if (withReviews && REVIEWS.length) node.review = REVIEWS.map(reviewNode);
   return node;
 }
 
@@ -255,7 +225,8 @@ export function buildJsonLd({ route, article = null, authors = {}, label, indexA
   // L'accueil porte la fiche produit : elle est retirée du gabarit index.html
   // pour ne pas se retrouver dupliquée sur les pages de marque.
   if (route.path === "/") {
-    graph.push(softwareNode(null, { withReviews: true }));
+    graph.push(softwareNode());
+    if (HOME_FAQ.length) graph.push(faqPageNode("/", HOME_FAQ));
     return graph;
   }
 

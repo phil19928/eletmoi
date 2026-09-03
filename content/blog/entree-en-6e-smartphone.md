@@ -35,7 +35,7 @@ internalLinks:
     anchor: "Nuit, devoirs, repas : paramétrer des plages sans téléphone"
     context: body
   - id: F1
-    anchor: "Le Smartloop : comment ça marche"
+    anchor: "La Smartloop : comment ça marche"
     context: body
   - id: F2
     anchor: "Lumen : la cybersécurité en format court, par âge"
@@ -52,8 +52,10 @@ externalSources:
 faq:
   - q: Est-ce qu'il peut avoir des réseaux sociaux en 6e ?
     a: >-
-      Non. Depuis la loi de 2026, les réseaux sociaux sont interdits aux moins
-      de 15 ans. Un enfant de 6e n'a pas l'âge d'y créer un compte.
+      L'interdiction générale prévue par la loi de 2026 a été censurée avant sa
+      promulgation. Reste que la plupart des réseaux sociaux ne sont pas pensés
+      pour un enfant de 6e, et que leurs conditions d'âge doivent être
+      respectées.
   - q: Et le téléphone au collège ?
     a: >-
       Il est interdit dans l'enceinte du collège depuis 2018, et l'interdiction
@@ -123,6 +125,6 @@ Ne lui tendez pas le téléphone dans son emballage en lui disant « on verra le
 
 Le réflexe habituel, c'est de fixer une durée : une heure par jour, pas plus. Ça marche deux semaines. Ensuite, chaque soir devient une négociation, et c'est vous qui coupez.
 
-Nous avons construit El&Moi autour de l'idée inverse. Votre enfant [**gagne** son temps de loisir](/smartloop/) : une minute passée sur une application d'apprentissage lui rapporte deux minutes de temps libre. C'est le Smartloop. Vous fixez le ratio, le plafond quotidien et les heures sans téléphone. Lui sait exactement comment obtenir du temps.
+Nous avons construit El&Moi autour de l'idée inverse. Votre enfant [**gagne** son temps de loisir](/smartloop/) : une minute passée sur une application d'apprentissage lui rapporte deux minutes de temps libre. C'est la Smartloop. Vous fixez le ratio, le plafond quotidien et les heures sans téléphone. Lui sait exactement comment obtenir du temps.
 
 Résultat : ce n'est plus vous contre lui, c'est lui face à une règle claire. Et pendant ce temps, [les modules Lumen](/lumen/) lui apprennent à repérer une arnaque, une fausse vidéo ou un inconnu insistant. Parce que ces choses-là arrivent en 6e, pas au lycée.

@@ -4,11 +4,8 @@ export default function PhoneMockup({ image, alt = "", className = "", imageClas
     return (
         <div className={`relative isolate mx-auto w-full ${className}`}>
             {/* Phone frame */}
-            <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: 30 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                className="relative rounded-[1.25rem] sm:rounded-[1.75rem] lg:rounded-[2.5rem] border-[3px] sm:border-[4px] lg:border-[5px] border-slate-800 bg-slate-900 shadow-2xl shadow-slate-900/40 overflow-hidden"
+            <div
+                className="animate-enter-phone relative rounded-[1.25rem] sm:rounded-[1.75rem] lg:rounded-[2.5rem] border-[3px] sm:border-[4px] lg:border-[5px] border-slate-800 bg-slate-900 shadow-2xl shadow-slate-900/40 overflow-hidden"
             >
                 {/* Notch */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[42%] h-3 sm:h-4 lg:h-6 bg-slate-800 rounded-b-lg sm:rounded-b-xl lg:rounded-b-2xl z-10" />
@@ -66,7 +63,7 @@ export default function PhoneMockup({ image, alt = "", className = "", imageClas
                         </div>
                     )}
                 </div>
-            </motion.div>
+            </div>
 
             {/* Reflection */}
             <div className="absolute inset-0 rounded-[1.25rem] sm:rounded-[1.75rem] lg:rounded-[2.5rem] bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />

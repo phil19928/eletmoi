@@ -24,19 +24,22 @@ internalLinks:
   - id: C3
     anchor: 'Contrôle parental Android : le guide complet'
     context: body
+  - id: C2
+    anchor: 'Paramètres restreints Android : comment les autoriser'
+    context: body
   - id: C11
     anchor: >-
       Xiaomi, Samsung, OPPO, Vivo, Honor : réglages spécifiques (hub + 4
       satellites)
     context: body
   - id: C14
-    anchor: Catégoriser les applications pour que le Smartloop fonctionne
+    anchor: Catégoriser les applications pour que la Smartloop fonctionne
     context: body
   - id: C13
     anchor: 'Nuit, devoirs, repas : paramétrer des plages sans téléphone'
     context: body
   - id: F1
-    anchor: 'Le Smartloop : comment ça marche'
+    anchor: 'La Smartloop : comment ça marche'
     context: body
 externalSources:
   - accessedOn: '2026-08-25'
@@ -50,8 +53,9 @@ externalSources:
 faq:
   - q: Faut-il installer l'application sur mon téléphone aussi ?
     a: >-
-      Oui, mais ce n'est pas la même : vous installez l'application parent,
-      votre enfant l'application enfant.
+      Non. Votre Accès Parent s'ouvre dans votre navigateur, sur téléphone ou
+      ordinateur : il n'y a rien à installer de votre côté. Seule l'application
+      enfant se télécharge, sur le téléphone de votre enfant.
   - q: Est-ce que ça marche entre un iPhone et un Android ?
     a: 'Oui. Vous pouvez avoir un iPhone et lui un Android, ou l''inverse.'
   - q: Faut-il tout régler dès l'installation ?
@@ -68,21 +72,20 @@ faq:
 howToSteps:
   - name: créez votre compte parent
     text: >-
-      Sur votre téléphone, téléchargez l'application El&Moi et créez votre
-      compte. Retenez qu'il y a deux applications différentes : la vôtre,
-      l'application parent, et celle de votre enfant. Vous n'installerez jamais
-      la même sur les deux téléphones. Une fois votre compte créé, l'assistant
-      démarre. À parti
+      Depuis votre téléphone ou votre ordinateur, ouvrez l'Accès Parent El&Moi
+      dans votre navigateur et créez votre compte : vous n'avez rien à
+      installer de votre côté. Seul votre enfant installe une application, sur
+      son téléphone. Une fois votre compte créé, l'assistant démarre.
   - name: répondez à deux questions
     text: >-
       L'assistant vous demande : - le prénom de votre enfant ; - le type de
       téléphone qu'il utilise, Android ou iPhone. Cette deuxième réponse est
       importante : les autorisations à donner ne sont pas les mêmes selon le
       système. C'est elle qui détermine tout le reste du parcours, donc prenez
-      une seconde pou
+      une seconde pour vérifier plutôt que de répondre au hasard.
   - name: jumelez les deux téléphones
     text: >-
-      Votre application affiche un QR code. Sur le téléphone de votre enfant,
+      Votre Accès Parent affiche un QR code. Sur le téléphone de votre enfant,
       téléchargez l'application enfant El&Moi depuis l'App Store ou Google Play,
       ouvrez-la, et scannez le QR code affiché sur votre écran. Les deux comptes
       sont maintenant liés. Le reste se passe sur le téléphone de votre enfant.
@@ -92,7 +95,7 @@ howToSteps:
       Sans ces autorisations, l'application ne peut ni compter le temps d'usage,
       ni appliquer vos règles. Là encore, tout est guidé : l'assistant affiche
       le réglage à activer, vous ouvre le bon écran, et attend que ce soit fait
-      avan
+      avant de passer au suivant. Vous n'avez pas à chercher dans les menus.
   - name: c'est installé
     text: >-
       À la fin, l'assistant confirme que le téléphone de votre enfant est bien
@@ -118,9 +121,9 @@ Vous aurez besoin des deux téléphones, le vôtre et celui de votre enfant. Com
 
 ## Étape 1 : créez votre compte parent
 
-Sur **votre** téléphone, téléchargez [l'application El&Moi](/smartloop/) et créez votre compte.
+Depuis **votre** téléphone ou votre ordinateur, ouvrez [l'Accès Parent El&Moi](/smartloop/) dans votre navigateur et créez votre compte.
 
-Retenez qu'il y a **deux applications différentes** : la vôtre, l'application parent, et celle de votre enfant. Vous n'installerez jamais la même sur les deux téléphones.
+Retenez qu'il y a **deux côtés distincts** : votre Accès Parent, qui vit dans le navigateur et n'a rien à installer, et l'application enfant, qui se télécharge sur le téléphone de votre enfant.
 
 Une fois votre compte créé, l'assistant démarre. À partir de là, vous n'avez qu'à répondre à ses questions et suivre ce qu'il affiche.
 
@@ -135,7 +138,7 @@ Cette deuxième réponse est importante : les autorisations à donner ne sont pa
 
 ## Étape 3 : jumelez les deux téléphones
 
-Votre application affiche un **QR code**.
+Votre Accès Parent affiche un **QR code**.
 
 Sur le téléphone de votre enfant, téléchargez l'application enfant El&Moi depuis l'App Store ou Google Play, ouvrez-la, et **scannez le QR code affiché sur votre écran**.
 
@@ -149,7 +152,7 @@ Là encore, tout est guidé : l'assistant affiche le réglage à activer, vous o
 
 Ce que vous aurez à autoriser dépend du téléphone :
 
-- **Sur Android**, il y a plusieurs autorisations à accorder, dont l'accès aux données d'utilisation, les notifications et l'accessibilité. Android bloque par défaut certaines d'entre elles pour les applications téléchargées : c'est normal, l'assistant vous montre où débloquer.
+- **Sur Android**, il y a plusieurs autorisations à accorder, dont l'accès aux données d'utilisation, les notifications et l'accessibilité. Android bloque par défaut certaines d'entre elles pour les applications téléchargées : c'est normal, l'assistant vous montre où débloquer. Si le message apparaît, suivez le guide pour [autoriser les paramètres restreints Android](/guides/parametres-restreints-android/).
 - **Sur iPhone**, la démarche est plus courte : vous autorisez El&Moi à utiliser le cadre officiel prévu par Apple, et les notifications.
 
 Certaines marques Android ajoutent leurs propres réglages, notamment Xiaomi, OPPO, Vivo et Honor. Si un bouton ne semble rien faire, c'est souvent que le réglage est déjà actif par défaut : passez à la suite.
@@ -166,13 +169,13 @@ L'essentiel est fait. Vous pouvez vous arrêter là pour aujourd'hui.
 
 Vous n'êtes pas obligé de tout régler le premier soir. Le plus simple est de laisser tourner un ou deux jours, de regarder ce que votre enfant utilise vraiment, puis d'affiner.
 
-**Classez ses applications.** C'est le réglage qui fait fonctionner [le Smartloop](/smartloop/). Vous voyez la liste de tout ce qui est installé sur son téléphone, et vous répartissez :
+**Classez ses applications.** C'est le réglage qui fait fonctionner [la Smartloop](/smartloop/). Vous voyez la liste de tout ce qui est installé sur son téléphone, et vous répartissez :
 
 - **Apprentissage** : langues, révisions, musique, code. Ce sont elles qui lui font gagner du temps.
 - **Divertissement** : jeux, vidéos, tout ce qui consomme le temps gagné.
 - **Autre** : appareil photo, calculatrice, applications du système. Elles ne comptent ni dans un sens ni dans l'autre.
 
-**Réglez vos règles.** Le plafond de temps quotidien, le ratio du Smartloop (par défaut, une minute d'apprentissage rapporte deux minutes de temps libre), et les heures sans téléphone : la nuit, les devoirs, les repas. Ses applications se ferment à ces moments-là, mais il peut toujours vous appeler.
+**Réglez vos règles.** Le plafond de temps quotidien, le ratio de la Smartloop (par défaut, une minute d'apprentissage rapporte deux minutes de temps libre), et les heures sans téléphone : la nuit, les devoirs, les repas. Ses applications se ferment à ces moments-là, mais il peut toujours vous appeler.
 
 **Suggérez-lui des applications.** Depuis votre téléphone, vous pouvez lui proposer des applications d'apprentissage. Il reçoit la suggestion et décide. C'est souvent plus efficace que de la lui imposer.
 

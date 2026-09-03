@@ -14,7 +14,7 @@
 
 El&Moi est un service de gestion du temps d'écran à destination des familles. Il permet aux parents (ci-après « l'Utilisateur Parent ») de définir des règles encadrant l'utilisation du téléphone de leur enfant (ci-après « l'Utilisateur Enfant »), selon un mécanisme de récompense lié à l'apprentissage (le « Smartloop »).
 
-Le Service est composé d'une application web accessible à l'adresse eletmoi.app (ci-après « l'Application Parent ») et d'une application mobile Android installée sur l'appareil de l'enfant (ci-après « l'Application Enfant »).
+Le Service est composé d'un accès parent, accessible depuis un navigateur web à l'adresse eletmoi.app, sur mobile comme sur ordinateur (ci-après « l'Application Parent »), et d'une application mobile installée sur l'appareil de l'enfant, disponible sur Android et sur iPhone (ci-après « l'Application Enfant »).
 
 ## Article 2 — Acceptation des CGU
 
@@ -30,7 +30,7 @@ L'Éditeur se réserve le droit de modifier les présentes CGU à tout moment. L
 
 Le Service est destiné aux familles. Seule une personne physique majeure (18 ans et plus), titulaire de l'autorité parentale sur l'Utilisateur Enfant, peut créer un compte El&Moi.
 
-L'Utilisateur Enfant doit être âgé de 3 à 17 ans inclus. L'Application Enfant est installée sur l'appareil de l'enfant par l'Utilisateur Parent ou sous sa supervision.
+L'Utilisateur Enfant doit être âgé de 6 à 17 ans inclus. L'Application Enfant est installée sur l'appareil de l'enfant par l'Utilisateur Parent ou sous sa supervision.
 
 ### 3.2 — Création de compte
 
@@ -70,7 +70,9 @@ L'Application Enfant permet à l'Utilisateur Enfant de :
 
 ### 4.3 — Autorisations système requises
 
-Le fonctionnement de l'Application Enfant nécessite l'activation de certaines autorisations système sur l'appareil Android de l'enfant, notamment :
+Le fonctionnement de l'Application Enfant nécessite l'activation de certaines autorisations système sur l'appareil de l'enfant. Elles diffèrent selon le système d'exploitation.
+
+Sur Android, notamment :
 
 - L'accès aux statistiques d'utilisation des applications ;
 - Les notifications ;
@@ -79,11 +81,13 @@ Le fonctionnement de l'Application Enfant nécessite l'activation de certaines a
 - L'accessibilité ;
 - L'administration de l'appareil (pour empêcher la désinstallation).
 
+Sur iPhone, l'Application Enfant s'appuie sur les outils de contrôle parental fournis par Apple, dont l'activation est autorisée par l'Utilisateur Parent, ainsi que sur les notifications. Le suivi du temps d'usage y est restitué par catégorie d'applications et non application par application, en raison des limites imposées par le système.
+
 Ces autorisations sont activées par l'Utilisateur Parent lors de la configuration initiale. L'Éditeur ne collecte via ces autorisations que les données strictement nécessaires au fonctionnement du Service tel que décrit dans la Politique de Confidentialité.
 
 ## Article 5 — Compatibilité technique
 
-L'Application Enfant est compatible avec les appareils fonctionnant sous **Android 8.0 (Oreo)** et versions ultérieures. L'Application Parent est une application web progressive (PWA) accessible depuis tout navigateur web moderne sur tout appareil (smartphone, tablette, ordinateur).
+L'Application Enfant est disponible sur Android et sur iPhone. Sur Android, elle est compatible avec les appareils fonctionnant sous **Android 8.0 (Oreo)** et versions ultérieures ; sur iPhone, les versions d'iOS prises en charge sont celles indiquées sur la fiche de l'application sur l'App Store. L'Application Parent ne s'installe pas : elle s'ouvre depuis un navigateur web récent, sur smartphone, tablette ou ordinateur.
 
 L'Éditeur ne garantit pas le fonctionnement du Service sur tous les appareils et configurations. Certaines fonctionnalités peuvent varier selon le modèle d'appareil, la version du système d'exploitation et la surcouche constructeur.
 

@@ -25,7 +25,7 @@ internalLinks:
     anchor: 'Espace presse : informations et ressources pour les journalistes'
     context: body
   - id: F1
-    anchor: "Le Smartloop : comment ça marche"
+    anchor: "La Smartloop : comment ça marche"
     context: cta
   - id: F3
     anchor: "Tarifs : formule Essentiel gratuite et formule Famille"
@@ -49,7 +49,7 @@ Nous avons essayé les outils existants. Ils font tous à peu près la même cho
 
 Le problème, c'est ce qui se passe juste après le blocage. L'enfant ne comprend pas, il trouve la règle injuste, il cherche à la contourner. Et le parent passe sa soirée à arbitrer.
 
-Nous avons voulu inverser la logique. Plutôt que d'enlever du temps, en faire gagner. Plutôt que de surveiller, [apprendre à se débrouiller](/lumen/). C'est devenu [le Smartloop](/smartloop/), puis Lumen.
+Nous avons voulu inverser la logique. Plutôt que d'enlever du temps, en faire gagner. Plutôt que de surveiller, [apprendre à se débrouiller](/lumen/). C'est devenu [la Smartloop](/smartloop/), puis Lumen.
 
 ## Comment nous travaillons
 
