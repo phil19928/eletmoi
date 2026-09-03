@@ -920,7 +920,7 @@ export const ARTICLES = [
     "faq": [
       {
         "q": "Mon enfant peut-il tricher en laissant l'appli ouverte sans rien faire ?",
-        "a": "El&Moi comptabilise le temps pendant lequel l'application d'apprentissage est utilisée au premier plan. Comme pour toute application, nous ne pouvons pas vérifier ce que l'enfant fait physiquement devant son écran. Vous suivez en revanche les temps d'utilisation, application par application, depuis votre Accès Parent."
+        "a": "El&Moi comptabilise le temps pendant lequel l'application d'apprentissage est utilisée au premier plan. Comme pour toute application, nous ne pouvons pas vérifier ce que l'enfant fait physiquement devant son écran. Depuis votre Accès Parent, vous pouvez suivre l'utilisation du téléphone : par catégorie d'applications sur iPhone, conformément aux données accessibles via Screen Time, et application par application sur Android."
       },
       {
         "q": "Est-ce que je peux quand même lui donner du temps à la main ?",
