@@ -1,5 +1,5 @@
 // Accès Parent : espace web/PWA, rien à installer.
-export const PARENT_APP_URL = "https://eletmoi.app";
+export const PARENT_APP_URL = "https://eletmoi.app/register";
 export const MENTIONS_LEGALES_URL = "/mentions-legales";
 
 // Application enfant : fiches stores (iOS / Android).
