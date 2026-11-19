@@ -20,10 +20,12 @@ export default {
           "very-light": "#EAF2FB",
         },
         accent: "#F59E0B",
+        paper: "#F4F3EE",
+        ink: "#0F172A",
       },
       fontFamily: {
-        sans: ["Roboto", "system-ui", "sans-serif"],
-        display: ["Roboto", "system-ui", "sans-serif"],
+        sans: ["Roboto Flex", "Roboto", "system-ui", "sans-serif"],
+        display: ["Roboto Flex", "Roboto", "system-ui", "sans-serif"],
       },
       keyframes: {
         "fade-in-up": {

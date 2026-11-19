@@ -4,14 +4,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import { MotionConfig } from "framer-motion";
 import Navbar from "./components/Navbar";
 import CookieBanner from "./components/CookieBanner";
-import Hero from "./sections/Hero";
-import SocialProof from "./sections/SocialProof";
-import Smartloop from "./sections/Smartloop";
-import Lumen from "./sections/Lumen";
-import FAQ from "./sections/FAQ";
-import CTABanner from "./sections/CTABanner";
-import Pricing from "./sections/Pricing";
 import Footer from "./sections/Footer";
+import Home from "./home/Home.jsx";
 import NotFound from "./pages/NotFound";
 
 // Volontairement l'index minimal, pas le manifeste complet : App.jsx n'a besoin
@@ -135,24 +129,18 @@ const INDEXES = INDEX_ROUTES.map((route) => ({
 
 function LandingPage() {
   return (
-    <div className="min-h-screen bg-white font-sans antialiased">
+    <>
       <Navbar />
-      <Hero />
-      <SocialProof />
-      <Smartloop />
-      <Lumen />
-      <FAQ />
-      <Pricing />
-      <CTABanner />
+      <Home />
       <Footer />
       <CookieBanner />
-    </div>
+    </>
   );
 }
 
 function PageFallback() {
   return (
-    <div className="min-h-screen bg-white font-sans antialiased flex flex-col">
+    <div className="min-h-screen bg-paper font-sans antialiased flex flex-col">
       <Navbar />
       <main className="flex-1 pt-28 px-5">
         <div className="mx-auto max-w-[760px] rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -187,7 +175,7 @@ class RouteErrorBoundary extends Component {
     if (!this.state.error) return this.props.children;
 
     return (
-      <div className="min-h-screen bg-white font-sans antialiased flex flex-col">
+      <div className="min-h-screen bg-paper font-sans antialiased flex flex-col">
         <Navbar />
         <main className="flex-1 pt-28 px-5">
           <div className="mx-auto max-w-[640px] rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">

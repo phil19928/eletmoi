@@ -42,7 +42,7 @@ export default function BrandLayout({ article, body }) {
   const others = SIBLINGS.filter((s) => s.route !== article.route);
 
   return (
-    <div className="min-h-screen bg-white font-sans antialiased flex flex-col">
+    <div className="min-h-screen bg-paper font-sans antialiased flex flex-col">
       <Navbar />
 
       <main className="flex-1">

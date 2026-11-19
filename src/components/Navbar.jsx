@@ -1,103 +1,151 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import SiteLink from "./SiteLink";
-import elephantMascot from "../assets/logo-eletmoi.png";
 import { PARENT_APP_URL } from "../config";
+import { gsap, prefersReduced, lockScroll, scrollToId } from "../home/motion.jsx";
+import { Magnetic, Arrow } from "../home/ui.jsx";
 
 /**
- * La navigation ramène aux sections de l'accueil, pas aux pages produit.
+ * Navigation du site (refonte 2026).
  *
- * L'accueil est le parcours de présentation : cliquer « Smartloop » doit y
- * conduire, pas ouvrir une page de fond. Les pages produit restent
- * accessibles depuis le lien « En savoir plus » de chaque section et depuis le
- * pied de page. Seul « Blog » mène à une page, parce que c'est un univers à
- * part entière.
- *
- * Le chemin « / » devant l'ancre est indispensable : depuis /blog/un-article,
- * un simple « #smartloop » ne mènerait nulle part.
+ * Les entrées Smartloop / Contrôle / Lumen / Tarifs ramènent aux sections de
+ * l'accueil : « /#smartloop » plutôt que « #smartloop », sinon depuis
+ * /blog/un-article le lien ne mènerait nulle part. Sur l'accueil, le clic fait
+ * défiler en douceur au lieu de recharger. « Blog » est une vraie page.
  */
-const NAV_ITEMS = [
-    { to: "/#smartloop", label: "Smartloop" },
-    { to: "/#lumen", label: "Lumen" },
-    { to: "/#tarifs", label: "Tarifs" },
-    { to: "/blog", label: "Blog" },
+const SECTIONS = [
+  { id: "smartloop", label: "Smartloop" },
+  { id: "controle", label: "Contrôle" },
+  { id: "lumen", label: "Lumen" },
+  { id: "tarifs", label: "Tarifs" },
 ];
-
-const navLink =
-    "hidden md:inline text-sm transition-colors font-medium";
+const LOGIN_URL = "https://eletmoi.app/";
 
 export default function Navbar() {
-    const [scrolled, setScrolled] = useState(false);
-    const { pathname } = useLocation();
+  const bar = useRef(null);
+  const progress = useRef(null);
+  const menu = useRef(null);
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
+  const { pathname } = useLocation();
+  const onHome = pathname === "/";
+  const onBlog = pathname === "/blog" || pathname.startsWith("/blog/");
 
-    useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 20);
-        window.addEventListener("scroll", onScroll, { passive: true });
-        return () => window.removeEventListener("scroll", onScroll);
-    }, []);
+  // Pill compacte après 40 px, masquée en descendant, réaffichée en remontant.
+  useEffect(() => {
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      const el = bar.current;
+      if (!el) return;
+      el.classList.toggle("is-scrolled", y > 40);
+      el.classList.toggle("is-hidden", y > lastY && y > 500);
+      lastY = y;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (progress.current) progress.current.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [pathname]);
 
-    return (
-        <nav
-            aria-label="Navigation principale"
-            className={`animate-enter-nav fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                    ? "glass shadow-lg shadow-slate-900/5 border-b border-white/40"
-                    : "bg-transparent"
-                }`}
-        >
-            <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-                <SiteLink to="/" aria-label="Retour à l'accueil" className="flex items-center gap-2.5 group">
-                    <img src={elephantMascot} alt="El&Moi" className="w-8 h-8" />
-                    <span className="text-xl font-bold tracking-tight font-display text-slate-900">
-                        El<span className="text-primary group-hover:text-primary-dark transition-colors">&</span>Moi
-                    </span>
-                </SiteLink>
-
-                <div className="flex items-center gap-4">
-                    {/* Pages réelles, plus des ancres : depuis /blog/... une ancre
-                        « #smartloop » ne mènerait nulle part. La page courante est
-                        signalée, sinon on ne sait plus où l'on est. */}
-                    {NAV_ITEMS.map((item) => {
-                        // Seules les entrées qui mènent à une page peuvent
-                        // être « courantes » ; une ancre ne l'est jamais.
-                        const active =
-                            !item.to.includes("#") &&
-                            (pathname === item.to || pathname.startsWith(`${item.to}/`));
-                        return (
-                            <SiteLink
-                                key={item.to}
-                                to={item.to}
-                                aria-current={active ? "page" : undefined}
-                                className={`${navLink} ${
-                                    active
-                                        ? "text-primary-dark border-b-2 border-primary pb-0.5"
-                                        : "text-slate-500 hover:text-primary"
-                                }`}
-                            >
-                                {item.label}
-                            </SiteLink>
-                        );
-                    })}
-
-                    {/* CTA button */}
-                    <motion.a
-                        href={PARENT_APP_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Ouvrir l'Accès Parent El&Moi"
-                        whileHover={{ scale: 1.03, y: -1 }}
-                        whileTap={{ scale: 0.97 }}
-                        className="inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-white text-slate-900 border border-slate-200 shadow-md hover:shadow-lg hover:border-slate-300 transition-all duration-200"
-                    >
-                        <span className="w-7 h-7 rounded-lg bg-primary-very-light flex items-center justify-center flex-shrink-0 text-primary">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-                                <path d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" />
-                            </svg>
-                        </span>
-                        <span className="text-sm font-normal tracking-tight text-slate-900">Accès Parent</span>
-                    </motion.a>
-                </div>
-            </div>
-        </nav>
+  // Section courante (accueil uniquement).
+  useEffect(() => {
+    if (!onHome) { setActive(""); return; }
+    const els = SECTIONS.map((s) => document.getElementById(s.id)).filter(Boolean);
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
+      { rootMargin: "-45% 0px -50% 0px" }
     );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [onHome]);
+
+  // Menu mobile plein écran.
+  useEffect(() => {
+    lockScroll(open);
+    const el = menu.current;
+    if (!el) return;
+    const d = prefersReduced() ? 0 : 1;
+    if (open) {
+      gsap.set(el, { visibility: "visible" });
+      gsap.timeline()
+        .fromTo(el, { clipPath: "circle(0% at 92% 4%)" }, { clipPath: "circle(150% at 92% 4%)", duration: 0.7 * d, ease: "power3.inOut" })
+        .fromTo(el.querySelectorAll(".menu__link"), { yPercent: 110 }, { yPercent: 0, stagger: 0.06, duration: 0.6 * d, ease: "power3.out" }, "-=0.3")
+        .fromTo(el.querySelectorAll(".menu__foot > *"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, stagger: 0.08, duration: 0.5 * d }, "-=0.4");
+      const onKey = (e) => e.key === "Escape" && setOpen(false);
+      window.addEventListener("keydown", onKey);
+      return () => window.removeEventListener("keydown", onKey);
+    }
+    gsap.to(el, { clipPath: "circle(0% at 92% 4%)", duration: 0.5 * d, ease: "power3.inOut", onComplete: () => gsap.set(el, { visibility: "hidden" }) });
+  }, [open]);
+
+  useEffect(() => setOpen(false), [pathname]);
+
+  const goSection = (id) => (e) => {
+    setOpen(false);
+    if (!onHome) return; // laisse SiteLink naviguer vers /#id
+    e.preventDefault();
+    setTimeout(() => scrollToId(id), open ? 350 : 0);
+  };
+
+  return (
+    <>
+      <header ref={bar} className="nav" data-menu={open}>
+        <div className="nav__inner">
+          <SiteLink to="/" className="nav__logo" aria-label="El&Moi, retour à l'accueil">
+            <img src="/img/logo.png" alt="" width="34" height="34" />
+            <span>El&amp;Moi</span>
+          </SiteLink>
+          <nav className="nav__links" aria-label="Navigation principale">
+            {SECTIONS.map(({ id, label }) => (
+              <SiteLink key={id} to={`/#${id}`} onClick={goSection(id)} className={active === id ? "is-active" : ""}>
+                {label}
+              </SiteLink>
+            ))}
+            <SiteLink to="/blog" aria-current={onBlog ? "page" : undefined} className={onBlog ? "is-active" : ""}>
+              Blog
+            </SiteLink>
+          </nav>
+          <div className="nav__actions">
+            <a href={LOGIN_URL} className="nav__login">Se connecter</a>
+            <Magnetic href={PARENT_APP_URL} className="btn btn--primary btn--sm" strength={0.25}>
+              <span className="btn__label">Commencer gratuitement</span>
+            </Magnetic>
+            <button
+              type="button"
+              className={`burger ${open ? "is-open" : ""}`}
+              aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              onClick={() => setOpen((o) => !o)}
+            >
+              <span /><span />
+            </button>
+          </div>
+          <div className="nav__progress" ref={progress} />
+        </div>
+      </header>
+
+      <div id="mobile-menu" ref={menu} className="menu" aria-hidden={!open}>
+        <nav className="menu__list" aria-label="Menu mobile">
+          {SECTIONS.map(({ id, label }, i) => (
+            <SiteLink key={id} to={`/#${id}`} onClick={goSection(id)} tabIndex={open ? 0 : -1}>
+              <span className="mask"><span className="menu__link"><em>0{i + 1}</em>{label}</span></span>
+            </SiteLink>
+          ))}
+          <SiteLink to="/blog" tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
+            <span className="mask"><span className="menu__link"><em>05</em>Blog</span></span>
+          </SiteLink>
+        </nav>
+        <div className="menu__foot">
+          <a href={PARENT_APP_URL} className="btn btn--primary btn--lg" tabIndex={open ? 0 : -1}>
+            <span className="btn__label">Créer mon Accès Parent</span>
+            <span className="btn__arrow"><Arrow /></span>
+          </a>
+          <a href={LOGIN_URL} className="menu__login" tabIndex={open ? 0 : -1}>J'ai déjà un compte — se connecter</a>
+        </div>
+      </div>
+    </>
+  );
 }

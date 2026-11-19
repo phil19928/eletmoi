@@ -15,11 +15,13 @@ export default function CookieBanner() {
 
     const handleAccept = () => {
         localStorage.setItem("cookie-consent", "accepted");
+        window.gtag?.("consent", "update", { analytics_storage: "granted" });
         setVisible(false);
     };
 
     const handleRefuse = () => {
         localStorage.setItem("cookie-consent", "refused");
+        window.gtag?.("consent", "update", { analytics_storage: "denied" });
         setVisible(false);
     };
 
@@ -37,7 +39,7 @@ export default function CookieBanner() {
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                             <div className="flex-1 min-w-0">
                                 <p className="text-sm text-slate-700 leading-relaxed">
-                                    Nous utilisons des cookies essentiels pour le fonctionnement du site.{" "}
+                                    Avec votre accord, nous mesurons l'audience du site (Google Analytics) pour l'améliorer. Refuser n'a aucune conséquence sur votre navigation.{" "}
                                     <a
                                         href={MENTIONS_LEGALES_URL}
                                         className="text-primary hover:text-primary-dark underline underline-offset-2 transition-colors"

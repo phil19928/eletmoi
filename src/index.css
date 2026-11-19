@@ -10,21 +10,21 @@
   }
 
   body {
-    font-family: "Roboto", system-ui, sans-serif;
+    font-family: "Roboto Flex", "Roboto", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
-    background: #ffffff;
+    background: #F4F3EE;
     color: #0f172a;
   }
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: "Roboto", system-ui, sans-serif;
-    font-weight: 500 !important;
+  /* Titres des pages de contenu : même voix que l'accueil (Roboto Flex
+     étroite et dense). Les titres de l'accueil ont leurs propres classes. */
+  :where(h1, h2, h3, h4) {
+    font-family: "Roboto Flex", "Roboto", system-ui, sans-serif;
+    font-variation-settings: "wdth" 88, "opsz" 72;
+    letter-spacing: -0.02em;
   }
 }
 

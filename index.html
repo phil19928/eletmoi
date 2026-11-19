@@ -28,15 +28,16 @@
     content="Limitez le temps d'écran de vos enfants et transformez le scroll passif en progrès éducatif." />
   <meta name="twitter:image" content="https://eletmoi.fr/og-image.png" />
 
-  <meta name="theme-color" content="#6D98C2" />
+  <meta name="theme-color" content="#F4F3EE" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="preload" as="image" href="/img/mascot.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap"
     rel="stylesheet">
 
   <script type="application/ld+json">
@@ -83,13 +84,35 @@
   }
   </script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GP92RHN671"></script>
+  <!-- Google tag (gtag.js) — Consent Mode v2 : rien n'est stocké avant
+       « Accepter » (CookieBanner). Désactivé en local pour ne pas fausser les stats. -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-GP92RHN671');
+    (function () {
+      var local = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+      var granted = false;
+      try { granted = localStorage.getItem('cookie-consent') === 'accepted'; } catch (e) {}
+      gtag('consent', 'default', {
+        ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+        analytics_storage: granted ? 'granted' : 'denied'
+      });
+      if (local) return;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-GP92RHN671';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-GP92RHN671');
+      // Conversions : clics vers l'inscription et les stores.
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href]');
+        if (!a) return;
+        var h = a.href, ev = /eletmoi\.app\/register/.test(h) ? 'sign_up_click'
+          : /apps\.apple\.com|play\.google\.com/.test(h) ? 'store_click' : null;
+        if (ev) gtag('event', ev, { link_url: h, link_text: (a.textContent || '').trim().slice(0, 60), page_path: location.pathname });
+      }, true);
+    })();
   </script>
 </head>
 
