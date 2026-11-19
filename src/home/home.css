@@ -216,6 +216,8 @@ html.lenis, html.lenis body { height: auto; }
 .hero__proof svg, .pr__card li svg { color: var(--sage-d); flex-shrink: 0; }
 .hero__rating { display: flex; align-items: center; gap: 0.5rem; margin-top: 1.1rem; font-size: 0.92rem; color: var(--muted); }
 .hero__rating strong { color: var(--ink); }
+.hero__rating { flex-wrap: wrap; }
+.hero__dot { color: var(--muted); opacity: 0.6; }
 .stars { display: inline-flex; color: var(--gold); gap: 1px; }
 
 .hero__stage { position: relative; width: min(100%, 580px); aspect-ratio: 1 / 1.02; margin-inline: auto; }
@@ -365,7 +367,8 @@ html.lenis, html.lenis body { height: auto; }
   .sl__step p { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.5s var(--ease), opacity 0.4s var(--ease); }
   .sl__step.is-active p { max-height: 9em; opacity: 1; }
   .sl__steps { gap: 1.1rem; }
-  .sl__layout { grid-template-columns: 0.9fr 1.1fr; gap: 4vw; }
+  /* Texte et téléphone regroupés au centre, au lieu d'être collés aux bords. */
+  .sl__layout { grid-template-columns: minmax(0, 34rem) auto; justify-content: center; gap: clamp(3rem, 7vw, 7.5rem); }
   .sl__steps { padding-left: 1.2rem; }
   .sl__step.is-active { transform: translateX(10px); }
   .sl__steps::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--line); }
