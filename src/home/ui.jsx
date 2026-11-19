@@ -3,7 +3,7 @@ import { gsap, prefersReduced } from "./motion.jsx";
 import { REGISTER_URL, APP_STORE_URL, PLAY_STORE_URL } from "./data.js";
 
 /* Real screen recording from the reels; plays only while visible (and while `active`). */
-export function Screen({ video, poster, src, alt = "", active = true, className = "", playlist, eager = false }) {
+export function Screen({ video, poster, src, alt = "", active = true, className = "", playlist, eager = false, rate = 1 }) {
   const ref = useRef(null);
   const [idx, setIdx] = useState(0);
   const list = playlist || (video ? [video] : null);
@@ -32,6 +32,8 @@ export function Screen({ video, poster, src, alt = "", active = true, className 
         preload={eager ? "auto" : "none"}
         aria-label={alt}
         onEnded={() => setIdx((i) => (i + 1) % list.length)}
+        onLoadedMetadata={(e) => { e.currentTarget.playbackRate = rate; }}
+        onPlay={(e) => { e.currentTarget.playbackRate = rate; }}
       />
     );
   }

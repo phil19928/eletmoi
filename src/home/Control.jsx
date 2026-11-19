@@ -5,13 +5,13 @@ import { Phone } from "./ui.jsx";
 const PARENT_BG = "#f8f9f7";
 const CARDS = [
   {
-    src: "/ui/p_dashboard.jpg", bg: PARENT_BG,
+    kind: "scroll", src: "/ui/p_dashboard_long.jpg", bg: PARENT_BG,
     title: "Tout sur un seul écran.",
     text: "Temps d'écran passé, divertissement restant, minutes gagnées en apprenant, et un reporting sur 7 jours.",
     tag: "Accès Parent",
   },
   {
-    src: "/ui/p_block_btn.jpg", bg: PARENT_BG,
+    kind: "block", src: "/ui/p_block_btn.jpg", after: "/ui/p_block_after.jpg", bg: PARENT_BG,
     title: "Tout bloquer, en un geste.",
     text: "« Bloquer toutes les applications », depuis votre téléphone ou votre ordi. Matin, journée, nuit : vous décidez.",
     tag: "Accès Parent",
@@ -88,7 +88,21 @@ export default function Control() {
         {CARDS.map((c, i) => (
           <article className="ctl__card" key={i}>
             <div className="ctl__phone-wrap">
-              <Phone src={c.src} video={c.video} bg={c.bg} alt={c.title} />
+              {c.kind === "scroll" ? (
+                <Phone bg={c.bg}>
+                  {/* Tableau de bord complet qui défile doucement dans le téléphone */}
+                  <img className="ctl-scroll" src={c.src} alt={c.title} loading="lazy" />
+                </Phone>
+              ) : c.kind === "block" ? (
+                <Phone bg={c.bg}>
+                  {/* Avant / après le bouton « Bloquer toutes les applications » */}
+                  <img className="screen ctl-zoom" src={c.src} alt={c.title} loading="lazy" />
+                  <img className="screen ctl-zoom ctl-after" src={c.after} alt="" loading="lazy" />
+                  <span className="ctl-tap" aria-hidden="true" />
+                </Phone>
+              ) : (
+                <Phone src={c.src} video={c.video} bg={c.bg} alt={c.title} />
+              )}
             </div>
             <div className="ctl__text">
               <span className="ctl__tag">{c.tag}</span>

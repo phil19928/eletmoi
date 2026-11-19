@@ -739,3 +739,28 @@ input[type="range"]::-moz-range-thumb { width: 26px; height: 26px; border-radius
   .sl__steps { gap: 0.8rem; }
   .sl__copy .morelink { margin-top: 1rem; }
 }
+
+/* ───────────────────────── Contrôle : cartes animées ───────────────────────── */
+/* Carte 1 : le tableau de bord parent complet défile (image 600×1748 dans un écran 720/1486). */
+.ctl-scroll { position: absolute; top: 0; left: 0; width: 100%; height: auto; animation: ctlScroll 14s ease-in-out infinite; }
+@keyframes ctlScroll {
+  0%, 12% { transform: translateY(0); }
+  48%, 62% { transform: translateY(-29%); }
+  95%, 100% { transform: translateY(0); }
+}
+/* Carte 2 : zoom sur le bouton, toucher, puis l'écran « Autoriser les applications ». */
+.ctl-zoom { transform: scale(1.7); transform-origin: 50% 89%; }
+.ctl-after { opacity: 0; animation: ctlAfter 6s ease-in-out infinite; }
+@keyframes ctlAfter { 0%, 40% { opacity: 0; } 46%, 88% { opacity: 1; } 94%, 100% { opacity: 0; } }
+.ctl-tap {
+  position: absolute; left: 50%; top: 88.5%; width: 16cqw; height: 16cqw; margin: -8cqw 0 0 -8cqw; border-radius: 50%; z-index: 3;
+  background: rgba(15, 23, 42, 0.22); border: 2px solid rgba(255, 255, 255, 0.95); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  opacity: 0; animation: ctlTap 6s ease-out infinite; pointer-events: none;
+}
+@keyframes ctlTap {
+  0%, 26% { opacity: 0; transform: scale(0.6); }
+  32% { opacity: 1; transform: scale(1); }
+  40% { opacity: 1; transform: scale(0.85); }
+  48%, 100% { opacity: 0; transform: scale(1.6); }
+}
+@media (prefers-reduced-motion: reduce) { .ctl-scroll, .ctl-after, .ctl-tap { animation: none; } }

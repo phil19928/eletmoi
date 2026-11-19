@@ -78,7 +78,7 @@ export default function Lumen() {
         </div>
 
         <div className="lm__phone">
-          <Phone playlist={["/clips/l_univers", "/clips/l_menaces", "/clips/l_course1"]} alt="Lumen dans l'app enfant : choix de l'univers puis cours" bg="#fffbea" />
+          <Phone rate={1.75} playlist={["/clips/l_univers", "/clips/l_menaces", "/clips/l_course1"]} alt="Lumen dans l'app enfant : choix de l'univers puis cours" bg="#fffbea" />
         </div>
 
         <ul className="lm__list">
