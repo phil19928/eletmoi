@@ -764,3 +764,55 @@ input[type="range"]::-moz-range-thumb { width: 26px; height: 26px; border-radius
   48%, 100% { opacity: 0; transform: scale(1.6); }
 }
 @media (prefers-reduced-motion: reduce) { .ctl-scroll, .ctl-after, .ctl-tap { animation: none; } }
+
+/* ───────────────────────── Manifeste : « Une soirée, deux scénarios » ───────────────────────── */
+.st__head { max-width: 40rem; margin-bottom: 3rem; }
+.st__intro { margin-top: 1rem; color: var(--muted); font-size: clamp(1.02rem, 1.3vw, 1.15rem); }
+.st__cols { display: none; }
+.st__scenes { position: relative; display: flex; flex-direction: column; gap: 2.2rem; }
+.st__rail { display: none; }
+.st__scene { display: grid; gap: 0.9rem; }
+.st__time { display: flex; align-items: baseline; gap: 0.7rem; }
+.st__time b { white-space: nowrap; font-size: clamp(1.4rem, 2vw, 1.8rem); font-weight: 700; letter-spacing: -0.015em; font-variant-numeric: tabular-nums; }
+.st__time span { color: var(--muted); font-size: 0.95rem; }
+.st__card {
+  position: relative; display: flex; flex-direction: column; gap: 0.55rem;
+  padding: 1.1rem 1.1rem 1.2rem; border-radius: 24px;
+}
+.st__label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.2rem; }
+.st__card--without { background: #e7e5de; color: #5d6270; }
+.st__card--without .st__label { color: #8a8d96; }
+.st__card--with { background: #fff; box-shadow: 0 24px 50px -30px rgba(15, 23, 42, 0.35); border: 1px solid rgba(122, 158, 136, 0.25); }
+.st__card--with .st__label { color: var(--sage-d); }
+
+.st__b { max-width: 88%; padding: 0.6rem 0.9rem; border-radius: 18px; font-size: 0.96rem; line-height: 1.35; }
+.st__b--kid { align-self: flex-start; background: #fff; color: var(--ink); border-bottom-left-radius: 6px; }
+.st__card--without .st__b--kid { background: #f4f3ee; }
+.st__card--with .st__b--kid { background: var(--blue-l); }
+.st__b--parent { align-self: flex-end; background: var(--ink); color: #fff; border-bottom-right-radius: 6px; }
+.st__b--sys { align-self: center; background: #1b1f2b; color: rgba(255, 255, 255, 0.85); font-size: 0.85rem; border-radius: 999px; }
+.st__b--note { align-self: center; max-width: 100%; padding: 0.2rem 0.4rem; font-style: italic; color: inherit; text-align: center; }
+.st__card--with .st__b--note { color: var(--sage-d); font-weight: 550; }
+.st__b--app { align-self: flex-start; display: flex; align-items: center; gap: 0.55rem; background: var(--sage-l); color: var(--ink); border-bottom-left-radius: 6px; }
+.st__b--app img { width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0; }
+.st__b--app.is-strong { font-weight: 650; }
+.st__b--gain { background: #dcf5e8; color: #157a50; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.st__final { margin-top: 3.2rem; font-size: clamp(1.6rem, 3vw, 2.6rem); max-width: 24em; }
+
+@media (min-width: 900px) {
+  .st__head { margin-bottom: 2.2rem; }
+  .st__cols { display: grid; grid-template-columns: 12.5rem 1fr 1fr; gap: 1.4rem; margin-bottom: 0.8rem; }
+  .st__col { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding-left: 0.4rem; }
+  .st__col--without { color: #8a8d96; }
+  .st__col--with { color: var(--sage-d); }
+  .st__label { display: none; }
+  .st__scenes { gap: 1.4rem; }
+  .st__scene { grid-template-columns: 12.5rem 1fr 1fr; gap: 1.4rem; align-items: start; }
+  .st__time { flex-direction: column; gap: 0.2rem; padding-top: 0.9rem; padding-left: 1.6rem; }
+  .st__rail { display: block; position: absolute; left: 0.3rem; top: 1rem; bottom: 1rem; width: 2px; background: var(--line); }
+  .st__rail span { display: block; width: 100%; height: 100%; background: var(--sage-d); transform-origin: top; }
+  .st__time::before { content: ""; position: absolute; left: 0; margin-top: 0.55rem; width: 14px; height: 14px; border-radius: 50%; background: var(--paper); border: 2px solid var(--sage-d); }
+  .st__scene { position: relative; }
+  .st__card { min-height: 100%; }
+}
