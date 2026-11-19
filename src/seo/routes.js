@@ -52,7 +52,7 @@ export const ROUTES = [
     "description": "Cadre légal, comparatifs, guides de configuration, parentalité numérique et sécurité en ligne : tous nos contenus pour accompagner les enfants sans conflit.",
     "priority": 0.7,
     "changefreq": "weekly",
-    "lastmod": "2026-09-03"
+    "lastmod": "2026-11-19"
   },
   {
     "path": "/blog/entree-en-6e-smartphone",
@@ -179,6 +179,15 @@ export const ROUTES = [
     "changefreq": "monthly",
     "lastmod": "2026-09-03",
     "articleId": "C2"
+  },
+  {
+    "path": "/guides/temps-ecran-iphone",
+    "title": "Limiter le temps d'écran sur iPhone : le guide parents",
+    "description": "Limiter le temps d'écran sur l'iPhone de votre enfant : Temps d'écran pas à pas sous iOS 27, les bons réglages selon l'âge et ce qu'Apple ne fait pas.",
+    "priority": 0.7,
+    "changefreq": "monthly",
+    "lastmod": "2026-11-19",
+    "articleId": "C4"
   },
   {
     "path": "/lumen/deepfakes",

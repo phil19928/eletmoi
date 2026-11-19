@@ -27,9 +27,19 @@ export const ARTICLES = [
     "isPillar": false,
     "priority": "P1",
     "wave": "V0",
-    "wordCount": 1702,
+    "wordCount": 1713,
     "dir": "blog",
     "internalLinks": [
+      {
+        "id": "C4",
+        "anchor": "Limiter le temps d'écran sur iPhone",
+        "context": "body",
+        "route": "/guides/temps-ecran-iphone",
+        "title": "Gérer le temps d'écran sur iPhone et iPad : guide complet (pilier)",
+        "cluster": "C",
+        "resolved": true,
+        "reason": null
+      },
       {
         "id": "D1",
         "anchor": "Combien de temps d'écran par âge",
@@ -1497,7 +1507,7 @@ export const ARTICLES = [
     "isPillar": true,
     "priority": "P1",
     "wave": "V1",
-    "wordCount": 2016,
+    "wordCount": 2037,
     "dir": "guides",
     "internalLinks": [
       {
@@ -1556,6 +1566,16 @@ export const ARTICLES = [
         "context": "related",
         "route": "/guides/parametres-restreints-android",
         "title": "Paramètres restreints Android : à quoi ça sert, comment les autoriser",
+        "cluster": "C",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "C4",
+        "anchor": "Limiter le temps d'écran sur l'iPhone de votre enfant",
+        "context": "related",
+        "route": "/guides/temps-ecran-iphone",
+        "title": "Gérer le temps d'écran sur iPhone et iPad : guide complet (pilier)",
         "cluster": "C",
         "resolved": true,
         "reason": null
@@ -1978,6 +1998,204 @@ export const ARTICLES = [
     }
   },
   {
+    "id": "C4",
+    "slug": "temps-ecran-iphone",
+    "cluster": "C",
+    "clusterLabel": "Tutoriels & configuration",
+    "route": "/guides/temps-ecran-iphone",
+    "template": "guide",
+    "h1": "Limiter le temps d'écran sur l'iPhone de votre enfant : le guide complet",
+    "metaTitle": "Limiter le temps d'écran sur iPhone : le guide parents",
+    "metaDescription": "Limiter le temps d'écran sur l'iPhone de votre enfant : Temps d'écran pas à pas sous iOS 27, les bons réglages selon l'âge et ce qu'Apple ne fait pas.",
+    "canonical": "https://eletmoi.fr/guides/temps-ecran-iphone/",
+    "datePublished": "2026-11-19",
+    "dateModified": "2026-11-19",
+    "factsVerifiedOn": null,
+    "author": "philippe",
+    "reviewedBy": null,
+    "keywordPrimary": "limiter temps d'écran iphone enfant",
+    "searchIntent": "informational",
+    "ogImage": "/og/temps-ecran-iphone.png",
+    "imageAlt": "Guide El&Moi pour limiter le temps d'écran sur l'iPhone d'un enfant avec Temps d'écran",
+    "isPillar": true,
+    "priority": "P1",
+    "wave": "V1",
+    "wordCount": 1478,
+    "dir": "guides",
+    "internalLinks": [
+      {
+        "id": "C3",
+        "anchor": "le contrôle parental sur Android",
+        "context": "body",
+        "route": "/guides/controle-parental-android",
+        "title": "Contrôle parental Android : le guide complet (pilier)",
+        "cluster": "C",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "D1",
+        "anchor": "combien de temps d'écran par âge",
+        "context": "body",
+        "route": "/blog/temps-ecran-par-age",
+        "title": "Combien de temps d'écran par âge (pilier)",
+        "cluster": "D",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "B1",
+        "anchor": "notre comparatif des solutions d'encadrement",
+        "context": "body",
+        "route": "/comparatif",
+        "title": "Comparatif 2026 : 8 façons d'encadrer le téléphone d'un enfant (pilier)",
+        "cluster": "B",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "C1",
+        "anchor": "installer El&Moi en quelques minutes",
+        "context": "related",
+        "route": "/guides/installation",
+        "title": "Installer El&Moi en 5 minutes, pas à pas",
+        "cluster": "C",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "B3",
+        "anchor": "Temps d'écran contourné sur iPhone : que faire",
+        "context": "related",
+        "route": "/comparatif/apple-screen-time",
+        "title": "Alternative à Temps d'écran (Apple)",
+        "cluster": "B",
+        "resolved": false,
+        "reason": "cible non publiée"
+      },
+      {
+        "id": "F3",
+        "anchor": "les tarifs d'El&Moi",
+        "context": "body",
+        "route": "/tarifs",
+        "title": "Tarifs : formule Essentiel gratuite et formule Famille",
+        "cluster": "F",
+        "resolved": true,
+        "reason": null
+      },
+      {
+        "id": "F1",
+        "anchor": "la Smartloop",
+        "context": "cta",
+        "route": "/smartloop",
+        "title": "La Smartloop : comment ça marche",
+        "cluster": "F",
+        "resolved": true,
+        "reason": null
+      }
+    ],
+    "externalSources": [
+      {
+        "title": "Gérer l'iPhone ou l'iPad de votre enfant avec Temps d'écran",
+        "publisher": "Apple",
+        "url": "https://support.apple.com/fr-fr/108806",
+        "accessedOn": "2026-11-19",
+        "rel": "nofollow noopener",
+        "target": "_blank",
+        "kind": "commercial"
+      },
+      {
+        "title": "Définir des programmes « Temps d'écran » et des temps accordés sur l'appareil de son enfant",
+        "publisher": "Apple",
+        "url": "https://support.apple.com/fr-fr/guide/child-safety/azgjjn208bw9/web",
+        "accessedOn": "2026-11-19",
+        "rel": "nofollow noopener",
+        "target": "_blank",
+        "kind": "commercial"
+      },
+      {
+        "title": "Gérer l'accès de votre enfant aux apps et aux demandes d'app sur iPhone, iPad et Mac",
+        "publisher": "Apple",
+        "url": "https://support.apple.com/fr-fr/125399",
+        "accessedOn": "2026-11-19",
+        "rel": "nofollow noopener",
+        "target": "_blank",
+        "kind": "commercial"
+      },
+      {
+        "title": "Contrôle parental : de nouvelles obligations pour les fabricants de matériels connectés",
+        "publisher": "Service-Public.fr",
+        "url": "https://www.service-public.gouv.fr/particuliers/actualites/A17487",
+        "accessedOn": "2026-11-19",
+        "rel": "noopener",
+        "target": "_blank",
+        "kind": "institutional"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Temps d'écran est-il gratuit sur iPhone ?",
+        "a": "Oui. Temps d'écran est intégré à l'iPhone et à l'iPad, sans abonnement. Pour le piloter depuis votre propre appareil, il faut activer le partage familial et créer un compte enfant pour votre enfant."
+      },
+      {
+        "q": "Que se passe-t-il quand la limite est atteinte ?",
+        "a": "Les apps concernées se verrouillent. Votre enfant peut vous envoyer une demande de temps supplémentaire, que vous acceptez ou refusez depuis Messages ou depuis Réglages, rubrique Temps d'écran."
+      },
+      {
+        "q": "Peut-on gérer le Temps d'écran d'un iPhone depuis un téléphone Android ?",
+        "a": "Le pilotage à distance de Temps d'écran passe par un appareil Apple : iPhone, iPad ou Mac. Sans appareil Apple, vous pouvez régler Temps d'écran directement sur l'iPhone de votre enfant, protégé par un code. L'Accès Parent d'El&Moi, lui, s'ouvre dans n'importe quel navigateur."
+      },
+      {
+        "q": "Les réglages sont-ils les mêmes sur iPad ?",
+        "a": "Oui. iPadOS reprend les mêmes réglages que l'iPhone : temps accordés, programme de temps d'écran, apps toujours autorisées, contacts et restrictions de contenu."
+      },
+      {
+        "q": "Apple voit-il les photos ou les messages de mon enfant ?",
+        "a": "Selon Apple, la fonctionnalité Sécurité des communications analyse les images sur l'appareil lui-même et Apple n'a pas accès aux photos ni aux vidéos. Temps d'écran ne vous montre pas le contenu des messages de votre enfant."
+      },
+      {
+        "q": "Mon iPhone n'affiche pas les mêmes menus que ce guide. Pourquoi ?",
+        "a": "Apple a réorganisé Temps d'écran avec iOS 27. Sur une version plus ancienne, vous trouverez les mêmes fonctions sous d'autres noms : Temps d'arrêt, Limites d'app, Toujours autorisé. Le plus simple est de mettre à jour l'iPhone de votre enfant et le vôtre."
+      }
+    ],
+    "comparisonTable": null,
+    "howToSteps": [
+      {
+        "name": "Activez le partage familial",
+        "text": "Sur votre iPhone, ouvrez Réglages, puis Famille. Créez votre groupe familial si ce n'est pas déjà fait."
+      },
+      {
+        "name": "Créez un compte enfant",
+        "text": "Votre enfant doit avoir son propre compte Apple, rattaché au groupe familial. Ne lui prêtez jamais le vôtre."
+      },
+      {
+        "name": "Ouvrez Temps d'écran pour votre enfant",
+        "text": "Dans Réglages, touchez Famille, puis le nom de votre enfant, puis Temps d'écran. Suivez les écrans proposés."
+      },
+      {
+        "name": "Réglez les temps accordés",
+        "text": "Fixez un budget quotidien, puis ajustez-le par catégorie : divertissement, jeux, réseaux sociaux."
+      },
+      {
+        "name": "Créez le programme de la journée",
+        "text": "Définissez les plages horaires (avant l'école, pendant l'école, soirée, nuit) et les catégories d'apps autorisées dans chacune."
+      },
+      {
+        "name": "Choisissez ce qui reste toujours accessible",
+        "text": "Ajoutez Téléphone, Messages et vos contacts aux éléments toujours autorisés, pour qu'il puisse vous joindre à tout moment."
+      },
+      {
+        "name": "Vérifiez sur son iPhone",
+        "text": "Prenez son téléphone et ouvrez une app limitée. Un réglage qui n'a jamais été vérifié est un réglage dont on ne sait pas s'il s'applique."
+      }
+    ],
+    "cta": {
+      "label": "Télécharger El&Moi gratuitement",
+      "target": "stores",
+      "utm": "organic_c_temps-ecran-iphone"
+    }
+  },
+  {
     "id": "E1",
     "slug": "deepfakes",
     "cluster": "E",
@@ -2141,6 +2359,7 @@ export const INDEX_PAGES = [
       "C3",
       "C1",
       "C2",
+      "C4",
       "E1"
     ]
   }

@@ -18,6 +18,7 @@ export const BODY_LOADERS = {
   "/guides/controle-parental-android": () => import("../../content/guides/controle-parental-android.md?raw"),
   "/guides/installation": () => import("../../content/guides/installation.md?raw"),
   "/guides/parametres-restreints-android": () => import("../../content/guides/parametres-restreints-android.md?raw"),
+  "/guides/temps-ecran-iphone": () => import("../../content/guides/temps-ecran-iphone.md?raw"),
   "/lumen/deepfakes": () => import("../../content/lumen/deepfakes.md?raw"),
 };
 

@@ -43,6 +43,9 @@ internalLinks:
   - id: C2
     anchor: 'Paramètres restreints Android : comment les autoriser'
     context: related
+  - id: C4
+    anchor: "Limiter le temps d'écran sur l'iPhone de votre enfant"
+    context: related
   - id: F1
     anchor: 'La Smartloop : comment ça marche'
     context: cta
@@ -166,6 +169,8 @@ Presque tous proposent les mêmes fonctions de base :
 - voir où se trouve l'appareil.
 
 C'est déjà beaucoup. Et pour un premier téléphone, c'est souvent suffisant.
+
+Votre enfant a un iPhone ? Les réglages sont différents : voyez notre guide pour [limiter le temps d'écran sur iPhone](/guides/temps-ecran-iphone/).
 
 ## Commencer gratuitement avec Google Family Link
 

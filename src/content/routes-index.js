@@ -18,6 +18,7 @@ export const ARTICLE_ROUTES = [
   "/guides/controle-parental-android",
   "/guides/installation",
   "/guides/parametres-restreints-android",
+  "/guides/temps-ecran-iphone",
   "/lumen/deepfakes"
 ];
 

@@ -25,6 +25,9 @@ dateModified: '2026-09-03'
 reviewCycle: quarterly
 author: philippe
 internalLinks:
+  - id: C4
+    anchor: "Limiter le temps d'écran sur iPhone"
+    context: body
   - id: D1
     anchor: "Combien de temps d'écran par âge"
     context: body
@@ -166,7 +169,7 @@ Un dernier point qui compte plus que toutes les règles réunies : **expliquez-l
 
 À cet âge, l'outil compte moins que la conversation qui l'accompagne. Mais il faut bien en choisir un, et les familles se retrouvent devant trois familles de solutions qui ne font pas le même métier.
 
-**Les outils intégrés au téléphone.** Sur Android, Family Link est déjà là, gratuit, et gère l'essentiel : valider les téléchargements, filtrer les contenus, poser une limite quotidienne. Sur iPhone, Temps d'écran remplit le même rôle sans rien installer. Pour un enfant qui entre en 6e, c'est très souvent suffisant la première année. Si vous partez sur Android, notre [guide du contrôle parental Android](/guides/controle-parental-android/) détaille la mise en route pas à pas.
+**Les outils intégrés au téléphone.** Sur Android, Family Link est déjà là, gratuit, et gère l'essentiel : valider les téléchargements, filtrer les contenus, poser une limite quotidienne. Sur iPhone, Temps d'écran remplit le même rôle sans rien installer : notre guide explique comment [limiter le temps d'écran sur iPhone](/guides/temps-ecran-iphone/). Pour un enfant qui entre en 6e, c'est très souvent suffisant la première année. Si vous partez sur Android, notre [guide du contrôle parental Android](/guides/controle-parental-android/) détaille la mise en route pas à pas.
 
 **Les applications spécialisées.** Elles vont plus loin : rapports détaillés, géolocalisation, analyse des messages selon les cas. Elles répondent à une inquiétude précise — savoir ce que votre enfant reçoit — plus qu'au problème du temps passé. Elles se paient, et toutes ne se valent pas selon l'âge de l'enfant et le téléphone qu'il a. Si vous hésitez, vous pouvez [comparer les solutions de contrôle parental](/comparatif/) une par une, avec leurs limites.
 
