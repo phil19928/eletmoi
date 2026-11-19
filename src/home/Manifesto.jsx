@@ -14,16 +14,16 @@ export default function Manifesto() {
   useIsoLayoutEffect(() => {
     if (prefersReduced()) return;
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".mf__tok",
-        { opacity: 0.12 },
-        {
-          opacity: 1,
-          stagger: 0.1,
-          ease: "none",
-          scrollTrigger: { trigger: ".mf__text", start: "top 78%", end: "bottom 50%", scrub: true },
-        }
-      );
+      // Révélation douce, une seule fois : les mots se posent l'un après l'autre.
+      gsap.from(".mf__tok", {
+        opacity: 0,
+        y: 14,
+        filter: "blur(6px)",
+        duration: 0.9,
+        ease: "power3.out",
+        stagger: 0.035,
+        scrollTrigger: { trigger: ".mf__text", start: "top 78%", once: true },
+      });
     }, root);
     return () => ctx.revert();
   }, []);

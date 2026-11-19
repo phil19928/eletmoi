@@ -1,5 +1,6 @@
 import SiteLink from "../components/SiteLink";
 import { PARENT_APP_URL, APP_STORE_URL, PLAY_STORE_URL } from "../config";
+import { StoreBadges } from "../home/ui.jsx";
 
 const LOGIN_URL = "https://eletmoi.app/";
 
@@ -22,6 +23,7 @@ export default function Footer() {
               française qui limite le temps d'écran des enfants et le transforme en temps
               d'apprentissage. Données hébergées en France.
             </p>
+            <StoreBadges className="ft__stores" />
             <div className="ft__social">
               <a href="mailto:contact@eletmoi.fr">contact@eletmoi.fr</a>
               <a

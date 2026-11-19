@@ -23,8 +23,8 @@
      étroite et dense). Les titres de l'accueil ont leurs propres classes. */
   :where(h1, h2, h3, h4) {
     font-family: "Roboto Flex", "Roboto", system-ui, sans-serif;
-    font-variation-settings: "wdth" 88, "opsz" 72;
-    letter-spacing: -0.02em;
+    font-variation-settings: "wdth" 100, "opsz" 32;
+    letter-spacing: -0.01em;
   }
 }
 

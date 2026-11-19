@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import SiteLink from "./SiteLink";
 import { PARENT_APP_URL } from "../config";
 import { gsap, prefersReduced, lockScroll, scrollToId } from "../home/motion.jsx";
-import { Magnetic, Arrow } from "../home/ui.jsx";
+import { Magnetic, Arrow, StoreBadges } from "../home/ui.jsx";
 
 /**
  * Navigation du site (refonte 2026).
@@ -144,6 +144,7 @@ export default function Navbar() {
             <span className="btn__arrow"><Arrow /></span>
           </a>
           <a href={LOGIN_URL} className="menu__login" tabIndex={open ? 0 : -1}>J'ai déjà un compte — se connecter</a>
+          <div className="menu__stores"><span>Application enfant</span><StoreBadges /></div>
         </div>
       </div>
     </>

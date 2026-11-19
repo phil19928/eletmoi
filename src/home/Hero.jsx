@@ -1,6 +1,6 @@
 import { Fragment, useRef } from "react";
 import { gsap, prefersReduced, scrollToId, useIsoLayoutEffect } from "./motion.jsx";
-import { Phone, Card, SignupButton, Star, Check } from "./ui.jsx";
+import { Phone, Card, SignupButton, Star, Check, StoreBadges } from "./ui.jsx";
 import { REVIEW_STATS } from "./data.js";
 import MetricsLive, { IN_PHONE } from "./MetricsLive.jsx";
 
@@ -112,6 +112,11 @@ export default function Hero() {
             <a href="#smartloop" className="btn btn--ghost btn--lg" onClick={(e) => { e.preventDefault(); scrollToId("smartloop"); }}>
               Voir comment ça marche
             </a>
+          </div>
+
+          <div className="hero__stores hero__reveal" style={{ "--d": "770ms" }}>
+            <span>Application enfant</span>
+            <StoreBadges />
           </div>
 
           <ul className="hero__proof hero__reveal" style={{ "--d": "810ms" }}>
