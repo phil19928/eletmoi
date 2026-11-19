@@ -3,6 +3,7 @@ import { gsap, prefersReduced, scrollToId, useIsoLayoutEffect } from "./motion.j
 import { Phone, Card, SignupButton, Star, Check, StoreBadges } from "./ui.jsx";
 import { REVIEW_STATS } from "./data.js";
 import MetricsLive, { IN_PHONE } from "./MetricsLive.jsx";
+import HeroLoop from "./HeroLoop.jsx";
 
 const LINES = [["Le", "temps"], ["d'écran,"], ["ça", "se", "gagne."]];
 const ORDER = LINES.flat();
@@ -105,6 +106,8 @@ export default function Hero() {
             Votre enfant apprend 10 minutes, il gagne 20 minutes de divertissement.
             Vous fixez le ratio, il voit son compteur. <strong>Fini les négociations.</strong>
           </p>
+
+          <HeroLoop />
 
           <div className="hero__ctas hero__reveal" style={{ "--d": "730ms" }}>
             <SignupButton size="btn--lg" />
