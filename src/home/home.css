@@ -805,3 +805,5 @@ input[type="range"]::-moz-range-thumb { width: 26px; height: 26px; border-radius
 }
 @media (prefers-reduced-motion: reduce) { .wk__caption, .wk__end { opacity: 1; } }
 .wk.is-done .wk__replay { visibility: visible; opacity: 1; }
+.wk.is-back .wk__kid { transform: scaleX(-1); }
+.is-walking.is-back .wk__kid { animation: none; }

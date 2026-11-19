@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { gsap, prefersReduced, useIsoLayoutEffect, scrollToId } from "./motion.jsx";
+import { gsap, ScrollTrigger, prefersReduced, useIsoLayoutEffect, scrollToId } from "./motion.jsx";
 
 /*
   « De 9 à 18 ans » : une ligne horizontale pleine largeur, un enfant dessiné au
@@ -53,7 +53,6 @@ const SCREENS = [
 
 export default function Manifesto() {
   const root = useRef(null);
-  const tlRef = useRef(null);
 
   useIsoLayoutEffect(() => {
     const el = root.current;
@@ -66,45 +65,60 @@ export default function Manifesto() {
       const head = el.querySelector(".wk__head");
       const glow = el.querySelector(".wk__glow");
 
-      const setCaption = (s) => {
-        capAge.textContent = `${s.age} ans`;
-        capTxt.textContent = s.caption;
-      };
-      const reset = () => {
-        gsap.set(kid, { left: "2%", x: 0, xPercent: -50, scale: 0.62 });
-        gsap.set(fill, { scaleX: 0 });
-        gsap.set(head, { rotate: 0 });
-        gsap.set(glow, { opacity: 0.15, scale: 0.6 });
-        gsap.set(el.querySelectorAll(".wk__scr"), { opacity: 0, scale: 0.4 });
-        el.querySelectorAll(".wk__tick").forEach((t) => t.classList.remove("is-on"));
-        gsap.set(cap, { opacity: 0, y: 10 });
-        gsap.set(el.querySelector(".wk__end"), { opacity: 0.22, y: 0 });
-        el.classList.remove("is-walking", "is-done");
-      };
+      gsap.set(kid, { left: "2%", x: 0, xPercent: -50, scale: 0.62 });
+      gsap.set(cap, { opacity: 0 });
 
-      const tl = gsap.timeline({ paused: true, onStart: reset });
+      // Timeline pilotée par le défilement : l'enfant avance quand on descend,
+      // s'arrête quand on s'arrête, recule (tourné) quand on remonte.
+      const tl = gsap.timeline({ paused: true, defaults: { ease: "none" } });
+      const arrivals = [];
       STOPS.forEach((s, i) => {
         const prev = i === 0 ? 2 : STOPS[i - 1].at;
-        tl.call(() => el.classList.add("is-walking"))
-          .to(kid, { left: `${s.at}%`, scale: s.scale, duration: 0.75 + (s.at - prev) / 80, ease: "none" })
-          .to(fill, { scaleX: s.at / 100, duration: 0.75 + (s.at - prev) / 80, ease: "none" }, "<")
-          .to(head, { rotate: s.tilt, duration: 0.6, svgOrigin: "40 37" }, "<0.4")
-          .call(() => {
-            el.classList.remove("is-walking");
-            el.querySelectorAll(".wk__tick")[i].classList.add("is-on");
-            setCaption(s);
-          })
-          .fromTo(cap, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35 })
-          .to(glow, { opacity: 0.25 + i * 0.22, scale: 0.7 + i * 0.25, duration: 0.5 }, "<")
-          .to(el.querySelectorAll(`.wk__scr[data-age="${s.age}"]`), { opacity: 1, scale: 1, duration: 0.45, stagger: 0.12, ease: "back.out(2)" }, "<")
-          .to({}, { duration: i === STOPS.length - 1 ? 0.8 : 0.55 });
+        const d = 0.6 + (s.at - prev) / 60;
+        tl.to(kid, { left: `${s.at}%`, scale: s.scale, duration: d })
+          .to(fill, { scaleX: s.at / 100, duration: d }, "<")
+          .to(head, { rotate: s.tilt, duration: d * 0.6, svgOrigin: "40 37" }, "<0.2");
+        arrivals.push(tl.duration());
+        tl.to(glow, { opacity: 0.25 + i * 0.22, scale: 0.7 + i * 0.25, duration: 0.3 })
+          .to(el.querySelectorAll(`.wk__scr[data-age="${s.age}"]`), { opacity: 1, scale: 1, duration: 0.3, stagger: 0.06, ease: "back.out(2)" }, "<")
+          .to({}, { duration: 0.45 }); // petite pause à chaque âge
       });
-      tl.fromTo(el.querySelector(".wk__end"), { opacity: 0.22, y: 8 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" })
-        .call(() => el.classList.add("is-done"));
-      tlRef.current = tl;
+      tl.fromTo(el.querySelector(".wk__end"), { opacity: 0.22, y: 8 }, { opacity: 1, y: 0, duration: 0.6 });
 
-      if (prefersReduced()) { tl.progress(1); el.classList.add("is-done"); el.querySelectorAll(".wk__tick").forEach((t) => t.classList.add("is-on")); return; }
-      gsap.timeline({ scrollTrigger: { trigger: el, start: "top 65%", once: true, onEnter: () => tl.restart() } });
+      // Légende et repères suivent l'âge atteint (dans les deux sens).
+      const ticks = el.querySelectorAll(".wk__tick");
+      let stage = -2;
+      const sync = () => {
+        const t = tl.time();
+        let reached = -1;
+        arrivals.forEach((a, i) => { if (t >= a - 0.001) reached = i; });
+        if (reached === stage) return;
+        stage = reached;
+        ticks.forEach((tk, i) => tk.classList.toggle("is-on", i <= reached));
+        if (reached < 0) { gsap.to(cap, { opacity: 0, duration: 0.2 }); return; }
+        capAge.textContent = `${STOPS[reached].age} ans`;
+        capTxt.textContent = STOPS[reached].caption;
+        gsap.fromTo(cap, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.35, overwrite: true });
+      };
+      tl.eventCallback("onUpdate", sync);
+
+      if (prefersReduced()) { tl.progress(1); sync(); return; }
+
+      let still;
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 80%",
+        end: "center 35%",
+        animation: tl,
+        scrub: 0.5,
+        onUpdate: (self) => {
+          el.classList.add("is-walking");
+          el.classList.toggle("is-back", self.direction === -1);
+          clearTimeout(still);
+          still = setTimeout(() => el.classList.remove("is-walking"), 160);
+        },
+      });
+      return () => clearTimeout(still);
     }, root);
     return () => ctx.revert();
   }, []);
@@ -140,7 +154,6 @@ export default function Manifesto() {
           <a href="#smartloop" className="morelink" onClick={(e) => { e.preventDefault(); scrollToId("smartloop"); }}>
             Voir comment <span aria-hidden="true">↓</span>
           </a>
-          <button type="button" className="wk__replay" onClick={() => tlRef.current?.restart()}>↺ Revoir</button>
         </div>
       </div>
     </section>
