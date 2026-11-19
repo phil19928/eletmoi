@@ -946,7 +946,8 @@ input[type="range"]::-moz-range-thumb { width: 26px; height: 26px; border-radius
   body:has(.nav:not(.is-hidden)) .sl__visual { top: 64px; }
   .sl__visual::before {
     content: ""; position: absolute; z-index: -1; left: 50%; width: 100vw; transform: translateX(-50%);
-    top: -80px; bottom: -18px;
+    /* -12px seulement : au-delà, le fond masquait le titre « Une boucle. Trois temps. » */
+    top: -12px; bottom: -18px;
     background: linear-gradient(var(--paper) calc(100% - 18px), rgba(244, 243, 238, 0));
   }
   .sl__step { min-height: 30svh; opacity: 0.32; transition: opacity 0.4s var(--ease); }
