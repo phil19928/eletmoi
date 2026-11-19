@@ -7,8 +7,7 @@ status: published
 template: brand
 metaTitle: 'Smartloop : le contrôle parental qui ne bloque pas | El&Moi'
 metaDescription: >-
-  Avec la Smartloop, votre enfant gagne son temps d'écran en apprenant. 1 minute
-  de révision = 2 minutes de jeu. Un contrôle parental qui évite les crises.
+  Avec la Smartloop, votre enfant gagne son temps d'écran en apprenant : 1 minute de révision = 2 minutes de divertissement. Un contrôle parental sans crise.
 h1: 'La Smartloop : le contrôle parental qui ne bloque pas, il fait gagner du temps'
 keywordPrimary: contrôle parental éducatif
 keywordsSecondary:
@@ -91,7 +90,7 @@ La Smartloop fonctionne autrement.
 
 1 minute passée sur une application d'apprentissage = 2 minutes de temps libre sur ses applications préférées.
 
-Il révise son anglais dix minutes ? Il vient de gagner vingt minutes de jeu. Il n'a rien fait aujourd'hui ? Il n'a rien à dépenser. Ce n'est plus vous qui dites non. C'est la règle qui s'applique, et il la connaît d'avance.
+Il révise son anglais dix minutes ? Il vient de gagner vingt minutes de divertissement. Il n'a rien fait aujourd'hui ? Il n'a rien à dépenser. Ce n'est plus vous qui dites non. C'est la règle qui s'applique, et il la connaît d'avance.
 
 C'est toute la différence. L'enfant ne subit pas une punition, il gère un budget.
 

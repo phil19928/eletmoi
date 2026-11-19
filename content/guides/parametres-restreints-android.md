@@ -5,10 +5,9 @@ cluster: C
 route: /guides/parametres-restreints-android
 status: published
 template: guide
-metaTitle: 'Paramètres restreints Android : comment les autoriser'
+metaTitle: 'Autoriser les paramètres restreints sur Android (2026)'
 metaDescription: >-
-  Android bloque certains réglages pour certaines applications. Découvrez
-  pourquoi ce message apparaît et comment autoriser les paramètres restreints.
+  « Pour votre sécurité, ce paramètre n'est pas disponible » ? Voici comment autoriser les paramètres restreints sur Android, étape par étape.
 h1: 'Paramètres restreints Android : à quoi ça sert, comment les autoriser'
 keywordPrimary: paramètres restreints android
 keywordsSecondary:

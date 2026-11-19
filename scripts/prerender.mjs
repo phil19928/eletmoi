@@ -26,6 +26,9 @@ const { render } = await import(pathToFileURL(SSR_ENTRY).href);
 const { ARTICLES_BY_ROUTE, AUTHORS, ARTICLES, INDEX_PAGES } = await import(
   pathToFileURL(path.join(ROOT, "src", "content", "manifest.js")).href
 );
+const { buildLlmsTxt } = await import(
+  pathToFileURL(path.join(ROOT, "scripts", "content", "llms.mjs")).href
+);
 const { buildJsonLd, renderJsonLd } = await import(
   pathToFileURL(path.join(ROOT, "scripts", "content", "jsonld.mjs")).href
 );
@@ -438,6 +441,12 @@ if (template.includes('<div id="root">') && !template.includes('<div id="root"><
     "dist/index.html semble déjà prérendu. Relance un `vite build` propre."
   );
 }
+
+// Résumé pour les assistants IA (llmstxt.org), régénéré à chaque build.
+// Écrit avant le prérendu : le pied de page y renvoie, et le contrôle des
+// liens internes exige que le fichier existe déjà dans dist/.
+await writeFile(path.join(DIST, "llms.txt"), buildLlmsTxt(ARTICLES, SITE_URL), "utf8");
+console.log(`\n  ✓ llms.txt — ${ARTICLES.length} page(s)`);
 
 console.log("\nPrérendu des routes :");
 

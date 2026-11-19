@@ -5,10 +5,9 @@ cluster: B
 route: /comparatif/google-family-link
 status: published
 template: comparison
-metaTitle: 'Alternative à Google Family Link : le comparatif 2026'
+metaTitle: 'Alternative à Google Family Link : iPhone et Android 2026'
 metaDescription: >-
-  Family Link est gratuit et solide sur Android, mais limité sur iPhone. Notre
-  comparatif 2026 : ce que vaut l'alternative, et quand rester chez Google.
+  Family Link limité sur iPhone, refusé par un ado ou trop rigide ? Notre comparatif 2026 sur 4 critères, et les cas où Google reste le bon choix.
 h1: 'Alternative à Google Family Link : le comparatif 2026'
 keywordPrimary: alternative family link
 keywordsSecondary:

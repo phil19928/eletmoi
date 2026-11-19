@@ -66,7 +66,10 @@ export default function Footer() {
         <p className="ft__giant display" aria-hidden="true">El&amp;Moi</p>
         <div className="ft__bottom">
           <span>© {__BUILD_YEAR__} El&amp;Moi. Tous droits réservés.</span>
-          <a href="https://www.cs-associes.fr" target="_blank" rel="noopener noreferrer">Un produit de C&amp;S Associés</a>
+          <span className="ft__bottom-links">
+            <a href="/llms.txt">llms.txt</a>
+            <a href="https://www.cs-associes.fr" target="_blank" rel="noopener noreferrer">Un produit de C&amp;S Associés</a>
+          </span>
         </div>
       </div>
     </footer>

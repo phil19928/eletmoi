@@ -710,3 +710,4 @@ input[type="range"]::-moz-range-thumb { width: 26px; height: 26px; border-radius
 .ml__green { color: #16a34a; }
 .ml__bar { position: absolute; border-radius: 99px; overflow: hidden; }
 .ml__bar span { display: block; height: 100%; border-radius: 99px; background: #4d7a65; transform-origin: left; transition: transform 0.25s linear; }
+.ft__bottom-links { display: inline-flex; gap: 1.2rem; }

@@ -120,7 +120,7 @@ export const ROUTES = [
   {
     "path": "/smartloop",
     "title": "Smartloop : le contrôle parental qui ne bloque pas | El&Moi",
-    "description": "Avec la Smartloop, votre enfant gagne son temps d'écran en apprenant. 1 minute de révision = 2 minutes de jeu. Un contrôle parental qui évite les crises.",
+    "description": "Avec la Smartloop, votre enfant gagne son temps d'écran en apprenant : 1 minute de révision = 2 minutes de divertissement. Un contrôle parental sans crise.",
     "priority": 0.9,
     "changefreq": "weekly",
     "lastmod": "2026-08-25",
@@ -146,8 +146,8 @@ export const ROUTES = [
   },
   {
     "path": "/comparatif/google-family-link",
-    "title": "Alternative à Google Family Link : le comparatif 2026",
-    "description": "Family Link est gratuit et solide sur Android, mais limité sur iPhone. Notre comparatif 2026 : ce que vaut l'alternative, et quand rester chez Google.",
+    "title": "Alternative à Google Family Link : iPhone et Android 2026",
+    "description": "Family Link limité sur iPhone, refusé par un ado ou trop rigide ? Notre comparatif 2026 sur 4 critères, et les cas où Google reste le bon choix.",
     "priority": 0.8,
     "changefreq": "monthly",
     "lastmod": "2026-09-03",
@@ -173,8 +173,8 @@ export const ROUTES = [
   },
   {
     "path": "/guides/parametres-restreints-android",
-    "title": "Paramètres restreints Android : comment les autoriser",
-    "description": "Android bloque certains réglages pour certaines applications. Découvrez pourquoi ce message apparaît et comment autoriser les paramètres restreints.",
+    "title": "Autoriser les paramètres restreints sur Android (2026)",
+    "description": "« Pour votre sécurité, ce paramètre n'est pas disponible » ? Voici comment autoriser les paramètres restreints sur Android, étape par étape.",
     "priority": 0.7,
     "changefreq": "monthly",
     "lastmod": "2026-09-03",
