@@ -2,39 +2,54 @@ import { useEffect, useRef, useState } from "react";
 import { gsap, prefersReduced } from "./motion.jsx";
 import { REGISTER_URL, APP_STORE_URL, PLAY_STORE_URL } from "./data.js";
 
-/* Real screen recording from the reels; plays only while visible (and while `active`). */
+/* Real screen recording from the reels; plays only while visible (and while `active`).
+   Une playlist rend toutes ses vidéos empilées et n'affiche que la vidéo en cours :
+   changer de clip ne recrée plus d'élément vide (flash blanc sur iPhone). Chaque
+   vidéo a son poster en fond, visible tant que la première image n'est pas prête. */
 export function Screen({ video, poster, src, alt = "", active = true, className = "", playlist, eager = false, rate = 1 }) {
-  const ref = useRef(null);
+  const wrap = useRef(null);
   const [idx, setIdx] = useState(0);
   const list = playlist || (video ? [video] : null);
   useEffect(() => {
-    const v = ref.current;
-    if (!v || prefersReduced()) return;
+    const box = wrap.current;
+    if (!box || prefersReduced()) return;
+    const vids = [...box.querySelectorAll("video")];
     let visible = false;
-    const sync = () => (visible && active ? v.play().catch(() => {}) : v.pause());
-    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; sync(); }, { threshold: 0.2 });
-    io.observe(v);
+    const sync = () => vids.forEach((v, i) => {
+      if (i === idx && visible && active) v.play().catch(() => {});
+      else v.pause();
+    });
+    // Marge large : les clips se chargent avant d'arriver à l'écran.
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) vids.forEach((v) => { if (v.preload !== "auto") v.preload = "auto"; });
+      visible = e.intersectionRatio >= 0.2;
+      sync();
+    }, { threshold: [0, 0.2], rootMargin: "300px 0px" });
+    io.observe(box);
     sync();
     return () => io.disconnect();
   }, [active, idx]);
   if (list) {
-    const cur = list[idx];
     return (
-      <video
-        ref={ref}
-        key={cur}
-        className={`screen ${className}`}
-        src={`${cur}.mp4`}
-        poster={`${cur}.jpg`}
-        muted
-        playsInline
-        loop={list.length === 1}
-        preload={eager ? "auto" : "none"}
-        aria-label={alt}
-        onEnded={() => setIdx((i) => (i + 1) % list.length)}
-        onLoadedMetadata={(e) => { e.currentTarget.playbackRate = rate; }}
-        onPlay={(e) => { e.currentTarget.playbackRate = rate; }}
-      />
+      <div ref={wrap} className={`screen screen--stack ${className}`} role="img" aria-label={alt}>
+        {list.map((cur, i) => (
+          <video
+            key={cur}
+            className={`screen ${i === idx ? "is-on" : ""}`}
+            src={`${cur}.mp4`}
+            poster={`${cur}.jpg`}
+            style={{ backgroundImage: `url(${cur}.jpg)` }}
+            muted
+            playsInline
+            loop={list.length === 1}
+            preload={eager ? "auto" : "metadata"}
+            aria-hidden="true"
+            onEnded={() => { if (list.length > 1) { const n = (i + 1) % list.length; const nv = wrap.current?.querySelectorAll("video")[n]; if (nv) nv.currentTime = 0; setIdx(n); } }}
+            onLoadedMetadata={(e) => { e.currentTarget.playbackRate = rate; }}
+            onPlay={(e) => { e.currentTarget.playbackRate = rate; }}
+          />
+        ))}
+      </div>
     );
   }
   return <img className={`screen ${className}`} src={src || poster} alt={alt} loading={eager ? "eager" : "lazy"} decoding="async" />;

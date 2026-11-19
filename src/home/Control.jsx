@@ -91,17 +91,17 @@ export default function Control() {
               {c.kind === "scroll" ? (
                 <Phone bg={c.bg}>
                   {/* Tableau de bord complet qui défile doucement dans le téléphone */}
-                  <img className="ctl-scroll" src={c.src} alt={c.title} loading="lazy" />
+                  <img className="ctl-scroll" src={c.src} alt={c.title} loading="eager" decoding="async" />
                 </Phone>
               ) : c.kind === "block" ? (
                 <Phone bg={c.bg}>
                   {/* Avant / après le bouton « Bloquer toutes les applications » */}
-                  <img className="screen ctl-zoom" src={c.src} alt={c.title} loading="lazy" />
-                  <img className="screen ctl-zoom ctl-after" src={c.after} alt="" loading="lazy" />
+                  <img className="screen ctl-zoom" src={c.src} alt={c.title} loading="eager" decoding="async" />
+                  <img className="screen ctl-zoom ctl-after" src={c.after} alt="" loading="eager" decoding="async" />
                   <span className="ctl-tap" aria-hidden="true" />
                 </Phone>
               ) : (
-                <Phone src={c.src} video={c.video} bg={c.bg} alt={c.title} />
+                <Phone src={c.src} video={c.video} bg={c.bg} alt={c.title} eager />
               )}
             </div>
             <div className="ctl__text">

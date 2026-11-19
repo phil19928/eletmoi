@@ -8,11 +8,23 @@ export default function FinalCta() {
   useIsoLayoutEffect(() => {
     if (prefersReduced()) return;
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: { trigger: root.current, start: "top 85%", end: "center center", scrub: 0.6 },
+      const mm = gsap.matchMedia();
+      // Desktop : le panneau s'ouvre en grand. Sur téléphone et tablette, le panneau
+      // est bien plus haut que l'écran : le découpage rognait le texte pendant la
+      // lecture (iPhone). On n'y garde que la montée de la mascotte.
+      mm.add("(min-width: 900px)", () => {
+        gsap.timeline({
+          scrollTrigger: { trigger: root.current, start: "top 85%", end: "center center", scrub: 0.6 },
+        })
+          .fromTo(".fc__panel", { clipPath: "inset(12% 8% 12% 8% round 48px)" }, { clipPath: "inset(0% 0% 0% 0% round 32px)", ease: "none" })
+          .from(".fc__mascot", { yPercent: 60, rotate: -12, ease: "none" }, 0);
       });
-      tl.fromTo(".fc__panel", { clipPath: "inset(12% 8% 12% 8% round 48px)" }, { clipPath: "inset(0% 0% 0% 0% round 32px)", ease: "none" })
-        .from(".fc__mascot", { yPercent: 60, rotate: -12, ease: "none" }, 0);
+      mm.add("(max-width: 899px)", () => {
+        gsap.from(".fc__mascot", {
+          yPercent: 40, rotate: -10, ease: "none",
+          scrollTrigger: { trigger: ".fc__mascot", start: "top bottom", end: "bottom bottom", scrub: 0.6 },
+        });
+      });
       gsap.from(".fc__title .w", {
         yPercent: 115, stagger: 0.06, duration: 1, ease: "power4.out",
         scrollTrigger: { trigger: ".fc__title", start: "top 85%" },
