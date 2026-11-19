@@ -768,6 +768,17 @@ input[type="range"]::-moz-range-thumb { width: 26px; height: 26px; border-radius
 
 /* ───────────────────────── Manifeste : « De 9 à 18 ans » (ligne + enfant qui marche) ───────────────────────── */
 .wk { padding: clamp(70px, 12vh, 130px) 0 clamp(60px, 10vh, 110px); overflow: hidden; }
+/* Pendant le pin : la section occupe exactement l'écran, contenu centré. */
+@media (prefers-reduced-motion: no-preference) {
+  .wk { height: 100vh; height: 100svh; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; padding: 84px 0 28px; }
+}
+@media (prefers-reduced-motion: no-preference) and (max-height: 760px) {
+  .wk__top { min-height: 4.6rem; }
+  .wk__stage { height: 150px; }
+  .wk__end { margin-top: 0.6rem; }
+  .wk .h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
+  .wk__lead { margin-top: 0.6rem; font-size: 0.98rem; }
+}
 .wk__top { display: flex; flex-direction: column; gap: 0.2rem; min-height: 6.5rem; }
 .wk__caption { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.8rem; font-size: clamp(1.35rem, 2.6vw, 2.2rem); font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; opacity: 0; }
 .wk__caption b { color: var(--sage-d); font-weight: 700; }

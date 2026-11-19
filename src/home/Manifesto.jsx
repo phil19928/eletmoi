@@ -81,9 +81,10 @@ export default function Manifesto() {
         arrivals.push(tl.duration());
         tl.to(glow, { opacity: 0.25 + i * 0.22, scale: 0.7 + i * 0.25, duration: 0.3 })
           .to(el.querySelectorAll(`.wk__scr[data-age="${s.age}"]`), { opacity: 1, scale: 1, duration: 0.3, stagger: 0.06, ease: "back.out(2)" }, "<")
-          .to({}, { duration: 0.45 }); // petite pause à chaque âge
+          .to({}, { duration: 1.1 }); // pause pour lire la légende de chaque âge
       });
       tl.fromTo(el.querySelector(".wk__end"), { opacity: 0.22, y: 8 }, { opacity: 1, y: 0, duration: 0.6 });
+      tl.to({}, { duration: 1 });
 
       // Légende et repères suivent l'âge atteint (dans les deux sens).
       const ticks = el.querySelectorAll(".wk__tick");
@@ -105,12 +106,18 @@ export default function Manifesto() {
       if (prefersReduced()) { tl.progress(1); sync(); return; }
 
       let still;
+      // La scène reste à l'écran pendant la marche : elle commence à 9 ans quand
+      // la section occupe l'écran, et se libère une fois le message allumé.
+      const mobile = window.matchMedia("(max-width: 899px)").matches;
       ScrollTrigger.create({
         trigger: el,
-        start: "top 80%",
-        end: "center 35%",
+        start: "top top",
+        end: () => "+=" + Math.round(window.innerHeight * (mobile ? 1.3 : 1.6)),
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
         animation: tl,
-        scrub: 0.5,
+        scrub: 0.6,
         onUpdate: (self) => {
           el.classList.add("is-walking");
           el.classList.toggle("is-back", self.direction === -1);
