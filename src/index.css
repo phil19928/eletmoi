@@ -14,7 +14,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    overflow-x: hidden;
+    /* clip et non hidden : hidden ferait du body un conteneur de défilement
+       et casserait position: sticky (Smartloop mobile). */
+    overflow-x: clip;
     background: #F4F3EE;
     color: #0f172a;
   }

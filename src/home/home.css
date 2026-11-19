@@ -373,7 +373,8 @@ html.lenis, html.lenis body { height: auto; }
   .sl__step.is-active { transform: translateX(10px); }
   .sl__steps::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--line); }
   .sl__steps::after { content: ""; position: absolute; left: 0; top: 0; width: 2px; height: calc(var(--sl-progress, 0) * 100%); background: var(--sage-d); }
-  .sl__visual { width: auto; height: min(600px, calc(100svh - 140px)); }
+  /* 46vw : sur iPad paysage les badges flottants ne sortent plus de l'écran */
+  .sl__visual { width: auto; height: min(600px, calc(100svh - 140px), 46vw); }
 }
 @media (max-width: 899px) {
   .sl__visual { order: -1; }
@@ -912,3 +913,58 @@ input[type="range"]::-moz-range-thumb { width: 26px; height: 26px; border-radius
 .hloop__chip--up { background: #1fa971; }
 .hloop__chip--down { background: #e8653a; }
 .hloop__cap { margin-top: 0.7rem; text-align: center; font-size: 0.9rem; font-weight: 600; color: var(--ink); min-height: 1.4em; }
+
+/* ───────────────────────── QA mobile (nov. 2026) ───────────────────────── */
+/* FAQ centrée sur mobile et tablette (une seule colonne) */
+@media (max-width: 899px) {
+  .faq__head { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .faq__mascot { margin-inline: auto; }
+}
+/* 9 → 18 ans : plus de hauteur pour la scène et un enfant plus petit sur
+   téléphone, pour que l'illustration de 18 ans ne touche plus la légende. */
+@media (max-width: 599px) {
+  .wk__stage { height: 215px; }
+  .wk__walker { width: 58px; }
+  .wk__top { min-height: 5.2rem; }
+}
+@media (max-width: 599px) and (max-height: 760px) {
+  .wk__stage { height: 185px; }
+  .wk__walker { width: 50px; }
+}
+
+/* Smartloop mobile / tablette : téléphone collé en haut, étapes pilotées au scroll.
+   Le téléphone est réduit pour laisser lire l'étape active sous lui ; un fond
+   opaque pleine largeur masque les étapes qui passent dessous. */
+@media (max-width: 899px) and (prefers-reduced-motion: no-preference) {
+  /* flex (et non grid) : un élément sticky ne peut pas sortir de sa ligne de grille */
+  .sl__layout { display: flex; flex-direction: column; gap: 1.2rem; }
+  .sl__visual {
+    position: sticky; top: 10px; z-index: 3; align-self: center;
+    width: min(100%, calc(46svh / 1.12)); isolation: isolate;
+    transition: top 0.35s var(--ease);
+  }
+  body:has(.nav:not(.is-hidden)) .sl__visual { top: 64px; }
+  .sl__visual::before {
+    content: ""; position: absolute; z-index: -1; left: 50%; width: 100vw; transform: translateX(-50%);
+    top: -80px; bottom: -18px;
+    background: linear-gradient(var(--paper) calc(100% - 18px), rgba(244, 243, 238, 0));
+  }
+  .sl__step { min-height: 30svh; opacity: 0.32; transition: opacity 0.4s var(--ease); }
+  .sl__step.is-active { opacity: 1; }
+  .sl__steps { gap: 0; padding-bottom: 4svh; }
+}
+@media (min-width: 600px) and (max-width: 899px) {
+  .sl__visual { max-width: 420px; }
+}
+
+/* Tablette portrait (600–899 px) : le carrousel Contrôle montre l'intro et le
+   début de la première carte côte à côte, et la mascotte du CTA final reste mesurée. */
+@media (min-width: 600px) and (max-width: 899px) {
+  .ctl__intro { flex-basis: 54%; }
+  .ctl__card { flex-basis: min(440px, 62%); }
+  .fc__mascot { width: min(48%, 300px); }
+}
+/* iPad paysage / petits portables : marge pour les badges flottants de la Smartloop */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .sl__visual { margin-right: 28px; }
+}

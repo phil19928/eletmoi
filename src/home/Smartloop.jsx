@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { gsap, prefersReduced, useIsoLayoutEffect } from "./motion.jsx";
+import { gsap, ScrollTrigger, prefersReduced, useIsoLayoutEffect } from "./motion.jsx";
 import { Phone, Lock } from "./ui.jsx";
 import SiteLink from "../components/SiteLink";
 
@@ -134,19 +134,37 @@ export default function Smartloop() {
           },
         });
       });
-      // Mobile: plays by itself when visible, loops.
+      // Mobile / tablette : le téléphone reste collé en haut (CSS sticky) et le
+      // défilement des étapes pilote l'animation, comme sur desktop. Fini la
+      // boucle autonome qui ne correspondait pas à l'étape lue.
       mm.add("(max-width: 899px) and (prefers-reduced-motion: no-preference)", () => {
-        const o = { p: 0 };
         last = 0;
         render(0);
-        const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.6, paused: true, onRepeat: () => { last = 0; } })
-          .to(o, { p: LEARN_END, duration: 5, ease: "none", onUpdate: () => render(o.p) })
-          .to(o, { p: SPEND_END, duration: 7, ease: "none", onUpdate: () => render(o.p) })
-          .to(o, { p: 1, duration: 1.2, ease: "none", onUpdate: () => render(o.p) })
-          .to({}, { duration: 2.4 });
-        const io = new IntersectionObserver(([e]) => (e.isIntersecting ? tl.play() : tl.pause()), { threshold: 0.4 });
-        io.observe(visual);
-        return () => { io.disconnect(); tl.kill(); };
+        // Une « ligne de lecture » à 88 % de l'écran parcourt les étapes : l'étape
+        // qu'elle traverse est l'étape active, et sa position dans l'étape fixe
+        // l'avancement dans la phase correspondante (+2, −1, bloqué). L'étape
+        // active reste ainsi lisible sous le téléphone collé en haut.
+        const list = el.querySelector(".sl__steps");
+        const RANGES = [[0, LEARN_END], [LEARN_END, SPEND_END], [SPEND_END, 1]];
+        const prog = { p: 0 };
+        const to = gsap.quickTo(prog, "p", { duration: 0.3, ease: "power1.out", onUpdate: () => render(prog.p) });
+        ScrollTrigger.create({
+          trigger: list,
+          start: "top 88%",
+          end: "bottom 88%",
+          onUpdate: (self) => {
+            const box = list.getBoundingClientRect();
+            const tops = steps.map((n) => n.getBoundingClientRect().top - box.top);
+            const y = self.progress * box.height;
+            let i = steps.length - 1;
+            while (i > 0 && tops[i] > y) i--;
+            const top = tops[i];
+            const h = i < steps.length - 1 ? tops[i + 1] - top : box.height - top;
+            const f = Math.min(1, Math.max(0, (y - top) / h));
+            const [a, b] = RANGES[i];
+            to(a + f * (b - a));
+          },
+        });
       });
       if (reduce) render(SPEND_END - 0.2);
     }, el);
