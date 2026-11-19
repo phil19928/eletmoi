@@ -1,6 +1,6 @@
 import { Fragment, useRef } from "react";
 import { gsap, prefersReduced, scrollToId, useIsoLayoutEffect } from "./motion.jsx";
-import { Phone, Card, SignupButton, Star, Check, StoreBadges } from "./ui.jsx";
+import { Phone, Card, SignupButton, Check, StoreBadges } from "./ui.jsx";
 import { REVIEW_STATS } from "./data.js";
 import MetricsLive, { IN_PHONE } from "./MetricsLive.jsx";
 
@@ -79,7 +79,6 @@ export default function Hero() {
       <div className="wrap hero__layout">
         <div className="hero__copy">
           <h1 className="hero__h1">
-            <span className="eyebrow hero__reveal" style={{ "--d": "0ms" }}><span className="eyebrow__dot" />Application de contrôle parental · 6 à 17 ans</span>{" "}
             <span className="display hero__title">
             {LINES.map((line, i) => (
               <span className="line" key={i}>
@@ -126,8 +125,7 @@ export default function Hero() {
           </ul>
 
           <p className="hero__rating hero__reveal" style={{ "--d": "890ms" }}>
-            <span className="stars">{[...Array(5)].map((_, i) => <Star key={i} size={15} />)}</span>
-            <strong>{REVIEW_STATS.rating}</strong> sur l'App Store et Google Play
+            <strong>{REVIEW_STATS.downloads}</strong> {REVIEW_STATS.downloadsLabel}
           </p>
         </div>
 
